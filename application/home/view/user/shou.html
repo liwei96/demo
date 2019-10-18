@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>收藏</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+            integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+        </script>
+        <style>
+            * {
+                    padding: 0;
+                    margin: 0;
+		font-family:"Microsoft YaHei";
+                }
+
+                a a:hover,
+                a:visited,
+                a:link,
+                a:active {
+                    text-decoration: none;
+                    color: #fff;
+                }
+                li {
+                    list-style-type: none;
+                }
+
+
+
+
+
+
+                /* m */
+                .m{
+                    padding:0;
+                }
+                .m-title{
+                    position: relative;
+                    width:100%;
+                    height:44px;
+                    text-align: center;
+                    line-height: 44px;
+                    border-bottom: 1px solid #F2F2F2;
+                }
+                .m-title img{
+                    position: absolute;
+                    width:5%;
+                    margin-top:14px;
+                    left:5.3333%;
+                }
+                .m-title h3{
+                    color:#333333;
+                    font-size: 18px;
+                    margin:0;
+                    font-weight: bold;
+                    line-height: 44px;
+                }
+                .m-bgc{
+                    width:53%;
+                    margin-top:90px;
+                    margin-left:23.33333%;
+                    margin-bottom: 18px;
+                }
+                .m-txt{
+                    color:#666666;
+                    font-size: 16px;
+                    font-weight: 500;
+                    margin-left:24.8%;
+                }
+                .m-btn{
+                    width:53.3333%;
+                    height: 40px;
+                    border:0px;
+                    border-radius: 4px;
+                    background-color: #3AC869;
+                    color:#fff;
+                    font-size: 16px;
+                    text-align: center;
+                    line-height: 40px;
+                    margin-left:23.33333%;
+                    margin-top:37px;
+                }
+
+
+
+	 .p{
+            padding:0;
+        }
+                /* pc */
+            /* 顶部导航 */
+         .top-nav{
+             height:80px;
+             width:100%;
+             background-color: #fff;
+             position: relative;
+         }
+         .box{
+             width:1200px;
+             position: absolute;
+             left:50%;
+             margin-left:-600px;
+         }
+         .top-nav ul{
+             margin:0;
+         }
+         .top-nav ul li{
+             float: left;
+             margin-right:40px;
+         }
+         .top-nav ul li a{
+             color:#999999;
+             font-size: 18px;
+             line-height: 80px;
+         }
+         .top-nav ul li a.active{
+             color:#1CB64F;
+             border-bottom: 2px solid #1CB64F;
+             padding-bottom: 10px;
+         }
+         .top-nav p{
+             float: right;
+             color:#1CB64F;
+             font-size: 24px;
+             line-height: 80px;
+             font-weight: bold;
+         }
+         .top-nav span{
+             color:#9A9A9A;
+             font-size: 18px;
+             line-height: 80px;
+             margin-right:19px;
+             cursor: pointer;
+         }
+         .top-nav img{
+             width:17px;
+             margin-left:90px;
+             margin-right: 11px;
+             line-height: 80px;
+         }
+         .top-nav .register{
+             margin-right:7px;
+         }
+
+
+         /* 搜索栏 */
+         .search{
+             width:100%;
+             height:160px;
+             background-color: #F5F7F6;
+         }
+         .search .top{
+             position: relative;
+             padding-top:30px;
+             margin-bottom:30px;
+         }
+         .search .top img{
+             width:100px;
+             margin-right:26px;
+             display: inline-block;
+         }
+         .search .top p{
+             padding-left:5px;
+             display: inline-block;
+             border-left:1px solid #999999;
+         }
+         .search .top p i{
+             color:#323232;
+             font-size: 18px;
+             font-style: normal;
+         }
+         .search .top p img{
+             width:14px;
+             margin-left:10px;
+         }
+         .search .top input{
+             width:622px;
+             height:60px;
+             border:1px solid #2FBF4A;
+             padding-left: 44px;
+         }
+         .search .top input::-webkit-input-placeholder {
+            color: #989898;
+            font-size: 16px;
+         }
+         .search .top span{
+             display: block;
+             position: absolute;
+             width:160px;
+             height:60px;
+             font-size: 16px;
+             top:19px;
+             line-height: 60px;
+             text-align: center;
+         }
+         .search .top #find{
+             background-color: #1CB64F;
+             cursor: pointer;
+             color:#FFFFFF;
+             top:30px;
+             right:193px;
+         }
+         .search .top #find img{
+             width:22px;
+             margin-right:10px;
+         }
+         .search .top #map{
+             border:1px solid #1CB64F;
+             cursor: pointer;
+             color:#1CB64F;
+             top:30px;
+             right:0;
+         }
+         .search .top #map img{
+             width:22px;
+             margin-right:10px;
+         }
+         .search .bottom ul li{
+             float: left;
+             margin-right:40px;
+         }
+         .search .bottom ul{
+             width:1200px;
+             height:26px;
+             overflow: hidden;
+         }
+         .search .bottom ul li a{
+             color:#666666;
+             font-size: 18px;
+         }
+
+
+         .content{
+             width:100%;
+             height:500px;
+         }
+
+
+         /* footer */
+         footer{
+         width:100%;
+         height:260px;
+         background-color: #1B1B1B;
+         position: relative;
+         }
+         .footer-top{
+         position: absolute;
+         top:38px;
+         left:50%;
+         margin-left:-600px;
+         }
+         .footer-top li{
+         color:#FFFFFF;
+         float:left;
+         font-size: 14px;
+         margin-right:18px;
+         cursor: pointer;
+         }
+         .footer-line{
+         width:1200px;
+         height:1px;
+         background-color: #333333;
+         position: absolute;
+         top:100px;
+         left:50%;
+         margin-left:-600px;
+         }
+         footer p{
+         color:#FFFFFF;
+         font-size: 24px;
+         position: absolute;
+         top:29px;
+         left:50%;
+         margin-left:300px;
+         }
+         .footer-bottom{
+         position: absolute;
+         top:136px;
+         left:50%;
+         margin-left:-310px;
+         }
+         .footer-bottom li{
+         float: left;
+         margin-right: 25px;
+         color:#fff;
+         font-size: 14px;
+         cursor: pointer;
+         }
+         footer span{
+         display: block;
+         position: absolute;
+         color: #fff;
+         font-size: 14px;
+         top:180px;
+         left:50%;
+         margin-left:-300px;
+         }
+        </style>
+</head>
+<body>
+    <!-- PC -->
+	<div class="container-fluid p">
+    <nav class="top-nav visible-lg-block">
+            <div class="box">
+                <ul>
+                    <li><a href="{:url('home/index/index')}">家园首页</a></li>
+                    <li><a href="{:url('home/search/index',['type'=>0])}">楼盘查询</a></li>
+                    <li><a href="{:url('home/search/tuan',['type'=>0])}">团购优惠</a></li>
+                    <li><a href="{:url('home/index/buy')}">买房指南</a></li>
+                    <li><a href="{:url('home/news/index')}">楼盘资讯</a></li>
+                    <li><a href="{:url('home/user/guan')}" class="active">关于家园</a></li>
+                </ul>
+                <img src="/static/home/imgs/icon-5.png" alt="">
+                <span class="register">{$Think.session.user.p}</span>
+                <span class="logout">退出</span>
+                <p>购房热线  &nbsp;400-718-6686</p>
+            </div>
+        </nav>
+        <div class="search visible-lg-block">
+            <div class="box">
+                <div class="top">
+                    <img src="/static/home/imgs/logo2.png" alt="">
+                    <p><i>{if $Think.cookie.cityname} {$Think.cookie.cityname} {else}杭州{/if}</i><img src="/static/home/imgs/triangle.png" alt=""></p>
+                    <form id="bname" style="display: initial" action="{:url('home/search/index',['type'=>0])}" method="post">
+                    <input type="text" name="name" placeholder="请输入楼盘名称、地域">
+                    <span id="find"><img src="/static/home/imgs/icon-8.png">我要找房</span>
+                    </form>
+                    <span id="map"><img src="/static/home/imgs/pcadd.png" alt="">地图找房</span>
+                </div>
+                <div class="bottom">
+                    <ul>
+                            {foreach $hots as $v}
+                            <li><a href="{:url('home/content/index',['id'=>$v.id])}">{$v.building_name}</a></li>
+                            {/foreach}
+                        </ul>
+                </div>
+            </div>
+        </div>
+        <div class="content visible-lg-block">
+            
+        </div>
+        <footer class="container-fluid visible-md-block visible-lg-block">
+            <ul class="footer-top">                                  
+                <a href="{:url('home/user/lian')}"><li>联系我们</li></a>
+                <a href="{:url('home/user/guan')}"><li>关于家园</li></a>
+                <a href="{:url('home/news/index')}"><li>楼盘资讯</li></a>
+                <a href="{:url('home/search/index',['type'=>0])}"><li>楼盘查询</li></a>
+                <a href="{:url('home/index/buy')}"><li>买房指南</li></a>
+                <a href="{:url('home/search/tuan',['type'=>0])}"><li>团购优惠</li></a>
+            </ul>
+                <div class="footer-line"></div>
+                <p>购房热线   400-718-6686</p>
+                <span>Copyright © 2017 - 2022 杭州亚汉网络科技有限公司版权所有 浙ICP备18057005号 </span>
+        </footer>
+    </div>
+    <!-- PC -->
+
+    <!-- m -->
+    <div class="container-fluid m">
+        <div class="m-title visible-xs-block .visible-sm-block">
+            <img src="/static/home/imgs/return.png" alt="" onClick="javascript:history.go(-1)">
+            <h3>我的收藏</h3>
+        </div>
+        <img src="/static/home/imgs/shou.png" alt="" class="m-bgc visible-xs-block .visible-sm-block">
+        <p class="m-txt visible-xs-block .visible-sm-block">您还没有收藏，快去逛逛吧~~</p>
+        <button class="m-btn visible-xs-block .visible-sm-block">去收藏</button>
+    </div>
+    <script>
+            $(document).ready(function(){
+                $('.m-btn').on('click',function(){
+                    window.location.href="{:url('home/search/index')}";
+                })
+		$('#find').on('click',function(){
+                    $('#bname').submit();
+                })
+                $('#map').on('click',function(){
+                    window.location.href="{:url('home/index/pmap')}";
+                })
+	       $('.logout').on('click',function(){
+                    window.location.href="{:url('home/user/logout')}";
+                })
+            })
+        </script>
+</body>
+</html>
