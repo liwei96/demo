@@ -131,7 +131,7 @@ class From extends Base
     }
 
     public function test(){
-        $shu=Db::connect('mysql://root:BmaGRa6mBNdbKTNw@47.92.241.83:3306/tpshop#utf8')->table('tpshop_goods')->column('id,building_name,danjia');
+        $shu=Db::connect('mysql://root:BmaGRa6mBNdbKTNw@47.92.241.83:3306/tpshop#utf8')->table('tpshop_goods')->alias('b')->join('tpshop_category c','b.cate_id=c.id')->column('b.id,b.building_name,c.area_name,b.building_xingshi');
         // dump($shu);die();
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
@@ -141,8 +141,9 @@ class From extends Base
         $k = 1;
         $sheet->setCellValue('a'.$k, '楼盘编号');
         $sheet->setCellValue('b'.$k, '楼盘名');
-        $sheet->setCellValue('c'.$k, '单价');
-        $row=3;
+        $sheet->setCellValue('c'.$k, '区域');
+        $sheet->setCellValue('d'.$k, '建筑形式');
+        $row=2;
         foreach($shu as $k=>$v){
             $column=1;
             foreach($v as $l=>$n){

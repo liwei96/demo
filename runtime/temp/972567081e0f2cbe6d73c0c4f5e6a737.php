@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\index.html";i:1568869744;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\index.html";i:1571716546;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -278,14 +278,35 @@ var _hmt = _hmt || [];
                 <span class="m-zai">在售</span>
                 <span class="m-jing"><?php echo $data['building_zhuangxiu']; ?></span>
                 <span><?php echo $data['building_ditie']; ?></span>
+                <i class="m-ishou"><img src="/static/home/imgs/forked.png" alt=""><i>收藏</i></i>
             </div>
-            <ul>
-                <li>参考单价&nbsp;&nbsp;&nbsp;&nbsp;<span class="m-pric"><span><?php echo $data['danjia']; ?></span>元/m²起</span></li>
-                <li>建筑面积&nbsp;&nbsp;&nbsp;&nbsp;<span><?php echo $data['humianji']; ?>m²</span></li>
-                <li>楼盘户型&nbsp;&nbsp;&nbsp;&nbsp;<span><?php echo $data['building_huxing']; ?>、<?php echo $data['building_xingshi']; ?></span></li>
-                <li>开盘时间&nbsp;&nbsp;&nbsp;&nbsp;<span><?php echo $data['kaitime']; ?></span></li>
-                <li>楼盘地址&nbsp;&nbsp;&nbsp;&nbsp;<span><?php echo $data['building_address']; ?></span></li>
+            <ul class="m-jtop">
+                <li>
+                    <i><?php echo $data['zong']; ?>万起</i>
+                    <span>总价</span>
+                </li>
+                <li>
+                    <i><?php echo $data['building_huxing']; ?></i>
+                    <span>户型</span>
+                </li>
+                <li>
+                    <i><?php echo $data['humianji']; ?>/m²</i>
+                    <span>建面</span>
+                </li>
             </ul>
+            
+            <div class="m-ibottom">
+                <ul>
+                    <li>单价&nbsp;:&nbsp;&nbsp;&nbsp;<span class="m-pric"><span><?php echo $data['danjia']; ?></span>元/m²起</span></li>
+                    <li>装修&nbsp;:&nbsp;&nbsp;&nbsp;<span><?php echo $data['building_zhuangxiu']; ?></span></li>
+                    <li>层高&nbsp;:&nbsp;&nbsp;&nbsp;<span><?php echo $data['cenggao']; ?></span></li>
+                </ul>
+                <ul>
+                    <li>类型&nbsp;:&nbsp;&nbsp;&nbsp;<span class="m-pric"><span><?php echo $data['building_xingshi']; ?></span></span></li>
+                    <li>开盘&nbsp;:&nbsp;&nbsp;&nbsp;<span><?php echo $data['kaitime']; ?></span></li>
+                    <li>地址&nbsp;:&nbsp;&nbsp;&nbsp;<span><?php echo $data['building_address']; ?></span></li>
+                </ul>
+            </div>
             <p id="m_more">更多楼盘信息</p>
             <div class="m-new">
                 <a href="#" data-agl-cvt="5" <?php if(\think\Session::get('user')): ?>class="q-bian" data-v="变价通知"<?php else: ?>class="p1" data-v="变价通知"<?php endif; ?>><img src="/static/home/imgs/m-change.png">最新变价通知</a>
@@ -383,7 +404,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="m-line visible-xs-block .visible-sm-block"></div>
         <div class="m-fen visible-xs-block .visible-sm-block">
-            <h3>项目分析</h3>
+            <h3>对比分析资料</h3>
             <h4>投资分析</h4>
 
             <p>1、<?php echo $tou['cone']; ?></p>
@@ -397,10 +418,14 @@ var _hmt = _hmt || [];
         </div>
         <div class="m-line visible-xs-block .visible-sm-block"></div>
         <div class="m-ling visible-xs-block .visible-sm-block">
-            <h3>楼盘资料免费领</h3>
+            <h3>楼盘资料免费领<span>已有<i>860</i>人领取</span></h3>
             <img src="/static/home/imgs/zi2.png" alt="">
-            <p>已有<span>260</span>人领取，包邮哦！</p>
-            <button data-agl-cvt="5" <?php if(\think\Session::get('user')): ?>class="q-bian" data-v="领取免费资料"<?php else: ?>class="p1" data-v="领取免费资料"<?php endif; ?> >免费领取</button>
+            <div class="m-iright">
+                <h4>为什么大家在准备买房的时候领 一份资料？</h4>
+                <p>1.没领地图，许多人后悔买错了房子</p>
+                <p>2.楼盘价格走势及商业分析报告资料</p>
+            </div>
+            <button data-agl-cvt="5" <?php if(\think\Session::get('user')): ?>class="q-bian" data-v="领取免费资料"<?php else: ?>class="p1" data-v="领取免费资料"<?php endif; ?> >我要领取地图</button>
         </div>
         <div class="m-line visible-xs-block .visible-sm-block"></div>
         <div class="m-huo visible-xs-block .visible-sm-block">
@@ -423,63 +448,60 @@ var _hmt = _hmt || [];
             </table>
             <div class="m-btns">
                 
-                <button data-agl-cvt="5" class="p1" data-v="最新成交价">我要查看</button>
+                <button data-agl-cvt="5" class="p1" data-v="最新成交价">获取成交详情</button>
                 
             </div>
         </div>
         <div class="m-line visible-xs-block .visible-sm-block"></div>
         <div class="m-dai visible-xs-block .visible-sm-block">
-            <h3>值班置业顾问</h3>
+            <h3>楼盘问答<span>更多问答<img src="/static/home/imgs/m-go.png" alt=""></span></h3>
             <div class="m-d-content">
                 <img src="/static/home/imgs/people.png" alt="<?php echo \think\Session::get('user.fork'); ?>">
                 <div>
-                    <p class="m-d-name">倪丽丽</p>
-                    <p class="m-d-ping">累计接待572房次,成交54房次</p>
+                    <p class="m-d-name">倪丽丽<span>金牌置业顾问</span></p>
+                    <p class="m-d-fen">评分5.0分</p>
+                    <p class="m-d-ping">最了解该楼盘，熟悉本房周边信息</p>
                     
                 </div>
                 <button data-agl-cvt="5" class="p1" data-v="咨询服务">让她联系我</button>
-            </div>
-        </div>
-        <div class="m-line visible-xs-block .visible-sm-block"></div>
-        <div class="m-imgs visible-xs-block .visible-sm-block">
-            <h3>楼盘相册</h3>
-            <ul id="m_ul">
-                <li data-v="效果图" class="m-active">效果图<i></i></li>
-                <li data-v="实景图">实景图<i></i></li>
-                <li data-v="样板图">样板图<i></i></li>
-                <li data-v="配套图">配套图<i></i></li>
-                <li data-v="交通图">交通图<i></i></li>
-            </ul>
-            <div class="swiper-container">
-                <div class="swiper-wrapper m-lll">
-                    <?php foreach($xiaoimgs as $v): ?>
-                    <div class="swiper-slide">
-                        <img src="<?php echo $v['x_small']; ?>" alt="" class="big" data-v="x">
-                    </div>
-                    <?php endforeach; ?>
+                <div class="m-w-content">
+                    <h4><span>问</span>现在外地人在杭州买房需要什么条件?</h4>
+                    <p>
+                        <span>答</span><i>纳税或社保连年，需要连续足额缴存24个月，需要连续足额缴存24个月，纳税或社保连...</i>
+                    </p>
+                    <span class="m-w-all">查看全文</span>
                 </div>
             </div>
-            <button data-agl-cvt="5" <?php if(\think\Session::get('user')): ?>class="q-bian" data-v="获取高清配套图"<?php else: ?>class="p1" data-v="获取高清配套图"<?php endif; ?> >获取高清配套图</button>
         </div>
         <div class="m-line visible-xs-block .visible-sm-block"></div>
         
+        
         <div class="m-zhou visible-xs-block .visible-sm-block">
-            <h3>楼盘周边</h3>
+            <h3>周边规划<span>详细规划<img src="/static/home/imgs/m-go.png" alt=""></span></h3>
             <div class="m-continer" id="m-container">
 
             </div>
-            <div class="m-list">
-                <ul id="list">
-                    <li class="m-active">生活</li>
-                    <li >交通</li>
-                    <li>医疗</li>
-                    <li>学校</li>
+            <div class="m-z-icons">
+                <ul>
+                    <li>
+                        <img src="/static/home/imgs/dt.png" alt="">
+                        生活
+                    </li>
+                    <li>
+                        <img src="/static/home/imgs/dt.png" alt="">
+                        交通
+                    </li>
+                    <li>
+                        <img src="/static/home/imgs/dt.png" alt="">
+                        医疗
+                    </li>
+                    <li>
+                        <img src="/static/home/imgs/dt.png" alt="">
+                        学校
+                    </li>
                 </ul>
-                <div class="m-l-content">
-                   
-                </div>
             </div>
-            <button data-agl-cvt="5" <?php if(\think\Session::get('user')): ?>class="q-bian" data-v="楼盘周边信息"<?php else: ?>class="p1" data-v="楼盘周边信息"<?php endif; ?> >获取楼盘周边信息</button>
+            <button data-agl-cvt="5" <?php if(\think\Session::get('user')): ?>class="q-bian" data-v="楼盘周边信息"<?php else: ?>class="p1" data-v="楼盘周边信息"<?php endif; ?> >获取周边信息</button>
         </div>
         <div class="m-line visible-xs-block .visible-sm-block"></div>
         
@@ -501,9 +523,27 @@ var _hmt = _hmt || [];
             <button data-agl-cvt="5" class="m-d-x">写评论</button>
         </div>
         <div class="m-line visible-xs-block .visible-sm-block"></div>
+
+        <div class="m-jian visible-xs-block .visible-sm-block">
+            <h3>推荐楼盘</h3>
+            <div class="m-j-con">
+                <div class="m-j-top">
+
+                </div>
+                <div class="m-j-bom">
+                    <h4>中梁申花百悦公馆</h4>
+                    <p>
+                        <span>江干区</span>
+                        <span>建面: 90-180/m²</span>
+                    </p>
+                    <span class="m-j-pic">25000元/m²起</span>
+                </div>
+            </div>
+        </div>
+        <div class="m-line visible-xs-block .visible-sm-block"></div>
         
         <div class="m-tui visible-xs-block .visible-sm-block">
-            <h3>家园推荐</h3>
+            <h3>相似楼盘</h3>
             <div class="visible-xs-block .visible-sm--block m-list">
                     <div id="m-list-box">
                         <?php foreach($xiangs as $v): ?>  
@@ -515,15 +555,16 @@ var _hmt = _hmt || [];
                                     <div class="col-xs-8 m-text">
                                         <h4>
                                             <?php echo $v['building_name']; ?> 
+                                            <span class="m-p-1"><?php echo $v['building_xiaoshou']; ?></span>
                                         </h4>
                                         <p class="m-price"><span><?php echo $v['danjia']; ?></span>元/m²</p>
                                         <p class="m-xiang">
                                             <span><?php echo $v['city']; ?>-<?php echo $v['qu']; ?></span>
                                             <span>建面</span>
-                                            <span><?php echo $v['jianji']; ?>m²</span>
+                                            <span><?php echo $v['humianji']; ?>m²</span>
                                         </p>
                                         <p class="m-icon">
-                                            <span class="m-p-1"><?php echo $v['building_xiaoshou']; ?></span>
+                                            
                                             <span class="m-p-2"><?php echo $v['building_zhuangxiu']; ?></span>
                                             <span class="m-p-3"><?php echo $v['building_ditie']; ?></span>
                                         </p>
@@ -1576,7 +1617,9 @@ var _hmt = _hmt || [];
                     data,
                     function(res){
                         if(res.code==100){
-                            that.parent().parent().hide();
+                            that.parent().parent().parent().hide();
+                            $('.t-b-first').show();
+                            $('.t-b-second').hide();
                                 $('#txt').text('已成功订购服务，我们会第一时间通过电话联系您');
                                 $('.succ').show();
                         }
