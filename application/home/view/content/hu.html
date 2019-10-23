@@ -361,7 +361,14 @@
     display:none;
 }
 
-
+/* 留言 */
+    .m-xuan img{
+        width:24.8%;
+        height:34px;
+        position: fixed;
+        right:0;
+        bottom:140px;
+    }
    
 
     </style>
@@ -473,7 +480,7 @@
             <div class="m-chang"></div>
         </div>
         <!-- 留言 -->
-        <div class="m-xuan visible-xs-block .visible-sm-block">
+        <div class="m-xuan visible-xs-block .visible-sm-block" data-v="{$data.building_name}">
             <img src="/static/home/imgs/m-liu.png" alt="">
         </div>
     </div>
@@ -559,6 +566,11 @@
                     },
                     'json'
                 )
+            })
+
+            $('.m-xuan').on('click', function () {
+		        var id=$(this).attr('data-v');
+                window.location.href = "{:url('home/index/liu',['id'=>$data.building_name])}";
             })
         })
     </script>

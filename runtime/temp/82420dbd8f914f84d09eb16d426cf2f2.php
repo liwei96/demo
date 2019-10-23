@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\hu.html";i:1564976905;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\hu.html";i:1571799284;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -127,10 +127,12 @@
         .m-c-cont p .c-mon{
             color:#FF6666;
             font-size: 14px;
+            font-weight: bold;
         }
         .m-c-cont p .c-con{
             color:#404040;
             font-size: 14px;
+            font-weight: bold;
         }
 /* m-dai */
 .m-dai h3 {
@@ -360,7 +362,14 @@
     display:none;
 }
 
-
+/* 留言 */
+    .m-xuan img{
+        width:24.8%;
+        height:34px;
+        position: fixed;
+        right:0;
+        bottom:140px;
+    }
    
 
     </style>
@@ -471,6 +480,10 @@
             </div>
             <div class="m-chang"></div>
         </div>
+        <!-- 留言 -->
+        <div class="m-xuan visible-xs-block .visible-sm-block" data-v="<?php echo $data['building_name']; ?>">
+            <img src="/static/home/imgs/m-liu.png" alt="">
+        </div>
     </div>
 
 
@@ -554,6 +567,11 @@
                     },
                     'json'
                 )
+            })
+
+            $('.m-xuan').on('click', function () {
+		        var id=$(this).attr('data-v');
+                window.location.href = "<?php echo url('home/index/liu',['id'=>$data['building_name']]); ?>";
             })
         })
     </script>
