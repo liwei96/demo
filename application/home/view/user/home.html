@@ -45,7 +45,9 @@
                 text-align: center;
             }
             .m-top .m-banner{
+                background-color: #26BD58;
                 width: 100%;
+                height:160px;
                 position: absolute;
                 left: 0;
                 top: 0;
@@ -60,23 +62,30 @@
             .m-top .m-lo{
                 width: 16%;
                 padding-top: 12%;
+                position: absolute;
+                left: 28%;
             }
             .m-top h5{
-                color:#FFFFFF;
+                color: #FFFFFF;
                 font-size: 18px;
-                margin:0;
-                padding-top:4.6%;
+                margin: 0;
+                padding-top: 4.6%;
+                position: absolute;
+                left: 48%;
+                top: 50px;
+                font-weight: bold;
             }
             .m-top .m-nav{
-                width:92%;
-                height:100px;
+                width: 92%;
+                height: 84px;
                 background-color: #fff;
                 border-radius: 8px;
                 position: absolute;
-                left:50%;
-                margin-top:3.5%;
-                box-shadow:0px 0px 14px 6px rgba(6,0,1,0.05);
-                margin-left:-46%;
+                left: 50%;
+                margin-top: 3.5%;
+                box-shadow: 0px 0px 14px 6px rgba(6,0,1,0.05);
+                margin-left: -46%;
+                top: 110px;
             }
             .m-top .m-nav .row{
                 margin:0;
@@ -85,7 +94,7 @@
                 text-align: center;
             }
             .m-top .m-nav ul li a img{
-                width: 63%;
+                width: 44%;
                 margin-top: 32%;
                 margin-bottom:16%;
             }
@@ -132,22 +141,105 @@
                 border:0px;
             }
 
-            /* 留言悬浮框 */
-    .m-xuan{
-            width:50px;
-            height:50px;
-            background-color: #19A8EB;
-            border-radius: 50%;
-            position: fixed;
-            right:6.667%;
-            bottom: 130px;
-            color:#FFFFFF;
-            font-size: 15px;
-            line-height: 50px;
-            text-align: center;
-            opacity:0.8;
-            z-index:10;
-        }
+            /* 留言 */
+    .m-xuan img{
+        width:24.8%;
+        height:34px;
+        position: fixed;
+        right:0;
+        bottom:140px;
+    }
+
+    /* 家园功能 */
+    .m-jia{
+        width: 92%;
+        height: 190px;
+        background-color: #fff;
+        border-radius: 8px;
+        position: absolute;
+        left: 50%;
+        margin-top: 3.5%;
+        box-shadow: 0px 0px 14px 6px rgba(6,0,1,0.05);
+        margin-left: -46%;
+        padding:0 4.1739%;
+        top:208px;
+    }
+    .m-jia h4{
+        color:#333333;
+        font-size: 13px;
+        margin: 12px 0;
+    }
+    .m-jia .m-line{
+        height:0.5px;
+        background-color: #F2F2F2;
+        margin-bottom: 20px;
+    }
+    .m-jia ul li{
+        width:25%;
+        text-align: center;
+        color:#333333;
+        font-size: 12px;
+        float: left;
+        margin-bottom: 20px;
+    }
+    .m-jia ul li img{
+        display: block;
+        width:30%;
+        margin-left:35%;
+        margin-bottom:10px;
+    }
+
+    /* 家园服务 */
+    .m-bottom{
+        width: 92%;
+        height: 125px;
+        background-color: #fff;
+        border-radius: 8px;
+        position: absolute;
+        top:415px;
+        left: 50%;
+        margin-top: 3.5%;
+        box-shadow: 0px 0px 14px 6px rgba(6,0,1,0.05);
+        margin-left: -46%;
+        padding:0 4.1739%
+    }
+    .m-bottom h4{
+        color:#333333;
+        font-size: 13px;
+        margin: 12px 0;
+    }
+    .m-bottom .m-line{
+        height:0.5px;
+        background-color: #F2F2F2;
+        margin-bottom: 20px;
+    }
+    .m-bottom ul li{
+        width:25%;
+        text-align: center;
+        color:#333333;
+        font-size: 12px;
+        float: left;
+        margin-bottom: 20px;
+    }
+    .m-bottom ul li img{
+        display: block;
+        width:30%;
+        margin-left:35%;
+        margin-bottom:10px;
+    }
+
+    /* 退出按钮 */
+    #m_logout{
+        width: 92%;
+        height: 44px;
+        position: absolute;
+        top: 590px;
+        left: 4%;
+        border: 0;
+        color: #fff;
+        background: #2DC45A;
+        border-radius: 4px;
+    }
         </style>
 </head>
 <body>
@@ -159,7 +251,8 @@
     <!-- yidong -->
     <div class="container-fluid m">
         <div class="m-top visible-xs-block .visible-sm-block">
-            <img class="m-banner" src="/static/home/imgs/banner.png" alt="">
+            <div class="m-banner"></div>
+            <!-- <img class="m-banner" src="/static/home/imgs/banner.png" alt=""> -->
             <img class="m-re" src="/static/home/imgs/return1.png" alt="" onClick="javascript:history.go(-1)">
             <img class="m-lo" src="/static/home/imgs/head_icon.png.png">
             {if $Think.session.user}
@@ -183,44 +276,70 @@
                     </li>
                     <li class="col-xs-3 col-sm-3">
                         <a href="{:url('home/user/find')}">
-                            <img src="/static/home/imgs/room_icon.png.png" alt="">
+                            <img src="/static/home/imgs/room_icon.png" alt="">
                             <p>帮我找房</p>
                         </a>
                     </li>
                     <li class="col-xs-3 col-sm-3">
                         <a href="{:url('home/user/yue')}">
-                            <img src="/static/home/imgs/order_icon.png.png" alt="">
+                            <img src="/static/home/imgs/order_icon.png" alt="">
                             <p>预约看房</p>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
-        <div class="m-list visible-xs-block .visible-sm-block">
+        <div class="m-jia visible-xs-block .visible-sm-block">
+            <h4>家园功能</h4>
+            <div class="m-line"></div>
             <ul>
-                <li id="m_map">
-                    <img src="/static/home/imgs/address_icon.png.png" alt="">
+                <li>
+                    <a href="{:url('home/index/pmap')}">
+                    <img src="/static/home/imgs/address_icon.png" alt=""></a>
                     地图看房
-                    <img src="/static/home/imgs/m-go.png" alt="" class="m-sd">
                 </li>
-                <li id="m_guan">
-                    <img src="/static/home/imgs/home_icon.png.png" alt="">
+                <li>
+                    <a href="{:url('home/user/guan')}">
+                    <img src="/static/home/imgs/home_icon.png" alt=""></a>
                     关于家园
-                    <img src="/static/home/imgs/m-go.png" alt="" class="m-sd">
                 </li>
-                <li><a href="tel:400-718-6686">
-                    <img src="/static/home/imgs/telephone_icon.png.png" alt="">
-                    联系我们</a>
-                    <img src="/static/home/imgs/m-go.png" alt="" class="m-sd">
+                <li>
+                    <a href="{:url('home/user/index')}">
+                    <img src="/static/home/imgs/telephone_icon.png" alt=""></a>
+                    联系我们
+                </li>
+                <li>
+                    <a href="{:url('home/user/tou')}">
+                    <img src="/static/home/imgs/Opinion.png" alt=""></a>
+                    意见反馈
+                    
+                </li>
+                <li>
+                    <img src="/static/home/imgs/Leaving a message.png" alt="">
+                    买房留言
                 </li>
             </ul>
+        </div>
+        <div class="m-bottom visible-xs-block .visible-sm-block">
+            <h4>家园服务</h4>
+            <div class="m-line"></div>
+            <ul>
+                <li>
+                    <img src="/static/home/imgs/WeChat.png" alt="">
+                    官方公众号
+                </li>
+                <li>
+                    <img src="/static/home/imgs/Customer service.png" alt="">
+                    关注客服
+                </li>
+            </ul>
+        </div>
             {if $Think.session.user}
             <button id="m_logout">退出</button>
             {/if}
-        </div>
-        <!-- 留言悬浮框 -->
+        <!-- 留言 -->
         <div class="m-xuan visible-xs-block .visible-sm-block">
-            留言
+            <img src="/static/home/imgs/m-liu.png" alt="">
         </div>
     </div>
     <script>

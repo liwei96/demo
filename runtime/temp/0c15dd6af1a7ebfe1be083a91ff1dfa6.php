@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\user\yue.html";i:1571815774;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -186,15 +187,15 @@
                 var data={
                     'sex':$('input:checked').val(),
                     'time':$('#kinerDatePickerInput1').text(),
-                    'u_id':{$Think.session.user.id}
+                    'u_id':<?php echo \think\Session::get('user.id'); ?>
                 }
                 console.log(data);
                 $.post(
-                    "{:url('home/user/yue')}",
+                    "<?php echo url('home/user/yue'); ?>",
                     data,
                     function(res){
                         if(res.code==100){
-                            window.location.href="{:url('home/user/index')}";
+                            window.location.href="<?php echo url('home/user/index'); ?>";
                         }else{
 
                         }

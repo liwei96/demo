@@ -583,7 +583,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="visible-xs-block .visible-sm-block">
             <div id="m_p_box">
-                <h4>用户点评<img class="m_p_exc" src="/static/home/imgs/m-esc.png" alt=""></h4>
+                <h4>用户点评<img class="m_p_exc" src="/static/home/imgs/xx.png" alt=""></h4>
                 <div class="m-d-content">
                     <textarea name="" id="" cols="30" rows="10" placeholder="在这里发表您的意见"></textarea>
                     <button class="f-b-p-l">发表点评</button>
@@ -1069,19 +1069,66 @@ var _hmt = _hmt || [];
         }
         return browserType;
 }
-	
+            function send(type,data){
+                $.post(
+                    "{:url('home/content/port1')}",
+                    data,
+                    function(){
+                        if(type=='变价通知'){
+                                $('#o_p').text('已成功订阅变价通知，我们会第一时间通过短信通知您');
+                                $('.m-o-succ').show();
+                                $('.m-chang').show();
+                            }else if(type=='开盘通知'){
+                                $('#o_p').text('已成功订阅开盘通知，我们会第一时间通过短信通知您');
+                                $('.m-o-succ').show();
+                                $('.m-chang').show();
+                            }else if(type=="预约看房"){
+                                $('#o_p').text('已预约成功，我们会第一时间与您联系');
+                                $('.m-o-succ').show();
+                                $('.m-chang').show();
+                            }else if(type=="我要优惠"){
+                                $('#o_p').text('已成功报名，我们会第一时间把优惠楼盘推送给您');
+                                $('.m-o-succ').show();
+                                $('.m-chang').show();
+                            }else if(type=="最新动态"){
+                                $('#o_p').text('已成功订阅最新动态，我们会第一时间把楼盘动态推送给您');
+                                $('.m-o-succ').show();
+                                $('.m-chang').show();
+                            }else if(type=='领取户型图'){
+                                $('#o_p').text('已成功领取，我们会第一时间将资料送给您');
+                                $('.m-o-succ').show();
+                                $('.m-chang').show();
+                            }else if(type=='领取免费相册资料'){
+                                $('#o_p').text('已成功领取，我们会第一时间将资料送给您');
+                                $('.m-o-succ').show();
+                                $('.m-chang').show();
+                            }else if(type=="楼盘周边信息"){
+                                $('#o_p').text('已成功获取，我们会第一时间与您沟通');
+                                $('.m-o-succ').show();
+                                $('.m-chang').show();
+                            }else if(type=="领取免费资料"){
+                                $('#o_p').text('已成功领取，我们会第一时间将资料送给您');
+                                $('.m-o-succ').show();
+                                $('.m-chang').show();
+                            }else if(type=="获取详细分析资料"){
+                                $('#o_p').text('已成功领取，我们会第一时间将资料送给您');
+                                $('.m-o-succ').show();
+                                $('.m-chang').show();
+                            }
+                    },
+                    'json'
+                )
+            }
+
 	function qudao(){
 		var qu='自然进客';
-	var ua = navigator.userAgent.toLocaleLowerCase();
-            if(document.referrer.indexOf("baidu")!=-1){
-                var qu='百度';
-            }
-	
-
-	else if (ua.match(/safari/) != null) {
+	    var ua = navigator.userAgent.toLocaleLowerCase();
+        if(document.referrer.indexOf("baidu")!=-1){
+            var qu='百度';
+        }
+	    else if (ua.match(/safari/) != null) {
             qu = "UC";
         }
-	   
             return qu;
         }
             $('#m_want').on('click',function(){
@@ -1877,57 +1924,7 @@ var _hmt = _hmt || [];
                 $('.m-chang').hide();
             })
 
-            function send(type,data){
-                $.post(
-                    "{:url('home/content/port1')}",
-                    data,
-                    function(){
-                        if(type=='变价通知'){
-                                $('#o_p').text('已成功订阅变价通知，我们会第一时间通过短信通知您');
-                                $('.m-o-succ').show();
-                                $('.m-chang').show();
-                            }else if(type=='开盘通知'){
-                                $('#o_p').text('已成功订阅开盘通知，我们会第一时间通过短信通知您');
-                                $('.m-o-succ').show();
-                                $('.m-chang').show();
-                            }else if(type=="预约看房"){
-                                $('#o_p').text('已预约成功，我们会第一时间与您联系');
-                                $('.m-o-succ').show();
-                                $('.m-chang').show();
-                            }else if(type=="我要优惠"){
-                                $('#o_p').text('已成功报名，我们会第一时间把优惠楼盘推送给您');
-                                $('.m-o-succ').show();
-                                $('.m-chang').show();
-                            }else if(type=="最新动态"){
-                                $('#o_p').text('已成功订阅最新动态，我们会第一时间把楼盘动态推送给您');
-                                $('.m-o-succ').show();
-                                $('.m-chang').show();
-                            }else if(type=='领取户型图'){
-                                $('#o_p').text('已成功领取，我们会第一时间将资料送给您');
-                                $('.m-o-succ').show();
-                                $('.m-chang').show();
-                            }else if(type=='领取免费相册资料'){
-                                $('#o_p').text('已成功领取，我们会第一时间将资料送给您');
-                                $('.m-o-succ').show();
-                                $('.m-chang').show();
-                            }else if(type=="楼盘周边信息"){
-                                $('#o_p').text('已成功获取，我们会第一时间与您沟通');
-                                $('.m-o-succ').show();
-                                $('.m-chang').show();
-                            }else if(type=="领取免费资料"){
-                                $('#o_p').text('已成功领取，我们会第一时间将资料送给您');
-                                $('.m-o-succ').show();
-                                $('.m-chang').show();
-                            }else if(type=="获取详细分析资料"){
-                                $('#o_p').text('已成功领取，我们会第一时间将资料送给您');
-                                $('.m-o-succ').show();
-                                $('.m-chang').show();
-                            }
-                    },
-                    'json'
-                )
-            }
-
+            
             
 
 
