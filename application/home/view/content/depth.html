@@ -321,6 +321,15 @@
             background-color: #fff;
             z-index: 10001;
         }
+
+        /* 留言 */
+    .m-xuan img{
+        width:24.8%;
+        height:34px;
+        position: fixed;
+        right:0;
+        bottom:140px;
+    }
     </style>
 </head>
 
@@ -342,9 +351,9 @@
             </div>
         </div>
         <!-- 留言 -->
-        <!-- <div class="m-xuan visible-xs-block .visible-sm-block">
-            留言
-        </div> -->
+        <div class="m-xuan visible-xs-block .visible-sm-block" data-v="{$data.building_name}">
+            <img src="/static/home/imgs/m-liu.png" alt="">
+        </div>
         <div class="m-botnav visible-xs-block .visible-sm-block">
             <p data-agl-cvt="5" id="m_shou" data_v="{$data.id}">{if in_array($data.id,$Think.session.fork)}<img
                     style="margin-left:17%" src="/static/home/imgs/fork2.png" alt="">已收藏{else}<img
@@ -624,6 +633,11 @@
                 return;
             }
             
+        })
+
+        $('.m-xuan').on('click', function () {
+	        var id=$(this).attr('data-v');
+            window.location.href = "{:url('home/index/liu',['id'=>$data.building_name])}";
         })
     </script>
 </body>

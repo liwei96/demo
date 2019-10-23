@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\depth.html";i:1571795046;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\depth.html";i:1571799519;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -322,6 +322,15 @@
             background-color: #fff;
             z-index: 10001;
         }
+
+        /* 留言 */
+    .m-xuan img{
+        width:24.8%;
+        height:34px;
+        position: fixed;
+        right:0;
+        bottom:140px;
+    }
     </style>
 </head>
 
@@ -343,9 +352,9 @@
             </div>
         </div>
         <!-- 留言 -->
-        <!-- <div class="m-xuan visible-xs-block .visible-sm-block">
-            留言
-        </div> -->
+        <div class="m-xuan visible-xs-block .visible-sm-block" data-v="<?php echo $data['building_name']; ?>">
+            <img src="/static/home/imgs/m-liu.png" alt="">
+        </div>
         <div class="m-botnav visible-xs-block .visible-sm-block">
             <p data-agl-cvt="5" id="m_shou" data_v="<?php echo $data['id']; ?>"><?php if(in_array($data['id'],\think\Session::get('fork'))): ?><img
                     style="margin-left:17%" src="/static/home/imgs/fork2.png" alt="">已收藏<?php else: ?><img
@@ -531,7 +540,7 @@
                         $('.t-b-first').show();
                         $('.t-b-second').hide();
                         $('#txt').text('已成功订购服务，我们会第一时间通过电话联系您');
-                        $('.succ').show();
+                        $('.m-o-succ').show();
                     }
                 },
                 'json'
@@ -625,6 +634,11 @@
                 return;
             }
             
+        })
+
+        $('.m-xuan').on('click', function () {
+	        var id=$(this).attr('data-v');
+            window.location.href = "<?php echo url('home/index/liu',['id'=>$data['building_name']]); ?>";
         })
     </script>
 </body>

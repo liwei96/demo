@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\index.html";i:1571733399;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\index.html";i:1571799603;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -110,22 +110,14 @@
 
 
         /* 改版1.2css */
-        /* 留言悬浮框 */
-.m-xuan{
-    width:50px;
-    height:50px;
-    background-color: #19A8EB;
-    border-radius: 50%;
-    position: fixed;
-    right:6.667%;
-    bottom: 130px;
-    color:#FFFFFF;
-    font-size: 15px;
-    line-height: 50px;
-    text-align: center;
-    opacity:0.8;
-    z-index:10;
-}
+        /* 留言 */
+    .m-xuan img{
+        width:24.8%;
+        height:34px;
+        position: fixed;
+        right:0;
+        bottom:140px;
+    }
     .weiter{
         display: none;
         width:75%;
@@ -392,9 +384,9 @@ var _hmt = _hmt || [];
             
                 <button data-agl-cvt="5" <?php if(\think\Session::get('user')): ?>class="q-bian" data-v="了解详细户型"<?php else: ?>class="p1" data-v="了解详细户型"<?php endif; ?> >了解详细户型</button>
         </div>
-         <!-- 留言悬浮框 -->
+         <!-- 留言 -->
         <div class="m-xuan visible-xs-block .visible-sm-block" data-v="<?php echo $data['building_name']; ?>">
-            留言
+            <img src="/static/home/imgs/m-liu.png" alt="">
         </div>
         <div class="m-line visible-xs-block .visible-sm-block"></div>
         <div class="m-yu visible-xs-block .visible-sm-block">
