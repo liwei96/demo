@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\hu.html";i:1564976905;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -126,12 +127,10 @@
         .m-c-cont p .c-mon{
             color:#FF6666;
             font-size: 14px;
-            font-weight: bold;
         }
         .m-c-cont p .c-con{
             color:#404040;
             font-size: 14px;
-            font-weight: bold;
         }
 /* m-dai */
 .m-dai h3 {
@@ -380,35 +379,35 @@
         </div>
         <div class="m-line visible-xs-block .visible-sm-block"></div>
         <div class="m-content visible-xs-block .visible-sm-block">
-            <img class="m-c-top" src="{$hu.h_big}" alt="">
+            <img class="m-c-top" src="<?php echo $hu['h_big']; ?>" alt="">
             <div class="m-c-cont">
-                <h3>{$hu.content}<span>在售</span></h3>
+                <h3><?php echo $hu['content']; ?><span>在售</span></h3>
                 <div class="col-xs-6 ll">
                     <p>
                         <span class="c-title">单价</span>
-                        <span class="c-mon">{$data.danjia}元/m²起</span>
+                        <span class="c-mon"><?php echo $data['danjia']; ?>元/m²起</span>
                     </p>
                     <p>
                         <span class="c-title">建面</span>
-                        <span class="c-con">{$hu.mian}m</span>
+                        <span class="c-con"><?php echo $hu['mian']; ?>m</span>
                     </p>
                     <p>
                         <span class="c-title">特点</span>
-                        <span class="c-con">{$hu.te}</span>
+                        <span class="c-con"><?php echo $hu['te']; ?></span>
                     </p>
                 </div>
                 <div class="col-xs-6 ll">
                     <p>
                         <span class="c-title">总价</span>
-                        <span class="c-mon">{$hu.jia}万</span>
+                        <span class="c-mon"><?php echo $hu['jia']; ?>万</span>
                     </p>
                     <p>
                         <span class="c-title">层高</span>
-                        <span class="c-con">{$data.cenggao}米</span>
+                        <span class="c-con"><?php echo $data['cenggao']; ?>米</span>
                     </p>
                     <p>
                         <span class="c-title">类型</span>
-                        <span class="c-con">{$hu.lei}</span>
+                        <span class="c-con"><?php echo $hu['lei']; ?></span>
                     </p>
                 </div>
             </div>
@@ -417,7 +416,7 @@
         <div class="m-dai visible-xs-block .visible-sm-block">
             <h3>值班置业顾问</h3>
             <div class="m-d-content">
-                <img src="/static/home/imgs/people.png" alt="{$Think.session.user.fork}">
+                <img src="/static/home/imgs/people.png" alt="<?php echo \think\Session::get('user.fork'); ?>">
                 <div>
                     <p class="m-d-name">倪丽丽</p>
                     <p class="m-d-ping">评分5.0分</p>
@@ -430,7 +429,7 @@
         <div class="m-fen visible-xs-block .visible-sm-block">
             <h3>户型分析</h3>
             <p>
-                1.{$hu.fen}
+                1.<?php echo $hu['fen']; ?>
             </p>
             <p>
                 
@@ -454,7 +453,7 @@
                         <input type="text" placeholder="请输入手机号">
                         <input type="name" placeholder="请输入姓名">
                         <input type="hidden" name="type" value="预约看房">
-                    <input type="hidden" name="building_name" value="{$data.building_name}">
+                    <input type="hidden" name="building_name" value="<?php echo $data['building_name']; ?>">
                         <button class="m-c-port1">确定</button>
                 </div>
             </div>
@@ -466,15 +465,11 @@
                         <input type="text" placeholder="请输入手机号">
                         <input type="name" placeholder="请输入姓名">
                         <input type="hidden" name="type" value="获取详细分析资料">
-                    <input type="hidden" name="building_name" value="{$data.building_name}">
+                    <input type="hidden" name="building_name" value="<?php echo $data['building_name']; ?>">
                         <button class="m-c-port1">确定</button>
                 </div>
             </div>
             <div class="m-chang"></div>
-        </div>
-        <!-- 留言 -->
-        <div class="m-xuan visible-xs-block .visible-sm-block">
-            <img src="/static/home/imgs/m-liu.png" alt="">
         </div>
     </div>
 
@@ -533,7 +528,7 @@
 
                 var that=$(this)
                 $.post(
-                    "{:url('home/content/port1')}",
+                    "<?php echo url('home/content/port1'); ?>",
                     data,
                     function(res){
                         if(res.code==100){

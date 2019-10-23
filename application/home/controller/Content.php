@@ -830,7 +830,8 @@ class Content extends Controller
     }
     public function hus($id){
         $hus=Huimgs::where('bid','eq',$id)->select();
-        return view('hus',['hus'=>$hus,'id'=>$id]);
+        $data=Goods::where('id','eq',$id)->field('building_name')->find();
+        return view('hus',['hus'=>$hus,'id'=>$id,'data'=>$data]);
     }
 
     public function saveping(){
@@ -864,8 +865,8 @@ class Content extends Controller
         $city=Category::where('pid',0)->select();
         $huimgs = Huimgs::where('bid', $id)->select();
         $hus=Huimgs::where('bid', $id)->count('id');
-        $dong=Text::order('id','desc')->where('bid','eq',$id)->limit(1)->find();
-        $dongs=Text::order('id','desc')->where('bid','eq',$id)->limit(1,10)->select();
+        $dong=Text::order('id','desc')->where('bid','eq',$id)->limit(1)->select();
+        $dongs=Text::order('id','desc')->where('bid','eq',$id)->limit(10)->select();
         $huimgs=Huimgs::where('bid','eq',$id)->select();
         $ximgs=Xiaoimgs::where('bid','eq',$id)->select();
         $simgs=Shiimgs::where('bid','eq',$id)->select();

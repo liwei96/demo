@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\hus.html";i:1571798359;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -428,33 +429,33 @@
             <h3>更多户型</h3>
         </div>
         <div class="m-hu visible-xs-block .visible-sm-block">
-            {foreach hus as $v}
+            <?php foreach($hus as $v): ?>
             <div class="h-c">
-                    <a href="{:url('home/content/hu',['id'=>$v.id,'bid'=>$id])}">
+                    <a href="<?php echo url('home/content/hu',['id'=>$v['id'],'bid'=>$id]); ?>">
                 <div class="col-xs-4 h-c-i">
                     
-                        <img src="{$v.h_small}" alt="">
+                        <img src="<?php echo $v['h_small']; ?>" alt="">
                     
                 </div>
                 <div class="col-xs-8 h-c-c">
                     <div class="h-t">
-                        <h4>{$v.content}</h4>
+                        <h4><?php echo $v['content']; ?></h4>
                         <span class="h-t-z">在售</span>
-                        <span class="h-t-m"><i>{$v.jia}</i>万起</span>
+                        <span class="h-t-m"><i><?php echo $v['jia']; ?></i>万起</span>
                     </div>
-                    <div class="sp">特点：{$v.te}</div>
-                    <div class="sp">类型：{$v.lei}</div>
-                    <div class="sp sp-f">户型分析：{$v.fen}</div>
+                    <div class="sp">特点：<?php echo $v['te']; ?></div>
+                    <div class="sp">类型：<?php echo $v['lei']; ?></div>
+                    <div class="sp sp-f">户型分析：<?php echo $v['fen']; ?></div>
                 </div>
             </a>
             </div>
-            {/foreach}
+            <?php endforeach; ?>
             
         </div>
         <div class="m-botnav visible-xs-block .visible-sm-block">
-            <p data-agl-cvt="5" id="m_shou" data_v="{$id}">{if in_array($id,$Think.session.fork)}<img
-                    style="margin-left:17%" src="/static/home/imgs/fork2.png" alt="">已收藏{else}<img
-                    src="/static/home/imgs/forked.png" alt="">收藏{/if}</p>
+            <p data-agl-cvt="5" id="m_shou" data_v="<?php echo $id; ?>"><?php if(in_array($id,\think\Session::get('fork'))): ?><img
+                    style="margin-left:17%" src="/static/home/imgs/fork2.png" alt="">已收藏<?php else: ?><img
+                    src="/static/home/imgs/forked.png" alt="">收藏<?php endif; ?></p>
             <a data-agl-cvt="5" href="tel:400-718-6686"><button class="m-pho">电话咨询</button></a>
             <button data-agl-cvt="5" class="m-y p1" data-v="预约看房">预约看房</button>
         </div>
@@ -477,7 +478,7 @@
                         <p>验证码已发送到<span>187****4376</span>，请注意查看</p>
                         <input type="text" placeholder="请输入验证码">
                         <button class="port1">确定</button>
-                        <input type="hidden" value="{$data.building_name}">
+                        <input type="hidden" value="<?php echo $data['building_name']; ?>">
                         <input type="hidden" value="">
                         <button class="t-b-scode">获取验证码</button>
                         <p class="tishi">
@@ -584,7 +585,7 @@
             var tel = phone.substr(0, 3) + '****' + phone.substr(7, 11);
             var that = $(this);
             $.post(
-                "{:url('home/user/login')}",
+                "<?php echo url('home/user/login'); ?>",
                 data,
                 function (res) {
                     if (res.code == 100) {
@@ -633,7 +634,7 @@
             // console.log(data);return
             var that = $(this)
             $.post(
-                "{:url('home/content/port1')}",
+                "<?php echo url('home/content/port1'); ?>",
                 data,
                 function (res) {
                     if (res.code == 100) {
@@ -677,7 +678,7 @@
                 'phone': phone
             };
             $.post(
-                "{:url('home/user/login')}",
+                "<?php echo url('home/user/login'); ?>",
                 data,
                 function (res) {
                     if (res.code == 100) {
@@ -710,7 +711,7 @@
                 var id=$(this).attr('data_v');
                 var that=$(this);
                 $.post(
-                    "{:url('home/content/fork')}",
+                    "<?php echo url('home/content/fork'); ?>",
                     {"id":id},
                     function(res){
                         if(res.code==100){
