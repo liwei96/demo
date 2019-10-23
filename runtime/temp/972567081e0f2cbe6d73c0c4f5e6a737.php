@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\index.html";i:1571716546;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\index.html";i:1571733399;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -404,9 +404,8 @@ var _hmt = _hmt || [];
         </div>
         <div class="m-line visible-xs-block .visible-sm-block"></div>
         <div class="m-fen visible-xs-block .visible-sm-block">
-            <h3>对比分析资料</h3>
+            <h3>对比分析资料<span class="m-more-fen">详细分析<img src="/static/home/imgs/m-go.png" alt=""></span></h3>
             <h4>投资分析</h4>
-
             <p>1、<?php echo $tou['cone']; ?></p>
             <p>2、<?php echo $tou['ctwo']; ?></p>
             <p>3、...</p>
@@ -828,6 +827,11 @@ var _hmt = _hmt || [];
                 
             })
             
+            // 详细分析跳转
+            $('.m-more-fen').on('click',function(){
+                window.location.href="<?php echo url('home/content/depth',['id'=>$data['id']]); ?>";
+            })
+
             $('.m-d-x').on('click',function(){
                 $('#m_p_box').css('display','block');
                 $('.m-chang').show();
@@ -1620,8 +1624,8 @@ var _hmt = _hmt || [];
                             that.parent().parent().parent().hide();
                             $('.t-b-first').show();
                             $('.t-b-second').hide();
-                                $('#txt').text('已成功订购服务，我们会第一时间通过电话联系您');
-                                $('.succ').show();
+                                $('#o_p').text('已成功订购服务，我们会第一时间通过电话联系您');
+                                $('.m-o-succ').show();
                         }
                     },
                     'json'

@@ -150,6 +150,20 @@ class Content extends Controller
         $tou=Fen::where('bid','eq',$id)->where('type','eq',1)->find();
         $yi=Fen::where('bid','eq',$id)->where('type','eq',2)->find();
         $yous=You::select();
+        // 判断来源与关键字
+        $from=request()->param();
+        if(array_key_exists('kid',$from)){
+            $key=From::where('kid','eq',$from['kid'])->column('key');
+            if($key){
+                $key=$key[0];
+            }else{
+                $key=$from;
+            }
+            $keys=[];
+            $keys['key']=$key;
+            $keys['other']=$from['other'];
+            Cookie::set('from',$keys,1800);
+        }
         return view('index', ['data' => $data, 'recording'=>$recording, 'huimgs' => $huimgs, 'xiaoimgs' => $xiaoimgs, 'dongs' => $dongs, 'tou'=>$tou,'yi'=>$yi,
         'xiangs' => $xiangs, 'num' => $num, 'id' => $id,'really'=>$really,'reallt'=>$reallt,'all'=>$all,'pings'=>$pings,'jia'=>$jia,'yous'=>$yous]);
     }
@@ -346,7 +360,7 @@ class Content extends Controller
             if($key){
                 $key=$key[0];
             }else{
-                $key='后台没有添加';
+                $key=$from['kid'];
             }
             $keys=[];
             $keys['key']=$key;
@@ -871,7 +885,10 @@ class Content extends Controller
         return view('detail',['city'=>$city,'hus'=>$hus,'huimgs'=>$huimgs,'data'=>$data,'dong'=>$dong,'dongs'=>$dongs,'huimgs'=>$huimgs,'ximgs'=>$ximgs,'simgs'=>$simgs,'yimgs'=>$yimgs,'pimgs'=>$pimgs,'jimgs'=>$jimgs,'tdengs'=>$tdengs,'type'=>$type,'yous'=>$yous]);
     }
 
-    public function out(){
-
+    public function depth($id){
+        $data=Goods::where('id','eq',$id)->find();
+        $tou=Fen::where('bid','eq',$id)->where('type','eq',1)->find();
+        $yi=Fen::where('bid','eq',$id)->where('type','eq',2)->find();
+        return view('depth',['data'=>$data,'tou'=>$tou,'yi'=>$yi]);
     }
 }
