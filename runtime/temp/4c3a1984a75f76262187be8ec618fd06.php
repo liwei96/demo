@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\user\login.html";i:1562491045;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\user\login.html";i:1571905070;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -136,7 +136,7 @@
             <button class="m-get">获取验证码</button>
             <input type="text" class="m-yan" placeholder="请输入验证码">
         </div>
-        <button class="m-btn visible-xs-block .visible-sm-block">确认登录</button>
+        <button class="m-btn visible-xs-block .visible-sm-block" data-v="<?php echo $type; ?>">确认登录</button>
     </div>
     <script>
         $(document).ready(function(){
@@ -167,6 +167,7 @@
 				};
 				fn();
 				var interval = setInterval(fn, 1000);
+               
                 var data={'phone':phone};
                 $.post(
                     "<?php echo url('home/user/login'); ?>",
@@ -184,7 +185,8 @@
             $('.m-btn').on('click',function(){
                 var phone=$('.m-phone').val();
                 var code=$('.m-yan').val();
-                var data={'phone':phone,'code':code};
+                var type=$(this).attr('data-v');
+                var data={'phone':phone,'code':code,'type':type};
                 $.post(
                     "<?php echo url('home/user/log'); ?>",
                     data,

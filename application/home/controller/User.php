@@ -102,10 +102,9 @@ class User extends Controller
             $tes=Attribute::where('id',9)->column('attr_values')[0];
             $tes=explode(',',$tes);
             $areas=Category::where('pid',1)->select();
-            
             return view('find',['hus'=>$hus,'tes'=>$tes,'areas'=>$areas]);
         }else{
-            $this->redirect('home/user/login');
+            $this->redirect('home/user/login',['type'=>'帮我找房']);
         }
     }
 
@@ -149,7 +148,7 @@ class User extends Controller
                 return view('shou',['hots'=>$hots]);
             }
         }else{
-            $this->redirect('home/user/login');
+            $this->redirect('home/user/login',['type'=>'查看收藏']);
         }
     }
     public function zu(){
@@ -176,7 +175,7 @@ class User extends Controller
             if(Session::has('user')){
                 return view();
             }else{
-                $this->redirect('home/user/login');
+                $this->redirect('home/user/login',['type'=>'预约看房']);
             }
         }else{
             $data=request()->param();
@@ -261,7 +260,8 @@ class User extends Controller
 
     public function login(){ 
         if(request()->isGet()){
-            return view();
+            $type=request()->param('type');
+            return view('login',['type'=>$type]);
         }else if(request()->isPost()){
             $data=request()->param();
             $phone=$data['phone'];
@@ -342,7 +342,8 @@ class User extends Controller
             if($s){
                 Session::set('user',$s);
             }else{
-                UserModel::create(['phone'=>$phone]);
+                unset($data['code']);
+                UserModel::create($data);
                 $s=UserModel::where('phone',$phone)->find();
                 Session::set('user',$s);
             }
@@ -361,7 +362,7 @@ class User extends Controller
     }
     public function logout(){
         Session::delete('user');
-	Session::delete('fork');
+	    Session::delete('fork');
         $this->redirect('home/index/index');
     }
 
