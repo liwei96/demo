@@ -852,10 +852,12 @@ class Index extends Controller
             return json($res);
         }
 	if(!array_key_exists('name',$data)){
+         $data['name']='不在落地页';
 	     Wen::create($data);
-             sc_send('留言','留言号码是：'.$phone.';留言内容是：'.$data['content']);
+         sc_send('留言','留言号码是：'.$phone.';留言内容是：'.$data['content']);
 	}else{
-	     sc_send('留言','留言号码是：'.$phone.';留言内容是：'.$data['content'].'；留言楼盘是：'.$data['name']);
+         sc_send('留言','留言号码是：'.$phone.';留言内容是：'.$data['content'].'；留言楼盘是：'.$data['name']);
+         Wen::create($data);
 	}
         
         return json(['code'=>200]);

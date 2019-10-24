@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\index.html";i:1571817801;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\index.html";i:1571818655;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -117,6 +117,7 @@
         position: fixed;
         right:0;
         bottom:140px;
+        z-index: 10000;
     }
     .weiter{
         display: none;

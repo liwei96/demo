@@ -258,6 +258,18 @@ class User extends Base
         
         return view('shou',['data'=>$data]);
     }
+
+    // 会员列表
+    public function users(){
+        $data=UserModel::order('id','desc')->paginate(15);
+        return view('users',['data'=>$data]);
+    }
+
+    // 会员删除
+    public function udel($id){
+        UserModel::destroy($id);
+        $this->redirect('users');
+    }
 }
 
 

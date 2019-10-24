@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\content.html";i:1571647201;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\content.html";i:1571896770;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -625,12 +625,16 @@ var _hmt = _hmt || [];
                                                 <li><span>楼盘地址：</span><i><?php echo $data['building_address']; ?></i></li>
                                                 <li><span>最新预售许可证：</span><i>201904785</i><a class="p1 bg1" data-v="最新预售许可证" href="javascript:;">最新预售许可证</a></li>
                                             </ul>
-                                            <div class="detail-tel">
+                                            <div class="detail-tel"> 
                                                     <div class="tel" >
                                                         <h1>400-718-6686</h1>
                                                         <span>致电售楼处了解更多信息</span>
                                                     </div>
-                                                    <div class="img"><img src="/static/home/imgs/tel.png" alt=""></div>
+                                                    <div class="img" id="wechat"><img src="/static/home/imgs/saoyi.png">扫码拨号</div>
+                                                    <div class="saoma">
+                                                        <h5>微信扫码拨号</h5>
+                                                        <img src="http://test.edefang.net/index/weichat/code" alt="">
+                                                    </div>
                                             </div>
                                             <div  class="detail-fuwu">
                                                 <div class="car">
@@ -1598,6 +1602,14 @@ var _hmt = _hmt || [];
                 var src=$(this).attr('src');
                 $('.bigimg img').attr('src',src);
                 $('.bigimg').show();
+            })
+
+            // 微信扫码打电话
+            $('#wechat').on('mouseenter',function(){
+                $('.saoma').show();
+            })
+            $('#wechat').on('mouseleave',function(){
+                $('.saoma').hide();
             })
 
             // 楼盘详情页跳转
