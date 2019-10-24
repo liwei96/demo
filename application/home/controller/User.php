@@ -16,7 +16,7 @@ use app\home\model\Jian;
 use app\admin\model\Goods;
 use app\admin\model\You;
 
-class User extends Controller
+class User extends Controllern
 {
     /**
      * 显示资源列表

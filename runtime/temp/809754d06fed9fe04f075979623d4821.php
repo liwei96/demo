@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\index\pmap.html";i:1562490741;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\index\pmap.html";i:1571908862;}*/ ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -95,7 +95,7 @@
         zoom: 10
     });
     function ss(id){
-        window.location.href=`//test.jy1980.com/home/content/content/id/${id}.html`;
+        window.location.href=`//www.jy1980.com/content/${id}.html`;
     }
         <?php foreach($data as $v): ?>
         markers.push(new AMap.Marker({
