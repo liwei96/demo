@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\search\search.html";i:1572235030;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\search\search.html";i:1572235131;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -453,7 +453,7 @@
             border:1px solid #2DD264;
             position: absolute;
             right:40px;
-            bottom: 216px;
+            bottom: 173px;
             text-align: center;
             line-height: 26px;
             color:#2DD264;
@@ -486,7 +486,7 @@
         .show-liu .l-bottom .l-ti{
             position:absolute;
             right:54px;
-            bottom:173px;
+            bottom:128px;
             font-size: 14px;
             color:#2DD264;
         }
@@ -1325,7 +1325,7 @@
                 <div class="pages">
                     <span id="back"><<</span>
                     <ul class="page">
-                        <?php $__FOR_START_263746850__=0;$__FOR_END_263746850__=$page;for($i=$__FOR_START_263746850__;$i < $__FOR_END_263746850__;$i+=1){ if($i<7): ?>
+                        <?php $__FOR_START_597629569__=0;$__FOR_END_597629569__=$page;for($i=$__FOR_START_597629569__;$i < $__FOR_END_597629569__;$i+=1){ if($i<7): ?>
                         <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                         <?php endif; } ?>
                     </ul>
