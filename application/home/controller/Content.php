@@ -552,7 +552,7 @@ class Content extends Controller
 	    return json(['code'=>10002]);
 	}
 	    unset($data['ma']);
-        sc_send('客户想要获取' . $building_name . '的' . $type, '客户的号码是:' . $phone . ';' . '客户的姓名是' . $name . ';' . 'IP是' . $IP.'；浏览器是'.$brower.'；渠道是：'.$qu);
+        sc_send('客户想要获取' . $building_name . '的' . $type, '客户的号码是:' . $phone . ';' . '客户的姓名是' . $name . ';' . 'IP是' . $IP.'；浏览器是'.$brower.'；渠道是：'.$qu.';推广一');
 
         
 
@@ -682,7 +682,7 @@ class Content extends Controller
 	    return json(['code'=>10002]);
 	}
 	unset($data['ma']);
-    sc_send('客户想要获取' . $building_name . '的' . $type, '客户的号码是:' . $phone . ';' . '客户的姓名是' . $name . ';' .'客户的地址是：'.$address.'；'. 'IP是' . $IP.'；浏览器是'.$brower.'；渠道是：'.$qu);
+    sc_send('客户想要获取' . $building_name . '的' . $type, '客户的号码是:' . $phone . ';' . '客户的姓名是' . $name . ';' .'客户的地址是：'.$address.'；'. 'IP是' . $IP.'；浏览器是'.$brower.'；渠道是：'.$qu.';推广一');
     
         
 

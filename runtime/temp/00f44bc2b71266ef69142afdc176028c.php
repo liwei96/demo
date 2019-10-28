@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\index\index.html";i:1571127931;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\index\index.html";i:1572228999;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1257,7 +1257,7 @@
     </div>
    
     
-
+ 
 
     <div class="fixed-box">
         <dl>
@@ -1641,9 +1641,23 @@ var _hmt = _hmt || [];
                     {'ma':ma,'tel':tel,'con':con},
                     function(res){
                         if(res.code==200){
+                            $('.zhao').hide();
                             $('.show-liu').hide();
                         }else{
                             alert(res.msg);
+                        }
+                    }
+                )
+                var sign=parseInt(new Date().getTime()/1000);
+                var cateid=<?php echo \think\Cookie::get('city'); ?>;
+                $.post(
+                    "http://api.jy1980.com/index.php/distribute/send",
+                    {'sign':sign,'username':'没有','project':'','source':'家园留言','remark':con,'cate_id':cateid,'phone':tel},
+                    function(res){
+                        if(res.code){
+                            alert(res.message)
+                        }else{
+                            alert(res.message);
                         }
                     }
                 )         

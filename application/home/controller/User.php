@@ -16,7 +16,7 @@ use app\home\model\Jian;
 use app\admin\model\Goods;
 use app\admin\model\You;
 
-class User extends Controllern
+class User extends Controller
 {
     /**
      * 显示资源列表
@@ -117,7 +117,7 @@ class User extends Controllern
         $tese=$re['tese'];
         $phone=$re['phone'];
         $IP = $_SERVER['REMOTE_ADDR'];
-            sc_send('客户想拜托找房，户型是' . $huxing . '；楼盘特色是' . $tese, '区域是:' . $area . ';' . '客户的电话是' . $phone . ';价格区间'.$jiage.';' . 'IP是' . $IP);
+            sc_send('客户想拜托找房，户型是' . $huxing . '；楼盘特色是' . $tese, '区域是:' . $area . ';' . '客户的电话是' . $phone . ';价格区间'.$jiage.';' . 'IP是' . $IP.';推广一');
         $s=RequestModel::create($re);
         if($s){
             $res=[
@@ -183,7 +183,7 @@ class User extends Controllern
             $time=$data['time'];
             $phone=UserModel::where('id',$data['u_id'])->column('phone')[0];
             $IP = $_SERVER['REMOTE_ADDR'];
-            sc_send('一个'.$sex.'想看房，看房时间是' . $time . '；电话号是' . $phone, 'IP是' . $IP);
+            sc_send('一个'.$sex.'想看房，看房时间是' . $time . '；电话号是' . $phone, 'IP是' . $IP.'；推广一');
             $s=Yue::create($data);
             if($s){
                 $res=[
