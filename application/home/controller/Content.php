@@ -157,8 +157,9 @@ class Content extends Controller
             if($key){
                 $key=$key[0];
             }else{
-                $key=$from;
+                $key=$from['kid'];
             }
+            
             $keys=[];
             $keys['key']=$key;
             $keys['other']=$from['other'];

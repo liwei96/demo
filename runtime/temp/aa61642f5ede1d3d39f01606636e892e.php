@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\news\article.html";i:1572253934;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\news\article.html";i:1572254312;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1277,10 +1277,10 @@
 
 	<script>
         $(document).ready(function(){
-	$('.user').on('click',function(){
+	        $('.user').on('click',function(){
                     window.location.href="<?php echo url('home/user/zu'); ?>";
                 })
-	$('#l-esc').on('click',function(){
+	        $('#l-esc').on('click',function(){
                 $('.login').hide();
                 $('.zhao').hide();
                 })
