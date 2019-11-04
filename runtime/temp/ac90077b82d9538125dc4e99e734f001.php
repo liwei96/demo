@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\depth.html";i:1571799519;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\depth.html";i:1571801109;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -328,7 +328,7 @@
         width:24.8%;
         height:34px;
         position: fixed;
-        right:0;
+        right:0; 
         bottom:140px;
     }
     </style>

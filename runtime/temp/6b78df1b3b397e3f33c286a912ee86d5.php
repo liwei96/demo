@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\user\ji.html";i:1570524830;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\user\ji.html";i:1572845865;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,6 +91,7 @@
 
                 /* 楼盘列表 */
          .m-list {
+            padding: 0 3%;
             width: 100%;
         }
 
@@ -124,6 +125,16 @@
             margin-bottom: 6px;
             margin-top:14px;
         }
+
+        .m-list .m-row .m-text h4 span{
+            background-color: #E5FFE8;
+            color: #32B05C;
+            font-size: 10px;
+            display: inline-block;
+            padding: 2px 7.5px;
+            border-radius: 2px;
+            float:right;
+        }
        
         .m-list .m-row .m-text .m-price {
             color: #FF6666;
@@ -152,6 +163,7 @@
         .m-list .m-row .m-text .m-icon span {
             display: inline-block;
             padding: 2px 7.5px;
+            border-radius: 2px;
         }
 
         .m-list .m-row .m-text .m-icon .m-p-1 {
@@ -161,14 +173,14 @@
         }
 
         .m-list .m-row .m-text .m-icon .m-p-2 {
-            background-color: #EAF3FF;
-            color: #4393FF;
+            background-color: #F0F9FF;
+            color: #1C85CF;
             font-size: 10px;
         }
 
         .m-list .m-row .m-text .m-icon .m-p-3 {
             background-color: #F6F6F6;
-            color: #818181;
+            color: #454F5D;
             font-size: 10px;
         }
 
@@ -772,6 +784,7 @@
             <div class="col-xs-8 m-text">
                 <h4>
                     <?php echo $v['building_name']; ?>
+                    <span class="m-p-1"><?php echo $v['building_xiaoshou']; ?></span>
                 </h4>
                 <p class="m-price"><span><?php echo $v['building_jiage']; ?></span>元/m²</p>
                 <p class="m-xiang">
@@ -780,7 +793,7 @@
                     <span><?php echo $v['jianji']; ?>m²</span>
                 </p>
                 <p class="m-icon">
-                    <span class="m-p-1"><?php echo $v['building_xiaoshou']; ?></span>
+                    
                     <span class="m-p-2"><?php echo $v['building_zhuangxiu']; ?></span>
                     <span class="m-p-3"><?php echo $v['building_ditie']; ?></span>
                     <span class="m-p-3">繁华地段</span>

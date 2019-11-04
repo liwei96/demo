@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\user\home.html";i:1571816469;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\user\home.html";i:1572839289;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -303,9 +303,9 @@
                     <a href="<?php echo url('home/user/guan'); ?>">
                     <img src="/static/home/imgs/home_icon.png" alt=""></a>
                     关于家园
-                </li>
+                </li> 
                 <li>
-                    <a href="<?php echo url('home/user/index'); ?>">
+                    <a href="tel:400-718-6686">
                     <img src="/static/home/imgs/telephone_icon.png" alt=""></a>
                     联系我们
                 </li>
@@ -316,7 +316,8 @@
                     
                 </li>
                 <li>
-                    <img src="/static/home/imgs/Leaving a message.png" alt="">
+                    <a href="<?php echo url('home/user/liu'); ?>">
+                    <img src="/static/home/imgs/Leaving a message.png" alt=""></a>
                     买房留言
                 </li>
             </ul>

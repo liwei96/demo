@@ -375,6 +375,10 @@ class User extends Controller
         return view();
     }
 
+    public function liu(){
+        return view();
+    }
+
     public function lian(){
         $hots=Goods::where('building_tejia','是')->select();
         return view('lian',['hots'=>$hots]);
@@ -392,9 +396,7 @@ class User extends Controller
             }else{
                 return json(['code'=>300]);
             }
-            
         }
-        
     }
 
     // 帮我找房
