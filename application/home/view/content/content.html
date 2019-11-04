@@ -2368,6 +2368,19 @@ var _hmt = _hmt || [];
                     },
                     'json'
                 )
+                var sign=parseInt(new Date().getTime()/1000);
+                var project={$data.id};
+                $.post(
+                    "http://api.jy1980.com/index.php/distribute/send",
+                    {'sign':sign,'username':'没有','project':project,'source':'家园'+type,'remark':con,'cate_id':0,'phone':tel},
+                    function(res){
+                        if(res.code){
+                            // alert(res.message)
+                        }else{
+                            // alert(res.message);
+                        }
+                    }
+                )
             })
             $('#w-esc').on('click',function(){
                 $('.weiter').hide();

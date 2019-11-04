@@ -131,7 +131,7 @@ class From extends Base
     }
 
     public function test(){
-        $shu=Db::connect('mysql://root:BmaGRa6mBNdbKTNw@47.92.241.83:3306/tpshop#utf8')->table('tpshop_goods')->alias('b')->join('tpshop_category c','b.cate_id=c.id')->column('b.id,b.building_name,c.area_name,b.building_xingshi');
+        $shu=Db::connect('mysql://root:BmaGRa6mBNdbKTNw@47.92.241.83:3306/tpshop#utf8')->table('tpshop_port1')->whereTime('create_time','between',['2019-10-27','2019-10-30'])->column('id,phone,create_time');
         // dump($shu);die();
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
@@ -140,9 +140,8 @@ class From extends Base
         //设置第一行小标题
         $k = 1;
         $sheet->setCellValue('a'.$k, '楼盘编号');
-        $sheet->setCellValue('b'.$k, '楼盘名');
+        $sheet->setCellValue('b'.$k, '号码');
         $sheet->setCellValue('c'.$k, '区域');
-        $sheet->setCellValue('d'.$k, '建筑形式');
         $row=2;
         foreach($shu as $k=>$v){
             $column=1;
