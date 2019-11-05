@@ -1,0 +1,40 @@
+
+<!-- 右 -->
+<div class="content">
+    <div class="header">
+        <h1 class="page-title">新增<button id="add">+</button></h1>
+        
+    </div>
+
+    <!-- add form --> 
+    <form action="{:url('save')}" method="post" id="tab" enctype="multipart/form-data">
+       
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="basic">
+                <div class="well">
+                    
+                    <label>关键字：</label>
+                    <input type="text" name="key[]" value="" class="input-xlarge">
+                    <label>关键字编号：</label>
+                    <input type="text" name="kid[]" value="" class="input-xlarge">
+                        
+                </div>
+            </div>
+           
+            <button class="btn btn-primary" type="submit">保存</button>
+        </div>
+    </form>
+
+    <script>
+        $('#add').on('click',function(){
+            var h=$('.well').html();
+            h+=`<label>关键字：</label>
+                    <input type="text" name="key[]" value="" class="input-xlarge">
+                    <label>关键字编号：</label>
+                    <input type="text" name="kid[]" value="" class="input-xlarge">`;
+            $('.well').html(h);
+            
+        })
+    </script>
+
+    
