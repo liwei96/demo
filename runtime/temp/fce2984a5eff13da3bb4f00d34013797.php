@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\user\home.html";i:1572839289;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\user\home.html";i:1572854994;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -327,11 +327,13 @@
             <div class="m-line"></div>
             <ul>
                 <li>
-                    <img src="/static/home/imgs/WeChat.png" alt="">
+                    <a href="<?php echo url('home/user/gong'); ?>">
+                    <img src="/static/home/imgs/WeChat.png" alt=""></a>
                     官方公众号
                 </li>
                 <li>
-                    <img src="/static/home/imgs/Customer service.png" alt="">
+                    <a href="<?php echo url('home/user/ke'); ?>">
+                    <img src="/static/home/imgs/Customer service.png" alt=""></a>
                     关注客服
                 </li>
             </ul>

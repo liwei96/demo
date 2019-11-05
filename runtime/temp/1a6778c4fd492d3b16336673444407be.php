@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\content.html";i:1572227792;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\content.html";i:1572925817;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1611,7 +1611,7 @@ var _hmt = _hmt || [];
                     <p>验证码已发送到<span>187****4376</span>，请注意查看</p>
                     <input type="text" placeholder="请输入验证码">
                     <button class="port1">确定</button>
-                    <input type="hidden" value="<?php echo $data['building_name']; ?>">
+                    <input id="building_name" type="hidden" value="<?php echo $data['building_name']; ?>">
                     <input type="hidden" value="">
                     <button class="t-b-scode">获取验证码</button>
                 </div>
@@ -2232,6 +2232,8 @@ var _hmt = _hmt || [];
             // 接口验证码
             $('.t-b-btn2').on('click',function(){
                 var phone=$(this).prev().val();
+                var type=$(this).parent().parent().prev().find('h6').html();
+                var building_name=$(this).parent().next().find('#building_name').val();
                 var pattern_phone = /^1[3-9][0-9]{9}$/;
 				if (phone == '') {
 					$('.l-p').attr('placeholder','手机号不能为空');
@@ -2256,7 +2258,7 @@ var _hmt = _hmt || [];
 				};
 				fn();
 				var interval = setInterval(fn, 1000);
-                var data={'phone':phone};
+                var data={'phone':phone,'type':type,'building_name':building_name};
                 var tel=phone.substr(0,3)+'****'+phone.substr(7,11);
                 var that=$(this);
                 $.post(
@@ -2284,6 +2286,8 @@ var _hmt = _hmt || [];
 
             $('.t-b-scode').on('click',function(){
                 var phone=$(this).prev().val();
+                var building_name=$(this).prev().prev().val();
+                var type=$(this).parent().parent().prev().find('h6').html();
                 var pattern_phone = /^1[3-9][0-9]{9}$/;
 				if (phone == '') {
 					$('.l-p').attr('placeholder','手机号不能为空');
@@ -2308,7 +2312,7 @@ var _hmt = _hmt || [];
 				};
 				fn();
 				var interval = setInterval(fn, 1000);
-                var data={'phone':phone};
+                var data={'phone':phone,'building_name':building_name,'type':type};
                 $.post(
                     "<?php echo url('home/user/login'); ?>",
                     data,
@@ -2350,6 +2354,8 @@ var _hmt = _hmt || [];
                     'qu':qu,
                     'ma':ma
                 }
+                var sign=parseInt(new Date().getTime()/1000);
+                var project=<?php echo $data['id']; ?>;
                 var that=$(this)
                 $.post(
                     "<?php echo url('home/content/port1'); ?>",
@@ -2361,10 +2367,25 @@ var _hmt = _hmt || [];
                             $('.t-b-second').hide();
                             $('#txt').text('已成功订购服务，我们会第一时间通过电话联系您');
                             $('.succ').show();
+                            var sign=parseInt(new Date().getTime()/1000);
+                            var project=<?php echo $data['id']; ?>;
+                            alert(654);
+                            $.post(
+                                "http://api.jy1980.com/index.php/distribute/send",
+                                {'sign':sign,'username':'没有','project':project,'source':'家园'+type,'remark':'不是留言','cate_id':0,'phone':tel},
+                                function(res){
+                                    if(res.code){
+                                        // alert(res.message)
+                                    }else{
+                                        // alert(res.message);
+                                    }
+                                }
+                            )
                         }
                     },
                     'json'
                 )
+            
             })
             $('#w-esc').on('click',function(){
                 $('.weiter').hide();

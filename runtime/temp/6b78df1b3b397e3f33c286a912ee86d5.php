@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\user\ji.html";i:1572845865;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:68:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\user\ji.html";i:1572846306;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -186,7 +186,7 @@
 
 
 
-	.p{
+	    .p{
             padding:0;
         }
             /* 顶部导航 */

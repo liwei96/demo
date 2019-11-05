@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\user\shou.html";i:1569114881;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\user\shou.html";i:1572848877;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -367,22 +367,22 @@
             <img src="/static/home/imgs/return.png" alt="" onClick="javascript:history.go(-1)">
             <h3>我的收藏</h3>
         </div>
-        <img src="/static/home/imgs/shou.png" alt="" class="m-bgc visible-xs-block .visible-sm-block">
+        <img src="/static/home/imgs/skong.png" alt="" class="m-bgc visible-xs-block .visible-sm-block">
         <p class="m-txt visible-xs-block .visible-sm-block">您还没有收藏，快去逛逛吧~~</p>
         <button class="m-btn visible-xs-block .visible-sm-block">去收藏</button>
     </div>
     <script>
             $(document).ready(function(){
                 $('.m-btn').on('click',function(){
-                    window.location.href="<?php echo url('home/search/index'); ?>";
+                    window.location.href="<?php echo url('home/search/index',['type'=>0]); ?>";
                 })
-		$('#find').on('click',function(){
+		        $('#find').on('click',function(){
                     $('#bname').submit();
                 })
                 $('#map').on('click',function(){
                     window.location.href="<?php echo url('home/index/pmap'); ?>";
                 })
-	       $('.logout').on('click',function(){
+	            $('.logout').on('click',function(){
                     window.location.href="<?php echo url('home/user/logout'); ?>";
                 })
             })

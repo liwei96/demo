@@ -11,6 +11,7 @@ use app\home\model\Request as RequestModel;
 use app\home\model\User as UserModel;
 use app\admin\model\Attribute;
 use app\admin\model\Category;
+use app\home\model\Port1;
 use app\home\model\Yue;
 use app\home\model\Jian;
 use app\admin\model\Goods;
@@ -265,6 +266,8 @@ class User extends Controller
         }else if(request()->isPost()){
             $data=request()->param();
             $phone=$data['phone'];
+            $building_name=$data['building_name'];
+            $type=$data['type'];
             $ma=mt_rand(1000,9999);
             if (!preg_match('/^1[3-9]\d{9}$/', $phone)) {
                 $res = [
@@ -294,7 +297,12 @@ class User extends Controller
                 ];
                 return json($res);
             }
-            
+            // sc_send('未输入验证码的客户','客户想要获取' . $building_name . '的' . $type.';号码是'.$phone.';推广一');
+            if(Cookie::has('from')){
+                $data['key']=Cookie::get('from')['key'];
+                $data['other']=Cookie::get('from')['other'];
+            }
+            Port1::create($data);
             $result=$this->sendmsg($phone,$ma);
             
             if($result){
@@ -403,5 +411,13 @@ class User extends Controller
     public function help(){
         $yous=You::select();
         return view('help',['yous'=>$yous]);
+    }
+    // 公众号
+    public function gong(){
+        return view();
+    }
+    // 客服
+    public function ke(){
+        return view();
     }
 }

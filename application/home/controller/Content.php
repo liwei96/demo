@@ -315,12 +315,19 @@ class Content extends Controller
 
         $pings=Ping::where('bid','eq',$id)->paginate(3);
         foreach($pings as $v){
-            $v['tel']=User::where('id','eq',$v['u_id'])->column('phone')[0];
+            $tt=User::where('id','eq',$v['u_id'])->column('phone');
+            if($tt){
+                $tt=$tt[0];
+            }else{
+                $tt='******';
+            }
+            $v['tel']=$tt;
             $v['tel']=substr($v['tel'],0,3).'****'.substr($v['tel'],7);
             if($v['pid']){
                 $v['con']=Ping::where('pid','eq',$v['id'])->paginate(2);
                 foreach($v['con'] as $j){
-                    $j['tel']=User::where('id','eq',$j['u_id'])->column('phone')[0];
+                    $ll=User::where('id','eq',$j['u_id'])->column('phone');
+                    $j['tel']=$ll?$ll[0]:'*******';
                     $j['tel']=substr($j['tel'],0,3).'****'.substr($j['tel'],7);
                 }
             }else{
@@ -486,7 +493,7 @@ class Content extends Controller
     public function yz(){
         $data=request()->param();
         $phone=$data['phone'];
-	$ma = mt_rand(1000, 9999);
+	    $ma = mt_rand(1000, 9999);
         $register_time = cache($phone . 'time') ?: 0;
             if (time() - $register_time < 60) {
                 $res = [
@@ -523,7 +530,7 @@ class Content extends Controller
         $ph=substr($phone,0,6);
 	    $ma=$data['ma'];
         if(Cache::has($ph)){
-            if(Cache::get($ph)>8){
+            if(Cache::get($ph)>18){
                 return json(['code'=>300]);
             }else{
                 $l=Cache::get($ph);
@@ -531,7 +538,7 @@ class Content extends Controller
                 Cache::set($ph,$l);
             }
         }else{
-            Cache::set($ph,1,12*3600);
+            Cache::set($ph,1,6*3600);
         }
         $building_name = $data['building_name'];
         $name = $data['name'];
@@ -539,7 +546,7 @@ class Content extends Controller
 	    $brower=$data['brower'];
 	    $qu=$data['qu'];
 	    if(Cache::get($IP)){
-            if(Cache::get($IP)>8){
+            if(Cache::get($IP)>18){
                 return json(['code'=>300]);
             }else{
                 $l=Cache::get($IP);
@@ -547,13 +554,14 @@ class Content extends Controller
                 Cache::set($IP,$l);
             }
         }else{
-            Cache::set($IP,1,12*3600);
+            Cache::set($IP,1,3*3600);
         }
         if($ma!=cache($phone)){
 	    return json(['code'=>10002]);
-	}
-	    unset($data['ma']);
-        sc_send('客户想要获取' . $building_name . '的' . $type, '客户的号码是:' . $phone . ';' . '客户的姓名是' . $name . ';' . 'IP是' . $IP.'；浏览器是'.$brower.'；渠道是：'.$qu.';推广一');
+    }
+        
+	    // unset($data['ma']);
+        // sc_send('客户想要获取' . $building_name . '的' . $type, '客户的号码是:' . $phone . ';' . '客户的姓名是' . $name . ';' . 'IP是' . $IP.'；浏览器是'.$brower.'；渠道是：'.$qu.';推广一');
 
         
 
@@ -567,65 +575,10 @@ class Content extends Controller
             return json($res);
         }
         if ($num == 4) {
-            $g = Port1::where(['phone' => $phone, 'type' => $type, 'building_name' => $building_name])->find();
-            if (!$g) {
-                $s = Port1::create($data);
-            }
-            // $register_time = cache($phone . 'time') ?: 0;
-            // if (time() - $register_time < 3) {
-            //     $res = [
-            //         'code' => 10003,
-            //         'msg' => '发送太频繁，稍后再试',
-            //     ];
-            //     return json($res);
-            // }
-            // $result=sendmsg($phone,$ma);
-            // $result = true;
-            // if ($result) {
-            //     cache($phone, $ma, 300);
-            //     cache($phone . 'time', time());
-            //     $res = [
-            //         'code' => 100,
-            //         'msg' => $ma,
-            //         'dd' => $num,
-            //     ];
-            //     return json($res);
-            // } else {
-            //     $res = [
-            //         'code' => 200,
-            //         'msg' => '发送失败',
-            //     ];
-            //     return json($res);
-            // }
-        } else {
-            $d = [];
-            $d['phone'] = $phone;
-            $d['type'] = $data['type'];
-            $d['is_toke'] = 1;
-            // cache($phone,null);
-            // $s=Port1::where('phone',$phone)->find();
-            // if($s){
-            //     $res=Port1::update($d,['phone'=>$phone]);
-            //     if($res){
-            //         $f=[
-            //             'code' => 100
-            //         ];
-            //         return json($f);
-            //         die();
-            //     }else{
-            //         $f=[
-            //             'code' => 200,
-            //             'msg' => '提交失败'
-            //         ];
-            //         return json($f);
-            //     }
-            // }else{
-            if(Cookie::has('from')){
-                $data['key']=Cookie::get('from')['key'];
-                $data['other']=Cookie::get('from')['other'];
-            }
-            $res = Port1::create($data);
             
+        } else {
+           
+            $res=Port1::where('building_name','eq',$building_name)->where('phone','eq',$phone)->update(['is_toke'=>1]);
             if ($res) {
                 $f = [
                     'code' => 100,
@@ -638,7 +591,7 @@ class Content extends Controller
                 ];
                 return json($f);
             }
-            // }
+            
 
         }
     }

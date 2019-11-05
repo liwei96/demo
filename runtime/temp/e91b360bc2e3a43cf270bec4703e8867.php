@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\phpstudy_pro\WWW\tp2\public/../application/admin\view\user\bao.html";i:1571123933;s:68:"D:\phpstudy_pro\WWW\tp2\public/../application/admin\view\layout.html";i:1553218686;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\phpstudy_pro\WWW\tp2\public/../application/admin\view\user\bao.html";i:1572918705;s:68:"D:\phpstudy_pro\WWW\tp2\public/../application/admin\view\layout.html";i:1553218686;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -128,6 +128,7 @@
                     <th>报名类型</th>
                     <th>关键字</th>
                     <th>其他标识</th>
+                    <th>是否验证</th>
                     <th>添加时间</th>
                     <th>操作</th>
                 </tr>
@@ -141,6 +142,7 @@
                     <td><?php echo $v['type']; ?></td>
                     <td><?php echo $v['key']; ?></td>
                     <td><?php echo $v['other']; ?></td>
+                    <td><?php if($v['is_toke'] == 1): ?>已验证<?php else: ?>未验证<?php endif; ?></td>
                     <td><?php echo $v['create_time']; ?></td>
                     <td>
                         <a href="javascript:void(0);" onclick="if(confirm('确认删除？')) location.href='<?php echo url('admin/user/de',['id'=>$v['id']]); ?>'">
