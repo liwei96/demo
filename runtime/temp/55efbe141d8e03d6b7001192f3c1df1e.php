@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1573029956;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -924,33 +925,33 @@
                 <span class="logo"><img src="/static/home/imgs/logo1.png"></span>
                 <span class="line"></span>
                 <span class="city">
-                     {if $Think.cookie.cityname} {$Think.cookie.cityname} {else}杭州{/if} 
+                     <?php if(\think\Cookie::get('cityname')): ?> <?php echo \think\Cookie::get('cityname'); else: ?>杭州<?php endif; ?> 
                 </span>
                 <img class="jian" src="/static/home/imgs/icon-10.png" alt="家园新房">
                 <div class="cities">
                     <ul>
-                         {foreach $city as $v} 
-                        <li data-v="{$v.id}">{$v.area_name}</li>
-                      {/foreach} 
+                         <?php foreach($city as $v): ?> 
+                        <li data-v="<?php echo $v['id']; ?>"><?php echo $v['area_name']; ?></li>
+                      <?php endforeach; ?> 
                     </ul>
                 </div>
-                  {if $Think.session.user} 
+                  <?php if(\think\Session::get('user')): ?> 
                 <img class="user jk" src="/static/home/imgs/icon-5.png" alt="家园新房">
                 <span class="my">
-                   {$Think.session.user.p} 
+                   <?php echo \think\Session::get('user.p'); ?> 
                 </span>
                 <span class="logout">退出</span>
-                 {else} 
+                 <?php else: ?> 
                 <img class="user" src="/static/home/imgs/icon-5.png" alt="家园新房">
                 <span class="register">注册/登录</span>
-                {/if} 
+                <?php endif; ?> 
                 <ul class="nav-top">
-                    <li role="presentation"><a class="active" href="{:url('home/index/index')}">首页</a></li>
-                    <li role="presentation"><a href="{:url('home/search/index',['type'=>0])}">楼盘查询</a></li>
-                    <li role="presentation"><a href="{:url('home/search/tuan',['type'=>0])}">团购优惠</a></li>
-                    <li role="presentation"><a href="{:url('home/index/buy')}">买房指南</a></li>
-                    <li role="presentation"><a href="{:url('home/news/index')}">楼盘资讯</a></li>
-                    <li role="presentation"><a href="{:url('home/user/guan')}">关于我们</a></li>
+                    <li role="presentation"><a class="active" href="<?php echo url('home/index/index'); ?>">首页</a></li>
+                    <li role="presentation"><a href="<?php echo url('home/search/index',['type'=>0]); ?>">楼盘查询</a></li>
+                    <li role="presentation"><a href="<?php echo url('home/search/tuan',['type'=>0]); ?>">团购优惠</a></li>
+                    <li role="presentation"><a href="<?php echo url('home/index/buy'); ?>">买房指南</a></li>
+                    <li role="presentation"><a href="<?php echo url('home/news/index'); ?>">楼盘资讯</a></li>
+                    <li role="presentation"><a href="<?php echo url('home/user/guan'); ?>">关于我们</a></li>
                 </ul>
                 <span class="gou">购房热线 400-718-6686</span>
             </div>
@@ -962,14 +963,14 @@
             <div class="nav-left">
                 <img src="/static/home/imgs/logo.png" alt="" class="logopic">
                 <div class="select">
-                    <h4>{if $Think.cookie.cityname} {$Think.cookie.cityname} {else}杭州{/if}</h4>
+                    <h4><?php if(\think\Cookie::get('cityname')): ?> <?php echo \think\Cookie::get('cityname'); else: ?>杭州<?php endif; ?></h4>
                     <span class="iconfont iconxiajiantoushixinxiao"></span>
                     <!-- <img src="./img/sel.png" alt="" class="xuanze"> -->
                 </div>
                 <ul class="select-box">
-                        {foreach $city as $v} 
-                        <li data-v="{$v.id}">{$v.area_name}</li>
-                      {/foreach} 
+                        <?php foreach($city as $v): ?> 
+                        <li data-v="<?php echo $v['id']; ?>"><?php echo $v['area_name']; ?></li>
+                      <?php endforeach; ?> 
                     
                 </ul>
                
@@ -977,12 +978,12 @@
             </div>
             <div class="nav-mid">
                     <ul>
-                        <li><a class="active" href="{:url('home/index/index')}">首页</a></li>
-                        <li><a href="{:url('home/search/index',['type'=>0])}">楼盘查询</a></li>
-                        <li><a href="{:url('home/search/tuan',['type'=>0])}">团购优惠</a></li>
-                        <li><a href="{:url('home/index/buy')}">买房指南</a></li>
-                        <li><a href="{:url('home/news/index')}">楼盘资讯</a></li>
-                        <li><a href="{:url('home/user/guan')}">关于我们</a></li>
+                        <li><a class="active" href="<?php echo url('home/index/index'); ?>">首页</a></li>
+                        <li><a href="<?php echo url('home/search/index',['type'=>0]); ?>">楼盘查询</a></li>
+                        <li><a href="<?php echo url('home/search/tuan',['type'=>0]); ?>">团购优惠</a></li>
+                        <li><a href="<?php echo url('home/index/buy'); ?>">买房指南</a></li>
+                        <li><a href="<?php echo url('home/news/index'); ?>">楼盘资讯</a></li>
+                        <li><a href="<?php echo url('home/user/guan'); ?>">关于我们</a></li>
                     </ul>
             </div>
             <div class="nav-rig">
@@ -1002,19 +1003,19 @@
                 <script>
                     var i = 1;
                     var time = setInterval(function () {
-                        if (i > {$sum}) {
+                        if (i > <?php echo $sum; ?>) {
                             clearInterval(time);
                         }
                         i = i + 4;
                         $('.n-incro span').html(i);
                     }, 10);
                 </script>
-                <form id="bname" style="display: initial" action="{:url('home/search/index',['type'=>0])}"
+                <form id="bname" style="display: initial" action="<?php echo url('home/search/index',['type'=>0]); ?>"
                     method="post">
                     <input type="text" name="name" class="img-text" placeholder="请输入楼盘名称、地域">
                 </form>
                 <div id="find" class="img-btn"><img src="/static/home/imgs/icon-8.png">我要找房</div>
-                <div id="map" class="img-btn2"><a href="{:url('home/index/pmap')}"><img
+                <div id="map" class="img-btn2"><a href="<?php echo url('home/index/pmap'); ?>"><img
                             src="/static/home/imgs/icon-11.png">地图找房</a></div>
             </div>
 
@@ -1024,7 +1025,7 @@
 
           <div class="iconmain">
                 <div class="icon-center">
-                    <h3><span class="iconfont iconlaba"></span>杭州在售新房{$num}个</h3>
+                    <h3><span class="iconfont iconlaba"></span>杭州在售新房<?php echo $num; ?>个</h3>
                     <ul><li><img src="/static/home/imgs/icon1.png" alt=""></li></ul>
                     <ul><li><img src="/static/home/imgs/icon2.png" alt=""></li></ul>
                     <ul><li><img src="/static/home/imgs/icon3.png" alt=""></li></ul>
@@ -1037,14 +1038,14 @@
 
         <div class="dongs container-fluid visible-md-block visible-lg-block">
             <h3>楼盘动态 <span class="d-more">查看更多</span></h3>
-            {foreach $dons as $v}
+            <?php foreach($dons as $v): ?>
             <div class="d-list">
                 <div class="d-l-row"> 
-                    <h4><img src="/static/home/imgs/dt.png">&nbsp;&nbsp;&nbsp;&nbsp;<a href="{:url('home/content/content',['id'=>$v.bid])}">{$v.name}</a>最新房源动态 <span>{$v.create_time}</span></h4>
-                    <p>{$v.introduce}</p>
+                    <h4><img src="/static/home/imgs/dt.png">&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo url('home/content/content',['id'=>$v['bid']]); ?>"><?php echo $v['name']; ?></a>最新房源动态 <span><?php echo $v['create_time']; ?></span></h4>
+                    <p><?php echo $v['introduce']; ?></p>
                 </div>
             </div>
-            {/foreach}
+            <?php endforeach; ?>
             
             <div class="d-line l1"></div>
             <div class="d-line l2"></div>
@@ -1058,21 +1059,21 @@
             <h3>家园严选</h3>
             <p>好的新房，没那么贵</p>
             <ul>
-                {foreach $list as $v}
+                <?php foreach($list as $v): ?>
                 <li>
-                    <a href="{:url('home/content/content',['id'=>$v.id])}">
-                        <img src="{$v.building_img}" alt="">
+                    <a href="<?php echo url('home/content/content',['id'=>$v['id']]); ?>">
+                        <img src="<?php echo $v['building_img']; ?>" alt="">
                         <div  class="bg"></div>
-                        <h1>{$v.building_name}</h1>
+                        <h1><?php echo $v['building_name']; ?></h1>
                         <div class="yan-bot-box">
-                                <span class="new-name">{$v.city}</span>
-                                <span class="new-jia">建面：{$v.humianji}/m²</span>
-                                <span class="new-ji">{$v.danjia}元/m²起</span>
+                                <span class="new-name"><?php echo $v['city']; ?></span>
+                                <span class="new-jia">建面：<?php echo $v['humianji']; ?>/m²</span>
+                                <span class="new-ji"><?php echo $v['danjia']; ?>元/m²起</span>
                         </div>
                     </a>
                 </li>
                 
-                {/foreach}
+                <?php endforeach; ?>
             </ul>
         </div>
         </div>
@@ -1083,22 +1084,22 @@
                    
                     <p>团购新房，一个更省钱的家</p>
                     <ul>
-                        {foreach $tuan as $v}
+                        <?php foreach($tuan as $v): ?>
                         
                         <li>
-                                <a href="{:url('home/content/content',['id'=>$v.bid])}">
+                                <a href="<?php echo url('home/content/content',['id'=>$v['bid']]); ?>">
                                     <i></i>
                                     <span class="biao">团购优惠</span>
-                                    <img src="{$v.src}" alt="">
+                                    <img src="<?php echo $v['src']; ?>" alt="">
                                     <div class="tuan-bottom">
-                                        <h3>{$v.name}</h3>
-                                        <h4>{$v.city}</h4>
-                                        <p>建面：{$v.humianji}/m²<span>{$v.price}元/m²起</span></p>
+                                        <h3><?php echo $v['name']; ?></h3>
+                                        <h4><?php echo $v['city']; ?></h4>
+                                        <p>建面：<?php echo $v['humianji']; ?>/m²<span><?php echo $v['price']; ?>元/m²起</span></p>
                                     </div>
                                 
                                 </a>
                             </li>
-                        {/foreach}
+                        <?php endforeach; ?>
                     </ul>
         </div>
     </div>
@@ -1128,22 +1129,22 @@
                         <th>溢价率</th>
                         <th>竞得单位</th>
                     </tr>
-                    {foreach $tuis as $v}
+                    <?php foreach($tuis as $v): ?>
                     <tr>
-                        <td>{$v.name}</td>
-                        <td>{$v.code}</td>
-                        <td>{$v.area}</td>
-                        <td>{$v.for}</td>
-                        <td>{$v.rong}</td>
-                        <td>{$v.jianmian}</td>
-                        <td>{$v.qijia}</td>
-                        <td>{$v.loumian}</td>
-                        <td>{$v.chengjiao}</td>
-                        <td>{$v.loujia}</td>
-                        <td>{$v.yijia}</td>
-                        <td>{$v.unit}</td>
+                        <td><?php echo $v['name']; ?></td>
+                        <td><?php echo $v['code']; ?></td>
+                        <td><?php echo $v['area']; ?></td>
+                        <td><?php echo $v['for']; ?></td>
+                        <td><?php echo $v['rong']; ?></td>
+                        <td><?php echo $v['jianmian']; ?></td>
+                        <td><?php echo $v['qijia']; ?></td>
+                        <td><?php echo $v['loumian']; ?></td>
+                        <td><?php echo $v['chengjiao']; ?></td>
+                        <td><?php echo $v['loujia']; ?></td>
+                        <td><?php echo $v['yijia']; ?></td>
+                        <td><?php echo $v['unit']; ?></td>
                     </tr>
-                    {/foreach}
+                    <?php endforeach; ?>
                 </table>
             </div>
             <div class="n-3">
@@ -1159,44 +1160,44 @@
                         <th>均价</th>
                         <th>楼盘地址</th>
                     </tr>
-                    {foreach $yus as $v}
+                    <?php foreach($yus as $v): ?>
                     <tr>
-                        <td>{$v.name}</td>
-                        <td>{$v.code}</td>
-                        <td>{$v.time}</td>
-                        <td>{$v.zhuanghao}</td>
-                        <td>{$v.taoshu}</td>
-                        <td>{$v.humianji}</td>
-                        <td>{$v.type}</td>
-                        <td>{$v.junjia}</td>
-                        <td>{$v.address}</td>
+                        <td><?php echo $v['name']; ?></td>
+                        <td><?php echo $v['code']; ?></td>
+                        <td><?php echo $v['time']; ?></td>
+                        <td><?php echo $v['zhuanghao']; ?></td>
+                        <td><?php echo $v['taoshu']; ?></td>
+                        <td><?php echo $v['humianji']; ?></td>
+                        <td><?php echo $v['type']; ?></td>
+                        <td><?php echo $v['junjia']; ?></td>
+                        <td><?php echo $v['address']; ?></td>
                     </tr>
-                    {/foreach}
+                    <?php endforeach; ?>
                 </table>
             </div>
             <div class="n-4">
                 <div class="n-4-left">
                     <h6>今日可登记楼盘</h6>
                     <ul>
-                        {foreach $dengs as $v}
+                        <?php foreach($dengs as $v): ?>
                         <li>
-                            <span class="fj">{$v.area}</span>
-                            <span class="con">{$v.loupan}</span>
-                            <span class="dj">{$v.time}</span>
+                            <span class="fj"><?php echo $v['area']; ?></span>
+                            <span class="con"><?php echo $v['loupan']; ?></span>
+                            <span class="dj"><?php echo $v['time']; ?></span>
                         </li>
-                        {/foreach}
+                        <?php endforeach; ?>
                     </ul>
                 </div>
                 <div class="n-4-right">
                     <h6>今日摇号楼盘</h6>
                     <ul>
-                        {foreach $haos as $v}
+                        <?php foreach($haos as $v): ?>
                         <li>
-                            <span class="fj">{$v.area}</span>
-                            <span class="con">{$v.loupan}</span>
-                            <span class="dj">{$v.time}</span>
+                            <span class="fj"><?php echo $v['area']; ?></span>
+                            <span class="con"><?php echo $v['loupan']; ?></span>
+                            <span class="dj"><?php echo $v['time']; ?></span>
                         </li>
-                        {/foreach}
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
@@ -1209,22 +1210,22 @@
                     
                     <p>推荐好盘让你选房更轻松</p>
                     <ul>
-                        {foreach $tdengs as $v}
+                        <?php foreach($tdengs as $v): ?>
                         <li>
-                            <a href="{:url('home/content/content',['id'=>$v.id])}">
+                            <a href="<?php echo url('home/content/content',['id'=>$v['id']]); ?>">
                                 <i></i>
                                 <span class="biao">楼盘推荐</span>
-                                <img src="{$v.building_img}" alt="">
+                                <img src="<?php echo $v['building_img']; ?>" alt="">
                                 <div class="tuan-bottom">
-                                    <h3>{$v.building_name}</h3>
-                                    <h4>{$Think.cookie.cityname}</h4>
-                                    <p>建面：{$v.humianji}/m²<span>{$v.danjia}元/m²起</span></p>
+                                    <h3><?php echo $v['building_name']; ?></h3>
+                                    <h4><?php echo \think\Cookie::get('cityname'); ?></h4>
+                                    <p>建面：<?php echo $v['humianji']; ?>/m²<span><?php echo $v['danjia']; ?>元/m²起</span></p>
                                 </div>
                             
                             </a>
                         </li>
                         
-                        {/foreach}
+                        <?php endforeach; ?>
                     </ul>
         </div>
 </div>
@@ -1235,19 +1236,19 @@
           <div class="like-pic">
                 <div class="boutique-ul3">
                     <ul class="ul3-long">
-                        {foreach $success as $v}
+                        <?php foreach($success as $v): ?>
                             <li>
-                                <a href="{:url('home/index/chengjiaodetail')}">
+                                <a href="<?php echo url('home/index/chengjiaodetail'); ?>">
                                 <div class="house-pic"> </div>
-                                    <img src="{$v.img}"/>
+                                    <img src="<?php echo $v['img']; ?>"/>
                                
                                 <div class="name">
-                                     <h3>{$v.title}</h3>
-                                     <p>{$v.content} </p>
+                                     <h3><?php echo $v['title']; ?></h3>
+                                     <p><?php echo $v['content']; ?> </p>
                                 </div>
                              </a>
                             </li>
-                            {/foreach}
+                            <?php endforeach; ?>
                             
                           
                    </ul>
@@ -1272,30 +1273,30 @@
                    <h1>项目资讯</h1>
                    <p class="title-p">了解项目资讯，楼盘动态早知道</p>
                    <ul>
-                       {foreach $projects as $v}
+                       <?php foreach($projects as $v): ?>
                        <li>
-                           <a href="{:url('home/news/pro',['id'=>$v.id])}">
+                           <a href="<?php echo url('home/news/pro',['id'=>$v['id']]); ?>">
                                 <div class="zi-img">
-                                        <img src="{$v.img}" alt="">
+                                        <img src="<?php echo $v['img']; ?>" alt="">
                                     </div>
                                     <div class="zi-content">
-                                        <h2>{$v.title}</h2>
-                                        <p>{$v.content}</p>
-                                        <h4>项目资讯&nbsp;&nbsp;{$v.create_time}</h4>
+                                        <h2><?php echo $v['title']; ?></h2>
+                                        <p><?php echo $v['content']; ?></p>
+                                        <h4>项目资讯&nbsp;&nbsp;<?php echo $v['create_time']; ?></h4>
                                     </div>
                            </a>
                            
                        </li>
-                       {/foreach}
+                       <?php endforeach; ?>
                        
                    </ul>
             </div>
             <div class="xiang-rig">
                 <h3>新闻资讯</h3>
                 <ul>
-                    {foreach $news1 as $k=>$v}
-                    <li><a href="{:url('home/news/article',['id'=>$v.id])}"><span>{$k+1}</span><i>{$v.title}</i></a></li>
-                    {/foreach}
+                    <?php foreach($news1 as $k=>$v): ?>
+                    <li><a href="<?php echo url('home/news/article',['id'=>$v['id']]); ?>"><span><?php echo $k+1; ?></span><i><?php echo $v['title']; ?></i></a></li>
+                    <?php endforeach; ?>
                     
                 </ul>
 
@@ -1400,22 +1401,22 @@
 
         <div class="tou">
             <ul class="footer-top">
-                <a href="{:url('home/user/lian')}">
+                <a href="<?php echo url('home/user/lian'); ?>">
                     <li>联系我们</li>
                 </a>
-                <a href="{:url('home/user/guan')}">
+                <a href="<?php echo url('home/user/guan'); ?>">
                     <li>关于家园</li>
                 </a>
-                <a href="{:url('home/news/index')}">
+                <a href="<?php echo url('home/news/index'); ?>">
                     <li>楼盘资讯</li>
                 </a>
-                <a href="{:url('home/search/index',['type'=>0])}">
+                <a href="<?php echo url('home/search/index',['type'=>0]); ?>">
                     <li>楼盘查询</li>
                 </a>
-                <a href="{:url('home/index/buy')}">
+                <a href="<?php echo url('home/index/buy'); ?>">
                     <li>买房指南</li>
                 </a>
-                <a href="{:url('home/search/tuan',['type'=>0])}">
+                <a href="<?php echo url('home/search/tuan',['type'=>0]); ?>">
                     <li>团购优惠</li>
                 </a>
             </ul>
@@ -1426,9 +1427,9 @@
             <div class="youqing-l">
                 <span>友情链接：</span>
                 <ul class="youqing">
-                    {foreach $yous as $v}
-                        <li><a target="_blank" href="{$v.src}">{$v.title}</a></li>
-                        {/foreach}
+                    <?php foreach($yous as $v): ?>
+                        <li><a target="_blank" href="<?php echo $v['src']; ?>"><?php echo $v['title']; ?></a></li>
+                        <?php endforeach; ?>
                         
                 </ul>
                 <p>Copyright © 2017 - 2022 杭州亚汉网络有限公司有限公司版权所有 浙ICP备18057005号</p>
@@ -1467,7 +1468,7 @@
 
     <div class="container-fluid" style="padding:0;margin: 0">
         <header class="m-nav visible-xs-block .visible-sm--block">
-            <div class="m-address">{if $Think.cookie.cityname} {$Think.cookie.cityname} {else}杭州{/if}</div>
+            <div class="m-address"><?php if(\think\Cookie::get('cityname')): ?> <?php echo \think\Cookie::get('cityname'); else: ?>杭州<?php endif; ?></div>
 
             <img style="width:100%" src="/static/home/imgs/banner1.png.png" alt="">
             <img src="/static/home/imgs/Mine.png" alt="" class="m-user">
@@ -1478,27 +1479,27 @@
         </header>
         <nav class="visible-xs-block .visible-sm--block m-na">
             <ul>
-                <li><a href="{:url('home/search/index',['type'=>'0'])}">
+                <li><a href="<?php echo url('home/search/index',['type'=>'0']); ?>">
                         <img src="/static/home/imgs/estate_icon.png.png" alt="楼盘查询">
                         <p>楼盘查询</p>
                     </a>
                 </li>
-                <li><a href="{:url('home/search/tuan',['type'=>'0'])}">
+                <li><a href="<?php echo url('home/search/tuan',['type'=>'0']); ?>">
                         <img src="/static/home/imgs/group_icon.png.png" alt="团购优惠">
                         <p>团购优惠</p>
                     </a>
                 </li>
-                <li><a href="{:url('home/index/buy')}">
+                <li><a href="<?php echo url('home/index/buy'); ?>">
                         <img src="/static/home/imgs/guide_icon.png.png" alt="买房指南">
                         <p>买房指南</p>
                     </a>
                 </li>
-                <li><a href="{:url('home/news/index')}">
+                <li><a href="<?php echo url('home/news/index'); ?>">
                         <img src="/static/home/imgs/Information_icon.png.png" alt="楼盘资讯">
                         <p>楼盘资讯</p>
                     </a>
                 </li>
-                <li><a href="{:url('home/index/map')}">
+                <li><a href="<?php echo url('home/index/map'); ?>">
                         <img src="/static/home/imgs/map_icon.png.png" alt="地图找房">
                         <p>地图找房</p>
                     </a>
@@ -1519,14 +1520,14 @@
         </div>
         <div class="visible-xs-block .visible-sm--block m-jian"></div>
         <div class="m-dong visible-xs-block .visible-sm--block">
-            <h3>楼盘动态<span class="m-d-more">共<i>{$dnum}</i>条<img src="/static/home/imgs/m-go.png" alt=""></span></h3>
-            <!-- {foreach $dongs as $v}
+            <h3>楼盘动态<span class="m-d-more">共<i><?php echo $dnum; ?></i>条<img src="/static/home/imgs/m-go.png" alt=""></span></h3>
+            <!-- <?php foreach($dongs as $v): ?>
             <div class="m-d-con">
-                <h4><img src="/static/home/imgs/dt.png" alt="">{$v.name}最新房源动态</h4>
-                <p>{$v.introduce}</p>
-                <span class="m-d-span">{$v.create_time}</span>
+                <h4><img src="/static/home/imgs/dt.png" alt=""><?php echo $v['name']; ?>最新房源动态</h4>
+                <p><?php echo $v['introduce']; ?></p>
+                <span class="m-d-span"><?php echo $v['create_time']; ?></span>
             </div>
-            {/foreach}
+            <?php endforeach; ?>
             <div class="m-d-o o1"></div>
             <div class="m-d-o o2"></div>
             <div class="m-d-l l1"></div>
@@ -1759,13 +1760,13 @@
         <div class="m-jiao visible-xs-block .visible-sm--block">
             <h5>成交案例<span>更多成交案例 <img src="/static/home/imgs/m-go.png" alt=""></span></h5>
             <div class="m-j-con">
-                <a href="{:url('home/index/read',['id'=>$jiao.id])}">
+                <a href="<?php echo url('home/index/read',['id'=>$jiao['id']]); ?>">
                     <div class="j-c-left">
-                        <img src="{$jiao.img}" alt="">
+                        <img src="<?php echo $jiao['img']; ?>" alt="">
                     </div>
                     <div class="j-c-right">
-                        <h6>{$jiao.title}</h6>
-                        <p>{$jiao.content}</p>
+                        <h6><?php echo $jiao['title']; ?></h6>
+                        <p><?php echo $jiao['content']; ?></p>
                     </div>
                 </a>
             </div>
@@ -1808,36 +1809,36 @@
 
             <p class="m-zong">
                 <img src="/static/home/imgs/icon-9.png" alt="">
-                {if $Think.cookie.cityname} {$Think.cookie.cityname} {else}杭州{/if}在售新房{$num}个
+                <?php if(\think\Cookie::get('cityname')): ?> <?php echo \think\Cookie::get('cityname'); else: ?>杭州<?php endif; ?>在售新房<?php echo $num; ?>个
             </p>
         </div>
         <div class="visible-xs-block .visible-sm--block m-list">
             <div id="m-list-box">
-                {foreach $list as $v}
+                <?php foreach($list as $v): ?>
                 <div class="col-xs-12 m-row">
-                    <a href="{:url('home/content/index',['id'=>$v.id])}">
+                    <a href="<?php echo url('home/content/index',['id'=>$v['id']]); ?>">
                         <div class="col-xs-4 m-img">
-                            <img src="{$v.building_img}" alt="">
+                            <img src="<?php echo $v['building_img']; ?>" alt="">
                         </div>
                         <div class="col-xs-8 m-text">
-                            <h4>{$v.building_name} <span class="m-p-1">{$v.building_xiaoshou}</span></h4>
-                            <p class="m-price"><span>{$v.danjia}</span>元/m²</p>
+                            <h4><?php echo $v['building_name']; ?> <span class="m-p-1"><?php echo $v['building_xiaoshou']; ?></span></h4>
+                            <p class="m-price"><span><?php echo $v['danjia']; ?></span>元/m²</p>
                             <p class="m-xiang">
-                                <span>{$v.city}-{$v.qu}</span>
+                                <span><?php echo $v['city']; ?>-<?php echo $v['qu']; ?></span>
                                 <span>建面</span>
-                                <span>{$v.jianji}m²</span>
+                                <span><?php echo $v['jianji']; ?>m²</span>
                             </p>
                             <p class="m-icon">
-                                <span class="m-p-2">{$v.building_xiaoshou}</span>
-                                <span class="m-p-3">{$v.building_zhuangxiu}</span>
-                                <span class="m-p-3">{$v.building_ditie}</span>
+                                <span class="m-p-2"><?php echo $v['building_xiaoshou']; ?></span>
+                                <span class="m-p-3"><?php echo $v['building_zhuangxiu']; ?></span>
+                                <span class="m-p-3"><?php echo $v['building_ditie']; ?></span>
                             </p>
                         </div>
                     </a>
                 </div>
-                {/foreach}
+                <?php endforeach; ?>
                 <div class="col-xs-12 m-btn">
-                    <a href="{:url('home/search/index',['type'=>'0'])}">查看更多房源</a>
+                    <a href="<?php echo url('home/search/index',['type'=>'0']); ?>">查看更多房源</a>
                 </div>
             </div>
         </div>
@@ -1847,46 +1848,46 @@
 
         <div class="visible-xs-block .visible-sm--block m-tuans">
             <div id="m-tuans-box">
-                {foreach $tuan as $v}
+                <?php foreach($tuan as $v): ?>
                 <div class="col-xs-12 m-row">
-                    <a href="{:url('home/content/index',['id'=>$v.bid])}">
+                    <a href="<?php echo url('home/content/index',['id'=>$v['bid']]); ?>">
 
                         <div class="col-xs-4 m-img">
-                            <img src="{$v.src}" alt="">
+                            <img src="<?php echo $v['src']; ?>" alt="">
                         </div>
                     </a>
                     <div class="col-xs-8 m-text">
                         <h4>
-                            {$v.name}
+                            <?php echo $v['name']; ?>
                             <span class="m-xiangq">
                                 <img src="/static/home/imgs/xiangq.png" alt="">
                                 说明
                             </span> 
                         </h4>
-                        <p class="m-price"><span>{$v.price}</span>元/m²</p>
+                        <p class="m-price"><span><?php echo $v['price']; ?></span>元/m²</p>
                         <p class="m-xiang">
-                            <span>{$v.city}-{$v.qu}</span>
+                            <span><?php echo $v['city']; ?>-<?php echo $v['qu']; ?></span>
                             <span>建面</span>
-                            <span>{$v.jianmian}m²</span>
+                            <span><?php echo $v['jianmian']; ?>m²</span>
                         </p>
                         <p class="m-icon">
-                            <span class="m-p-1">{$v.xiaoshou}</span>
-                            <span class="m-p-2">{$v.zhuangxiu}</span>
-                            <span class="m-p-3">{$v.ditie}</span>
+                            <span class="m-p-1"><?php echo $v['xiaoshou']; ?></span>
+                            <span class="m-p-2"><?php echo $v['zhuangxiu']; ?></span>
+                            <span class="m-p-3"><?php echo $v['ditie']; ?></span>
                         </p>
                     </div>
                     <div class="col-xs-12 m-tu">
                         <p class="m-t-left">
-                            {$v.title}
+                            <?php echo $v['title']; ?>
                         </p>
                         <p class="m-t-right">
-                            活动时间：{$v.start_m}.{$v.start_d}—{$v.end_m}.{$v.end_d}
+                            活动时间：<?php echo $v['start_m']; ?>.<?php echo $v['start_d']; ?>—<?php echo $v['end_m']; ?>.<?php echo $v['end_d']; ?>
                         </p>
                     </div>
                 </div>
-                {/foreach}
+                <?php endforeach; ?>
                 <div class="col-xs-12 m-btn">
-                    <a href="{:url('home/search/tuan',['type'=>0])}">查看更多房源</a>
+                    <a href="<?php echo url('home/search/tuan',['type'=>0]); ?>">查看更多房源</a>
                 </div>
             </div>
             <div class="m-introduce">
@@ -1915,7 +1916,7 @@
             </div>
             <div class="m-listt">
                     <div id="m-p">
-                        <a href="{:url('home/news/pro',['id'=>$v.id])}">
+                        <a href="<?php echo url('home/news/pro',['id'=>$v['id']]); ?>">
                         <div class="row m-l">
                             <div class="col-xs-8 m-titlee">
                                 <h5>房地产行业集中度进一步提高百强 房企市场份额升...</h5>
@@ -1931,7 +1932,7 @@
            </div>
            <div class="m-listt">
             <div id="m-p">
-                <a href="{:url('home/news/pro',['id'=>$v.id])}">
+                <a href="<?php echo url('home/news/pro',['id'=>$v['id']]); ?>">
                 <div class="row m-l">
                     <div class="col-xs-8 m-titlee">
                         <h5>房地产行业集中度进一步提高百强 房企市场份额升...</h5>
@@ -1947,7 +1948,7 @@
            </div>
            <div class="m-listt">
             <div id="m-p">
-                <a href="{:url('home/news/pro',['id'=>$v.id])}">
+                <a href="<?php echo url('home/news/pro',['id'=>$v['id']]); ?>">
                 <div class="row m-l">
                     <div class="col-xs-8 m-titlee">
                         <h5>房地产行业集中度进一步提高百强 房企市场份额升...</h5>
@@ -2042,7 +2043,7 @@ var _hmt = _hmt || [];
                 }
                 var con=$(this).prev().prev().val();
                 $.post(
-                    "{:url('home/user/login')}",
+                    "<?php echo url('home/user/login'); ?>",
                     {'phone':tel},
                     function(res){
                         if(res.code==100){
@@ -2081,7 +2082,7 @@ var _hmt = _hmt || [];
                     alert('验证码不能为空');
                 }    
                 $.post(
-                    "{:url('home/content/tw')}",
+                    "<?php echo url('home/content/tw'); ?>",
                     {'ma':ma,'tel':tel,'con':con},
                     function(res){
                         if(res.code==200){
@@ -2097,7 +2098,7 @@ var _hmt = _hmt || [];
                 var tel=$(this).attr('data-v');
                 console.log(tel);
                 $.post(
-                    "{:url('home/user/login')}",
+                    "<?php echo url('home/user/login'); ?>",
                     {'phone':tel},
                     function(res){
                         if(res.code==100){
@@ -2141,7 +2142,7 @@ var _hmt = _hmt || [];
                 var tel=$('.gui-input').val();
                 var content=$('.gui-text').val();
                 $.post(
-                    "{:url('home/index/liuget')}",
+                    "<?php echo url('home/index/liuget'); ?>",
                     {
                         'tel':tel,
                         'content':content
@@ -2166,17 +2167,17 @@ var _hmt = _hmt || [];
                 $('.gui-con').animate({left:-gui},'1800');
             })
             $('.d-more').on('click',function(){
-                window.location.href="{:url('home/index/dongs')}"
+                window.location.href="<?php echo url('home/index/dongs'); ?>"
             })
             $('.m-xuan').on('click', function () {
-                window.location.href = "{:url('home/index/lius')}";
+                window.location.href = "<?php echo url('home/index/lius'); ?>";
             })
             $('.m-d-more').on('click', function () {
-                window.location.href = "{:url('home/index/dongs')}";
+                window.location.href = "<?php echo url('home/index/dongs'); ?>";
             })
             // 移动端、
             $('.m-jiao h5 span').on('click', function () {
-                window.location.href = "{:url('/home/index/jiao')}"
+                window.location.href = "<?php echo url('/home/index/jiao'); ?>"
             })
             // 新闻资讯修改
             $('.n-nav li').on('click', function () {
@@ -2206,7 +2207,7 @@ var _hmt = _hmt || [];
             })
             // 成交案例
             var timer = setInterval(up, 1500);
-            var n = {$n};
+            var n = <?php echo $n; ?>;
             var s = 0;
 
             function up() {
@@ -2241,10 +2242,10 @@ var _hmt = _hmt || [];
                 $('.zhao').show();
             })
             $('#map').on('click', function () {
-                window.location.href = "{:url('home/index/pmap')}"
+                window.location.href = "<?php echo url('home/index/pmap'); ?>"
             })
             $('.my').on('click', function () {
-                window.location.href = "{:url('home/user/zu')}";
+                window.location.href = "<?php echo url('home/user/zu'); ?>";
             })
             $('.city').on('click', function () {
                 $('.cities').slideToggle(200);
@@ -2253,7 +2254,7 @@ var _hmt = _hmt || [];
                 var city = $(this).attr('data-v');
                 var name = $(this).html();
                 $.post(
-                    "{:url('home/index/city')}", {
+                    "<?php echo url('home/index/city'); ?>", {
                         'id': city,
                         'name': name
                     },
@@ -2316,7 +2317,7 @@ var _hmt = _hmt || [];
                     'phone': phone
                 };
                 $.post(
-                    "{:url('home/user/login')}",
+                    "<?php echo url('home/user/login'); ?>",
                     data,
                     function (res) {
                         if (res.code == 100) {
@@ -2342,11 +2343,11 @@ var _hmt = _hmt || [];
                     return
                 }
                 $.post(
-                    "{:url('home/user/log')}",
+                    "<?php echo url('home/user/log'); ?>",
                     data,
                     function (res) {
                         if (res.code == 100) {
-                            window.location.href = "{:url('home/index/index')}";
+                            window.location.href = "<?php echo url('home/index/index'); ?>";
                         } else {
                             alert(res.msg);
                         }
@@ -2354,7 +2355,7 @@ var _hmt = _hmt || [];
                 )
             })
             $('.logout').on('click', function () {
-                window.location.href = "{:url('home/user/logout')}";
+                window.location.href = "<?php echo url('home/user/logout'); ?>";
             })
             var h = $(document).height();
             $('.zhao').css('height', h);
@@ -2390,19 +2391,19 @@ var _hmt = _hmt || [];
                 $('#m-tuans-box').show();
             })
             $('.m-user').on('click', function () {
-                window.location.href = "{:url('home/user/index')}";
+                window.location.href = "<?php echo url('home/user/index'); ?>";
             })
             $('.m-sou').on('click', function () {
-                window.location.href = "{:url('home/search/ss',['end'=>'index'])}";
+                window.location.href = "<?php echo url('home/search/ss',['end'=>'index']); ?>";
             })
             $('.m-address').on('click', function () {
-                window.location.href = "{:url('home/index/citys')}";
+                window.location.href = "<?php echo url('home/index/citys'); ?>";
             })
             $('#m_xia span').on('click', function () {
                 var id = $(this).attr('data-v');
                 var name = $(this).attr('data-name');
                 $.post(
-                    "{:url('home/index/city')}", {
+                    "<?php echo url('home/index/city'); ?>", {
                         'id': id,
                         'name': name
                     },

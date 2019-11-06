@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\dongs.html";i:1573030825;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -421,21 +422,21 @@
     <nav class="top-nav visible-lg-block">
         <div class="box">
             <ul>
-                <li><a href="{:url('home/index/index')}">家园首页</a></li>
-                <li><a href="{:url('home/search/index',['type'=>0])}">楼盘查询</a></li>
-                <li><a href="{:url('home/search/tuan',['type'=>0])}">团购优惠</a></li>
-                <li><a href="{:url('home/index/buy')}">买房指南</a></li>
-                <li><a href="{:url('home/news/index')}" class="active">楼盘资讯</a></li>
-                <li><a href="{:url('home/user/guan')}">关于家园</a></li>
+                <li><a href="<?php echo url('home/index/index'); ?>">家园首页</a></li>
+                <li><a href="<?php echo url('home/search/index',['type'=>0]); ?>">楼盘查询</a></li>
+                <li><a href="<?php echo url('home/search/tuan',['type'=>0]); ?>">团购优惠</a></li>
+                <li><a href="<?php echo url('home/index/buy'); ?>">买房指南</a></li>
+                <li><a href="<?php echo url('home/news/index'); ?>" class="active">楼盘资讯</a></li>
+                <li><a href="<?php echo url('home/user/guan'); ?>">关于家园</a></li>
             </ul>
-            {if $Think.session.user}
+            <?php if(\think\Session::get('user')): ?>
             <img class="jk" src="/static/home/imgs/icon-5.png" alt="">
-            <span class="user">{$Think.session.user.p}</span>
+            <span class="user"><?php echo \think\Session::get('user.p'); ?></span>
             <span class="logout">退出</span>
-            {else}
+            <?php else: ?>
             <img src="/static/home/imgs/icon-5.png" alt="">
             <span class="register">注册/登录</span>
-            {/if}
+            <?php endif; ?>
             <p>购房热线 &nbsp;400-718-6686</p>
         </div>
 
@@ -445,9 +446,9 @@
         <div class="box">
             <div class="top">
                 <img src="/static/home/imgs/logo2.png" alt="">
-                <p><i>{if $Think.cookie.cityname} {$Think.cookie.cityname} {else}杭州{/if}</i><img
+                <p><i><?php if(\think\Cookie::get('cityname')): ?> <?php echo \think\Cookie::get('cityname'); else: ?>杭州<?php endif; ?></i><img
                         src="/static/home/imgs/triangle.png" alt=""></p>
-                <form id="bname" style="display: initial" action="{:url('home/search/index',['type'=>0])}"
+                <form id="bname" style="display: initial" action="<?php echo url('home/search/index',['type'=>0]); ?>"
                     method="post">
                     <input type="text" name="name" placeholder="请输入楼盘名称、地域">
                     <span id="find"><img src="/static/home/imgs/icon-8.png">我要找房</span>
@@ -459,35 +460,35 @@
 
     <!-- content -->
     <div class="content visible-md-block visible-lg-block">
-        {foreach $dongs as $v}
+        <?php foreach($dongs as $v): ?>
         <div class="list">
-            <h5><a href="{:url('home/content/content',['id'=>$v.bid])}">{$v.name}</a>最新房源动态<span>{$v.create_time}</span></h5>
-            <p>{$v.introduce}</p>
+            <h5><a href="<?php echo url('home/content/content',['id'=>$v['bid']]); ?>"><?php echo $v['name']; ?></a>最新房源动态<span><?php echo $v['create_time']; ?></span></h5>
+            <p><?php echo $v['introduce']; ?></p>
         </div>
-        {/foreach}
+        <?php endforeach; ?>
         
         
-            {$dongs->render()}
+            <?php echo $dongs->render(); ?>
     </div>
 
     <footer class="container-fluid visible-md-block visible-lg-block">
         <ul class="footer-top">
-            <a href="{:url('home/user/lian')}">
+            <a href="<?php echo url('home/user/lian'); ?>">
                 <li>联系我们</li>
             </a>
-            <a href="{:url('home/user/guan')}">
+            <a href="<?php echo url('home/user/guan'); ?>">
                 <li>关于家园</li>
             </a>
-            <a href="{:url('home/news/index')}">
+            <a href="<?php echo url('home/news/index'); ?>">
                 <li>楼盘资讯</li>
             </a>
-            <a href="{:url('home/search/index',['type'=>0])}">
+            <a href="<?php echo url('home/search/index',['type'=>0]); ?>">
                 <li>楼盘查询</li>
             </a>
-            <a href="{:url('home/index/buy')}">
+            <a href="<?php echo url('home/index/buy'); ?>">
                 <li>买房指南</li>
             </a>
-            <a href="{:url('home/search/tuan',['type'=>0])}">
+            <a href="<?php echo url('home/search/tuan',['type'=>0]); ?>">
                 <li>团购优惠</li>
             </a>
         </ul>
@@ -503,13 +504,13 @@
             <h3>更多动态</h3>
         </div>
         <div class="m-dong visible-xs-block .visible-sm-block">
-            {foreach $ds as $v}
+            <?php foreach($ds as $v): ?>
             <div class="m-tai">
-                <h4><a href="{:url('home/content/index',['id'=>$v.bid])}">{$v.name}</a>最新房源动态</h4>
-                <p>{$v.introduce}</p>
-                <span>{$v.create_time}</span>
+                <h4><a href="<?php echo url('home/content/index',['id'=>$v['bid']]); ?>"><?php echo $v['name']; ?></a>最新房源动态</h4>
+                <p><?php echo $v['introduce']; ?></p>
+                <span><?php echo $v['create_time']; ?></span>
             </div>
-            {/foreach}
+            <?php endforeach; ?>
         </div>
     </div>
 </body>
