@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:61:"G:\jiayuan\tp2\public/../application/home\view\index\buy.html";i:1573117020;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -787,21 +788,21 @@ body {
         <nav class="top-nav visible-md-block visible-lg-block">
             <div class="box">
                 <ul>
-                    <li><a href="{:url('home/index/index')}">家园首页</a></li>
-                    <li><a href="{:url('home/search/index',['type'=>0])}">楼盘查询</a></li>
-                    <li><a href="{:url('home/search/tuan',['type'=>0])}">团购优惠</a></li>
-                    <li><a href="{:url('home/index/buy')}" class="active">买房指南</a></li>
-                    <li><a href="{:url('home/news/index')}">楼盘资讯</a></li>
-                    <li><a href="{:url('home/user/guan')}">关于家园</a></li>
+                    <li><a href="<?php echo url('home/index/index'); ?>">家园首页</a></li>
+                    <li><a href="<?php echo url('home/search/index',['type'=>0]); ?>">楼盘查询</a></li>
+                    <li><a href="<?php echo url('home/search/tuan',['type'=>0]); ?>">团购优惠</a></li>
+                    <li><a href="<?php echo url('home/index/buy'); ?>" class="active">买房指南</a></li>
+                    <li><a href="<?php echo url('home/news/index'); ?>">楼盘资讯</a></li>
+                    <li><a href="<?php echo url('home/user/guan'); ?>">关于家园</a></li>
                 </ul>
-                {if $Think.session.user}
+                <?php if(\think\Session::get('user')): ?>
                     <img class="jk" src="/static/home/imgs/icon-5.png" alt="">
-                    <span class="user">{$Think.session.user.p}</span>
+                    <span class="user"><?php echo \think\Session::get('user.p'); ?></span>
                     <span class="logout">退出</span>
-                    {else}
+                    <?php else: ?>
                     <img src="/static/home/imgs/icon-5.png" alt="家园新房">
                     <span class="register">注册/登录</span>
-                    {/if}
+                    <?php endif; ?>
                 <p>购房热线  &nbsp;400-718-6686</p>
             </div>
             
@@ -811,8 +812,8 @@ body {
                 <div class="box">
                     <div class="top">
                         <img src="/static/home/imgs/logo2.png" alt="">
-                        <p><i>{if $Think.cookie.cityname} {$Think.cookie.cityname} {else}杭州{/if}</i><img src="/static/home/imgs/triangle.png" alt=""></p>
-                         <form id="bname" style="display: initial" action="{:url('home/search/index',['type'=>0])}" method="post">
+                        <p><i><?php if(\think\Cookie::get('cityname')): ?> <?php echo \think\Cookie::get('cityname'); else: ?>杭州<?php endif; ?></i><img src="/static/home/imgs/triangle.png" alt=""></p>
+                         <form id="bname" style="display: initial" action="<?php echo url('home/search/index',['type'=>0]); ?>" method="post">
                         <input type="text" name="name" placeholder="请输入楼盘名称、地域">
                         <span id="find"><img src="/static/home/imgs/icon-8.png">我要找房</span>
                         </form>
@@ -1068,21 +1069,21 @@ body {
                 <div class="hot-loupan">
                       <h1>热门楼盘</h1>  
                     <ul>
-                        {foreach $tdengs as $v}
+                        <?php foreach($tdengs as $v): ?>
                          <li>
                              <div class="img-box">
-                                    <img src="{$v.building_img}" alt="">
+                                    <img src="<?php echo $v['building_img']; ?>" alt="">
                                     <i></i>
                                     <span>热门楼盘</span>
                              </div>
                             <div class="lou-content">
-                                    <h3>{$v.building_name}</h3>
-                                    <i>{$v.city}  |  {$v.building_address}</i>
-                                    <strong>建面：{$v.humianji}/m²</strong><br/>
-                                    <span>{$v.danjia}元/m²起</span>
+                                    <h3><?php echo $v['building_name']; ?></h3>
+                                    <i><?php echo $v['city']; ?>  |  <?php echo $v['building_address']; ?></i>
+                                    <strong>建面：<?php echo $v['humianji']; ?>/m²</strong><br/>
+                                    <span><?php echo $v['danjia']; ?>元/m²起</span>
                             </div>
                         </li>
-                        {/foreach}
+                        <?php endforeach; ?>
                         
 
                         
@@ -1142,22 +1143,22 @@ body {
     
             <div class="tou">
                 <ul class="footer-top">
-                    <a href="{:url('home/user/lian')}">
+                    <a href="<?php echo url('home/user/lian'); ?>">
                         <li>联系我们</li>
                     </a>
-                    <a href="{:url('home/user/guan')}">
+                    <a href="<?php echo url('home/user/guan'); ?>">
                         <li>关于家园</li>
                     </a>
-                    <a href="{:url('home/news/index')}">
+                    <a href="<?php echo url('home/news/index'); ?>">
                         <li>楼盘资讯</li>
                     </a>
-                    <a href="{:url('home/search/index',['type'=>0])}">
+                    <a href="<?php echo url('home/search/index',['type'=>0]); ?>">
                         <li>楼盘查询</li>
                     </a>
-                    <a href="{:url('home/index/buy')}">
+                    <a href="<?php echo url('home/index/buy'); ?>">
                         <li>买房指南</li>
                     </a>
-                    <a href="{:url('home/search/tuan',['type'=>0])}">
+                    <a href="<?php echo url('home/search/tuan',['type'=>0]); ?>">
                         <li>团购优惠</li>
                     </a>
                 </ul>
@@ -1168,9 +1169,9 @@ body {
                 <div class="youqing-l">
                     <span>友情链接：</span>
                     <ul class="youqing">
-                        {foreach $yous as $v}
-                            <li><a target="_blank" href="{$v.src}">{$v.title}</a></li>
-                        {/foreach}
+                        <?php foreach($yous as $v): ?>
+                            <li><a target="_blank" href="<?php echo $v['src']; ?>"><?php echo $v['title']; ?></a></li>
+                        <?php endforeach; ?>
                             
                     </ul>
                     <p>Copyright © 2017 - 2022 杭州亚汉网络有限公司有限公司版权所有 浙ICP备18057005号</p>
@@ -1421,7 +1422,7 @@ $('#find').on('click',function(){
             $('.n').hide();
             $('.l').hide();
 	$('.user').on('click',function(){
-                    window.location.href="{:url('home/user/zu')}";
+                    window.location.href="<?php echo url('home/user/zu'); ?>";
                 })
 	$('.req').on('click',function(){
                 $('.weiter').show(150);
@@ -1462,7 +1463,7 @@ $('#find').on('click',function(){
                 }
                 var that=$(this)
                 $.post(
-                    "{:url('home/content/port1')}",
+                    "<?php echo url('home/content/port1'); ?>",
                     data,
                     function(res){
                         if(res.code==100){
@@ -1550,7 +1551,7 @@ $('#find').on('click',function(){
 				var interval = setInterval(fn, 1000);
                 var data={'phone':phone};
                 $.post(
-                    "{:url('home/user/login')}",
+                    "<?php echo url('home/user/login'); ?>",
                     data,
                     function(res){
                         if(res.code==100){
@@ -1567,11 +1568,11 @@ $('#find').on('click',function(){
                 var code=$(this).prev().prev().val();
                 var data={'phone':phone,'code':code};
                 $.post(
-                    "{:url('home/user/log')}",
+                    "<?php echo url('home/user/log'); ?>",
                     data,
                     function(res){
                         if(res.code==100){
-                            window.location.href="{:url('home/index/index')}";
+                            window.location.href="<?php echo url('home/index/index'); ?>";
                         }else{
                             alert(res.msg);
                         }
@@ -1579,7 +1580,7 @@ $('#find').on('click',function(){
                 )
             })
             $('.logout').on('click',function(){
-                window.location.href="{:url('home/user/logout')}";
+                window.location.href="<?php echo url('home/user/logout'); ?>";
             })
             var h=$(document).height();
             $('.zhao').css('height',h);
@@ -1632,7 +1633,7 @@ $('#find').on('click',function(){
                 }
                 var that=$(this)
                 $.post(
-                    "{:url('home/content/port1')}",
+                    "<?php echo url('home/content/port1'); ?>",
                     data,
                     function(res){
                         if(res.code==100){

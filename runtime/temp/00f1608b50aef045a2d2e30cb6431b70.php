@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\index\read.html";i:1573107493;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -328,18 +329,18 @@
         </div>
         <div class="m-content">
             <div class="left">
-                <img src="{$data.img}" alt="">
+                <img src="<?php echo $data['img']; ?>" alt="">
             </div>
             <div class="right">
                 <p class="ct">成交用户</p>
-                <p class="cx">{$data.name}</p>
+                <p class="cx"><?php echo $data['name']; ?></p>
                 <p class="ct">成交时间</p>
-                <p class="cx">{$data.time}</p>
+                <p class="cx"><?php echo $data['time']; ?></p>
                 <p class="ct">成交楼盘</p>
-                <p class="cv">{$data.lou}</p>
+                <p class="cv"><?php echo $data['lou']; ?></p>
             </div>
             <p class="nei">
-                {$data.content}
+                <?php echo $data['content']; ?>
             </p>
         </div>
 
@@ -368,7 +369,7 @@
                     <p>验证码已发送到<span>187****4376</span>，请注意查看</p>
                     <input type="text" placeholder="请输入验证码">
                     <button class="port1">确定</button>
-                    <input type="hidden" value="{$data.lou}">
+                    <input type="hidden" value="<?php echo $data['lou']; ?>">
                     <input type="hidden" value="">
                     <button class="t-b-scode">获取验证码</button>
                     <p class="tishi">
@@ -521,7 +522,7 @@
                 // console.log(data);return
                 var that=$(this)
                 $.post(
-                    "{:url('home/content/port1')}",
+                    "<?php echo url('home/content/port1'); ?>",
                     data,
                     function(res){
                         if(res.code==100){
@@ -570,7 +571,7 @@
                var  proType= $('.weiter .t-top h6').html();
                console.log(projectName,proType);
                 $.post(
-                    "{:url('home/user/login')}",
+                    "<?php echo url('home/user/login'); ?>",
                     {
                          phone:phone,
                          building_name:projectName,

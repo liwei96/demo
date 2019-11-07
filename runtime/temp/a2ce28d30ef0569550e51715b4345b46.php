@@ -1,13 +1,14 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\index.html";i:1573106224;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="家园新房为您提供{$data.building_name}售楼电话，价格，户型图，动态以及楼盘周边服务和物业相关信息" />
+    <meta name="description" content="家园新房为您提供<?php echo $data['building_name']; ?>售楼电话，价格，户型图，动态以及楼盘周边服务和物业相关信息" />
 
-<meta name="keywords" content="{$data.keys}" />
-    <title>{$data.building_name}-家园新房-楼盘详情-动态</title>
+<meta name="keywords" content="<?php echo $data['keys']; ?>" />
+    <title><?php echo $data['building_name']; ?>-家园新房-楼盘详情-动态</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/home/css/jSlider.min.css">
@@ -257,52 +258,52 @@ var _hmt = _hmt || [];
                 <img class="m-home" src="/static/home/imgs/m-home.png" alt="主页">
                 <div class="m-luns">
                         <div class="jSlider" id="slider1" data-navigation="none">
-                            {foreach $xiaoimgs as $v}
-                            <div><img src="{$v.x_big}" style="width:100%"></div>
-                            {/foreach}
+                            <?php foreach($xiaoimgs as $v): ?>
+                            <div><img src="<?php echo $v['x_big']; ?>" style="width:100%"></div>
+                            <?php endforeach; ?>
                         </div>
                 </div>
             </div>
 
         <div class="m-incro visible-xs-block .visible-sm-block">
-            <h3>{$data.building_name}</h3>
+            <h3><?php echo $data['building_name']; ?></h3>
             <div class="m-ic-icons">
                 <span class="m-zai">在售</span>
-                <span class="m-jing">{$data.building_zhuangxiu}</span>
-                <span>{$data.building_ditie}</span>
+                <span class="m-jing"><?php echo $data['building_zhuangxiu']; ?></span>
+                <span><?php echo $data['building_ditie']; ?></span>
                 <i class="m-ishou"><img src="/static/home/imgs/forked.png" alt=""><i>收藏</i></i>
             </div>
             <ul class="m-jtop">
                 <li>
-                    <i>{$data.zong}万起</i>
+                    <i><?php echo $data['zong']; ?>万起</i>
                     <span>总价</span>
                 </li>
                 <li>
-                    <i>{$data.building_huxing}</i>
+                    <i><?php echo $data['building_huxing']; ?></i>
                     <span>户型</span>
                 </li>
                 <li>
-                    <i>{$data.humianji}/m²</i>
+                    <i><?php echo $data['humianji']; ?>/m²</i>
                     <span>建面</span>
                 </li>
             </ul>
             
             <div class="m-ibottom">
                 <ul>
-                    <li>单价&nbsp;:&nbsp;&nbsp;&nbsp;<span class="m-pric"><span>{$data.danjia}</span>元/m²起</span></li>
-                    <li>装修&nbsp;:&nbsp;&nbsp;&nbsp;<span>{$data.building_zhuangxiu}</span></li>
-                    <li>层高&nbsp;:&nbsp;&nbsp;&nbsp;<span>{$data.cenggao}</span></li>
+                    <li>单价&nbsp;:&nbsp;&nbsp;&nbsp;<span class="m-pric"><span><?php echo $data['danjia']; ?></span>元/m²起</span></li>
+                    <li>装修&nbsp;:&nbsp;&nbsp;&nbsp;<span><?php echo $data['building_zhuangxiu']; ?></span></li>
+                    <li>层高&nbsp;:&nbsp;&nbsp;&nbsp;<span><?php echo $data['cenggao']; ?></span></li>
                 </ul>
                 <ul>
-                    <li>类型&nbsp;:&nbsp;&nbsp;&nbsp;<span class="m-pric"><span>{$data.building_xingshi}</span></span></li>
-                    <li>开盘&nbsp;:&nbsp;&nbsp;&nbsp;<span>{$data.kaitime}</span></li>
-                    <li>地址&nbsp;:&nbsp;&nbsp;&nbsp;<span>{$data.building_address}</span></li>
+                    <li>类型&nbsp;:&nbsp;&nbsp;&nbsp;<span class="m-pric"><span><?php echo $data['building_xingshi']; ?></span></span></li>
+                    <li>开盘&nbsp;:&nbsp;&nbsp;&nbsp;<span><?php echo $data['kaitime']; ?></span></li>
+                    <li>地址&nbsp;:&nbsp;&nbsp;&nbsp;<span><?php echo $data['building_address']; ?></span></li>
                 </ul>
             </div>
             <p id="m_more">更多楼盘信息</p>
             <div class="m-new">
-                <a href="#" data-agl-cvt="5" {if $Think.session.user}class="q-bian" data-v="变价通知"{else}class="p1" data-v="变价通知"{/if}><img src="/static/home/imgs/m-change.png">最新变价通知</a>
-                <a href="#" data-agl-cvt="5" {if $Think.session.user}class="q-bian" data-v="开盘通知"{else}class="p1" data-v="开盘通知"{/if}><img src="/static/home/imgs/m-open.png">最新开盘通知</a>
+                <a href="#" data-agl-cvt="5" <?php if(\think\Session::get('user')): ?>class="q-bian" data-v="变价通知"<?php else: ?>class="p1" data-v="变价通知"<?php endif; ?>><img src="/static/home/imgs/m-change.png">最新变价通知</a>
+                <a href="#" data-agl-cvt="5" <?php if(\think\Session::get('user')): ?>class="q-bian" data-v="开盘通知"<?php else: ?>class="p1" data-v="开盘通知"<?php endif; ?>><img src="/static/home/imgs/m-open.png">最新开盘通知</a>
             </div>
         </div>  
         <div class="m-image visible-xs-block .visible-sm-block">
@@ -314,31 +315,31 @@ var _hmt = _hmt || [];
 	
         </div>
         <div class="m-dong visible-xs-block .visible-sm-block">
-            <h3 id="m_dong">楼盘动态<span>共{$num}条<img src="/static/home/imgs/m-go.png" alt=""></span></h3>
+            <h3 id="m_dong">楼盘动态<span>共<?php echo $num; ?>条<img src="/static/home/imgs/m-go.png" alt=""></span></h3>
 
-            {foreach $dongs as $v}
+            <?php foreach($dongs as $v): ?>
             <div class="m-tai m-d">
-                <h4><img src="/static/home/imgs/dt.png" alt="">{$data.building_name}最新房源动态</h4>
-                <p>{$v.introduce}</p>
-                <span>最近更新时间：{$v.create_time}</span>
+                <h4><img src="/static/home/imgs/dt.png" alt=""><?php echo $data['building_name']; ?>最新房源动态</h4>
+                <p><?php echo $v['introduce']; ?></p>
+                <span>最近更新时间：<?php echo $v['create_time']; ?></span>
             </div>
-            {/foreach}
+            <?php endforeach; ?>
             
             <div class="m-d-jiao m-d">
-                <h4><img src="/static/home/imgs/jf.png" alt="">预计交房时间：{$data.jiaotime}</h4>
+                <h4><img src="/static/home/imgs/jf.png" alt="">预计交房时间：<?php echo $data['jiaotime']; ?></h4>
             </div>
-	    {foreach $jia as $v}
+	    <?php foreach($jia as $v): ?>
             <div class="m-d-jia m-d">
-                <h4><img src="/static/home/imgs/jt.png" alt="">最新加推时间：{$v.create_time}</h4>
-                <p>{$v.introduce}</p>
-                <span>最近更新时间：{$v.create_time}</span>
+                <h4><img src="/static/home/imgs/jt.png" alt="">最新加推时间：<?php echo $v['create_time']; ?></h4>
+                <p><?php echo $v['introduce']; ?></p>
+                <span>最近更新时间：<?php echo $v['create_time']; ?></span>
             </div>
-            {/foreach}
+            <?php endforeach; ?>
             <div class="m-d-jiao m-d">
-                <h4><img src="/static/home/imgs/sk.png" alt="">首开时间：{$data.kaitime}</h4>
+                <h4><img src="/static/home/imgs/sk.png" alt="">首开时间：<?php echo $data['kaitime']; ?></h4>
             </div>
             <div class="m-d-jiao m-d">
-                <h4><img src="/static/home/imgs/nd.png" alt="">拿地时间：{$data.n_time}</h4>
+                <h4><img src="/static/home/imgs/nd.png" alt="">拿地时间：<?php echo $data['n_time']; ?></h4>
             </div>
             <div class="t-o o1"></div>
             <div class="t-o o2"></div>
@@ -350,62 +351,62 @@ var _hmt = _hmt || [];
             <div class="t-l l3"></div>
             <div class="t-l l4"></div>
 
-            <button data-agl-cvt="5" {if $Think.session.user}class="q-bian" data-v="最新动态"{else}class="p1" data-v="最新动态"{/if} >获取最新动态</button>
+            <button data-agl-cvt="5" <?php if(\think\Session::get('user')): ?>class="q-bian" data-v="最新动态"<?php else: ?>class="p1" data-v="最新动态"<?php endif; ?> >获取最新动态</button>
             
         </div>
         <div class="m-line visible-xs-block .visible-sm-block"></div>
         <div class="m-you visible-xs-block .visible-sm-block">
             <h3>购房领优惠</h3>
-            <img class="m-y-g p1" data-agl-cvt="5" {if $Think.session.user}class="q-bian" data-v="我要优惠"{else} data-v="我要优惠"{/if} src="/static/home/imgs/yh.gif" alt="">
+            <img class="m-y-g p1" data-agl-cvt="5" <?php if(\think\Session::get('user')): ?>class="q-bian" data-v="我要优惠"<?php else: ?> data-v="我要优惠"<?php endif; ?> src="/static/home/imgs/yh.gif" alt="">
         </div>
         <div class="m-line visible-xs-block .visible-sm-block"></div>
         
         <div class="m-hu visible-xs-block .visible-sm-block">
             <h3>主力户型<span class="m-h-more">更多户型<img src="/static/home/imgs/m-go.png" alt=""></span></h3>
-            {foreach huimgs as $v}
+            <?php foreach($huimgs as $v): ?>
             <div class="h-c">
                 <div class="col-xs-4 h-c-i">
-                    <a href="{:url('home/content/hu',['id'=>$v.id,'bid'=>$data.id])}">
-                        <img src="{$v.h_small}" alt="">
+                    <a href="<?php echo url('home/content/hu',['id'=>$v['id'],'bid'=>$data['id']]); ?>">
+                        <img src="<?php echo $v['h_small']; ?>" alt="">
                     </a>
                 </div>
                 <div class="col-xs-8 h-c-c">
                     <div class="h-t">
-                        <h4>{$v.content}</h4>
+                        <h4><?php echo $v['content']; ?></h4>
                         <span class="h-t-z">在售</span>
-                        <span class="h-t-m"><i>{$v.jia}</i>万起</span>
+                        <span class="h-t-m"><i><?php echo $v['jia']; ?></i>万起</span>
                     </div>
-                    <div class="sp">特点：{$v.te}</div>
-                    <div class="sp">类型：{$v.lei}</div>
-                    <div class="sp sp-f">户型分析：{$v.fen}</div>
+                    <div class="sp">特点：<?php echo $v['te']; ?></div>
+                    <div class="sp">类型：<?php echo $v['lei']; ?></div>
+                    <div class="sp sp-f">户型分析：<?php echo $v['fen']; ?></div>
                 </div>
             </div>
-            {/foreach}
+            <?php endforeach; ?>
             
-                <button data-agl-cvt="5" {if $Think.session.user}class="q-bian" data-v="了解详细户型"{else}class="p1" data-v="了解详细户型"{/if} >了解详细户型</button>
+                <button data-agl-cvt="5" <?php if(\think\Session::get('user')): ?>class="q-bian" data-v="了解详细户型"<?php else: ?>class="p1" data-v="了解详细户型"<?php endif; ?> >了解详细户型</button>
         </div>
          <!-- 留言 -->
-        <div class="m-xuan visible-xs-block .visible-sm-block" data-v="{$data.building_name}">
+        <div class="m-xuan visible-xs-block .visible-sm-block" data-v="<?php echo $data['building_name']; ?>">
             <img src="/static/home/imgs/m-liu.png" alt="">
         </div>
         <div class="m-line visible-xs-block .visible-sm-block"></div>
         <div class="m-yu visible-xs-block .visible-sm-block">
             <h3>您预约、我接送</h3>
             <img src="/static/home/imgs/yy.png" alt="">
-            <button data-agl-cvt="5" {if $Think.session.user}class="q-bian" data-v="预约看房"{else}class="p1" data-v="预约看房"{/if} >我要看房</button>
+            <button data-agl-cvt="5" <?php if(\think\Session::get('user')): ?>class="q-bian" data-v="预约看房"<?php else: ?>class="p1" data-v="预约看房"<?php endif; ?> >我要看房</button>
         </div>
         <div class="m-line visible-xs-block .visible-sm-block"></div>
         <div class="m-fen visible-xs-block .visible-sm-block">
             <h3>对比分析资料<span class="m-more-fen">详细分析<img src="/static/home/imgs/m-go.png" alt=""></span></h3>
             <h4>投资分析</h4>
-            <p>1、{$tou.cone}</p>
-            <p>2、{$tou.ctwo}</p>
+            <p>1、<?php echo $tou['cone']; ?></p>
+            <p>2、<?php echo $tou['ctwo']; ?></p>
             <p>3、...</p>
             <h4>宜居分析</h4>
-            <p>1、{$yi.cone}</p>
-            <p>2、{$yi.ctwo}</p>
+            <p>1、<?php echo $yi['cone']; ?></p>
+            <p>2、<?php echo $yi['ctwo']; ?></p>
             <p>3、...</p>
-            <button data-agl-cvt="5" {if $Think.session.user}class="q-bian" data-v="获取详细分析资料"{else}class="p1" data-v="获取详细分析资料"{/if} >获取详细分析资料</button>
+            <button data-agl-cvt="5" <?php if(\think\Session::get('user')): ?>class="q-bian" data-v="获取详细分析资料"<?php else: ?>class="p1" data-v="获取详细分析资料"<?php endif; ?> >获取详细分析资料</button>
         </div>
         <div class="m-line visible-xs-block .visible-sm-block"></div>
         <div class="m-ling visible-xs-block .visible-sm-block">
@@ -416,7 +417,7 @@ var _hmt = _hmt || [];
                 <p>1.没领地图，许多人后悔买错了房子</p>
                 <p>2.楼盘价格走势及商业分析报告资料</p>
             </div>
-            <button data-agl-cvt="5" {if $Think.session.user}class="q-bian" data-v="领取免费资料"{else}class="p1" data-v="领取免费资料"{/if} >我要领取地图</button>
+            <button data-agl-cvt="5" <?php if(\think\Session::get('user')): ?>class="q-bian" data-v="领取免费资料"<?php else: ?>class="p1" data-v="领取免费资料"<?php endif; ?> >我要领取地图</button>
         </div>
         <div class="m-line visible-xs-block .visible-sm-block"></div>
         <div class="m-huo visible-xs-block .visible-sm-block">
@@ -428,13 +429,13 @@ var _hmt = _hmt || [];
                     <th>成交套数</th>
                     <th>成交金额</th>
                 </tr>
-                {foreach $all as $v}
+                <?php foreach($all as $v): ?>
                 <tr>
-                    <td>{$v[0]}</td>
-                    <td>{$v[1]}套</td>
+                    <td><?php echo $v[0]; ?></td>
+                    <td><?php echo $v[1]; ?>套</td>
                     <td>***万</td>
                 </tr>
-                {/foreach}
+                <?php endforeach; ?>
                 
             </table>
             <div class="m-btns">
@@ -447,7 +448,7 @@ var _hmt = _hmt || [];
         <div class="m-dai visible-xs-block .visible-sm-block">
             <h3>楼盘问答<span>更多问答<img src="/static/home/imgs/m-go.png" alt=""></span></h3>
             <div class="m-d-content">
-                <img src="/static/home/imgs/people.png" alt="{$Think.session.user.fork}">
+                <img src="/static/home/imgs/people.png" alt="<?php echo \think\Session::get('user.fork'); ?>">
                 <div>
                     <p class="m-d-name">倪丽丽<span>金牌置业顾问</span></p>
                     <p class="m-d-fen">评分5.0分</p>
@@ -492,25 +493,25 @@ var _hmt = _hmt || [];
                     </li>
                 </ul>
             </div>
-            <button data-agl-cvt="5" {if $Think.session.user}class="q-bian" data-v="楼盘周边信息"{else}class="p1" data-v="楼盘周边信息"{/if} >获取周边信息</button>
+            <button data-agl-cvt="5" <?php if(\think\Session::get('user')): ?>class="q-bian" data-v="楼盘周边信息"<?php else: ?>class="p1" data-v="楼盘周边信息"<?php endif; ?> >获取周边信息</button>
         </div>
         <div class="m-line visible-xs-block .visible-sm-block"></div>
         
         <div class="m-dian visible-xs-block .visible-sm-block">
             <h4>楼盘点评<span id="m_d_more">更多评论<img src="/static/home/imgs/m-go.png" alt=""></span></h4>
-            {foreach $pings as $v}
+            <?php foreach($pings as $v): ?>
             <div class="m-ping">
                 <div class="m-p-t">
                     <img class="p-t-img" src="/static/home/imgs/Mine.png" alt="">
                     <div class="p-t-user">
-                        <p class="t-u-tel">{$v.tel}</p>
-                        <p class="t-u-time">{$v.create_time}</p>
+                        <p class="t-u-tel"><?php echo $v['tel']; ?></p>
+                        <p class="t-u-time"><?php echo $v['create_time']; ?></p>
                     </div>
-                    <span class="cnm"><input type="hidden" value="{$v.id}"><img class="p-t-g" data-v="{$v.num}" src="/static/home/imgs/good.png" alt=""><i style="font-style:normal">{$v.num}</i></span>
+                    <span class="cnm"><input type="hidden" value="<?php echo $v['id']; ?>"><img class="p-t-g" data-v="<?php echo $v['num']; ?>" src="/static/home/imgs/good.png" alt=""><i style="font-style:normal"><?php echo $v['num']; ?></i></span>
                 </div>
-                <p class="m-p-p">{$v.content}</p>
+                <p class="m-p-p"><?php echo $v['content']; ?></p>
             </div>
-            {/foreach}
+            <?php endforeach; ?>
             <button data-agl-cvt="5" class="m-d-x">写评论</button>
         </div>
         <div class="m-line visible-xs-block .visible-sm-block"></div>
@@ -537,32 +538,32 @@ var _hmt = _hmt || [];
             <h3>相似楼盘</h3>
             <div class="visible-xs-block .visible-sm--block m-list">
                     <div id="m-list-box">
-                        {foreach $xiangs as $v}  
+                        <?php foreach($xiangs as $v): ?>  
                             <div class="col-xs-12 m-row">
-                                    <a href="{:url('home/content/index',['id'=>$v.id])}">
+                                    <a href="<?php echo url('home/content/index',['id'=>$v['id']]); ?>">
                                     <div class="col-xs-4 m-img">
-                                        <img src="{$v.building_img}" alt="">
+                                        <img src="<?php echo $v['building_img']; ?>" alt="">
                                     </div>
                                     <div class="col-xs-8 m-text">
                                         <h4>
-                                            {$v.building_name} 
-                                            <span class="m-p-1">{$v.building_xiaoshou}</span>
+                                            <?php echo $v['building_name']; ?> 
+                                            <span class="m-p-1"><?php echo $v['building_xiaoshou']; ?></span>
                                         </h4>
-                                        <p class="m-price"><span>{$v.danjia}</span>元/m²</p>
+                                        <p class="m-price"><span><?php echo $v['danjia']; ?></span>元/m²</p>
                                         <p class="m-xiang">
-                                            <span>{$v.city}-{$v.qu}</span>
+                                            <span><?php echo $v['city']; ?>-<?php echo $v['qu']; ?></span>
                                             <span>建面</span>
-                                            <span>{$v.humianji}m²</span>
+                                            <span><?php echo $v['humianji']; ?>m²</span>
                                         </p>
                                         <p class="m-icon">
                                             
-                                            <span class="m-p-2">{$v.building_zhuangxiu}</span>
-                                            <span class="m-p-3">{$v.building_ditie}</span>
+                                            <span class="m-p-2"><?php echo $v['building_zhuangxiu']; ?></span>
+                                            <span class="m-p-3"><?php echo $v['building_ditie']; ?></span>
                                         </p>
                                     </div>
                                     </a>
                                 </div>
-                                {/foreach}
+                                <?php endforeach; ?>
                     </div>
                     
                 </div>
@@ -578,7 +579,7 @@ var _hmt = _hmt || [];
 	
         </div>
         <div class="m-botnav visible-xs-block .visible-sm-block">
-            <p data-agl-cvt="5" id="m_shou" data_v="{$data.id}">{if in_array($v.id,$Think.session.fork)}<img style="margin-left:17%" src="/static/home/imgs/fork2.png" alt="">已收藏{else}<img src="/static/home/imgs/forked.png" alt="">收藏{/if}</p>
+            <p data-agl-cvt="5" id="m_shou" data_v="<?php echo $data['id']; ?>"><?php if(in_array($v['id'],\think\Session::get('fork'))): ?><img style="margin-left:17%" src="/static/home/imgs/fork2.png" alt="">已收藏<?php else: ?><img src="/static/home/imgs/forked.png" alt="">收藏<?php endif; ?></p>
             <a data-agl-cvt="5" href="tel:400-718-6686"><button class="m-pho">电话咨询</button></a>
             <button data-agl-cvt="5" class="m-y p1" data-v="预约看房">预约看房</button>
         </div>
@@ -594,7 +595,7 @@ var _hmt = _hmt || [];
                 <div class="m-d-content">
                     <textarea name="" id="" cols="30" rows="10" placeholder="在这里发表您的意见"></textarea>
                     <button class="f-b-p-l">发表点评</button>
-                    <input type="hidden" name="" value="{$data.id}">
+                    <input type="hidden" name="" value="<?php echo $data['id']; ?>">
                 </div>
             </div>
             <div class="m-p-succ">
@@ -628,7 +629,7 @@ var _hmt = _hmt || [];
                         <p>验证码已发送到<span>187****4376</span>，请注意查看</p>
                         <input type="text" placeholder="请输入验证码">
                         <button class="port1">确定</button>
-                        <input type="hidden" value="{$data.building_name}">
+                        <input type="hidden" value="<?php echo $data['building_name']; ?>">
                         <input type="hidden" value="">
                         <button class="t-b-scode">获取验证码</button>
                         <p class="tishi">
@@ -690,7 +691,7 @@ var _hmt = _hmt || [];
         xAxis:[
             {
               type : 'category',
-              data:['{$reallt[0]}','{$reallt[1]}','{$reallt[2]}','{$reallt[3]}','{$reallt[4]}','{$reallt[5]}','{$reallt[6]}'],
+              data:['<?php echo $reallt[0]; ?>','<?php echo $reallt[1]; ?>','<?php echo $reallt[2]; ?>','<?php echo $reallt[3]; ?>','<?php echo $reallt[4]; ?>','<?php echo $reallt[5]; ?>','<?php echo $reallt[6]; ?>'],
               axisLine:{
                   lineStyle:{
                     color:'rgba(153,153,153,1)',
@@ -724,7 +725,7 @@ var _hmt = _hmt || [];
         series:[{
             name:'销量',
             type:'bar',
-            data:[{$really[0]},{$really[1]},{$really[2]},{$really[3]},{$really[4]},{$really[5]},{$really[6]}]
+            data:[<?php echo $really[0]; ?>,<?php echo $really[1]; ?>,<?php echo $really[2]; ?>,<?php echo $really[3]; ?>,<?php echo $really[4]; ?>,<?php echo $really[5]; ?>,<?php echo $really[6]; ?>]
         }]
  
     };
@@ -752,7 +753,7 @@ var _hmt = _hmt || [];
         function addMarker() {
             marker = new AMap.Marker({
                 icon: "https://a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png",
-                position: [{$data.mapx},{$data.mapy}],
+                position: [<?php echo $data['mapx']; ?>,<?php echo $data['mapy']; ?>],
                 offset: new AMap.Pixel(-13, -30)
             });
             marker.setMap(map);
@@ -772,21 +773,21 @@ var _hmt = _hmt || [];
             autoFitView: true // 是否自动调整地图视野使绘制的 Marker点都处于视口的可见范围
         });
         
-        var cpoint = [{$data.mapx},{$data.mapy}]; //中心点坐标
+        var cpoint = [<?php echo $data['mapx']; ?>,<?php echo $data['mapy']; ?>]; //中心点坐标
         
        
         $(document).ready(function(){
 	    $('.m-xuan').on('click', function () {
 		var id=$(this).attr('data-v');
-                window.location.href = "{:url('home/index/liu',['id'=>$data.building_name])}";
+                window.location.href = "<?php echo url('home/index/liu',['id'=>$data['building_name']]); ?>";
             })
             var h=$('.h-c-c').height();
             $('.h-c-i img').css('height',h+"px");
             $('.m-h-more').on('click',function(){
-                window.location.href="{:url('home/content/hus',['id'=>$data.id])}"
+                window.location.href="<?php echo url('home/content/hus',['id'=>$data['id']]); ?>"
             })
             $('#m_d_more').on('click',function(){
-                window.location.href="{:url('home/content/pings',['id'=>$data.id])}";
+                window.location.href="<?php echo url('home/content/pings',['id'=>$data['id']]); ?>";
             })
             var cnm=1;
             $('.p-t-g').on('click',function(){
@@ -796,7 +797,7 @@ var _hmt = _hmt || [];
                 var that=$(this);
                 if(cnm==1){
                     $.post(
-                    "{:url('home/content/num')}",
+                    "<?php echo url('home/content/num'); ?>",
                     {'type':1,'id':id,'num':num},
                     
                     function(res){
@@ -810,7 +811,7 @@ var _hmt = _hmt || [];
                     )
                 }else if(cnm==0){
                     $.post(
-                    "{:url('home/content/num')}",
+                    "<?php echo url('home/content/num'); ?>",
                     {'type':2,'id':id,'num':num},
                     
                     function(res){
@@ -828,7 +829,7 @@ var _hmt = _hmt || [];
             
             // 详细分析跳转
             $('.m-more-fen').on('click',function(){
-                window.location.href="{:url('home/content/depth',['id'=>$data.id])}";
+                window.location.href="<?php echo url('home/content/depth',['id'=>$data['id']]); ?>";
             })
 
             $('.m-d-x').on('click',function(){
@@ -876,7 +877,7 @@ var _hmt = _hmt || [];
 
 	   
             $.post(
-                "{:url('home/user/login')}",
+                "<?php echo url('home/user/login'); ?>",
                 {'phone':tel},
                 function(res){
                     if(res.code==100){
@@ -904,7 +905,7 @@ var _hmt = _hmt || [];
         })
 
 		$('.user').on('click',function(){
-                    window.location.href="{:url('home/user/zu')}";
+                    window.location.href="<?php echo url('home/user/zu'); ?>";
                 })
                 $('.big').on('click',function(){
                                 var img=$(this).attr('src');
@@ -936,16 +937,16 @@ var _hmt = _hmt || [];
                 $('.m-chang').hide();
             })
             $('#m_dong').on('click',function(){
-                window.location.href="{:url('home/content/dongs',['id'=>$data.id])}"
+                window.location.href="<?php echo url('home/content/dongs',['id'=>$data['id']]); ?>"
             })
             $('.m-home').on('click',function(){
-                window.location.href="{:url('home/index/index')}"
+                window.location.href="<?php echo url('home/index/index'); ?>"
             })
             $('.f-b-p-l').on('click',function(){
                 var data=$(this).prev().val();
                 var id=$(this).next().val();
                 $.post(
-                    "{:url('home/content/ping')}",
+                    "<?php echo url('home/content/ping'); ?>",
                     {'content':data,'bid':id},
                     function(res){
                         console.log(res);
@@ -953,7 +954,7 @@ var _hmt = _hmt || [];
                             $('#m_p_box').hide();
                             $('.m-p-succ').show();
                         }else{
-                            window.location.href="{:url('home/user/login')}";
+                            window.location.href="<?php echo url('home/user/login'); ?>";
                         }
                     }
                 )
@@ -961,9 +962,9 @@ var _hmt = _hmt || [];
             $('#m_ul li').on('click',function(){
                 $(this).addClass('m-active').siblings('li').removeClass('m-active');
                 var type=$(this).attr('data-v');
-                var id={$id};
+                var id=<?php echo $id; ?>;
                 $.post(
-                    "{:url('home/content/imgs')}",
+                    "<?php echo url('home/content/imgs'); ?>",
                     {'type':type,'id':id},
                     function(res){
                         if(res.code==100){
@@ -1079,7 +1080,7 @@ var _hmt = _hmt || [];
 }
             function send(type,data){
                 $.post(
-                    "{:url('home/content/port1')}",
+                    "<?php echo url('home/content/port1'); ?>",
                     data,
                     function(){
                         if(type=='变价通知'){
@@ -1146,7 +1147,7 @@ var _hmt = _hmt || [];
             $('.q-bian').on('click',function(){
                 var type=$(this).attr('data-v');
                 var phone='';
-                phone={if $Think.session.user.phone}{$Think.session.user.phone}{else}''{/if};
+                phone=<?php if(\think\Session::get('user.phone')): ?><?php echo \think\Session::get('user.phone'); else: ?>''<?php endif; ?>;
                 var data={
                     'type':$(this).attr('data-v'),
                     'phone':phone
@@ -1308,10 +1309,10 @@ var _hmt = _hmt || [];
             $('#m_f_box').hide();
         })
         $('#m_more').on('click',function(){
-            window.location.href="{:url('home/content/xiang',['id'=>$data.id])}"
+            window.location.href="<?php echo url('home/content/xiang',['id'=>$data['id']]); ?>"
         })
         $('#m_ti').on('click',function(){
-            window.location.href="{:url('home/user/login')}";
+            window.location.href="<?php echo url('home/user/login'); ?>";
         })
         $('#m_shou').on('click',function(){
             var txt=$(this).text();
@@ -1320,7 +1321,7 @@ var _hmt = _hmt || [];
                 var id=$(this).attr('data_v');
                 var that=$(this);
                 $.post(
-                    "{:url('home/content/fork')}",
+                    "<?php echo url('home/content/fork'); ?>",
                     {"id":id},
                     function(res){
                         if(res.code==100){
@@ -1351,7 +1352,7 @@ var _hmt = _hmt || [];
                 var id=$(this).attr('data_v');
                 var that=$(this);
                 $.post(
-                    "{:url('home/content/fork')}",
+                    "<?php echo url('home/content/fork'); ?>",
                     {"id":id},
                     function(res){
                         if(res.code==100){
@@ -1570,7 +1571,7 @@ var _hmt = _hmt || [];
                 var tel=phone.substr(0,3)+'****'+phone.substr(7,11);
                 var that=$(this);
                 $.post(
-                    "{:url('home/user/login')}",
+                    "<?php echo url('home/user/login'); ?>",
                     data,
                     function(res){
                         if(res.code==100){
@@ -1620,7 +1621,7 @@ var _hmt = _hmt || [];
 				var interval = setInterval(fn, 1000);
                 var data={'phone':phone};
                 $.post(
-                    "{:url('home/user/login')}",
+                    "<?php echo url('home/user/login'); ?>",
                     data,
                     function(res){
                         if(res.code==100){
@@ -1663,7 +1664,7 @@ var _hmt = _hmt || [];
                 // console.log(data);return
                 var that=$(this)
                 $.post(
-                    "{:url('home/content/port1')}",
+                    "<?php echo url('home/content/port1'); ?>",
                     data,
                     function(res){
                         if(res.code==100){
@@ -1695,7 +1696,7 @@ var _hmt = _hmt || [];
                 $('#bname').submit();
             })
             $('#map').on('click',function(){
-                window.location.href="{:url('home/index/pmap')}";
+                window.location.href="<?php echo url('home/index/pmap'); ?>";
             })
             $('#a-esc').on('click',function(){
                 $('.addre').hide();
@@ -1745,7 +1746,7 @@ var _hmt = _hmt || [];
 				var interval = setInterval(fn, 1000);
                 var data={'phone':phone};
                 $.post(
-                    "{:url('home/user/login')}",
+                    "<?php echo url('home/user/login'); ?>",
                     data,
                     function(res){
                         if(res.code==100){
@@ -1780,7 +1781,7 @@ var _hmt = _hmt || [];
                     'building_name':building_name
                 }
                 $.post(
-                    "{:url('home/content/port1')}",
+                    "<?php echo url('home/content/port1'); ?>",
                     data,
                     function(res){
                         
@@ -1838,7 +1839,7 @@ var _hmt = _hmt || [];
 
                 var that=$(this)
                 $.post(
-                    "{:url('home/content/port1')}",
+                    "<?php echo url('home/content/port1'); ?>",
                     data,
                     function(res){
                         if(res.code==100){
@@ -1900,7 +1901,7 @@ var _hmt = _hmt || [];
                 }
                 var that=$(this)
                 $.post(
-                    "{:url('home/content/port2')}",
+                    "<?php echo url('home/content/port2'); ?>",
                     data,
                     function(res){
                         if(res.code==100){
