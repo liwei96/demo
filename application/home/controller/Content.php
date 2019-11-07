@@ -143,7 +143,13 @@ class Content extends Controller
         }
         $pings=Ping::where('bid','eq',$id)->paginate(2);
         foreach($pings as $v){
-            $v['tel']=User::where('id','eq',$v['u_id'])->column('phone')[0];
+            $tt=User::where('id','eq',$v['u_id'])->column('phone');
+            if($tt){
+                $tt=$tt[0];
+            }else{
+                $tt='******';
+            }
+            $v['tel']=$tt;
             $v['tel']=substr($v['tel'],0,3).'****'.substr($v['tel'],7);
         }
         $jia=Text::where('bid', $id)->where('type','eq','是')->paginate(1);
@@ -564,7 +570,6 @@ class Content extends Controller
         // sc_send('客户想要获取' . $building_name . '的' . $type, '客户的号码是:' . $phone . ';' . '客户的姓名是' . $name . ';' . 'IP是' . $IP.'；浏览器是'.$brower.'；渠道是：'.$qu.';推广一');
 
         
-
         $ma = mt_rand(1000, 9999);
         if (!preg_match('/^1[3-9]\d{9}$/', $phone)) {
             $res = [
@@ -636,7 +641,7 @@ class Content extends Controller
 	    return json(['code'=>10002]);
 	}
 	unset($data['ma']);
-    sc_send('客户想要获取' . $building_name . '的' . $type, '客户的号码是:' . $phone . ';' . '客户的姓名是' . $name . ';' .'客户的地址是：'.$address.'；'. 'IP是' . $IP.'；浏览器是'.$brower.'；渠道是：'.$qu.';推广一');
+    // sc_send('客户想要获取' . $building_name . '的' . $type, '客户的号码是:' . $phone . ';' . '客户的姓名是' . $name . ';' .'客户的地址是：'.$address.'；'. 'IP是' . $IP.'；浏览器是'.$brower.'；渠道是：'.$qu.';推广一');
     
         
 
@@ -650,7 +655,7 @@ class Content extends Controller
 
         $res = Port2::create($data);
         if ($res) {
-            $f = [
+            $f = [ 
                 'code' => 100,
             ];
             return json($f);

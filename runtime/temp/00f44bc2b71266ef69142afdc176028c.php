@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\index\index.html";i:1572228999;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\index\index.html";i:1572932934;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1746,7 +1746,7 @@ var _hmt = _hmt || [];
             })
             // 移动端、
             $('.m-jiao h5 span').on('click', function () {
-                window.location.href = "<?php echo url('/home/index/jiao'); ?>"
+                window.location.href = "<?php echo url('home/index/jiao'); ?>"
             })
             // 新闻资讯修改
             $('.n-nav li').on('click', function () {

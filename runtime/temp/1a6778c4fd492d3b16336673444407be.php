@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\content.html";i:1572925817;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\content.html";i:1572937805;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2369,9 +2369,8 @@ var _hmt = _hmt || [];
                             $('.succ').show();
                             var sign=parseInt(new Date().getTime()/1000);
                             var project=<?php echo $data['id']; ?>;
-                            alert(654);
                             $.post(
-                                "http://api.jy1980.com/index.php/distribute/send",
+                                "<?php echo url('home/user/email'); ?>",
                                 {'sign':sign,'username':'没有','project':project,'source':'家园'+type,'remark':'不是留言','cate_id':0,'phone':tel},
                                 function(res){
                                     if(res.code){

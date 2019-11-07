@@ -538,7 +538,7 @@ class Search extends Controller
             $where['zong']=['between',"$s,$b"];
         }
         
-        Cookie::set('where',$where);
+        Cookie::set('where',$where,3600);
         if($data['type']==0){
             $qus=$qus->where($where)->limit($data['suggest']*15,15)->select();
         }else{

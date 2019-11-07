@@ -131,7 +131,8 @@ class From extends Base
     }
 
     public function test(){
-        $shu=Db::connect('mysql://root:BmaGRa6mBNdbKTNw@47.92.241.83:3306/tpshop#utf8')->table('tpshop_port1')->whereTime('create_time','between',['2019-10-27','2019-10-30'])->column('id,phone,create_time');
+        $ids=Db::connect('mysql://root:BmaGRa6mBNdbKTNw@47.92.241.83:3306/tpshop#utf8')->table('tpshop_category')->where('pid','eq',1)->column('id');
+        $shu=Db::connect('mysql://root:BmaGRa6mBNdbKTNw@47.92.241.83:3306/tpshop#utf8')->table('tpshop_goods')->where('cate_id','in',$ids)->column('id,building_name,cate_id');
         // dump($shu);die();
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
@@ -140,8 +141,8 @@ class From extends Base
         //设置第一行小标题
         $k = 1;
         $sheet->setCellValue('a'.$k, '楼盘编号');
-        $sheet->setCellValue('b'.$k, '号码');
-        $sheet->setCellValue('c'.$k, '区域');
+        $sheet->setCellValue('b'.$k, '楼盘名');
+        $sheet->setCellValue('c'.$k, '没用');
         $row=2;
         foreach($shu as $k=>$v){
             $column=1;
@@ -157,5 +158,9 @@ class From extends Base
         // 保存的路径可自行设置
         $file_name = './'.$file_name . ".xlsx";
         $writer->save($file_name);
+    }
+
+    public function time(){
+        dump(time()-3800);
     }
 }
