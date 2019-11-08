@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\index\lius.html";i:1573205363;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -280,7 +281,7 @@
             var input=$('input').val();
             var text=$('textarea').val();
             $.post(
-                "{:url('home/index/liuget')}",
+                "<?php echo url('home/index/liuget'); ?>",
                 {'tel':input,'content':text,'name':name},
                 function(res){
                     if(res.code==200){

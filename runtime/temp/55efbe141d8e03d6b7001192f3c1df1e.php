@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1573095811;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1573196253;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -2028,7 +2028,10 @@ var _hmt = _hmt || [];
             },
         });
         $(document).ready(function () {
-
+            //首页土拍跳转
+            $('.lou_dong_left').on('click',function(){
+                window.location.href="<?php echo url('home/index/tupai'); ?>";
+            })
             // 留言提交
             $('#l_btn').on('click',function(){
                 var tel=$(this).prev().val();

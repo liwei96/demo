@@ -72,7 +72,7 @@
                     font-size: 14px;
                     height:48px;
                     line-height: 48px;
-                    width:16%;
+                    width:30%;
                 }
                 .m-nav .m-p-news{
                     margin-left:-6%;
@@ -86,11 +86,11 @@
                 .m-nav span.m-active i{
                     height: 3px;
                     display: block;
-                    width: 20%;
+                    width: 33%;
                     background-color: #1CB64F;
                     position: absolute;
-                    top: 81%;
-                    left: 40%;
+                    top: 94%;
+                    left: 32%;
                 }
 
 
@@ -112,16 +112,19 @@
                 }
                 .m-list .row h5{
                     color: #404040;
-    font-size: 15px;
-    width: 90%;
-    line-height: 20px;
-    margin-bottom: 6%;
-    height: 40px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    text-overflow: ellipsis;                }
+                    font-size: 15px;
+                    width: 90%;
+                    line-height: 20px;
+                    margin-bottom: 6%;
+                    height: 40px;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
+                    text-overflow: ellipsis;  
+                    font-weight:bold;
+                    font-family:"Microsoft YaHei";
+                              }
                 .m-list .row span{
                     color: #979797;
                     font-size: 10px;
@@ -1280,11 +1283,8 @@
     <div class="container-fluid m">
         <div class="m-nav visible-xs-block .visible-sm-block navbar navbar-default navbar-fixed-top">
             <img src="/static/home/imgs/return.png" alt="" onClick="javascript:history.go(-1)">
-            <span class="m-p-news m-active">项目<i></i></span>
-            <span class="m-n-news">新闻<i></i></span>
-            <span class="m-t-news">土拍<i></i></span>
-            <span class="m-y-news">预售证<i></i></span>
-            <span class="m-h-news">摇号<i></i></span>
+            <span class="m-p-news m-active">项目资讯<i></i></span>
+            <span class="m-n-news">新闻资讯<i></i></span>
         </div>
         <div class="m-list visible-xs-block .visible-sm-block">
             <div id="m-p">
@@ -1298,132 +1298,32 @@
                                 <span>{$v.create_time}</span>
                             </div>
                         </div>
-                        <img class="col-xs-4" src="{$v.img}" alt="">
+                        <img class="col-xs-4" src="https://www.jy1980.com/uploads/20190701/caef32e756316509c8441bea53d384d0.jpg" alt="">
                     </div>
                     </a>
                     {/foreach}
                     
                       
             </div>
-            <div id="m-n"></div>
-           <div id="m-t">
-                {foreach $tuis as $v}
-                <div class="m-di">
-                        <h6>{$v.name}</h6>
-                        <ul>
-                            <li>
-                                <span class="left">地块编号</span>
-                                <span class="right">{$v.code}</span>
-                             </li>
-                             <li>
-                                 <span class="left">出让面积(m²)</span>
-                                 <span class="right">{$v.area}</span>
-                             </li>
-                             <li>
-                                 <span class="left">用途</span>
-                                 <span class="right">{$v.for}</span>
-                             </li>
-                             <li>
-                                 <span class="left">容积率</span>
-                                 <span class="right">{$v.rong}</span>
-                             </li>
-                             <li>
-                                 <span class="left">建筑面积(m²)</span>  
-                                 <span class="right">{$v.jianmian}</span>
-                             </li>
-                             <li>
-                                 <span class="left">楼面起价(元²)</span>
-                                 <span class="right">{$v.loumian}</span>
-                             </li>
-                             <li>
-                                 <span class="left">成交价(万元)</span>
-                                 <span class="right">{$v.chengjiao}</span>
-                             </li>
-                             <li>
-                                 <span class="left">楼面价(元/²)</span>
-                                 <span class="right">{$v.loujia}</span>
-                             </li>
-                             <li>
-                                 <span class="left">溢价率</span>
-                                 <span class="right">{$v.yijia}</span>
-                             </li>
-                             <li>
-                                 <span class="left">竞得单位 </span>
-                                 <span class="right">{$v.unit}</span>
-                             </li>
-                        </ul>
+            <div id="m-n">
+                    {foreach $ps as $v}
+                    <a href="{:url('home/news/pro',['id'=>$v.id])}">
+                    <div class="row m-l">
+                        <div class="col-xs-8 m-title">
+                            <h5>{$v.title}</h5>
+                            <div>
+                                <span>项目资讯</span>
+                                <span>{$v.create_time}</span>
+                            </div>
+                        </div>
+                        <img class="col-xs-4" src="http://api.jy1980.com/uploads/20190831/thumb_800_whjcmv2b.jpeg" alt="">
                     </div>
-                {/foreach}
-               
-           </div>
-           <div id="m-y">
-               {foreach $yus as $v}
-                <div class="m-di">
-                        <h6>{$v.name}</h6>
-                        <ul>
-                            <li>
-                                <span class="left">预售证号</span>
-                                <span class="right">{$v.code}</span>
-                             </li>
-                             <li>
-                                 <span class="left">核发日期</span>
-                                 <span class="right">{$v.time}</span>
-                             </li>
-                             <li>
-                                 <span class="left">幢号</span>
-                                 <span class="right">{$v.zhuanghao}</span>
-                             </li>
-                             <li>
-                                 <span class="left">可售套数</span>
-                                 <span class="right">{$v.taoshu}</span>
-                             </li>
-                             <li>
-                                 <span class="left">户型面积</span>  
-                                 <span class="right">{$v.humianji}</span>
-                             </li>
-                             <li>
-                                 <span class="left">类型</span>
-                                 <span class="right">{$v.type}</span>
-                             </li>
-                             <li>
-                                 <span class="left">均价</span>
-                                 <span class="right">{$v.junjia}</span>
-                             </li>
-                             <li>
-                                 <span class="left">楼盘地址</span>
-                                 <span class="right">{$v.address}</span>
-                             </li>
-                        </ul>
-                    </div>
+                    </a>
                     {/foreach}
-           </div>
-           <div id="m-h">
-               <div class="m-al">
-                    <h6>今日可登记楼盘</h6>
-                    <ul>
-                            {foreach $dengs as $v}
-                        <li>
-                            <span class="a-area">{$v.area}：</span>
-                            <span class="a-lou">{$v.loupan}</span>
-                            <span class="a-time">{$v.time}</span>
-                        </li>
-                        {/foreach}
-                    </ul>
-               </div>
-               <div class="a-line"></div>
-               <div class="m-al">
-                    <h6>今日可摇号楼盘</h6>
-                    <ul>
-                        {foreach $haos as $v}
-                        <li>
-                            <span class="a-area">{$v.area}：</span>
-                            <span class="a-lou">{$v.loupan}</span>
-                            <span class="a-time">{$v.time}</span>
-                        </li>
-                        {/foreach}
-                    </ul>
-               </div>
-           </div>           
+            </div>
+        
+         
+                 
         </div>
          <!-- 留言悬浮框 -->
          <div class="m-xuan visible-xs-block .visible-sm-block">

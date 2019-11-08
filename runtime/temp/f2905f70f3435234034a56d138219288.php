@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\search\tuan.html";i:1572251766;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\search\tuan.html";i:1573191787;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1316,6 +1316,7 @@
                             <?php endforeach; ?>
                         </ul>
                     </div>
+
                     <div class="col c5">
                         <span>特色</span>
                         <ul>
@@ -1414,7 +1415,7 @@
                 <div class="pages">
                     <span id="back"><<</span>
                     <ul class="page">
-                        <?php $__FOR_START_1263689857__=0;$__FOR_END_1263689857__=$page;for($i=$__FOR_START_1263689857__;$i < $__FOR_END_1263689857__;$i+=1){ if($i<7): ?>
+                        <?php $__FOR_START_317593615__=0;$__FOR_END_317593615__=$page;for($i=$__FOR_START_317593615__;$i < $__FOR_END_317593615__;$i+=1){ if($i<7): ?>
                         <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                         <?php endif; } ?>
                     </ul>
@@ -1610,13 +1611,17 @@
 
     <!-- 移动 -->
     <div class="container-fluid m">
-        <img class="m-banner visible-xs-block .visible-sm--block" src="/static/home/imgs/banner2.png.png" alt="">
+        <!-- <img class="m-banner visible-xs-block .visible-sm--block" src="/static/home/imgs/banner2.png.png" alt=""> -->
         <div class="m-search visible-xs-block .visible-sm--block">
             <img src="/static/home/imgs/return.png" alt="" onClick="javascript:history.go(-1)">
             <img src="/static/home/imgs/search.png" alt="" class="m-se">
             <input type="text" class="m-int" placeholder="请输入楼盘名称、地域">
-            <img class="m-map" src="/static/home/imgs/map2_icon.png.png" alt="">
+            <div class="zhao-ditu">
+                    <img class="m-map" src="/static/home/imgs/map2_icon.png.png" alt="">
+                    <p>地图找房</p>
+            </div>
         </div>
+
         <div class="m-menu visible-xs-block .visible-sm--block">
             <ul>
                 <li class="m-u">
@@ -1643,7 +1648,7 @@
             <div class="m-qu row">
                 <div class="m-one col-xs-4 col-sm-4">
                     <ul>
-                        <li class="m-r-active">城区</li>
+                        <li class="m-r-active">区域</li>
                         <li>地铁</li>
                     </ul>
                 </div>
@@ -1690,6 +1695,10 @@
                 <div class="m-one">
                     <ul>
                         <form id="hu" class=" col-xs-12 col-sm-12" onsubmit="return false" action="##" method="POST">
+                                <li class=" col-xs-12 col-sm-12">
+                                        <span>不限</span>
+                                        <input type="checkbox" name="buxian" value="" id="">
+                                </li>
                             <?php foreach($hus as $v): ?>
                             <li class=" col-xs-12 col-sm-12">
                                 <span><?php echo $v; ?></span>
@@ -1705,7 +1714,7 @@
                 </div>
             </div>
             <div class="m-shan row">
-                <h4>类型<span>(可多选)</span> </h4>
+                <h4>类型 </h4>
                 <div class="m-one" id="m-xing">
                     <?php foreach($xings as $v): ?>
                     <span class=" col-xs-3 col-sm-3"><?php echo $v; ?></span>
@@ -1719,6 +1728,7 @@
                 </div>
                 <h4>特色 </h4>
                 <div class="m-one m-thr" id="m-te">
+                    <span class=" col-xs-3 col-sm-3">不限</span>
                     <?php foreach($tes as $v): ?>
                     <span class=" col-xs-3 col-sm-3"><?php echo $v; ?></span>
                     <?php endforeach; ?>
@@ -1744,24 +1754,26 @@
             <div class="col-xs-12 m-row">
                 <a href="<?php echo url('home/content/index',['id'=>$v['id']]); ?>">
                     <div class="col-xs-4 m-img">
-                        <img src="<?php echo $v['building_img']; ?>" alt="">
+                            <span>团购优惠</span>
+                            <!-- <img src="<?php echo $v['building_img']; ?>" alt=""> -->
+                            <img src="https://www.jy1980.com/uploads/20190522/1749a3b2dac7a377ce0ced9917dc184e.jpg" alt="">
                     </div>
                 </a>
                 <div class="col-xs-8 m-text">
-                    <h4>
+                    <h4 class="m-tit">
                         <?php echo $v['building_name']; ?>
-                        <span class="m-shuoming"><img src="/static/home/imgs/xiangq.png" alt="">说明</span>
+                        <span class="m-p-1"><?php echo $v['building_xiaoshou']; ?></span>
                     </h4>
-                    <p class="m-price"><span><?php echo $v['danjia']; ?></span>元/m²<span class="m-tuanico">团购优惠</span></p>
+                    <p class="m-price"><span><?php echo $v['danjia']; ?></span>元/m²</p>
                     <p class="m-xiang">
                         <span><?php echo $v['city']; ?>-<?php echo $v['qu']; ?></span>
                         <span>建面</span>
                         <span><?php echo $v['humianji']; ?>m²</span>
                     </p>
                     <p class="m-icon">
-                        <span class="m-p-1"><?php echo $v['building_xiaoshou']; ?></span>
                         <span class="m-p-2"><?php echo $v['building_xingshi']; ?></span>
                         <span class="m-p-3"><?php echo $v['building_ditie']; ?></span>
+                        <span class="m-p-3">繁华地段</span>
                     </p>
                 </div>
                 <div class="col-xs-12 m-tu">
@@ -2501,12 +2513,14 @@ $('#cy').on('click',function(){
                                 <div class="col-xs-12 m-row">
 <a href="/home/content/index/id/${v.id}">
                                 <div class="col-xs-4 m-img">
+                                        <span>团购优惠</span>
                     <img src="${v.building_img}" alt="">
                 </div>
 </a>
                 <div class="col-xs-8 m-text">
-                    <h4>
+                    <h4 class="m-tit">
                         ${v.building_name}
+                        <span class="m-p-1"><?php echo $v['building_xiaoshou']; ?></span>
                     </h4>
                     <p class="m-price"><span>${v.danjia}</span>元/m²</p>
                     <p class="m-xiang">
@@ -2515,8 +2529,8 @@ $('#cy').on('click',function(){
                         <span>${v.humianji}m²</span>
                     </p>
                     <p class="m-icon">
-                        <span class="m-p-1">${v.building_xiaoshou}</span>
-                        <span class="m-p-2">${v.building_xingshi}</span>
+                        <span class="m-p-2">${v.building_xiaoshou}</span>
+                        <span class="m-p-3">${v.building_xingshi}</span>
                         <span class="m-p-3">${v.building_ditie}</span>
                         
                     </p>
@@ -2705,11 +2719,13 @@ $('#cy').on('click',function(){
                                 html += `
                                 <div class="col-xs-12 m-row">
                                 <div class="col-xs-4 m-img">
+                                        <span>团购优惠</span>
                     <img src="${v.building_img}" alt="">
                 </div>
                 <div class="col-xs-8 m-text">
-                    <h4>
+                    <h4 class="m-tit">
                         ${v.building_name}
+                        <span class="m-p-1"><?php echo $v['building_xiaoshou']; ?></span>
                     </h4>
                     <p class="m-price"><span>${v.danjia}</span>元/m²</p>
                     <p class="m-xiang">
@@ -2718,9 +2734,9 @@ $('#cy').on('click',function(){
                         <span>${v.humianji}m²</span>
                     </p>
                     <p class="m-icon">
-                        <span class="m-p-1">${v.building_xiaoshou}</span>
-                        <span class="m-p-2">${v.building_xingshi}</span>
-                        <span class="m-p-3">${v.building_ditie}</span>
+                        <span class="m-p-2">${v.building_xiaoshou}</span>
+                        <span class="m-p-3">${v.building_xingshi}</span>
+                        <span class="m-p-3">繁华地段</span>
                         
                     </p>
                 </div>

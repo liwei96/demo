@@ -886,4 +886,13 @@ class Index extends Controller
         }
         return view('chejiaodetail',['city'=>$city,'success'=>$success,'tdengs'=>$tdengs]);
     }
+
+    // 移动首页土拍,预售，摇号
+    public function tupai(){
+        $tuis=Tupai::where('cate_id','eq',Cookie::get('city'))->order('id','desc')->select();
+        $yus=Yushou::where('cate_id','eq',Cookie::get('city'))->order('id','desc')->select();
+        $haos=Yaohao::where('cate_id','eq',Cookie::get('city'))->where('type','摇号')->select();
+        $dengs=Yaohao::where('cate_id','eq',Cookie::get('city'))->where('type','登记')->select();
+        return view('tupai',['tuis'=>$tuis,'yus'=>$yus,'haos'=>$haos,'dengs'=>$dengs]);
+    }
 }

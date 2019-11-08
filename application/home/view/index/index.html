@@ -2027,7 +2027,10 @@ var _hmt = _hmt || [];
             },
         });
         $(document).ready(function () {
-
+            //首页土拍跳转
+            $('.lou_dong_left').on('click',function(){
+                window.location.href="{:url('home/index/tupai')}";
+            })
             // 留言提交
             $('#l_btn').on('click',function(){
                 var tel=$(this).prev().val();

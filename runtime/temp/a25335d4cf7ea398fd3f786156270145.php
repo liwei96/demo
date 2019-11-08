@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\news\index.html";i:1572252769;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\news\index.html";i:1573203168;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,7 +73,7 @@
                     font-size: 14px;
                     height:48px;
                     line-height: 48px;
-                    width:16%;
+                    width:30%;
                 }
                 .m-nav .m-p-news{
                     margin-left:-6%;
@@ -87,11 +87,11 @@
                 .m-nav span.m-active i{
                     height: 3px;
                     display: block;
-                    width: 20%;
+                    width: 33%;
                     background-color: #1CB64F;
                     position: absolute;
-                    top: 81%;
-                    left: 40%;
+                    top: 94%;
+                    left: 32%;
                 }
 
 
@@ -113,16 +113,19 @@
                 }
                 .m-list .row h5{
                     color: #404040;
-    font-size: 15px;
-    width: 90%;
-    line-height: 20px;
-    margin-bottom: 6%;
-    height: 40px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    text-overflow: ellipsis;                }
+                    font-size: 15px;
+                    width: 90%;
+                    line-height: 20px;
+                    margin-bottom: 6%;
+                    height: 40px;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
+                    text-overflow: ellipsis;  
+                    font-weight:bold;
+                    font-family:"Microsoft YaHei";
+                              }
                 .m-list .row span{
                     color: #979797;
                     font-size: 10px;
@@ -1085,7 +1088,7 @@
                  <div class="pages">
                         <span id="back"><<</span>
                         <ul class="page">
-                            <?php $__FOR_START_1988370570__=0;$__FOR_END_1988370570__=$page;for($i=$__FOR_START_1988370570__;$i < $__FOR_END_1988370570__;$i+=1){ if($i<7): ?>
+                            <?php $__FOR_START_921117954__=0;$__FOR_END_921117954__=$page;for($i=$__FOR_START_921117954__;$i < $__FOR_END_921117954__;$i+=1){ if($i<7): ?>
                             <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                             <?php endif; } ?>
                         </ul>
@@ -1279,11 +1282,8 @@
     <div class="container-fluid m">
         <div class="m-nav visible-xs-block .visible-sm-block navbar navbar-default navbar-fixed-top">
             <img src="/static/home/imgs/return.png" alt="" onClick="javascript:history.go(-1)">
-            <span class="m-p-news m-active">项目<i></i></span>
-            <span class="m-n-news">新闻<i></i></span>
-            <span class="m-t-news">土拍<i></i></span>
-            <span class="m-y-news">预售证<i></i></span>
-            <span class="m-h-news">摇号<i></i></span>
+            <span class="m-p-news m-active">项目资讯<i></i></span>
+            <span class="m-n-news">新闻资讯<i></i></span>
         </div>
         <div class="m-list visible-xs-block .visible-sm-block">
             <div id="m-p">
@@ -1297,132 +1297,32 @@
                                 <span><?php echo $v['create_time']; ?></span>
                             </div>
                         </div>
-                        <img class="col-xs-4" src="<?php echo $v['img']; ?>" alt="">
+                        <img class="col-xs-4" src="https://www.jy1980.com/uploads/20190701/caef32e756316509c8441bea53d384d0.jpg" alt="">
                     </div>
                     </a>
                     <?php endforeach; ?>
                     
                       
             </div>
-            <div id="m-n"></div>
-           <div id="m-t">
-                <?php foreach($tuis as $v): ?>
-                <div class="m-di">
-                        <h6><?php echo $v['name']; ?></h6>
-                        <ul>
-                            <li>
-                                <span class="left">地块编号</span>
-                                <span class="right"><?php echo $v['code']; ?></span>
-                             </li>
-                             <li>
-                                 <span class="left">出让面积(m²)</span>
-                                 <span class="right"><?php echo $v['area']; ?></span>
-                             </li>
-                             <li>
-                                 <span class="left">用途</span>
-                                 <span class="right"><?php echo $v['for']; ?></span>
-                             </li>
-                             <li>
-                                 <span class="left">容积率</span>
-                                 <span class="right"><?php echo $v['rong']; ?></span>
-                             </li>
-                             <li>
-                                 <span class="left">建筑面积(m²)</span>  
-                                 <span class="right"><?php echo $v['jianmian']; ?></span>
-                             </li>
-                             <li>
-                                 <span class="left">楼面起价(元²)</span>
-                                 <span class="right"><?php echo $v['loumian']; ?></span>
-                             </li>
-                             <li>
-                                 <span class="left">成交价(万元)</span>
-                                 <span class="right"><?php echo $v['chengjiao']; ?></span>
-                             </li>
-                             <li>
-                                 <span class="left">楼面价(元/²)</span>
-                                 <span class="right"><?php echo $v['loujia']; ?></span>
-                             </li>
-                             <li>
-                                 <span class="left">溢价率</span>
-                                 <span class="right"><?php echo $v['yijia']; ?></span>
-                             </li>
-                             <li>
-                                 <span class="left">竞得单位 </span>
-                                 <span class="right"><?php echo $v['unit']; ?></span>
-                             </li>
-                        </ul>
+            <div id="m-n">
+                    <?php foreach($ps as $v): ?>
+                    <a href="<?php echo url('home/news/pro',['id'=>$v['id']]); ?>">
+                    <div class="row m-l">
+                        <div class="col-xs-8 m-title">
+                            <h5><?php echo $v['title']; ?></h5>
+                            <div>
+                                <span>项目资讯</span>
+                                <span><?php echo $v['create_time']; ?></span>
+                            </div>
+                        </div>
+                        <img class="col-xs-4" src="http://api.jy1980.com/uploads/20190831/thumb_800_whjcmv2b.jpeg" alt="">
                     </div>
-                <?php endforeach; ?>
-               
-           </div>
-           <div id="m-y">
-               <?php foreach($yus as $v): ?>
-                <div class="m-di">
-                        <h6><?php echo $v['name']; ?></h6>
-                        <ul>
-                            <li>
-                                <span class="left">预售证号</span>
-                                <span class="right"><?php echo $v['code']; ?></span>
-                             </li>
-                             <li>
-                                 <span class="left">核发日期</span>
-                                 <span class="right"><?php echo $v['time']; ?></span>
-                             </li>
-                             <li>
-                                 <span class="left">幢号</span>
-                                 <span class="right"><?php echo $v['zhuanghao']; ?></span>
-                             </li>
-                             <li>
-                                 <span class="left">可售套数</span>
-                                 <span class="right"><?php echo $v['taoshu']; ?></span>
-                             </li>
-                             <li>
-                                 <span class="left">户型面积</span>  
-                                 <span class="right"><?php echo $v['humianji']; ?></span>
-                             </li>
-                             <li>
-                                 <span class="left">类型</span>
-                                 <span class="right"><?php echo $v['type']; ?></span>
-                             </li>
-                             <li>
-                                 <span class="left">均价</span>
-                                 <span class="right"><?php echo $v['junjia']; ?></span>
-                             </li>
-                             <li>
-                                 <span class="left">楼盘地址</span>
-                                 <span class="right"><?php echo $v['address']; ?></span>
-                             </li>
-                        </ul>
-                    </div>
+                    </a>
                     <?php endforeach; ?>
-           </div>
-           <div id="m-h">
-               <div class="m-al">
-                    <h6>今日可登记楼盘</h6>
-                    <ul>
-                            <?php foreach($dengs as $v): ?>
-                        <li>
-                            <span class="a-area"><?php echo $v['area']; ?>：</span>
-                            <span class="a-lou"><?php echo $v['loupan']; ?></span>
-                            <span class="a-time"><?php echo $v['time']; ?></span>
-                        </li>
-                        <?php endforeach; ?>
-                    </ul>
-               </div>
-               <div class="a-line"></div>
-               <div class="m-al">
-                    <h6>今日可摇号楼盘</h6>
-                    <ul>
-                        <?php foreach($haos as $v): ?>
-                        <li>
-                            <span class="a-area"><?php echo $v['area']; ?>：</span>
-                            <span class="a-lou"><?php echo $v['loupan']; ?></span>
-                            <span class="a-time"><?php echo $v['time']; ?></span>
-                        </li>
-                        <?php endforeach; ?>
-                    </ul>
-               </div>
-           </div>           
+            </div>
+        
+         
+                 
         </div>
          <!-- 留言悬浮框 -->
          <div class="m-xuan visible-xs-block .visible-sm-block">
