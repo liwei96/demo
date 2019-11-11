@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\index\lius.html";i:1573205363;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\index\lius.html";i:1573354777;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -195,6 +195,7 @@
     opacity:0.4;
     top:0;
     left:0;
+    display:none;
 }
  .m-zhe-box{
     width:80%;
@@ -202,6 +203,30 @@
     background:rgba(255,255,255,1);
     border-radius:10px;
     position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-5%);
+    display:none;
+}
+.m-zhe-box   span{
+      position:absolute;
+      right:5%;;
+      top:5%;
+}
+.m-zhe-box  input{
+    position:absolute;
+      right:5%;;
+      top:45px;
+}
+.m-zhe-box  button{
+      position:absolute;
+      top:123px;
+}
+.m-zhe-box .m-qu{
+       left:6.8%;
+}
+.m-zhe-box .m-que{
+       left:53.5%;
 }
 .m-zhe-box input{
     width:86.6%;
@@ -260,14 +285,15 @@
 </body>
 
 
-<!-- 输入电话号 -->
+<!-- 输入电话号弹框 -->
 
 <div class="m-zhe-tel">
 </div>
 <div class="m-zhe-box">
-        <input type="text" placeholder="请输入手机号">
-        <span class="iconfont iconguanbi"></span>
-        <button class="m-qu">取消</button>
+        <span class="iconfont iconguanbi" id="close"></span>
+        <input type="text" placeholder="请输入手机号" id="tel">
+        
+        <button class="m-qu" >取消</button>
         <button class="m-que">确定</button>
  </div>
 
@@ -277,9 +303,20 @@
 <script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('#btn').on('click',function(){
-            var input=$('input').val();
+        $('#btn').on("click",function(){
             var text=$('textarea').val();
+            if(text!=""){
+                $('.m-zhe-tel').show();
+                $('.m-zhe-box').show();
+            }
+
+        })
+        $('.m-que').on('click',function(){
+           
+            var text=$('textarea').val();
+            var input=$('#tel').val();
+            
+            console.log(input,text);
             $.post(
                 "<?php echo url('home/index/liuget'); ?>",
                 {'tel':input,'content':text,'name':name},
@@ -288,13 +325,14 @@
                         $('.m-chang').show();
                         $('.m-o-succ').show(300);
                     }else if(res.code==10001){
-                        $('input').val('');
-                        $('input').attr('placeholder',res.msg);
-                        $('.tel').val();
+                        $('#tel').val('');
+                        $('#tel').attr('placeholder',res.msg);
+                        $('#tel').val();
                     }
                 }
             )
         })
+
         $('.m-chang').on('click',function(){
             $('.m-chang').hide();
             $('.m-o-succ').hide();
@@ -307,5 +345,15 @@
             $('.m-chang').hide();
             $('.m-o-succ').hide();
         })
+//留言
+  $('#close').click(function(){
+    $('.m-zhe-tel').hide();
+    $('.m-zhe-box').hide();
+  })
+  $('.m-qu').click(function(){
+    $('.m-zhe-tel').hide();
+    $('.m-zhe-box').hide();
+  })
+
     })
 </script>
