@@ -2618,14 +2618,13 @@
   	   
             $(document).scroll(function(){
                 var scrollTop = $(this).scrollTop();               
-                var scrollHeight = $(document).height();                   
+                var scrollHeight = document.documentElement.clientHeight;                   
                 var windowHeight = $(this).height(); 
-	                         
-                if(scrollTop + windowHeight >= scrollHeight){       
+                if(scrollTop + scrollHeight >= windowHeight){       
                         pull(p,0);
                         p=p+1;
                 }            
-	   });
+	        });
         })
     </script>
 </body>

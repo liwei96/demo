@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\index.html";i:1571818655;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\index.html";i:1573202256;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -262,6 +262,7 @@ var _hmt = _hmt || [];
                             <div><img src="<?php echo $v['x_big']; ?>" style="width:100%"></div>
                             <?php endforeach; ?>
                         </div>
+                        <span id="lnum">共<?php echo $pics; ?>张</span>
                 </div>
             </div>
 
@@ -623,7 +624,7 @@ var _hmt = _hmt || [];
                         <p>验证码已发送到<span>187****4376</span>，请注意查看</p>
                         <input type="text" placeholder="请输入验证码">
                         <button class="port1">确定</button>
-                        <input type="hidden" value="<?php echo $data['building_name']; ?>">
+                        <input type="hidden" id="building_name" value="<?php echo $data['building_name']; ?>">
                         <input type="hidden" value="">
                         <button class="t-b-scode">获取验证码</button>
                         <p class="tishi">
@@ -755,16 +756,16 @@ var _hmt = _hmt || [];
 
         map.add(marker);
         AMap.service(["AMap.PlaceSearch"], function() {
-        //构造地点查询类
-        var placeSearch = new AMap.PlaceSearch({ 
-            pageSize: 10, // 单页显示结果条数
-            pageIndex: 1, // 页码
-            city: "", // 兴趣点城市
-            citylimit: true,  //是否强制限制在设置的城市内搜索
-            map: map, // 展现结果的地图实例
-            panel: "panel", // 结果列表将在此容器中进行展示。
-            autoFitView: true // 是否自动调整地图视野使绘制的 Marker点都处于视口的可见范围
-        });
+            //构造地点查询类
+            var placeSearch = new AMap.PlaceSearch({ 
+                pageSize: 10, // 单页显示结果条数
+                pageIndex: 1, // 页码
+                city: "", // 兴趣点城市
+                citylimit: true,  //是否强制限制在设置的城市内搜索
+                map: map, // 展现结果的地图实例
+                panel: "panel", // 结果列表将在此容器中进行展示。
+                autoFitView: true // 是否自动调整地图视野使绘制的 Marker点都处于视口的可见范围
+            });
         
         var cpoint = [<?php echo $data['mapx']; ?>,<?php echo $data['mapy']; ?>]; //中心点坐标
         
@@ -1416,8 +1417,14 @@ var _hmt = _hmt || [];
 
 
 
-
-
+        // 点击顶部图片跳转
+        $('.m-luns').on('click',function(){
+            window.location.href="<?php echo url('home/content/lpic',['id'=>$data['id']]); ?>";
+        })
+        // 周边规划跳转
+        $('.m-zhou h3 span').on('click',function(){
+            window.location.href="<?php echo url('home/content/zg',['id'=>$data['id']]); ?>";
+        })
 
 
             document.addEventListener('touchmove',function(e){
@@ -1536,6 +1543,8 @@ var _hmt = _hmt || [];
             // 接口验证码
             $('.t-b-btn2').on('click',function(){
                 var phone=$(this).prev().val();
+		        var type=$(this).parent().parent().prev().find('h6').html();
+                var building_name=$(this).parent().next().find('#building_name').val();
                 var pattern_phone = /^1[3-9][0-9]{9}$/;
 				if (phone == '') {
 					$('.l-p').attr('placeholder','手机号不能为空');
@@ -1560,7 +1569,7 @@ var _hmt = _hmt || [];
 				};
 				fn();
 				var interval = setInterval(fn, 1000);
-                var data={'phone':phone};
+                var data={'phone':phone,'type':type,'building_name':building_name};
                 var tel=phone.substr(0,3)+'****'+phone.substr(7,11);
                 var that=$(this);
                 $.post(
@@ -1576,6 +1585,19 @@ var _hmt = _hmt || [];
                             // console.log(l);
                             that.parent().next().find('p').find('span').html(tel);
                             // $('.t-b-second p span').html(tel);
+                            var sign=parseInt(new Date().getTime()/1000);
+                            var project=<?php echo $data['id']; ?>;
+                            $.post(
+                                "<?php echo url('home/user/email'); ?>",
+                                {'sign':sign,'username':'没有','project':project,'source':'家园'+type,'remark':'不是留言','cate_id':0,'phone':phone},
+                                function(res){
+                                    if(res.code){
+                                        // alert(res.message)
+                                    }else{
+                                        // alert(res.message);
+                                    }
+                                }
+                            )
                         }else{
                             alert(res.msg);
                         }
@@ -1799,7 +1821,7 @@ var _hmt = _hmt || [];
 
             $('.m-c-port1').on('click',function(){
                 var building_name=$(this).prev().val();
-		var ma=$(this).prev().prev().val();
+		        var ma=$(this).prev().prev().val();
                 var name=$(this).prev().prev().prev().prev().val();
                 var tel=$(this).prev().prev().prev().prev().prev().val();
                 var type=$(this).prev().prev().prev().val();
@@ -1823,9 +1845,9 @@ var _hmt = _hmt || [];
                     'type':type,
                     'name':name,
                     'building_name':building_name,
-		  'brower':brower,
-		  'qu':qu,
-		  'ma':ma
+                    'brower':brower,
+                    'qu':qu,
+                    'ma':ma
                 }
 
                 var that=$(this)
@@ -1852,9 +1874,9 @@ var _hmt = _hmt || [];
                                 $('#o_p').text('已成功订阅最新动态，我们会第一时间把楼盘动态推送给您');
                                 $('.m-o-succ').show();
                             }else if(type=="获取最低成交价"){
-                                 		$('#o_p').text('已成功订阅最低成交价，我们会第一时间把最低成交价推送给您');
-                                		$('.m-o-succ').show();
-                            		        }
+                         		$('#o_p').text('已成功订阅最低成交价，我们会第一时间把最低成交价推送给您');
+                        		$('.m-o-succ').show();
+                    		}
                         }
                     },
                     'json'
@@ -1866,7 +1888,7 @@ var _hmt = _hmt || [];
                 var tel=$(this).prev().prev().prev().prev().val();
                 var address=$(this).prev().prev().prev().prev().prev().val();
                 var name=$(this).prev().prev().prev().prev().prev().prev().val();
-		var ma=$(this).prev().prev().val();
+		        var ma=$(this).prev().prev().val();
                 var pattern_tel = /^1[3-9][0-9]{9}$/;
 				if (tel == '') {
 					$(this).prev().prev().prev().val('')
@@ -1877,8 +1899,8 @@ var _hmt = _hmt || [];
 					$(this).prev().prev().prev().attr('placeholder','手机号码不合法');
 					return;
 				} 
-	       var brower=getBrowserInfo();
-	       var qu=qudao();
+                var brower=getBrowserInfo();
+                var qu=qudao();
                 var data={
                     'phone':tel,
                     'type':type,
@@ -1886,9 +1908,9 @@ var _hmt = _hmt || [];
                     'address':address,
                     'name':name,
                     'building_name':building_name,
-		'brower':brower,
-		  'qu':qu,
-		  'ma':ma
+                    'brower':brower,
+                    'qu':qu,
+                    'ma':ma
                 }
                 var that=$(this)
                 $.post(
@@ -1925,10 +1947,6 @@ var _hmt = _hmt || [];
                 $(this).parent().hide();
                 $('.m-chang').hide();
             })
-
-            
-            
-
 
         })
 

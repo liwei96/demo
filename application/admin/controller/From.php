@@ -131,18 +131,17 @@ class From extends Base
     }
 
     public function test(){
-        $ids=Db::connect('mysql://root:BmaGRa6mBNdbKTNw@47.92.241.83:3306/tpshop#utf8')->table('tpshop_category')->where('pid','eq',1)->column('id');
-        $shu=Db::connect('mysql://root:BmaGRa6mBNdbKTNw@47.92.241.83:3306/tpshop#utf8')->table('tpshop_goods')->where('cate_id','in',$ids)->column('id,building_name,cate_id');
+        $shu=Db::connect('mysql://root:BmaGRa6mBNdbKTNw@47.92.241.83:3306/tpshop#utf8')->table('tpshop_port1')->whereTime('update_time','between',['2019-11-7','2019-11-9'])->field('phone,building_name')->select();
+        // $shu=Db::connect('mysql://root:BmaGRa6mBNdbKTNw@47.92.241.83:3306/tpshop#utf8')->table('tpshop_goods')->where('cate_id','in',$ids)->column('id,building_name,cate_id');
         // dump($shu);die();
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
         //设置sheet的名字  两种方法
-        $sheet->setTitle('楼盘编号');
+        $sheet->setTitle('资料');
         //设置第一行小标题
         $k = 1;
-        $sheet->setCellValue('a'.$k, '楼盘编号');
+        $sheet->setCellValue('a'.$k, '手机号');
         $sheet->setCellValue('b'.$k, '楼盘名');
-        $sheet->setCellValue('c'.$k, '没用');
         $row=2;
         foreach($shu as $k=>$v){
             $column=1;

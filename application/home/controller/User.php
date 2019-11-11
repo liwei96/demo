@@ -6,6 +6,7 @@ use think\Controller;
 use think\Request;
 use think\Cookie;
 use think\Cache;
+use think\Db;
 use think\Session;
 use app\home\model\Request as RequestModel;
 use app\home\model\User as UserModel;
@@ -266,8 +267,8 @@ class User extends Controller
         }else if(request()->isPost()){
             $data=request()->param();
             $phone=$data['phone'];
-            $building_name=$data['building_name'];
-            $type=$data['type'];
+            // $building_name=$data['building_name'];
+            // $type=$data['type'];
             $ma=mt_rand(1000,9999);
             if (!preg_match('/^1[3-9]\d{9}$/', $phone)) {
                 $res = [
@@ -424,6 +425,9 @@ class User extends Controller
     // 邮件
     public function email(){
         $curlPost=request()->param();
+        $id=$curlPost['project'];
+        $name=Goods::where('id','eq',$id)->column('building_name')[0];
+        $curlPost['project']=Db::connect('mysql://erp:ZkMFXYZ2H7MBtW4i@39.98.227.114:3306/erp#utf8')->table('erp_building')->where('building_name','eq',$name)->column('id')[0];
         $url = 'http://api.jy1980.com/index.php/distribute/send';
         $ch = curl_init();//初始化curl
         curl_setopt($ch, CURLOPT_URL,$url);//抓取指定网页

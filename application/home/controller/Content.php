@@ -60,7 +60,13 @@ class Content extends Controller
         $huimgs = Huimgs::where('bid', $id)->paginate(2);
         $data = Goods::where('id', $id)->find();
 	    $n = Category::where('id', $data['cate_id'])->column('pid')[0];
-            
+        // 楼盘相册有多少张图片
+        $pics=Huimgs::where('bid','eq',$id)->count('*');
+        $pics=$pics+Xiaoimgs::where('bid',$id)->count('*');
+        $pics=$pics+Yangimgs::where('bid',$id)->count('*');
+        $pics=$pics+Jiaoimgs::where('bid',$id)->count('*');
+        $pics=$pics+Peiimgs::where('bid',$id)->count('*');
+        $pics=$pics+Shiimgs::where('bid',$id)->count('*');
         $data['city'] = Category::where('id', $n)->column('area_name')[0];
         $dongs = Text::where('bid', $id)->order('id', 'desc')->paginate(1);
         //$xs = $data['xiangsi'];
@@ -171,7 +177,7 @@ class Content extends Controller
             $keys['other']=$from['other'];
             Cookie::set('from',$keys,1800);
         }
-        return view('index', ['data' => $data, 'recording'=>$recording, 'huimgs' => $huimgs, 'xiaoimgs' => $xiaoimgs, 'dongs' => $dongs, 'tou'=>$tou,'yi'=>$yi,
+        return view('index', ['data' => $data, 'recording'=>$recording, 'huimgs' => $huimgs, 'xiaoimgs' => $xiaoimgs, 'dongs' => $dongs, 'tou'=>$tou,'yi'=>$yi,'pics'=>$pics,
         'xiangs' => $xiangs, 'num' => $num, 'id' => $id,'really'=>$really,'reallt'=>$reallt,'all'=>$all,'pings'=>$pings,'jia'=>$jia,'yous'=>$yous]);
     }
     public function imgs()
@@ -806,6 +812,7 @@ class Content extends Controller
     // 首页跟落地页的留言提问
     public function tw(){
         $data=request()->param();
+        dump($data);die();
         $ma=$data['ma'];
         $phone=$data['tel'];
         if($ma==cache($phone)){
@@ -816,6 +823,8 @@ class Content extends Controller
             return json(['code'=>300,'msg'=>'验证码错误']);
         }
     }
+
+    
 
     // PC的楼盘详情
     public function detail($id){
@@ -850,5 +859,28 @@ class Content extends Controller
         $tou=Fen::where('bid','eq',$id)->where('type','eq',1)->find();
         $yi=Fen::where('bid','eq',$id)->where('type','eq',2)->find();
         return view('depth',['data'=>$data,'tou'=>$tou,'yi'=>$yi]);
+    }
+
+    // 项目子页面的相册页
+    public function lpic($id){
+        $himgs=Huimgs::where('bid','eq',$id)->select();
+        $hs=Huimgs::where('bid','eq',$id)->count('*');
+        $ximgs=Xiaoimgs::where('bid','eq',$id)->select();
+        $xs=Xiaoimgs::where('bid','eq',$id)->count('*');
+        $pimgs=Peiimgs::where('bid','eq',$id)->select();
+        $ps=Peiimgs::where('bid','eq',$id)->count('*');
+        $simgs=Shiimgs::where('bid','eq',$id)->select();
+        $ss=Shiimgs::where('bid','eq',$id)->count('*');
+        $yimgs=Yangimgs::where('bid','eq',$id)->select();
+        $ys=Yangimgs::where('bid','eq',$id)->count('*');
+        $jimgs=Jiaoimgs::where('bid','eq',$id)->select();
+        $js=Jiaoimgs::where('bid','eq',$id)->count('*');
+        return view('lpic',['himgs'=>$himgs,'hs'=>$hs,'ximgs'=>$ximgs,'xs'=>$xs,'pimgs'=>$pimgs,'ps'=>$ps,'simgs'=>$simgs,'ss'=>$ss,'yimgs'=>$yimgs,'ys'=>$ys,'jimgs'=>$jimgs,'js'=>$js,'id'=>$id]);
+    }
+
+    // 周边规划跳转
+    public function zg($id){
+        $data=Goods::where('id','eq',$id)->find();
+        return view('zg',['data'=>$data]);
     }
 }

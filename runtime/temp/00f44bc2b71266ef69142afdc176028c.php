@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\index\index.html";i:1572932934;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\index\index.html";i:1573190135;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1651,13 +1651,13 @@ var _hmt = _hmt || [];
                 var sign=parseInt(new Date().getTime()/1000);
                 var cateid=<?php echo \think\Cookie::get('city'); ?>;
                 $.post(
-                    "http://api.jy1980.com/index.php/distribute/send",
-                    {'sign':sign,'username':'没有','project':'','source':'家园留言','remark':con,'cate_id':cateid,'phone':tel},
+                    "<?php echo url('home/user/email'); ?>",
+                    {'sign':sign,'username':'没有','project':'','source':'留言','remark':con,'cate_id':cateid,'phone':tel},
                     function(res){
                         if(res.code){
-                            alert(res.message)
+                            // alert(res.message)
                         }else{
-                            alert(res.message);
+                            // alert(res.message);
                         }
                     }
                 )         
