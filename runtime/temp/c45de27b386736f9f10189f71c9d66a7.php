@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\tupai.html";i:1573201827;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\tupai.html";i:1573548895;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -170,12 +170,12 @@
         <div class="container-fluid m">
                 <div class="m-nav visible-xs-block .visible-sm-block navbar navbar-default navbar-fixed-top">
                     <img src="/static/home/imgs/return.png" alt="" onClick="javascript:history.go(-1)">
-                    <span class="m-t-news m-active" >土拍<i></i></span>
-                    <span class="m-y-news">预售证<i></i></span>
-                    <span class="m-h-news">摇号<i></i></span>
+                    <span class="m-t-news <?php if($type==0): ?>m-active<?php endif; ?>" >土拍<i></i></span>
+                    <span class="m-y-news <?php if($type==1): ?>m-active<?php endif; ?>">预售证<i></i></span>
+                    <span class="m-h-news <?php if($type==2): ?>m-active<?php endif; ?>">摇号<i></i></span>
                 </div>
                 <div class="m-list visible-xs-block .visible-sm-block">
-                   <div id="m-t">
+                   <div id="m-t" style="display: <?php if($type==0): ?>block<?php else: ?>none<?php endif; ?>;">
                         <?php foreach($tuis as $v): ?>
                         <div class="m-di">
                                 <h6><?php echo $v['name']; ?></h6>
@@ -225,7 +225,7 @@
                         <?php endforeach; ?>
                        
                    </div>
-                   <div id="m-y">
+                   <div id="m-y" style="display: <?php if($type==1): ?>block<?php else: ?>none<?php endif; ?>;">
                        <?php foreach($yus as $v): ?>
                         <div class="m-di">
                                 <h6><?php echo $v['name']; ?></h6>
@@ -266,7 +266,7 @@
                             </div>
                             <?php endforeach; ?>
                    </div>
-                   <div id="m-h">
+                   <div id="m-h" style="display: <?php if($type==2): ?>block<?php else: ?>none<?php endif; ?>;">
                        <div class="m-al">
                             <h6>今日可登记楼盘</h6>
                             <ul>

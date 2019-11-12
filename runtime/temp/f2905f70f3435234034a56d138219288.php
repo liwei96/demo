@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\search\tuan.html";i:1573191787;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\search\tuan.html";i:1573546469;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1316,7 +1316,10 @@
                             <?php endforeach; ?>
                         </ul>
                     </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5d2e6a0b6f03b55d2fbd6762b8d37630a57141e1
                     <div class="col c5">
                         <span>特色</span>
                         <ul>
@@ -1415,7 +1418,7 @@
                 <div class="pages">
                     <span id="back"><<</span>
                     <ul class="page">
-                        <?php $__FOR_START_317593615__=0;$__FOR_END_317593615__=$page;for($i=$__FOR_START_317593615__;$i < $__FOR_END_317593615__;$i+=1){ if($i<7): ?>
+                        <?php $__FOR_START_1375153660__=0;$__FOR_END_1375153660__=$page;for($i=$__FOR_START_1375153660__;$i < $__FOR_END_1375153660__;$i+=1){ if($i<7): ?>
                         <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                         <?php endif; } ?>
                     </ul>

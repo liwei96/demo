@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\dongs.html";i:1573175407;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\dongs.html";i:1573546202;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,12 +77,17 @@
         }
 
         .m-dong .m-tai {
+<<<<<<< HEAD
             width:92%;
             margin-left:4%;
             border-bottom:1px solid #F2F2F2;
             height:auto;
             padding-bottom:35px;
             font-family: "Microsoft YaHei";
+=======
+            padding: 0 4%;
+            margin-bottom: 36px;
+>>>>>>> 5d2e6a0b6f03b55d2fbd6762b8d37630a57141e1
         }
 
         .m-dong .m-tai h4 {

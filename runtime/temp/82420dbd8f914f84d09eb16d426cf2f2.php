@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\hu.html";i:1571799284;}*/ ?>
+=======
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\hu.html";i:1571799456;}*/ ?>
+>>>>>>> 5d2e6a0b6f03b55d2fbd6762b8d37630a57141e1
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -362,7 +366,11 @@
     display:none;
 }
 
+<<<<<<< HEAD
 /* 留言 */
+=======
+    /* 留言 */
+>>>>>>> 5d2e6a0b6f03b55d2fbd6762b8d37630a57141e1
     .m-xuan img{
         width:24.8%;
         height:34px;

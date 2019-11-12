@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\index\lius.html";i:1573439728;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\index\lius.html";i:1573547753;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -334,7 +334,6 @@
                 }
             )
         })
-
         $('.m-chang').on('click',function(){
             $('.m-chang').hide();
             $('.m-o-succ').hide();

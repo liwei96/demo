@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1573523285;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1573549668;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1748,7 +1748,7 @@
                     <h1>如何找房</h1>
                     <p>专家教你如何选择房子</p>
                 </div>
-                <button>帮我找房</button>
+                <button id="help">帮我找房</button>
             </div>
 
         </div>
@@ -1909,7 +1909,7 @@
         <div class="zixun-list">
             <div class="title">
                     <h1>项目资讯</h1>
-                    <div>
+                    <div id="more_news">
                         <span>更多资讯</span>
                         <i class="iconfont iconjiantou"></i>
                     </div>
@@ -2028,9 +2028,25 @@ var _hmt = _hmt || [];
             },
         });
         $(document).ready(function () {
+            // 更多资讯
+            $('#more_news').on('click',function(){
+                window.location.href="<?php echo url('home/news/index'); ?>";
+            })
             //首页土拍跳转
             $('.lou_dong_left').on('click',function(){
-                window.location.href="<?php echo url('home/index/tupai'); ?>";
+                window.location.href="<?php echo url('home/index/tupai',['type'=>0]); ?>";
+            })
+            // 预售证
+            $('.yu_shou').on('click',function(){
+                window.location.href="<?php echo url('home/index/tupai',['type'=>1]); ?>";
+            })
+            // 摇号
+            $('.yao_hao').on('click',function(){
+                window.location.href="<?php echo url('home/index/tupai',['type'=>2]); ?>";
+            })
+            // 帮我找房
+            $('#help').on('click',function(){
+                window.location.href="<?php echo url('home/user/yue'); ?>"
             })
             // 留言提交
             $('#l_btn').on('click',function(){

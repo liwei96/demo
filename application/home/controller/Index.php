@@ -18,6 +18,7 @@ use app\admin\model\Yushou;
 use app\admin\model\Yaohao;
 use app\admin\model\You;
 use app\home\model\Wen;
+use app\admin\model\Attribute;
 
 class Index extends Controller
 {
@@ -798,7 +799,28 @@ class Index extends Controller
     {
         //
         $data=Goods::select();
-        return view('map',['data'=>$data]);
+        $ties=Attribute::where('id',6)->column('attr_values')[0];
+        $ties=explode(',',$ties);
+        $dans=Attribute::where('id',3)->column('attr_values')[0];
+        $dans=explode(',',$dans);
+        $zongs=Attribute::where('id',12)->column('attr_values')[0];
+        $zongs=explode(',',$zongs);
+        $hus=Attribute::where('id',7)->column('attr_values')[0];
+        $hus=explode(',',$hus);
+        $xings=Attribute::where('id',8)->column('attr_values')[0];
+        $xings=explode(',',$xings);
+        $tes=Attribute::where('id',9)->column('attr_values')[0];
+        $tes=explode(',',$tes);
+        if(Cookie::has('city')){
+            $cates=Category::where('pid',Cookie::get('city'))->select();
+        }else{
+            $cates=Category::where('pid',1)->select();
+        }
+        $city=Category::where('pid',0)->select();
+        $kais=Attribute::where('id',13)->column('attr_values')[0];
+        $kais=explode(',',$kais);
+        return view('map',['data'=>$data,'cates'=>$cates,'ties'=>$ties,'dans'=>$dans,'hus'=>$hus,'city'=>$city,
+        'xings'=>$xings,'tes'=>$tes,'zongs'=>$zongs,'kais'=>$kais]);
     }
     public function pmap()
     {
@@ -840,9 +862,20 @@ class Index extends Controller
     public function lius(){
         return view();
     }
+    // 邮件
+    function email($sk){
+        $url = 'http://api.jy1980.com/index.php/distribute/send';
+        $ch = curl_init();//初始化curl
+        curl_setopt($ch, CURLOPT_URL,$url);//抓取指定网页
+        curl_setopt($ch, CURLOPT_HEADER, 0);//设置header
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);//要求结果为字符串且输出到屏幕上
+        curl_setopt($ch, CURLOPT_POST, 1);//post提交方式
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $sk);
+        $data = curl_exec($ch);//运行curl
+        curl_close($ch);
+    }
     public function liuget(){
         $data=request()->param();
-	
         $phone=$data['tel'];
         if (!preg_match('/^1[3-9]\d{9}$/', $phone)) {
             $res = [
@@ -851,14 +884,37 @@ class Index extends Controller
             ];
             return json($res);
         }
-	if(!array_key_exists('name',$data)){
-         $data['name']='不在落地页';
-	     Wen::create($data);
-         sc_send('留言','留言号码是：'.$phone.';留言内容是：'.$data['content']);
-	}else{
-         sc_send('留言','留言号码是：'.$phone.';留言内容是：'.$data['content'].'；留言楼盘是：'.$data['name']);
-         Wen::create($data);
-	}
+        $list=[];
+        $list['phone']=$data['tel'];
+        $list['sign']=time();
+        $list['username']='没有';
+        
+        $list['source']='留言';
+        $list['remark']=$data['con'];
+        
+        if(!array_key_exists('name',$data)){
+            if(!$data['index']){
+                $data['name']='不在落地页';
+                Wen::create($data);
+                $list['project']='';
+                $list['cate_id']=cookie('city');
+                $this->email($list);
+            }else{
+                $id=Goods::where('building_name','eq',$data['name'])->column('id')[0];
+                $list['project']=$id;
+                $list['cate_id']=0;
+                $this->email($list);
+                Wen::create($data);
+            }
+            
+            //  sc_send('留言','留言号码是：'.$phone.';留言内容是：'.$data['content']);
+        }else{
+            $list['project']='';
+            $list['cate_id']=cookie('city');
+            $this->email($list);
+            //  sc_send('留言','留言号码是：'.$phone.';留言内容是：'.$data['content'].'；留言楼盘是：'.$data['name']);
+            Wen::create($data);
+        }
         
         return json(['code'=>200]);
     }
@@ -887,12 +943,14 @@ class Index extends Controller
         return view('chejiaodetail',['city'=>$city,'success'=>$success,'tdengs'=>$tdengs]);
     }
 
-    // 移动首页土拍,预售，摇号
     public function tupai(){
+        $type=request()->param('type');
         $tuis=Tupai::where('cate_id','eq',Cookie::get('city'))->order('id','desc')->select();
         $yus=Yushou::where('cate_id','eq',Cookie::get('city'))->order('id','desc')->select();
         $haos=Yaohao::where('cate_id','eq',Cookie::get('city'))->where('type','摇号')->select();
         $dengs=Yaohao::where('cate_id','eq',Cookie::get('city'))->where('type','登记')->select();
-        return view('tupai',['tuis'=>$tuis,'yus'=>$yus,'haos'=>$haos,'dengs'=>$dengs]);
+        $qus=Category::where('pid',Cookie::get('city'))->column('id');
+        $tdengs=Goods::where('cate_id','in',$qus)->where('tdeng','eq','一级')->limit(0,6)->select();
+        return view('tupai',['tuis'=>$tuis,'yus'=>$yus,'haos'=>$haos,'dengs'=>$dengs,'tdengs'=>$tdengs,'type'=>$type]);
     }
 }

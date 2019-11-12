@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\search\search.html";i:1572252346;}*/ ?>
+=======
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\search\search.html";i:1573444054;}*/ ?>
+>>>>>>> 5d2e6a0b6f03b55d2fbd6762b8d37630a57141e1
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1325,7 +1329,11 @@
                 <div class="pages">
                     <span id="back"><<</span>
                     <ul class="page">
+<<<<<<< HEAD
                         <?php $__FOR_START_1215891142__=0;$__FOR_END_1215891142__=$page;for($i=$__FOR_START_1215891142__;$i < $__FOR_END_1215891142__;$i+=1){ if($i<7): ?>
+=======
+                        <?php $__FOR_START_1105515870__=0;$__FOR_END_1105515870__=$page;for($i=$__FOR_START_1105515870__;$i < $__FOR_END_1105515870__;$i+=1){ if($i<7): ?>
+>>>>>>> 5d2e6a0b6f03b55d2fbd6762b8d37630a57141e1
                         <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                         <?php endif; } ?>
                     </ul>
@@ -2617,10 +2625,19 @@
   	   
             $(document).scroll(function(){
                 var scrollTop = $(this).scrollTop();               
+<<<<<<< HEAD
                 var scrollHeight = $(document).height();                   
                 var windowHeight = $(this).height(); 
 	                         
                 if(scrollTop + windowHeight >= scrollHeight){       
+=======
+                var scrollHeight = document.documentElement.clientHeight;                   
+                var windowHeight = $(this).height(); 
+	            console.log(scrollTop)             
+	            console.log(scrollHeight)             
+	            console.log(windowHeight)             
+                if(scrollTop + scrollHeight >= windowHeight){       
+>>>>>>> 5d2e6a0b6f03b55d2fbd6762b8d37630a57141e1
                         pull(p,0);
                         p=p+1;
                 }            

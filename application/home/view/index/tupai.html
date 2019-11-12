@@ -169,12 +169,12 @@
         <div class="container-fluid m">
                 <div class="m-nav visible-xs-block .visible-sm-block navbar navbar-default navbar-fixed-top">
                     <img src="/static/home/imgs/return.png" alt="" onClick="javascript:history.go(-1)">
-                    <span class="m-t-news m-active" >土拍<i></i></span>
-                    <span class="m-y-news">预售证<i></i></span>
-                    <span class="m-h-news">摇号<i></i></span>
+                    <span class="m-t-news {if $type==0}m-active{/if}" >土拍<i></i></span>
+                    <span class="m-y-news {if $type==1}m-active{/if}">预售证<i></i></span>
+                    <span class="m-h-news {if $type==2}m-active{/if}">摇号<i></i></span>
                 </div>
                 <div class="m-list visible-xs-block .visible-sm-block">
-                   <div id="m-t">
+                   <div id="m-t" style="display: {if $type==0}block{else}none{/if};">
                         {foreach $tuis as $v}
                         <div class="m-di">
                                 <h6>{$v.name}</h6>
@@ -224,7 +224,7 @@
                         {/foreach}
                        
                    </div>
-                   <div id="m-y">
+                   <div id="m-y" style="display: {if $type==1}block{else}none{/if};">
                        {foreach $yus as $v}
                         <div class="m-di">
                                 <h6>{$v.name}</h6>
@@ -265,7 +265,7 @@
                             </div>
                             {/foreach}
                    </div>
-                   <div id="m-h">
+                   <div id="m-h" style="display: {if $type==2}block{else}none{/if};">
                        <div class="m-al">
                             <h6>今日可登记楼盘</h6>
                             <ul>

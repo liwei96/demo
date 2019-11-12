@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\content.html";i:1572937805;}*/ ?>
+=======
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:76:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\content.html";i:1573190019;}*/ ?>
+>>>>>>> 5d2e6a0b6f03b55d2fbd6762b8d37630a57141e1
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1896,6 +1900,7 @@ var _hmt = _hmt || [];
                 var sign=parseInt(new Date().getTime()/1000);
                 var project=<?php echo $data['id']; ?>;
                 $.post(
+<<<<<<< HEAD
                     "http://api.jy1980.com/index.php/distribute/send",
                     {'sign':sign,'username':'没有','project':project,'source':'家园留言','remark':con,'cate_id':0,'phone':tel},
                     function(res){
@@ -1903,6 +1908,15 @@ var _hmt = _hmt || [];
                             alert(res.message)
                         }else{
                             alert(res.message);
+=======
+                    "<?php echo url('home/user/email'); ?>",
+                    {'sign':sign,'username':'没有','project':project,'source':'留言','remark':con,'cate_id':0,'phone':tel},
+                    function(res){
+                        if(res.code){
+                            // alert(res.message)
+                        }else{
+                            // alert(res.message);
+>>>>>>> 5d2e6a0b6f03b55d2fbd6762b8d37630a57141e1
                         }
                     }
                 )         
@@ -2274,6 +2288,22 @@ var _hmt = _hmt || [];
                             // console.log(l);
                             that.parent().next().find('p').find('span').html(tel);
                             // $('.t-b-second p span').html(tel);
+<<<<<<< HEAD
+=======
+			                var sign=parseInt(new Date().getTime()/1000);
+                            var project=<?php echo $data['id']; ?>;
+                            $.post(
+                                "<?php echo url('home/user/email'); ?>",
+                                {'sign':sign,'username':'没有','project':project,'source':'家园'+type,'remark':'不是留言','cate_id':0,'phone':phone},
+                                function(res){
+                                    if(res.code){
+                                        // alert(res.message)
+                                    }else{
+                                        // alert(res.message);
+                                    }
+                                }
+                            )
+>>>>>>> 5d2e6a0b6f03b55d2fbd6762b8d37630a57141e1
                         }else{
                             alert(res.msg);
                         }
@@ -2367,6 +2397,7 @@ var _hmt = _hmt || [];
                             $('.t-b-second').hide();
                             $('#txt').text('已成功订购服务，我们会第一时间通过电话联系您');
                             $('.succ').show();
+<<<<<<< HEAD
                             var sign=parseInt(new Date().getTime()/1000);
                             var project=<?php echo $data['id']; ?>;
                             $.post(
@@ -2380,6 +2411,10 @@ var _hmt = _hmt || [];
                                     }
                                 }
                             )
+=======
+                            
+                            
+>>>>>>> 5d2e6a0b6f03b55d2fbd6762b8d37630a57141e1
                         }
                     },
                     'json'
