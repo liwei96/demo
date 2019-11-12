@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\index.html";i:1573106224;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\index.html";i:1573543925;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/home/css/jSlider.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">
+    <link rel="stylesheet" href="/static/home/css/swiper-3.4.2.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
         integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cache.amap.com/lbs/static/main1119.css"/>
@@ -29,7 +29,7 @@
             position: absolute;
             top: 20px;
             right: 4.6%;
-            z-index: 1;
+            z-index: 200;
         }
 
         .m-imgs .swiper-container{
@@ -233,6 +233,24 @@
         background-color: #fff;
     }
 
+/*轮播图*/
+    .swiper-box  {
+             height:210px;
+             margin-bottom:25px;
+             margin-left:4%;
+        }
+
+        #swiper-pagination1{
+               height:20px;
+        }
+        .swiper-box   .swiper-slide{
+        width:53.3%!important;
+        height:210px!important;
+        margin-right:3.2%!important;
+       } 
+
+
+
 
     </style>
 <script>
@@ -257,11 +275,19 @@ var _hmt = _hmt || [];
                 <img class="m-back" src="/static/home/imgs/return2.png" alt="" onclick="javascript:history.go(-1)">
                 <img class="m-home" src="/static/home/imgs/m-home.png" alt="主页">
                 <div class="m-luns">
-                        <div class="jSlider" id="slider1" data-navigation="none">
+                        <!-- <div class="jSlider" id="slider1" data-navigation="none">
                             <?php foreach($xiaoimgs as $v): ?>
                             <div><img src="<?php echo $v['x_big']; ?>" style="width:100%"></div>
                             <?php endforeach; ?>
-                        </div>
+                        </div> -->
+                        <div class="swiper-top">
+                                <div class="swiper-wrapper">
+                                        <?php foreach($xiaoimgs as $v): ?>
+                                        <div  class="swiper-slide"><img src="<?php echo $v['x_big']; ?>" style="width:100%"></div>
+                                        <?php endforeach; ?>
+                                </div>
+                                <div id="swiper-pagination1"></div>
+                              </div>
                 </div>
             </div>
 
@@ -309,7 +335,7 @@ var _hmt = _hmt || [];
         <div class="m-image visible-xs-block .visible-sm-block">
 	
 		     <a data-agl-cvt="2" href="tel:400-718-6686">
-            <img src="/static/home/imgs/w1.png" alt="">
+               <img src="/static/home/imgs/phone.png" alt="">
             </a>
 	    
 	
@@ -393,21 +419,58 @@ var _hmt = _hmt || [];
         <div class="m-yu visible-xs-block .visible-sm-block">
             <h3>您预约、我接送</h3>
             <img src="/static/home/imgs/yy.png" alt="">
-            <button data-agl-cvt="5" <?php if(\think\Session::get('user')): ?>class="q-bian" data-v="预约看房"<?php else: ?>class="p1" data-v="预约看房"<?php endif; ?> >我要看房</button>
+            <button data-agl-cvt="5" <?php if(\think\Session::get('user')): ?>class="q-bian" data-v="预约看房"<?php else: ?>class="p1" data-v="预约看房"<?php endif; ?> >我要预约</button>
         </div>
         <div class="m-line visible-xs-block .visible-sm-block"></div>
+
+          <!--对比分析资料 -->    
         <div class="m-fen visible-xs-block .visible-sm-block">
-            <h3>对比分析资料<span class="m-more-fen">详细分析<img src="/static/home/imgs/m-go.png" alt=""></span></h3>
-            <h4>投资分析</h4>
-            <p>1、<?php echo $tou['cone']; ?></p>
-            <p>2、<?php echo $tou['ctwo']; ?></p>
-            <p>3、...</p>
-            <h4>宜居分析</h4>
-            <p>1、<?php echo $yi['cone']; ?></p>
-            <p>2、<?php echo $yi['ctwo']; ?></p>
-            <p>3、...</p>
+            <h3>对比分析资料<span class="m-more-fen">详细分析<img  class="xiang-img " src="/static/home/imgs/m-go.png" alt=""></span></h3>
+           
+             <!--对比分析资料 -->   
+            <div class="dui-zi">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide dui-box">
+                          <div class="tou-con">
+                                <h4>投资分析</h4>
+                                <p>
+                                方圆9平方公里的紫金港科技城，北部软件园，
+                                智慧网谷，规划有370万㎡研发办公空间
+                                智慧网谷，规划有370万㎡研发办公空间
+                                 </p>
+                          </div>
+                          <div class="tou-img">
+                              <img src="/static/home/imgs/pc-db.png" alt="">
+                          </div>
+
+                      </div>
+                      <div class="swiper-slide dui-box">
+                            <div class="tou-con">
+                                    <h4>投资分析</h4>
+                                    <p>
+                                    方圆9平方公里的紫金港科技城，北部软件园，
+                                    智慧网谷，规划有370万㎡研发办公空间
+                                    智慧网谷，规划有370万㎡研发办公空间
+                                     </p>
+                              </div>
+                              <div class="tou-img">
+                                  <img src="/static/home/imgs/pc-db.png" alt="">
+                              </div> 
+                      </div>
+                    
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination2"></div>
+                  </div>
+
+
+
+
             <button data-agl-cvt="5" <?php if(\think\Session::get('user')): ?>class="q-bian" data-v="获取详细分析资料"<?php else: ?>class="p1" data-v="获取详细分析资料"<?php endif; ?> >获取详细分析资料</button>
         </div>
+
+
+
         <div class="m-line visible-xs-block .visible-sm-block"></div>
         <div class="m-ling visible-xs-block .visible-sm-block">
             <h3>楼盘资料免费领<span>已有<i>860</i>人领取</span></h3>
@@ -518,19 +581,63 @@ var _hmt = _hmt || [];
 
         <div class="m-jian visible-xs-block .visible-sm-block">
             <h3>推荐楼盘</h3>
-            <div class="m-j-con">
-                <div class="m-j-top">
 
+            <div class="swiper-box">
+             <div class="swiper-wrapper">
+                <div class="swiper-slide"> 
+                    <div class="m-j-con">
+                        <div class="m-j-top">
+                            <img src="https://www.jy1980.com/uploads/20190608/daee35d23619ba80c4602590416e8df8.jpg" alt="">
+                            <span>推荐楼盘</span>
+                        </div>
+                        <div class="m-j-bom">
+                            <h4>中梁申花百悦公馆</h4>
+                            <p>
+                                <span>江干区</span>
+                                <span>建面: 90-180/m²</span>
+                            </p>
+                            <span class="m-j-pic">25000元/m²起</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="m-j-bom">
-                    <h4>中梁申花百悦公馆</h4>
-                    <p>
-                        <span>江干区</span>
-                        <span>建面: 90-180/m²</span>
-                    </p>
-                    <span class="m-j-pic">25000元/m²起</span>
+                <div class="swiper-slide"> 
+                        <div class="m-j-con">
+                            <div class="m-j-top">
+                                <img src="https://www.jy1980.com/uploads/20190608/daee35d23619ba80c4602590416e8df8.jpg" alt="">
+                                <span>推荐楼盘</span>
+                            </div>
+                            <div class="m-j-bom">
+                                <h4>中梁申花百悦公馆</h4>
+                                <p>
+                                    <span>江干区</span>
+                                    <span>建面: 90-180/m²</span>
+                                </p>
+                                <span class="m-j-pic">25000元/m²起</span>
+                            </div>
+                        </div>
                 </div>
+                <div class="swiper-slide"> 
+                        <div class="m-j-con">
+                            <div class="m-j-top">
+                                <img src="https://www.jy1980.com/uploads/20190608/daee35d23619ba80c4602590416e8df8.jpg" alt="">
+                                <span>推荐楼盘</span>
+                            </div>
+                            <div class="m-j-bom">
+                                <h4>中梁申花百悦公馆</h4>
+                                <p>
+                                    <span>江干区</span>
+                                    <span>建面: 90-180/m²</span>
+                                </p>
+                                <span class="m-j-pic">25000元/m²起</span>
+                            </div>
+                        </div>
+                </div>
+
             </div>
+        </div>
+
+
+
         </div>
         <div class="m-line visible-xs-block .visible-sm-block"></div>
         
@@ -672,13 +779,26 @@ var _hmt = _hmt || [];
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+    <script src="/static/home/js/libs/swiper.min.js"></script>
     <script src="/static/home/js/echarts.min.js"></script>
     <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=729ac4d779c7e625bc11bd5ba3ff3112"></script>
     <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
        
     
     <script>
+     var swiper = new Swiper('.swiper-top', {
+      spaceBetween: 30,
+      pagination: {
+        el: '#swiper-pagination1',
+        clickable: true,
+      },
+    });
+     var swiper = new Swiper('.dui-zi', {
+      spaceBetween: 30,
+      pagination: {
+        el: '.swiper-pagination2',
+      },
+    });
          // 初始化图表标签
     var myChart = echarts.init(document.getElementById('chart'));
     var options={
@@ -775,7 +895,10 @@ var _hmt = _hmt || [];
         
         var cpoint = [<?php echo $data['mapx']; ?>,<?php echo $data['mapy']; ?>]; //中心点坐标
         
-       
+        var swiper = new Swiper('.swiper-box', {
+        slidesPerView: 1.8,
+        spaceBetween: 5,
+    });
         $(document).ready(function(){
 	    $('.m-xuan').on('click', function () {
 		var id=$(this).attr('data-v');
