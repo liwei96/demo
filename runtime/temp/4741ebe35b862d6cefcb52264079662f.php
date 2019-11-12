@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\index\lius.html";i:1573354777;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\index\lius.html";i:1573439728;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -319,9 +319,11 @@
             console.log(input,text);
             $.post(
                 "<?php echo url('home/index/liuget'); ?>",
-                {'tel':input,'content':text,'name':name},
+                {'tel':input,'content':text,},
                 function(res){
                     if(res.code==200){
+                        $('.m-zhe-tel').hide();
+                         $('.m-zhe-box').hide();
                         $('.m-chang').show();
                         $('.m-o-succ').show(300);
                     }else if(res.code==10001){

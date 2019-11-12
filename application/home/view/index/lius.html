@@ -318,9 +318,11 @@
             console.log(input,text);
             $.post(
                 "{:url('home/index/liuget')}",
-                {'tel':input,'content':text,'name':name},
+                {'tel':input,'content':text,},
                 function(res){
                     if(res.code==200){
+                        $('.m-zhe-tel').hide();
+                         $('.m-zhe-box').hide();
                         $('.m-chang').show();
                         $('.m-o-succ').show(300);
                     }else if(res.code==10001){
