@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\index.html";i:1573202256;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\index.html";i:1573459998;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -233,7 +233,52 @@
         background-color: #fff;
     }
 
+    /* m-botnav */
+.m-botnav {
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 200;
+    box-shadow: 0px 0px 9px 1px rgba(6, 0, 1, 0.04);
+}
 
+.m-botnav p {
+    display: inline-block;
+    margin-top: 11px;
+    margin-left: 9.333333%;
+    color: #808080;
+    font-size: 10px;
+    margin-right: 1.86666667%;
+}
+
+.m-botnav p img {
+    width: 46%;
+    display: block;
+}
+
+.m-botnav button {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    width: 33.06667%;
+    height: 40px;
+    font-size: 15px;
+    border-radius: 4px;
+    border: 0px;
+}
+
+.m-botnav .m-pho {
+    background-color: #58BBEC;
+    color: #fff;
+}
+
+.m-botnav .m-y {
+    background-color: #46CF76;
+    color: #fff;
+    left: 62%;
+}
     </style>
 <script>
 var _hmt = _hmt || [];

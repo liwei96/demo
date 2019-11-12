@@ -863,6 +863,7 @@ class Content extends Controller
 
     // 项目子页面的相册页
     public function lpic($id){
+        $data=Goods::where('id','eq',$id)->find();
         $himgs=Huimgs::where('bid','eq',$id)->select();
         $hs=Huimgs::where('bid','eq',$id)->count('*');
         $ximgs=Xiaoimgs::where('bid','eq',$id)->select();
@@ -875,7 +876,7 @@ class Content extends Controller
         $ys=Yangimgs::where('bid','eq',$id)->count('*');
         $jimgs=Jiaoimgs::where('bid','eq',$id)->select();
         $js=Jiaoimgs::where('bid','eq',$id)->count('*');
-        return view('lpic',['himgs'=>$himgs,'hs'=>$hs,'ximgs'=>$ximgs,'xs'=>$xs,'pimgs'=>$pimgs,'ps'=>$ps,'simgs'=>$simgs,'ss'=>$ss,'yimgs'=>$yimgs,'ys'=>$ys,'jimgs'=>$jimgs,'js'=>$js,'id'=>$id]);
+        return view('lpic',['himgs'=>$himgs,'hs'=>$hs,'ximgs'=>$ximgs,'data'=>$data,'xs'=>$xs,'pimgs'=>$pimgs,'ps'=>$ps,'simgs'=>$simgs,'ss'=>$ss,'yimgs'=>$yimgs,'ys'=>$ys,'jimgs'=>$jimgs,'js'=>$js,'id'=>$id]);
     }
 
     // 周边规划跳转
