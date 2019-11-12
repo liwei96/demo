@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\index.html";i:1573459998;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:74:"D:\phpstudy_pro\WWW\tp2\public/../application/home\view\content\index.html";i:1573523862;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1367,7 +1367,7 @@ var _hmt = _hmt || [];
                            $('.m-fork').attr('src',res.ss);
                            $('.m-fork').attr('alt','已收藏');
                             var html=`
-                            <img style="margin-left:17%" src="${res.msg}" alt="">已收藏
+                                <img style="margin-left:17%" src="${res.msg}" alt="">已收藏
                                     `;
                             that.html(html)
                             

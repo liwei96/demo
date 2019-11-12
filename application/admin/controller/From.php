@@ -131,7 +131,16 @@ class From extends Base
     }
 
     public function test(){
-        $shu=Db::connect('mysql://root:BmaGRa6mBNdbKTNw@47.92.241.83:3306/tpshop#utf8')->table('tpshop_port1')->whereTime('update_time','between',['2019-11-7','2019-11-9'])->field('phone,building_name')->select();
+        // $ids=Db::connect('mysql://erp:ZkMFXYZ2H7MBtW4i@39.98.227.114:3306/erp#utf8')->table('erp_area')
+        $shu=Db::connect('mysql://erp:ZkMFXYZ2H7MBtW4i@39.98.227.114:3306/erp#utf8')->table('erp_building')->limit(400,50)->field("building_name,cate_id,branch")->select();
+        foreach($shu as &$v){
+            $pid=Db::connect('mysql://erp:ZkMFXYZ2H7MBtW4i@39.98.227.114:3306/erp#utf8')->table('erp_area')->where('id','eq',$v['cate_id'])->column('pid')[0];
+            $v['cate_id']=Db::connect('mysql://erp:ZkMFXYZ2H7MBtW4i@39.98.227.114:3306/erp#utf8')->table('erp_area')->where('id','eq',$v['cate_id'])->column('area_name')[0];
+            $pid=Db::connect('mysql://erp:ZkMFXYZ2H7MBtW4i@39.98.227.114:3306/erp#utf8')->table('erp_area')->where('id','eq',$pid)->column('pid')[0];
+            $v['shen']=Db::connect('mysql://erp:ZkMFXYZ2H7MBtW4i@39.98.227.114:3306/erp#utf8')->table('erp_area')->where('id','eq',$pid)->column('area_name')[0];
+        }
+        // dump($shu);die();
+        // $shu=Db::connect('mysql://root:BmaGRa6mBNdbKTNw@47.92.241.83:3306/tpshop#utf8')->table('tpshop_port1')->whereTime('update_time','between',['2019-11-7','2019-11-9'])->field('phone,building_name')->select();
         // $shu=Db::connect('mysql://root:BmaGRa6mBNdbKTNw@47.92.241.83:3306/tpshop#utf8')->table('tpshop_goods')->where('cate_id','in',$ids)->column('id,building_name,cate_id');
         // dump($shu);die();
         $spreadsheet = new Spreadsheet();
@@ -140,8 +149,10 @@ class From extends Base
         $sheet->setTitle('资料');
         //设置第一行小标题
         $k = 1;
-        $sheet->setCellValue('a'.$k, '手机号');
-        $sheet->setCellValue('b'.$k, '楼盘名');
+        $sheet->setCellValue('a'.$k, '项目名');
+        $sheet->setCellValue('b'.$k, '小区域');
+        $sheet->setCellValue('c'.$k, '门店');
+        $sheet->setCellValue('d'.$k, '省份');
         $row=2;
         foreach($shu as $k=>$v){
             $column=1;
