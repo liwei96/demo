@@ -181,7 +181,7 @@ class Index extends Controller
             $haos=Yaohao::order('id','desc')->where('type','摇号')->where('cate_id','eq',1)->select();
         }
 
-        $dongs=Text::order('id','desc')->where('bid','in',$ts)->paginate(2);
+        $dongs=Text::order('id','desc')->where('bid','in',$ts)->paginate(1);
         $dons=Text::order('id','desc')->where('bid','in',$ts)->paginate(3);
         foreach($dons as $v){
             $v['name']=Goods::where('id','eq',$v['bid'])->column('building_name')[0];
@@ -193,7 +193,20 @@ class Index extends Controller
         $qus=Category::where('pid',Cookie::get('city'))->column('id');
         $tdengs=Goods::where('cate_id','in',$qus)->where('tdeng','eq','一级')->paginate(4); 
         $yous=You::select();
-        return view('index',['list'=>$list,'sum'=>$sum,'projects'=>$projects,'news1'=>$news1,'tuan'=>$tuan,'num'=>$num,'city'=>$city,'news2'=>$news2,'dons'=>$dons,'ps'=>[],
+        $hots=Goods::where('cate_id','in',$qus)->order('tdeng','asc')->limit(4)->select();
+        foreach($hots as $v){
+            $v['qu']=Category::where('id','eq',$v['cate_id'])->column('area_name')[0];
+        }
+        // dump($hots);die();
+        $jians=Goods::where('cate_id','in',$qus)->order('tdeng','asc')->limit(4,4)->select();
+        foreach($jians as $v){
+            $v['qu']=Category::where('id','eq',$v['cate_id'])->column('area_name')[0];
+        }
+        $news=Goods::where('cate_id','in',$qus)->order('id','desc')->limit(4)->select();
+        foreach($news as $v){
+            $v['qu']=Category::where('id','eq',$v['cate_id'])->column('area_name')[0];
+        }
+        return view('index',['list'=>$list,'sum'=>$sum,'projects'=>$projects,'news1'=>$news1,'tuan'=>$tuan,'num'=>$num,'city'=>$city,'news2'=>$news2,'dons'=>$dons,'ps'=>[],'hots'=>$hots,'jians'=>$jians,'news'=>$news,
         'n'=>$sd,'success'=>$success,'tuis'=>$tuis,'yus'=>$yus,'dengs'=>$dengs,'haos'=>$haos,'jiao'=>$jiao,'dongs'=>$dongs,'dnum'=>$dnum,'tdengs'=>$tdengs,'yous'=>$yous]);
     }
 

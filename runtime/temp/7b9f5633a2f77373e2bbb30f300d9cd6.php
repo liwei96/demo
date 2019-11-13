@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:61:"G:\jiayuan\tp2\public/../application/home\view\user\gong.html";i:1573616873;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

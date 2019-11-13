@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:61:"G:\jiayuan\tp2\public/../application/home\view\user\home.html";i:1572854994;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:61:"G:\jiayuan\tp2\public/../application/home\view\user\home.html";i:1573633457;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +46,8 @@
                 text-align: center;
             }
             .m-top .m-banner{
-                background-color: #26BD58;
+                background:url(/static/home/imgs/bg_login.png) no-repeat;
+                background-size: 100%  160px;
                 width: 100%;
                 height:160px;
                 position: absolute;
@@ -162,18 +163,21 @@
         margin-top: 3.5%;
         box-shadow: 0px 0px 14px 6px rgba(6,0,1,0.05);
         margin-left: -46%;
-        padding:0 4.1739%;
+        /* padding:0 4.1739%; */
         top:208px;
     }
     .m-jia h4{
         color:#333333;
         font-size: 13px;
         margin: 12px 0;
+        padding-left:4%;
     }
     .m-jia .m-line{
         height:0.5px;
         background-color: #F2F2F2;
         margin-bottom: 20px;
+        width: 91.3%;
+        margin-left:4%;
     }
     .m-jia ul li{
         width:25%;
@@ -202,17 +206,20 @@
         margin-top: 3.5%;
         box-shadow: 0px 0px 14px 6px rgba(6,0,1,0.05);
         margin-left: -46%;
-        padding:0 4.1739%
+        /* padding:0 4.1739% */
     }
     .m-bottom h4{
         color:#333333;
         font-size: 13px;
         margin: 12px 0;
+        padding-left:4%;
     }
     .m-bottom .m-line{
         height:0.5px;
         background-color: #F2F2F2;
         margin-bottom: 20px;
+        width: 91.3%;
+        margin-left:4%;
     }
     .m-bottom ul li{
         width:25%;

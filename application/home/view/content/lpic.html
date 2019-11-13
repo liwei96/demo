@@ -22,19 +22,19 @@
   <div class="swiper-container" id="nav">
     <div class="swiper-wrapper ">
       <div class="swiper-slide">
-        <span class="active">效果图(1)</span>
+        <span class="active">效果图({$xs})</span>
       </div>
       <div class="swiper-slide">
-        <span>实景图(2)</span>
+        <span>实景图({$ss})</span>
       </div>
       <div class="swiper-slide">
-        <span>样板图(3)</span>
+        <span>样板图({$ys})</span>
       </div>
       <div class="swiper-slide">
-        <span>交通图(4)</span>
+        <span>交通图({$js})</span>
       </div>
       <div class="swiper-slide">
-        <span>户型图(5)</span>
+        <span>户型图({$hs})</span>
       </div>
       <!-- <div class="bar">
         <div class="color"></div>
@@ -53,11 +53,11 @@
 
               <div class="swiper-container banner">
                 <div class="swiper-wrapper">
-                  
+                    {foreach $ximgs as $v}
                   <div class="swiper-slide">
-                    <img src="/static/home/imgs/1.jpg">
+                    <img src="{$v.x_big}">
                   </div>
-                 
+                  {/foreach}
                  
                 </div>
                 <div class="swiper-pagination page1"></div>
@@ -77,15 +77,12 @@
             <div class="swiper-slide slidescroll">
               <div class="swiper-container banner">
                 <div class="swiper-wrapper">
+                  {foreach $simgs as $v}
                   <div class="swiper-slide">
-                    <img src="/static/home/imgs/1.jpg">
+                    <img src="{$v.s_big}">
                   </div>
-                  <div class="swiper-slide">
-                    <img src="/static/home/imgs/2.jpg">
-                  </div>
-                
-
-
+                  {/foreach}
+                  
                 </div>
                 <div class="swiper-pagination page2"></div>
               </div>
@@ -104,18 +101,12 @@
 
                 <div class="swiper-container banner">
                     <div class="swiper-wrapper">
-
+                      {foreach $yimgs as $v}
                       <div class="swiper-slide">
-                        <img src="/static/home/imgs/1.png">
+                        <img src="{$v.y_big}">
                       </div>
-                      <div class="swiper-slide">
-                        <img src="/static/home/imgs/2.png">
-                      </div>
-                      <div class="swiper-slide">
-                          <img src="/static/home/imgs/1.png">
-                      </div>
-                    
-    
+                      {/foreach}
+                      
     
                     </div>
                     <div class="swiper-pagination page3"></div>
@@ -135,19 +126,12 @@
                 <div class="swiper-container banner">
                     <div class="swiper-wrapper">
 
-
+                      {foreach $jimgs as $v}
                       <div class="swiper-slide">
-                        <img src="/static/home/imgs/1.jpg">
+                        <img src="{$v.j_big}">
                       </div>
-                      <div class="swiper-slide">
-                          <img src="/static/home/imgs/2.jpg">
-                       </div>
-                        <div class="swiper-slide">
-                            <img src="/static/home/imgs/2.jpg">
-                        </div>
-                      <div class="swiper-slide">
-                        <img src="/static/home/imgs/1.png">
-                      </div>
+                      {/foreach}
+                      
                     
     
     
@@ -167,22 +151,12 @@
                 <div class="swiper-container banner">
                     <div class="swiper-wrapper">
 
-
+                      {foreach $himgs as $v}
                     <div class="swiper-slide">
-                        <img src="/static/home/imgs/1.png">
+                        <img src="{$v.h_big}">
                       </div>
-                      <div class="swiper-slide">
-                          <img src="/static/home/imgs/2.png">
-                      </div>
-                      <div class="swiper-slide">
-                        <img src="/static/home/imgs/1.jpg">
-                      </div>
-                      <div class="swiper-slide">
-                        <img src="/static/home/imgs/2.jpg">
-                      </div>
-                      <div class="swiper-slide">
-                          <img src="/static/home/imgs/1.jpg">
-                        </div>
+                      {/foreach}
+                      
     
     
                     </div>
@@ -196,6 +170,54 @@
 
 
     </div>
+  </div>
+  <!-- 弹出框 -->
+  <div class="visible-xs-block .visible-sm-block">
+
+      <div class="weiter ts">
+          <div class="t-top">
+              <h6>变价通知</h6>
+              <p>一键订阅最新变价通知，楼盘变价我们第一时间 通知您，帮您找准买房好时机</p>
+              <img id="w-esc" src="/static/home/imgs/xx.png" alt="">
+          </div>
+          <div class="t-bottom">
+              <div class="t-b-first">
+                  <input class="l-p" type="text" placeholder="请输入手机号">
+                  <button class="t-b-btn t-b-btn2">立即订阅</button>
+                  <p>
+                      家园新房一对一专业服务，家园承诺保护您的隐私安全
+                  </p>
+              </div>
+              <div class="t-b-second">
+                  <p>验证码已发送到<span>187****4376</span>，请注意查看</p>
+                  <input type="text" placeholder="请输入验证码">
+                  <button class="port1">确定</button>
+                  <input type="hidden" id="building_name" value="{$data.building_name}">
+                  <input type="hidden" value="">
+                  <button class="t-b-scode">获取验证码</button>
+                  <p class="tishi">
+                      家园新房一对一专业服务，家园承诺保护您的隐私安全
+                  </p>
+              </div>
+          </div>
+      </div>
+
+
+      <div class="m-chang"></div>
+      
+      <div class="m-o-succ">
+          <img class="o-esc" src="/static/home/imgs/m-esc.png" alt="">
+          <img src="/static/home/imgs/m-success.png" alt="" class="o-success">
+          <p id="o_p">已成功订阅最新动态，我们会第一时间通过短信通知您！</p>
+          <button id="o_btn">确定</button>
+      </div>
+      
+      <div id="m_ti">
+
+      </div>
+      <div class="m-bigimgs">
+          <img class="m_bigimgs" src="" alt="">
+      </div>
   </div>
 <!-- 底部悬浮按钮 -->
 <div class="m-botnav visible-xs-block .visible-sm-block">
@@ -413,7 +435,19 @@
                 $('.m-chang').show();
                 
             })
-
+            // 关闭
+            $('#w-esc').on('click',function(){
+              $('.weiter').hide();
+              $('.m-chang').hide();
+            })
+            $('.m-chang').on('click',function(){
+              $('.weiter').hide();
+              $('.m-chang').hide();
+            })
+            // 返回上一级
+            $('#fanhui').on('click',function(){
+              window.location.href=document.referrer;
+            })
             // 接口验证码
             $('.t-b-btn2').on('click',function(){
                 var phone=$(this).prev().val();

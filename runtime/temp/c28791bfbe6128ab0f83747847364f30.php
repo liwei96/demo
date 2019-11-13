@@ -1,10 +1,11 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:59:"G:\jiayuan\tp2\public/../application/home\view\user\ke.html";i:1573616957;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>关注公众号</title>
+        <title>关注客服</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
             integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
@@ -94,11 +95,11 @@
                     margin-left:4%;
                     border-bottom: 0.5px dashed #B5B5B5;
                 }
-                .di{
+                .ke{
                        width:100%;
                        height:auto;
                 }
-                .di img{
+                .ke img{
                     width:100%;
                        height:auto;
                 }
@@ -111,15 +112,15 @@
     <div class="container-fluid m">
         <div class="m-title visible-xs-block .visible-sm-block">
             <img src="/static/home/imgs/return.png" alt="" onClick="javascript:history.go(-1)">
-            <h3>关注公众号</h3>
+            <h3>关注客服</h3>
         </div>
        <p>关注家园新房公众号了解详细楼盘</p>
-       <img src="/static/home/imgs/ma_01.png" alt="" class="two">
+       <img src="/static/home/imgs/ma_02.png" alt="" class="two">
        <button>保存二维码图片</button>
        <div class="line"></div>
     </div>
-    <div class="di">
-        <img src="/static/home/imgs/buzhou.png" alt="">
+    <div class="ke">
+        <img src="/static/home/imgs/kefu.png" alt="">
     </div>
     
 </body>

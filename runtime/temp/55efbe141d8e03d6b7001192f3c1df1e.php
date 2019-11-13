@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1573550314;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1573636564;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +19,7 @@
  <link rel="stylesheet" href="https://at.alicdn.com/t/font_910507_hzufm6hpwxd.css">
 <link rel="stylesheet" href="https://at.alicdn.com/t/font_1329849_7za7eo8yzvj.css">
 <link rel="stylesheet" href="https://at.alicdn.com/t/font_1416845_r9dt4y7kjwo.css">
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1416845_5g55q69hham.css">
 
     <link rel="stylesheet" href="/static/home/css/i-index.css">
     <link rel="stylesheet" href="/static/home/css/i-index2.css">
@@ -831,25 +832,29 @@
              height:160px;
         }
     .swiper-box   .swiper-slide{
-        width:37.3%!important;
+        width:38.3%!important;
         height:140px!important;
        margin-right:3.2%!important;
+       text-align:left!important;
     } 
 
     .swiper-box1   .swiper-slide{
-        width:37.3%!important;
+        width:38.3%!important;
         height:140px!important;
        margin-right:3.2%!important;
+       text-align:left!important;
     } 
     .swiper-box2   .swiper-slide{
-        width:37.3%!important;
+        width:38.3%!important;
         height:140px!important;
        margin-right:3.2%!important;
+       text-align:left!important;
     } 
     .swiper-box3   .swiper-slide{
-        width:37.3%!important;
+        width:38.3%!important;
         height:140px!important;
        margin-right:3.2%!important;
+       text-align:left!important;
     } 
              
     
@@ -1468,7 +1473,7 @@
 
     <div class="container-fluid" style="padding:0;margin: 0">
         <header class="m-nav visible-xs-block .visible-sm--block">
-            <div class="m-address"><?php if(\think\Cookie::get('cityname')): ?> <?php echo \think\Cookie::get('cityname'); else: ?>杭州<?php endif; ?></div>
+            <div class="m-address"><?php if(\think\Cookie::get('cityname')): ?> <?php echo \think\Cookie::get('cityname'); else: ?>杭州<?php endif; ?>  <span class="iconfont iconchangyongtubiao-xianxingdaochu-zhuanqu-"></span></div>
 
             <img style="width:100%" src="/static/home/imgs/banner1.png.png" alt="">
             <img src="/static/home/imgs/Mine.png" alt="" class="m-user">
@@ -1533,11 +1538,13 @@
             <div class="m-d-l l1"></div>
             <div class="m-d-l l2"></div> -->
             <ul class="dong-t">
+                <?php foreach($dongs as $v): ?>
                 <li>
-                    <h1>中交财富中心商铺最新房源动态</h1>
-                    <p>中交财富中心7.20已盛大加推3号楼，现推出特价商铺6套，双地铁口，准现铺，面积81-191平，特惠总价低至287万起双地铁口，准现铺，面积81-191平，特惠总价低至287万起特惠总价低至287万起至287万起</p>
-                    <h5>2019-04-08</h5>
+                    <h1><?php echo $v['name']; ?>最新房源动态</h1>
+                    <p><?php echo $v['introduce']; ?></p>
+                    <h5><?php echo $v['update_time']; ?></h5>
                 </li>
+                <?php endforeach; ?>
             </ul>
             <div id="box">
                 <ul id="menu">
@@ -1550,92 +1557,37 @@
                     <div class="panel active">
                             <div class="swiper-box">
                                     <div class="swiper-wrapper hot-fang">
+                                        <?php foreach($hots as $v): ?>
                                         <div class="swiper-slide"> 
                                             <div class="hua">
-                                                <div class="hf-pic"><img src="https://www.jy1980.com/uploads/20190608/daee35d23619ba80c4602590416e8df8.jpg" alt=""><span>在售</span></div>
+                                                <div class="hf-pic"><img src="<?php echo $v['building_img']; ?>" alt=""><span>在售</span></div>
                                                 <div class="hf-con">
-                                                    <h1>中梁申花百悦</h1>
-                                                    <p>江干区建面80-120/m²</p>
-                                                    <h6>25000元/m²起</h6>
+                                                    <h1><?php echo $v['building_name']; ?></h1>
+                                                    <p><?php echo $v['qu']; ?>建面<?php echo $v['humianji']; ?>/m²</p>
+                                                    <h6><?php echo $v['danjia']; ?>元/m²起</h6>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="swiper-slide">
-                                              <div class="hua">
-                                                <div class="hf-pic"><img src="https://www.jy1980.com/uploads/20190608/daee35d23619ba80c4602590416e8df8.jpg" alt=""><span>在售</span></div>
-                                                <div class="hf-con">
-                                                    <h1>中梁申花百悦</h1>
-                                                    <p>江干区建面80-120/m²</p>
-                                                    <h6>25000元/m²起</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                                <div class="hua" >
-                                                        <div class="hf-pic"><img src="https://www.jy1980.com/uploads/20190608/daee35d23619ba80c4602590416e8df8.jpg" alt=""><span>在售</span></div>
-                                                        <div class="hf-con">
-                                                            <h1>中梁申花百悦</h1>
-                                                            <p>江干区建面80-120/m²</p>
-                                                            <h6>25000元/m²起</h6>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                        <div class="swiper-slide"> 
-                                             <div class="hua">
-                                                <div class="hf-pic"><img src="https://www.jy1980.com/uploads/20190608/daee35d23619ba80c4602590416e8df8.jpg" alt=""><span>在售</span></div>
-                                                <div class="hf-con">
-                                                    <h1>中梁申花百悦</h1>
-                                                    <p>江干区建面80-120/m²</p>
-                                                    <h6>25000元/m²起</h6>
-                                                </div>
-                                           </div>
-                                      </div>
+                                        <?php endforeach; ?>
+                                        
                                     </div>
                             </div>
                     </div>
                     <div class="panel">
                             <div class="swiper-box1">
                                     <div class="swiper-wrapper hot-fang">
+                                        <?php foreach($jians as $v): ?>
                                         <div class="swiper-slide"> 
-                                            <div class="hua">
-                                                <div class="hf-pic"><img src="https://www.jy1980.com/uploads/20190608/daee35d23619ba80c4602590416e8df8.jpg" alt=""><span>在售</span></div>
-                                                <div class="hf-con">
-                                                    <h1>中交财富中心</h1>
-                                                    <p>江干区建面80-120/m²</p>
-                                                    <h6>25000元/m²起</h6>
+                                                <div class="hua">
+                                                    <div class="hf-pic"><img src="<?php echo $v['building_img']; ?>" alt=""><span>在售</span></div>
+                                                    <div class="hf-con">
+                                                        <h1><?php echo $v['building_name']; ?></h1>
+                                                        <p><?php echo $v['qu']; ?>建面<?php echo $v['humianji']; ?>/m²</p>
+                                                        <h6><?php echo $v['danjia']; ?>元/m²起</h6>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                              <div class="hua">
-                                                <div class="hf-pic"><img src="https://www.jy1980.com/uploads/20190608/daee35d23619ba80c4602590416e8df8.jpg" alt=""><span>在售</span></div>
-                                                <div class="hf-con">
-                                                    <h1>中交财富中心</h1>
-                                                    <p>江干区建面80-120/m²</p>
-                                                    <h6>25000元/m²起</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                                <div class="hua" >
-                                                        <div class="hf-pic"><img src="https://www.jy1980.com/uploads/20190608/daee35d23619ba80c4602590416e8df8.jpg" alt=""><span>在售</span></div>
-                                                        <div class="hf-con">
-                                                            <h1>中交财富中心</h1>
-                                                            <p>江干区建面80-120/m²</p>
-                                                            <h6>25000元/m²起</h6>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                        <div class="swiper-slide"> 
-                                             <div class="hua">
-                                                <div class="hf-pic"><img src="https://www.jy1980.com/uploads/20190608/daee35d23619ba80c4602590416e8df8.jpg" alt=""><span>在售</span></div>
-                                                <div class="hf-con">
-                                                    <h1>中交财富中心</h1>
-                                                    <p>江干区建面80-120/m²</p>
-                                                    <h6>25000元/m²起</h6>
-                                                </div>
-                                           </div>
-                                      </div>
+                                        <?php endforeach; ?>
                                     </div>
                             </div>
                     
@@ -1643,92 +1595,36 @@
                     <div class="panel">
                             <div class="swiper-box2">
                                     <div class="swiper-wrapper hot-fang">
+                                        <?php foreach($news as $v): ?>
                                         <div class="swiper-slide"> 
-                                            <div class="hua">
-                                                <div class="hf-pic"><img src="https://www.jy1980.com/uploads/20190608/daee35d23619ba80c4602590416e8df8.jpg" alt=""><span>在售</span></div>
-                                                <div class="hf-con">
-                                                    <h1>中梁云都汇</h1>
-                                                    <p>江干区建面80-120/m²</p>
-                                                    <h6>25000元/m²起</h6>
+                                                <div class="hua">
+                                                    <div class="hf-pic"><img src="<?php echo $v['building_img']; ?>" alt=""><span>在售</span></div>
+                                                    <div class="hf-con">
+                                                        <h1><?php echo $v['building_name']; ?></h1>
+                                                        <p><?php echo $v['qu']; ?>建面<?php echo $v['humianji']; ?>/m²</p>
+                                                        <h6><?php echo $v['danjia']; ?>元/m²起</h6>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                              <div class="hua">
-                                                <div class="hf-pic"><img src="https://www.jy1980.com/uploads/20190608/daee35d23619ba80c4602590416e8df8.jpg" alt=""><span>在售</span></div>
-                                                <div class="hf-con">
-                                                    <h1>中梁云都汇</h1>
-                                                    <p>江干区建面80-120/m²</p>
-                                                    <h6>25000元/m²起</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                                <div class="hua" >
-                                                        <div class="hf-pic"><img src="https://www.jy1980.com/uploads/20190608/daee35d23619ba80c4602590416e8df8.jpg" alt=""><span>在售</span></div>
-                                                        <div class="hf-con">
-                                                            <h1>中梁云都汇</h1>
-                                                            <p>江干区建面80-120/m²</p>
-                                                            <h6>25000元/m²起</h6>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                        <div class="swiper-slide"> 
-                                             <div class="hua">
-                                                <div class="hf-pic"><img src="https://www.jy1980.com/uploads/20190608/daee35d23619ba80c4602590416e8df8.jpg" alt=""><span>在售</span></div>
-                                                <div class="hf-con">
-                                                    <h1>中梁云都汇</h1>
-                                                    <p>江干区建面80-120/m²</p>
-                                                    <h6>25000元/m²起</h6>
-                                                </div>
-                                           </div>
-                                      </div>
+                                        <?php endforeach; ?>
                                     </div>
                             </div>
                   </div> 
                     <div class="panel">
                             <div class="swiper-box3">
                                     <div class="swiper-wrapper hot-fang">
+                                        <?php foreach($tuan as $v): ?>
                                         <div class="swiper-slide"> 
-                                            <div class="hua">
-                                                <div class="hf-pic"><img src="https://www.jy1980.com/uploads/20190608/daee35d23619ba80c4602590416e8df8.jpg" alt=""><span>在售</span></div>
-                                                <div class="hf-con">
-                                                    <h1>西溪深蓝</h1>
-                                                    <p>江干区建面80-120/m²</p>
-                                                    <h6>25000元/m²起</h6>
+                                                <div class="hua">
+                                                    <div class="hf-pic"><img src="<?php echo $v['src']; ?>" alt=""><span>在售</span></div>
+                                                    <div class="hf-con">
+                                                        <h1><?php echo $v['name']; ?></h1>
+                                                        <p><?php echo $v['qu']; ?>建面<?php echo $v['humianji']; ?>/m²</p>
+                                                        <h6><?php echo $v['price']; ?>元/m²起</h6>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                              <div class="hua">
-                                                <div class="hf-pic"><img src="https://www.jy1980.com/uploads/20190608/daee35d23619ba80c4602590416e8df8.jpg" alt=""><span>在售</span></div>
-                                                <div class="hf-con">
-                                                    <h1>西溪深蓝</h1>
-                                                    <p>江干区建面80-120/m²</p>
-                                                    <h6>25000元/m²起</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                                <div class="hua" >
-                                                        <div class="hf-pic"><img src="https://www.jy1980.com/uploads/20190608/daee35d23619ba80c4602590416e8df8.jpg" alt=""><span>在售</span></div>
-                                                        <div class="hf-con">
-                                                            <h1>西溪深蓝</h1>
-                                                            <p>江干区建面80-120/m²</p>
-                                                            <h6>25000元/m²起</h6>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                        <div class="swiper-slide"> 
-                                             <div class="hua">
-                                                <div class="hf-pic"><img src="https://www.jy1980.com/uploads/20190608/daee35d23619ba80c4602590416e8df8.jpg" alt=""><span>在售</span></div>
-                                                <div class="hf-con">
-                                                    <h1>西溪深蓝</h1>
-                                                    <p>江干区建面80-120/m²</p>
-                                                    <h6>25000元/m²起</h6>
-                                                </div>
-                                           </div>
-                                      </div>
+                                        <?php endforeach; ?>
                                     </div>
                             </div>
                     </div>
@@ -1752,7 +1648,7 @@
             </div>
 
         </div>
-       
+        <div class="visible-xs-block .visible-sm--block m-jian"></div>
 
 
 
@@ -1829,9 +1725,10 @@
                                 <span><?php echo $v['jianji']; ?>m²</span>
                             </p>
                             <p class="m-icon">
-                                <span class="m-p-2"><?php echo $v['building_xiaoshou']; ?></span>
-                                <span class="m-p-3"><?php echo $v['building_zhuangxiu']; ?></span>
+                                <span class="m-p-2"><?php echo $v['building_zhuangxiu']; ?></span>
                                 <span class="m-p-3"><?php echo $v['building_ditie']; ?></span>
+                                <span class="m-p-3"></span>
+                               
                             </p>
                         </div>
                     </a>
@@ -1859,10 +1756,7 @@
                     <div class="col-xs-8 m-text">
                         <h4>
                             <?php echo $v['name']; ?>
-                            <span class="m-xiangq">
-                                <img src="/static/home/imgs/xiangq.png" alt="">
-                                说明
-                            </span> 
+                            <span class="m-p-1"><?php echo $v['xiaoshou']; ?></span>
                         </h4>
                         <p class="m-price"><span><?php echo $v['price']; ?></span>元/m²</p>
                         <p class="m-xiang">
@@ -1871,9 +1765,9 @@
                             <span><?php echo $v['jianmian']; ?>m²</span>
                         </p>
                         <p class="m-icon">
-                            <span class="m-p-1"><?php echo $v['xiaoshou']; ?></span>
                             <span class="m-p-2"><?php echo $v['zhuangxiu']; ?></span>
                             <span class="m-p-3"><?php echo $v['ditie']; ?></span>
+                            <!-- <span class="m-p-3"><?php echo $v['xiaoshou']; ?></span> -->
                         </p>
                     </div>
                     <div class="col-xs-12 m-tu">
@@ -1914,54 +1808,25 @@
                         <i class="iconfont iconjiantou"></i>
                     </div>
             </div>
+            <?php foreach($projects as $v): ?>
             <div class="m-listt">
                     <div id="m-p">
                         <a href="<?php echo url('home/news/pro',['id'=>$v['id']]); ?>">
                         <div class="row m-l">
                             <div class="col-xs-8 m-titlee">
-                                <h5>房地产行业集中度进一步提高百强 房企市场份额升...</h5>
+                                <h5><?php echo $v['title']; ?></h5>
                                 <div>
                                     <span>项目资讯</span>
-                                    <span>2019-05-24</span>
+                                    <span><?php echo $v['create_time']; ?></span>
                                 </div>
                             </div>
-                            <img class="col-xs-4" src="https://www.jy1980.com/ueditor/php/upload/image/20191101/1572593001343678.jpg" alt="">
+                            <img class="col-xs-4" src="<?php echo $v['img']; ?>" alt="">
                         </div>
                         </a>
                   </div>
            </div>
-           <div class="m-listt">
-            <div id="m-p">
-                <a href="<?php echo url('home/news/pro',['id'=>$v['id']]); ?>">
-                <div class="row m-l">
-                    <div class="col-xs-8 m-titlee">
-                        <h5>房地产行业集中度进一步提高百强 房企市场份额升...</h5>
-                        <div>
-                            <span>项目资讯</span>
-                            <span>2019-05-24</span>
-                        </div>
-                    </div>
-                    <img class="col-xs-4" src="https://www.jy1980.com/ueditor/php/upload/image/20191101/1572593001343678.jpg" alt="">
-                </div>
-                </a>
-          </div>
-           </div>
-           <div class="m-listt">
-            <div id="m-p">
-                <a href="<?php echo url('home/news/pro',['id'=>$v['id']]); ?>">
-                <div class="row m-l">
-                    <div class="col-xs-8 m-titlee">
-                        <h5>房地产行业集中度进一步提高百强 房企市场份额升...</h5>
-                        <div>
-                            <span>项目资讯</span>
-                            <span>2019-05-24</span>
-                        </div>
-                    </div>
-                    <img class="col-xs-4" src="https://www.jy1980.com/ueditor/php/upload/image/20191101/1572593001343678.jpg" alt="">
-                </div>
-                </a>
-          </div>
-           </div>
+           <?php endforeach; ?>
+           
 
 
 
@@ -2020,7 +1885,7 @@ var _hmt = _hmt || [];
 
 
         var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 4,
+            slidesPerView: 3.6,
             spaceBetween: 15,
             centeredSlides: true,
             pagination: {
