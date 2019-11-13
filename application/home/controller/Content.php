@@ -159,7 +159,15 @@ class Content extends Controller
             $v['tel']=$tt;
             $v['tel']=substr($v['tel'],0,3).'****'.substr($v['tel'],7);
         }
-        $jia=Text::where('bid', $id)->where('type','eq','是')->paginate(1);
+        $jia=Text::where('bid', $id)->where('type','eq','是')->limit(0,1)->select();
+        if($jia){
+            $jia=$jia[0];
+        }else{
+            $jia=[];
+            $ja['introduce']='';
+            $ja['create_time']='暂无';
+            $jia[]=$ja;
+        }
         $tou=Fen::where('bid','eq',$id)->where('type','eq',1)->find();
         $yi=Fen::where('bid','eq',$id)->where('type','eq',2)->find();
         $yous=You::select();
