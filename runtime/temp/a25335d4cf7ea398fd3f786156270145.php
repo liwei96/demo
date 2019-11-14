@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\news\index.html";i:1573546357;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\news\index.html";i:1573703558;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,11 +134,14 @@
                 .m-list .row img{
                     width: 28%;
                     margin-top: 3.5%;
-		height:72px;
+		           height:74px;
                 }
                 #m-n{
                     display: none;
                 }
+
+
+
 
 
 		/* 土拍 预售*/
@@ -1018,6 +1021,10 @@
             opacity:0.8;
             z-index:10;
         }
+        .m-l  .col-xs-4{
+                padding:0 !important;
+                border-radius:4px ;
+        }
 
         </style>
 </head>
@@ -1088,7 +1095,7 @@
                  <div class="pages">
                         <span id="back"><<</span>
                         <ul class="page">
-                            <?php $__FOR_START_882001935__=0;$__FOR_END_882001935__=$page;for($i=$__FOR_START_882001935__;$i < $__FOR_END_882001935__;$i+=1){ if($i<7): ?>
+                            <?php $__FOR_START_1057257080__=0;$__FOR_END_1057257080__=$page;for($i=$__FOR_START_1057257080__;$i < $__FOR_END_1057257080__;$i+=1){ if($i<7): ?>
                             <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                             <?php endif; } ?>
                         </ul>

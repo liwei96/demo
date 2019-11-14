@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\search\sou.html";i:1573176078;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\search\sou.html";i:1573546429;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

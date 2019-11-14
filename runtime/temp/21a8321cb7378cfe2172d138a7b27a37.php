@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\dongs.html";i:1573712427;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"G:\jiayuan\tp2\public/../application/home\view\content\dong.html";i:1568269595;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,14 +11,10 @@
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
         integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-        <link rel="stylesheet" href="//at.alicdn.com/t/font_1416845_l80icjbk93.css">
 
     <style>
         .m {
             padding: 0;
-        }
-        li{
-            list-style: none;
         }
 
         .m-top {
@@ -51,10 +47,9 @@
             font-weight: bold;
         }
 
-        .m-dong {
-            margin-top: 65px;
+        .m-dong{
+            margin-top:65px;
         }
-
         .m-dong h3 {
             color: #404040;
             font-size: 16px;
@@ -78,48 +73,31 @@
 
         .m-dong .m-tai {
             padding: 0 4%;
-            margin-bottom: 26px;
-            border-bottom:1px solid #F2F2F2;
-            width:92%;
-            margin-left:4%;
+            margin-bottom: 36px;
         }
 
         .m-dong .m-tai h4 {
             color: #404040;
             font-size: 16px;
             margin-bottom: 17.5px;
-            font-family: "Microsoft YaHei";
-            margin-top:15px;
         }
 
         .m-dong .m-tai p {
-            color: #666666;
+            color: #989898;
             font-size: 15px;
             text-indent: 8%;
+            letter-spacing: 2px;
             line-height: 24px;
             margin: 0;
-            font-family: "Microsoft YaHei";
-            margin-bottom:10px;
         }
-        .m-dong .m-tai h6{
-             text-align:right;
-            font-size:12px;
-            font-family:"Microsoft YaHei";
-            font-weight:500;
-            color:rgba(51,51,51,1);
-        }
+
         .m-dong .m-tai span {
-            color: #333333;
+            color: #676767;
             font-size: 14px;
             float: right;
-            font-family: "Microsoft YaHei";
-            margin-right:4%;
         }
-        .m-dong .m-tai  h4 a{
-               color:#333333;
-               text-decoration:underline
-        }
-        /* .m-dong button {
+
+        .m-dong button {
             width: 92%;
             height: 44px;
             background-color: #F0F5F2;
@@ -131,10 +109,14 @@
             border-radius: 4px;
             border: 0px;
             margin-bottom: 20px;
-        } */
+        }
+
 
 
         /* PC */
+        li{
+            list-style: none;
+        }
         /* 顶部导航 */
         .top-nav {
             height: 80px;
@@ -386,106 +368,12 @@
             line-height:24px;
             margin:0;
         }
-        .pagination{
-            margin-top:60px;
-        }
-        .pagination li {
-        list-style: none;
-        float: left;
-        margin-left: 12px;
-        background-color: #fff;
-        border: 1px solid #D9D9D9;
-        height: 36px;
-        width: 36px;
-        line-height: 36px;
-        cursor: pointer;
-        color: #808080;
-        text-align: center;
-    }
-
-    .pagination li a {
-        width: 100%;
-        height: 100%;
-        color: #808080;
-        padding: 0;
-        line-height: inherit;
-        border: none;
-    }
-
-    .pagination li a:hover {
-        background-color: white;
-    }
-
-    .pagination li.active {
-        color: #1CB64F;
-        border:1px solid #3AC869;
-    }
-    .pagination li.active span{
-        width:36px;
-        height:36px;
-        text-align: center;
-        background-color: #fff;
-        color:#1CB64F;
-        border:1px solid #3AC869;
-    }
-
-    .pagination li.disabled {
         
-    }
-
-
-    /*m-如何找房*/
-.find-house{
-       width:100%;
-       height:90px;
-}
-.find-house .fh-big-box{
-       width:100%;
-       height:80px;
-       background:rgba(228,242,228,1);
-}
-.fh-big-box img{
-    float:left;
-    margin-left:4.8%;
-    margin-right:5.6%;
-}
-.fh-big-box .fh-mid{
-    float:left;
-}
-.fh-mid h1{
-    font-size:15px;
-    font-family:"Microsoft YaHei";
-    font-weight:bold;
-    color:rgba(28,182,79,1);
-    margin-top:24px;
-    margin-bottom:7px;
-}
-.fh-mid p{
-    font-size:12px;
-    font-family:"Microsoft YaHei";
-    font-weight:300;
-    color:rgba(28,182,79,1);
-} 
-.fh-big-box .bang{
-     float: left;
-background:linear-gradient(-90deg,rgba(40,194,91,1),rgba(94,215,85,1));
-border-radius:3px;
-     width:21.8%;
-     height:30px;
-    font-size:14px;
-    font-family:"Microsoft YaHei";
-    font-weight:bold;
-    color:#fff;
-    float:right;
-    margin-top:25px;
-    margin-right:4.8%;
-    outline: none;
-    border:none;
-}
     </style>
 </head>
 
 <body>
+
     <nav class="top-nav visible-lg-block">
         <div class="box">
             <ul>
@@ -529,13 +417,12 @@ border-radius:3px;
     <div class="content visible-md-block visible-lg-block">
         <?php foreach($dongs as $v): ?>
         <div class="list">
-            <h5><a href="<?php echo url('home/content/content',['id'=>$v['bid']]); ?>"><?php echo $v['name']; ?></a>最新房源动态<span><?php echo $v['create_time']; ?></span></h5>
+            <h5><?php echo $name; ?>最新房源动态<span><?php echo $v['create_time']; ?></span></h5>
             <p><?php echo $v['introduce']; ?></p>
         </div>
         <?php endforeach; ?>
         
         
-            <?php echo $dongs->render(); ?>
     </div>
 
     <footer class="container-fluid visible-md-block visible-lg-block">
@@ -561,45 +448,24 @@ border-radius:3px;
         </ul>
         <div class="footer-line"></div>
         <p>购房热线 400-718-6686</p>
-        <span>Copyright © 2017 - 2022 杭州亚汉网络科技有限公司版权所有 浙ICP备18057005号 </span>
+        <span>Copyright © 2017 - 2022 杭州亚汉网络有限公司有限公司版权所有 浙ICP备18057005号 </span>
     </footer>
 
- <!-- 手机端 -->
+
     <div class="container-fluid m">
         <div class="visible-xs-block .visible-sm-block m-top">
             <img class="m-go" src="/static/home/imgs/return.png" alt="" onClick="javascript:history.go(-1)">
-            <h3>更多动态</h3>
+            <h3>楼盘动态</h3>
         </div>
         <div class="m-dong visible-xs-block .visible-sm-block">
-               <?php foreach($tops as $v): ?>
-                <div class="m-tai">
-                    <h4><a href=""><?php echo $v['name']; ?></a>最新房源动态</h4>
-                    <p><?php echo $v['introduce']; ?></p>
-                    <h6><?php echo $v['create_time']; ?></h6>
-                </div>
-              <?php endforeach; ?>
-                <div class="find-house">
-                        <div class="fh-big-box">
-                            <img src="https://www.jy1980.com/static/home/imgs/car.png" alt="">
-                            <div class="fh-mid">
-                                <h1>如何找房</h1>
-                                <p>专家教你如何选择房子</p>
-                            </div>
-                            <button class="bang">帮我找房</button>
-                        </div>
-            
-                </div>
-            <?php foreach($ds as $v): ?>
+            <?php foreach($dongs as $v): ?>
             <div class="m-tai">
-                <h4><a href="<?php echo url('home/content/index',['id'=>$v['bid']]); ?>"><?php echo $v['name']; ?></a>最新房源动态</h4>
+                <h4><?php echo $name; ?>最新房源动态</h4>
                 <p><?php echo $v['introduce']; ?></p>
-                <h6><?php echo $v['create_time']; ?></h6>
+                <span><?php echo $v['create_time']; ?></span>
             </div>
             <?php endforeach; ?>
         </div>
-
-      
-
     </div>
 </body>
 

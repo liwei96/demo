@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\index\read.html";i:1573107493;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\index\read.html";i:1573709134;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,7 +48,7 @@
             .m-content .left img{
                 width:85%;
                 margin-left: 8%;
-                border-radius: 2px;
+                border-radius: 6px;
             }
             .m-content .right{
                 width:50%;

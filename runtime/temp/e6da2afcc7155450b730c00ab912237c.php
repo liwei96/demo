@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"G:\jiayuan\tp2\public/../application/home\view\content\lpic.html";i:1573614363;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"G:\jiayuan\tp2\public/../application/home\view\content\lpic.html";i:1573711674;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +14,7 @@
   <!-- 头部导航 -->
   <div class="title">
          <span class="iconfont iconjiantouzuo" id="fanhui"></span>
-         <a href="">楼盘相册</a>
+         <i>楼盘相册</i>
           
   </div>
   
@@ -411,7 +411,10 @@
   })
 
 
-
+  // 登录页跳转
+  $('#m_ti').on('click',function(){
+    window.location.href="<?php echo url('home/user/login'); ?>";
+  })
 
   //热卖		
   var bannerSwiper = new Swiper('.banner', {
@@ -442,8 +445,10 @@
               $('.m-chang').hide();
             })
             $('.m-chang').on('click',function(){
+              console.log(1);
               $('.weiter').hide();
               $('.m-chang').hide();
+              $('#m_ti').hide();
             })
             // 返回上一级
             $('#fanhui').on('click',function(){
@@ -607,7 +612,6 @@
             // 收藏
             $('#m_shou').on('click',function(){
             var txt=$(this).text();
-            alert(txt);
             if(txt=='收藏'){
                 var id=$(this).attr('data_v');
                 var that=$(this);

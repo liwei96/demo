@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1573636564;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1573712730;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -904,12 +904,17 @@
                 .m-listt .row img{
                     width: 28%;
                     margin-top: 3.5%;
-		            height:72px;
+                    height:74px;
+                    border-radius:3px;
                 }
                 #m-n{
                     display: none;
                 }
 
+              .m-listt .m-l  img{
+                    padding:0!important;
+                    border-radius:4px ;
+              }
 
     </style>
     <script>
@@ -925,43 +930,7 @@
 
 <body>
     <div class="all container-fluid visible-md-block visible-lg-block">
-        <!-- <nav class="navbox navbar-fixed-top visible-md-block visible-lg-block">
-            <div class="na">
-                <span class="logo"><img src="/static/home/imgs/logo1.png"></span>
-                <span class="line"></span>
-                <span class="city">
-                     <?php if(\think\Cookie::get('cityname')): ?> <?php echo \think\Cookie::get('cityname'); else: ?>杭州<?php endif; ?> 
-                </span>
-                <img class="jian" src="/static/home/imgs/icon-10.png" alt="家园新房">
-                <div class="cities">
-                    <ul>
-                         <?php foreach($city as $v): ?> 
-                        <li data-v="<?php echo $v['id']; ?>"><?php echo $v['area_name']; ?></li>
-                      <?php endforeach; ?> 
-                    </ul>
-                </div>
-                  <?php if(\think\Session::get('user')): ?> 
-                <img class="user jk" src="/static/home/imgs/icon-5.png" alt="家园新房">
-                <span class="my">
-                   <?php echo \think\Session::get('user.p'); ?> 
-                </span>
-                <span class="logout">退出</span>
-                 <?php else: ?> 
-                <img class="user" src="/static/home/imgs/icon-5.png" alt="家园新房">
-                <span class="register">注册/登录</span>
-                <?php endif; ?> 
-                <ul class="nav-top">
-                    <li role="presentation"><a class="active" href="<?php echo url('home/index/index'); ?>">首页</a></li>
-                    <li role="presentation"><a href="<?php echo url('home/search/index',['type'=>0]); ?>">楼盘查询</a></li>
-                    <li role="presentation"><a href="<?php echo url('home/search/tuan',['type'=>0]); ?>">团购优惠</a></li>
-                    <li role="presentation"><a href="<?php echo url('home/index/buy'); ?>">买房指南</a></li>
-                    <li role="presentation"><a href="<?php echo url('home/news/index'); ?>">楼盘资讯</a></li>
-                    <li role="presentation"><a href="<?php echo url('home/user/guan'); ?>">关于我们</a></li>
-                </ul>
-                <span class="gou">购房热线 400-718-6686</span>
-            </div>
-        </nav> -->
-
+        
         <!-- 头部导航 -->
     <div class="daohang">
         <div class="daohang-center">
@@ -1526,17 +1495,7 @@
         <div class="visible-xs-block .visible-sm--block m-jian"></div>
         <div class="m-dong visible-xs-block .visible-sm--block">
             <h3>楼盘动态<span class="m-d-more">共<i><?php echo $dnum; ?></i>条<img src="/static/home/imgs/m-go.png" alt=""></span></h3>
-            <!-- <?php foreach($dongs as $v): ?>
-            <div class="m-d-con">
-                <h4><img src="/static/home/imgs/dt.png" alt=""><?php echo $v['name']; ?>最新房源动态</h4>
-                <p><?php echo $v['introduce']; ?></p>
-                <span class="m-d-span"><?php echo $v['create_time']; ?></span>
-            </div>
-            <?php endforeach; ?>
-            <div class="m-d-o o1"></div>
-            <div class="m-d-o o2"></div>
-            <div class="m-d-l l1"></div>
-            <div class="m-d-l l2"></div> -->
+           
             <ul class="dong-t">
                 <?php foreach($dongs as $v): ?>
                 <li>
@@ -1559,6 +1518,7 @@
                                     <div class="swiper-wrapper hot-fang">
                                         <?php foreach($hots as $v): ?>
                                         <div class="swiper-slide"> 
+                                            <a href="<?php echo url('home/content/index',['id'=>$v['id']]); ?>">
                                             <div class="hua">
                                                 <div class="hf-pic"><img src="<?php echo $v['building_img']; ?>" alt=""><span>在售</span></div>
                                                 <div class="hf-con">
@@ -1567,6 +1527,7 @@
                                                     <h6><?php echo $v['danjia']; ?>元/m²起</h6>
                                                 </div>
                                             </div>
+                                            </a>
                                         </div>
                                         <?php endforeach; ?>
                                         
@@ -1578,6 +1539,7 @@
                                     <div class="swiper-wrapper hot-fang">
                                         <?php foreach($jians as $v): ?>
                                         <div class="swiper-slide"> 
+                                                <a href="<?php echo url('home/content/index',['id'=>$v['id']]); ?>">
                                                 <div class="hua">
                                                     <div class="hf-pic"><img src="<?php echo $v['building_img']; ?>" alt=""><span>在售</span></div>
                                                     <div class="hf-con">
@@ -1586,6 +1548,7 @@
                                                         <h6><?php echo $v['danjia']; ?>元/m²起</h6>
                                                     </div>
                                                 </div>
+                                                </a>
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
@@ -1597,6 +1560,7 @@
                                     <div class="swiper-wrapper hot-fang">
                                         <?php foreach($news as $v): ?>
                                         <div class="swiper-slide"> 
+                                                <a href="<?php echo url('home/content/index',['id'=>$v['id']]); ?>">
                                                 <div class="hua">
                                                     <div class="hf-pic"><img src="<?php echo $v['building_img']; ?>" alt=""><span>在售</span></div>
                                                     <div class="hf-con">
@@ -1605,6 +1569,7 @@
                                                         <h6><?php echo $v['danjia']; ?>元/m²起</h6>
                                                     </div>
                                                 </div>
+                                                </a>
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
@@ -1615,6 +1580,7 @@
                                     <div class="swiper-wrapper hot-fang">
                                         <?php foreach($tuan as $v): ?>
                                         <div class="swiper-slide"> 
+                                                <a href="<?php echo url('home/content/index',['id'=>$v['id']]); ?>">
                                                 <div class="hua">
                                                     <div class="hf-pic"><img src="<?php echo $v['src']; ?>" alt=""><span>在售</span></div>
                                                     <div class="hf-con">
@@ -1623,6 +1589,7 @@
                                                         <h6><?php echo $v['price']; ?>元/m²起</h6>
                                                     </div>
                                                 </div>
+                                                </a>
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
@@ -1820,7 +1787,8 @@
                                     <span><?php echo $v['create_time']; ?></span>
                                 </div>
                             </div>
-                            <img class="col-xs-4" src="<?php echo $v['img']; ?>" alt="">
+                            <img class="col-xs-4" src="https://www.jy1980.com/uploads/20190514/thumb_800_3e5372713c707cce5d50862a9f230ff2.jpg" alt="">
+                            <!-- <img class="col-xs-4" src="<?php echo $v['img']; ?>" alt=""> -->
                         </div>
                         </a>
                   </div>

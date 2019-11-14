@@ -76,17 +76,11 @@
         }
 
         .m-dong .m-tai {
-<<<<<<< HEAD
+            padding: 0 4%;
+            margin-bottom: 26px;
+            border-bottom:1px solid #F2F2F2;
             width:92%;
             margin-left:4%;
-            border-bottom:1px solid #F2F2F2;
-            height:auto;
-            padding-bottom:35px;
-            font-family: "Microsoft YaHei";
-=======
-            padding: 0 4%;
-            margin-bottom: 36px;
->>>>>>> 5d2e6a0b6f03b55d2fbd6762b8d37630a57141e1
         }
 
         .m-dong .m-tai h4 {
@@ -101,20 +95,29 @@
             color: #666666;
             font-size: 15px;
             text-indent: 8%;
-            letter-spacing: 2px;
             line-height: 24px;
             margin: 0;
             font-family: "Microsoft YaHei";
             margin-bottom:10px;
         }
-
+        .m-dong .m-tai h6{
+             text-align:right;
+            font-size:12px;
+            font-family:"Microsoft YaHei";
+            font-weight:500;
+            color:rgba(51,51,51,1);
+        }
         .m-dong .m-tai span {
             color: #333333;
             font-size: 14px;
             float: right;
             font-family: "Microsoft YaHei";
+            margin-right:4%;
         }
-
+        .m-dong .m-tai  h4 a{
+               color:#333333;
+               text-decoration:underline
+        }
         /* .m-dong button {
             width: 92%;
             height: 44px;
@@ -567,6 +570,13 @@ border-radius:3px;
             <h3>更多动态</h3>
         </div>
         <div class="m-dong visible-xs-block .visible-sm-block">
+               {foreach $tops as $v}
+                <div class="m-tai">
+                    <h4><a href="">{$v.name}</a>最新房源动态</h4>
+                    <p>{$v.introduce}</p>
+                    <h6>{$v.create_time}</h6>
+                </div>
+              {/foreach}
                 <div class="find-house">
                         <div class="fh-big-box">
                             <img src="https://www.jy1980.com/static/home/imgs/car.png" alt="">
@@ -577,12 +587,12 @@ border-radius:3px;
                             <button class="bang">帮我找房</button>
                         </div>
             
-                    </div>
+                </div>
             {foreach $ds as $v}
             <div class="m-tai">
                 <h4><a href="{:url('home/content/index',['id'=>$v.bid])}">{$v.name}</a>最新房源动态</h4>
                 <p>{$v.introduce}</p>
-                <span>{$v.create_time}</span>
+                <h6>{$v.create_time}</h6>
             </div>
             {/foreach}
         </div>

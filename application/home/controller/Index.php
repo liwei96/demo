@@ -851,23 +851,30 @@ class Index extends Controller
         return json($res);
     }    
     public function dongs(){
-	$ids=Category::where('pid','eq',Cookie::get('city'))->column('id');
-	$ids=Goods::where('cate_id','in',$ids)->column('id');
-        $ds=Text::where('bid','in',$ids)->order('id','desc')->select();
+        $ids=Category::where('pid','eq',Cookie::get('city'))->column('id');
+        $ids=Goods::where('cate_id','in',$ids)->column('id');
+        $tops=Text::where('bid','in',$ids)->order('id','desc')->limit(3)->select();
+        $ds=Text::where('bid','in',$ids)->order('id','desc')->limit(3,1000)->select();
         $dongs=Text::where('bid','in',$ids)->order('id','desc')->paginate(15);
-	foreach($dongs as $v){
-	     $v['name']=Goods::where('id','eq',$v['bid'])->column('building_name');
-	     if($v['name']){
-			$v['name']=$v['name'][0];
-		}
-    }
-    foreach($ds as $v){
-        $v['name']=Goods::where('id','eq',$v['bid'])->column('building_name');
-        if($v['name']){
-           $v['name']=$v['name'][0];
-       }
-   }
-        return view('dongs',['ds'=>$ds,'dongs'=>$dongs]);
+        foreach($dongs as $v){
+            $v['name']=Goods::where('id','eq',$v['bid'])->column('building_name');
+            if($v['name']){
+                $v['name']=$v['name'][0];
+            }
+        }
+        foreach($ds as $v){
+            $v['name']=Goods::where('id','eq',$v['bid'])->column('building_name');
+            if($v['name']){
+            $v['name']=$v['name'][0];
+            }
+        }
+        foreach($tops as $v){
+            $v['name']=Goods::where('id','eq',$v['bid'])->column('building_name');
+            if($v['name']){
+            $v['name']=$v['name'][0];
+            }
+        }
+        return view('dongs',['ds'=>$ds,'dongs'=>$dongs,'tops'=>$tops]);
     }
     public function liu($id){
         return view('liu',['id'=>$id]);

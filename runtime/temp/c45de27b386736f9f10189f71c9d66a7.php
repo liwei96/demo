@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\tupai.html";i:1573550314;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\tupai.html";i:1573715759;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -162,6 +162,15 @@
                     width:100%;
                     background-color: #f7f7f7;
                 }
+
+                .m-xuan img{
+        width:24.8%;
+        height:34px;
+        position: fixed;
+        right:0;
+        bottom:140px;
+        z-index: 10000;
+    }
         
     </style>
 </head>
@@ -296,7 +305,7 @@
                 </div>
                  <!-- 留言悬浮框 -->
                  <div class="m-xuan visible-xs-block .visible-sm-block">
-                    留言
+                        <img src="/static/home/imgs/m-liu.png" alt="">
                 </div>
             </div>
      
@@ -304,7 +313,7 @@
 <script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script>
     $(document).ready(function(){
-        $('.m-nav span').on('click',function(){
+            $('.m-nav span').on('click',function(){
                 $(this).siblings('span').removeClass('m-active');
                 $(this).addClass('m-active');
             })
@@ -324,6 +333,11 @@
                 $('#m-h').show();
             }) 
     })
+ 
+    $('.m-xuan').on('click', function () {
+        window.location.href = "<?php echo url('home/index/lius'); ?>";
+    })   
+
         
 
     

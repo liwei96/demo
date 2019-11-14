@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\index\jiao.html";i:1562490714;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\index\jiao.html";i:1573709035;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,7 +70,7 @@
             width:40%;
         }
         .m-jiao .m-j-con .j-c-left img{
-            border-radius: 2px;
+            border-radius: 4px;
             width:82%;
         }
         .m-jiao .m-j-con .j-c-right{

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\search\tuan.html";i:1573546469;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\search\tuan.html";i:1573550314;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1418,7 +1418,7 @@
                 <div class="pages">
                     <span id="back"><<</span>
                     <ul class="page">
-                        <?php $__FOR_START_1375153660__=0;$__FOR_END_1375153660__=$page;for($i=$__FOR_START_1375153660__;$i < $__FOR_END_1375153660__;$i+=1){ if($i<7): ?>
+                        <?php $__FOR_START_1739667791__=0;$__FOR_END_1739667791__=$page;for($i=$__FOR_START_1739667791__;$i < $__FOR_END_1739667791__;$i+=1){ if($i<7): ?>
                         <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                         <?php endif; } ?>
                     </ul>
