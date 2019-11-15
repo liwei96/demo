@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\index.html";i:1573626050;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\index.html";i:1573810395;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -467,6 +467,7 @@ var _hmt = _hmt || [];
         <div class="m-xuan visible-xs-block .visible-sm-block" data-v="<?php echo $data['building_name']; ?>">
             <img src="/static/home/imgs/m-liu.png" alt="">
         </div>
+        
         <div class="m-line visible-xs-block .visible-sm-block"></div>
         <div class="m-yu visible-xs-block .visible-sm-block">
             <h3>您预约、我接送</h3>
@@ -486,9 +487,8 @@ var _hmt = _hmt || [];
                           <div class="tou-con">
                                 <h4>投资分析</h4>
                                 <p>
-                                方圆9平方公里的紫金港科技城，北部软件园，
-                                智慧网谷，规划有370万㎡研发办公空间
-                                智慧网谷，规划有370万㎡研发办公空间
+                                        1.“周边小区价格都在5万之上”
+                                        2.“正对面西溪蝶园的租金在4500之上”
                                  </p>
                           </div>
                           <div class="tou-img">
@@ -498,11 +498,10 @@ var _hmt = _hmt || [];
                       </div>
                       <div class="swiper-slide dui-box">
                             <div class="tou-con">
-                                    <h4>投资分析</h4>
+                                    <h4>宜居分析</h4>
                                     <p>
-                                    方圆9平方公里的紫金港科技城，北部软件园，
-                                    智慧网谷，规划有370万㎡研发办公空间
-                                    智慧网谷，规划有370万㎡研发办公空间
+                                            1.“地铁5号线上盖，5号线被誉为换乘之王，贯穿整个杭城，”
+                                            2.“周边集结各大商业中合体 西溪龙湖天街 城西银泰 泰禾医疗”
                                      </p>
                               </div>
                               <div class="tou-img">
@@ -570,7 +569,7 @@ var _hmt = _hmt || [];
                     <p class="m-d-ping">最了解该楼盘，熟悉本房周边信息</p>
                     
                 </div>
-                <button data-agl-cvt="5" class="p1" data-v="咨询服务">让她联系我</button>
+                <button data-agl-cvt="5" class="p1" data-v="咨询服务">我要咨询</button>
                 <div class="m-w-content">
                     <h4><span>问</span>现在外地人在杭州买房需要什么条件?</h4>
                     <p>
@@ -636,54 +635,28 @@ var _hmt = _hmt || [];
 
             <div class="swiper-box">
              <div class="swiper-wrapper">
+
+                 <?php foreach($tui as $v): ?>
                 <div class="swiper-slide"> 
+                    <a href="<?php echo url('home/content/index',['id'=>$v['id']]); ?>">
                     <div class="m-j-con">
                         <div class="m-j-top">
-                            <img src="https://www.jy1980.com/uploads/20190608/daee35d23619ba80c4602590416e8df8.jpg" alt="">
+                            <img src="<?php echo $v['building_img']; ?>" alt="">
                             <span>推荐楼盘</span>
                         </div>
                         <div class="m-j-bom">
-                            <h4>中梁申花百悦公馆</h4>
+                            <h4><?php echo $v['building_name']; ?></h4>
                             <p>
-                                <span>江干区</span>
-                                <span>建面: 90-180/m²</span>
+                                <span><?php echo $v['qu']; ?></span>
+                                <span>建面: <?php echo $v['humianji']; ?>/m²</span>
                             </p>
-                            <span class="m-j-pic">25000元/m²起</span>
+                            <span class="m-j-pic"><?php echo $v['danjia']; ?>元/m²起</span>
                         </div>
                     </div>
+                    </a>
                 </div>
-                <div class="swiper-slide"> 
-                        <div class="m-j-con">
-                            <div class="m-j-top">
-                                <img src="https://www.jy1980.com/uploads/20190608/daee35d23619ba80c4602590416e8df8.jpg" alt="">
-                                <span>推荐楼盘</span>
-                            </div>
-                            <div class="m-j-bom">
-                                <h4>中梁申花百悦公馆</h4>
-                                <p>
-                                    <span>江干区</span>
-                                    <span>建面: 90-180/m²</span>
-                                </p>
-                                <span class="m-j-pic">25000元/m²起</span>
-                            </div>
-                        </div>
-                </div>
-                <div class="swiper-slide"> 
-                        <div class="m-j-con">
-                            <div class="m-j-top">
-                                <img src="https://www.jy1980.com/uploads/20190608/daee35d23619ba80c4602590416e8df8.jpg" alt="">
-                                <span>推荐楼盘</span>
-                            </div>
-                            <div class="m-j-bom">
-                                <h4>中梁申花百悦公馆</h4>
-                                <p>
-                                    <span>江干区</span>
-                                    <span>建面: 90-180/m²</span>
-                                </p>
-                                <span class="m-j-pic">25000元/m²起</span>
-                            </div>
-                        </div>
-                </div>
+                <?php endforeach; ?>
+                
 
             </div>
         </div>
@@ -850,7 +823,7 @@ var _hmt = _hmt || [];
     });
        /*对比分析资料轮播*/
      var swiper = new Swiper('.dui-zi', {
-      spaceBetween: 30,
+      spaceBetween: 20,
       pagination: {
         el: '.swiper-pagination2',
       },
@@ -960,7 +933,7 @@ var _hmt = _hmt || [];
        
         $(document).ready(function(){
 	    $('.m-xuan').on('click', function () {
-		var id=$(this).attr('data-v');
+	        	var id=$(this).attr('data-v');
                 window.location.href = "<?php echo url('home/index/liu',['id'=>$data['building_name']]); ?>";
             })
             var h=$('.h-c-c').height();
@@ -1009,6 +982,11 @@ var _hmt = _hmt || [];
                 
             })
             
+            // 楼盘问答
+            $('.m-dai h3 span').on('click',function(){
+                window.location.href="<?php echo url('home/content/daimore',['id'=>$data['id']]); ?>";
+            })
+
             // 详细分析跳转
             $('.m-more-fen').on('click',function(){
                 window.location.href="<?php echo url('home/content/depth',['id'=>$data['id']]); ?>";

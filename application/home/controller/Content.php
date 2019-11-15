@@ -186,8 +186,16 @@ class Content extends Controller
             $keys['other']=$from['other'];
             Cookie::set('from',$keys,1800);
         }
+        // 推荐楼盘
+        $cate_id=$data['cate_id'];
+        $pid=Category::where('id','eq',$cate_id)->column('pid')[0];
+        $qus=Category::where('pid','eq',$pid)->column('id');
+        $tui=Goods::where('cate_id','in',$qus)->order('tdeng','asc')->limit(4)->select();
+        foreach($tui as $v){
+            $v['qu']=Category::where('id','eq',$v['cate_id'])->column('area_name')[0];
+        }
         return view('index', ['data' => $data, 'recording'=>$recording, 'huimgs' => $huimgs, 'xiaoimgs' => $xiaoimgs, 'dongs' => $dongs, 'tou'=>$tou,'yi'=>$yi,'pics'=>$pics,
-        'xiangs' => $xiangs, 'num' => $num, 'id' => $id,'really'=>$really,'reallt'=>$reallt,'all'=>$all,'pings'=>$pings,'jia'=>$jia,'yous'=>$yous]);
+        'xiangs' => $xiangs, 'num' => $num, 'id' => $id,'really'=>$really,'reallt'=>$reallt,'all'=>$all,'pings'=>$pings,'jia'=>$jia,'yous'=>$yous,'tui'=>$tui]);
     }
     public function imgs()
     {
@@ -894,5 +902,11 @@ class Content extends Controller
     public function zg($id){
         $data=Goods::where('id','eq',$id)->find();
         return view('zg',['data'=>$data]);
+    }
+
+    // 更多问答
+    public function daimore($id){
+        $data=Goods::where('id','eq',$id)->find();
+        return view('daimore',['data'=>$data]);
     }
 }

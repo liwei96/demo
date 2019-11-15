@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\dongs.html";i:1573712427;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\dongs.html";i:1573809612;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,7 +77,6 @@
         }
 
         .m-dong .m-tai {
-            padding: 0 4%;
             margin-bottom: 26px;
             border-bottom:1px solid #F2F2F2;
             width:92%;
@@ -585,7 +584,7 @@ border-radius:3px;
                                 <h1>如何找房</h1>
                                 <p>专家教你如何选择房子</p>
                             </div>
-                            <button class="bang">帮我找房</button>
+                            <button class="bang" id='help'>帮我找房</button>
                         </div>
             
                 </div>
@@ -602,5 +601,11 @@ border-radius:3px;
 
     </div>
 </body>
-
+<script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    // 帮我找房
+    $('#help').on('click',function(){
+                window.location.href="<?php echo url('home/user/yue'); ?>"
+            })
+</script>
 </html>

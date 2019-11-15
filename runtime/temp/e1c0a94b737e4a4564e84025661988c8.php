@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"G:\jiayuan\tp2\public/../application/home\view\content\detail.html";i:1573803725;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -168,12 +169,12 @@
         <nav class="top-nav">
                 <div class="box">
                     <ul>
-                        <li><a href="{:url('home/index/index')}">家园首页</a></li>
-                        <li><a href="{:url('home/search/index',['type'=>0])}" class="active">楼盘查询</a></li>
-                        <li><a href="{:url('home/search/tuan',['type'=>0])}">团购优惠</a></li>
-                        <li><a href="{:url('home/index/buy')}">买房指南</a></li>
-                        <li><a href="{:url('home/news/index')}">楼盘资讯</a></li>
-                        <li><a href="{:url('home/user/guan')}">关于家园</a></li>
+                        <li><a href="<?php echo url('home/index/index'); ?>">家园首页</a></li>
+                        <li><a href="<?php echo url('home/search/index',['type'=>0]); ?>" class="active">楼盘查询</a></li>
+                        <li><a href="<?php echo url('home/search/tuan',['type'=>0]); ?>">团购优惠</a></li>
+                        <li><a href="<?php echo url('home/index/buy'); ?>">买房指南</a></li>
+                        <li><a href="<?php echo url('home/news/index'); ?>">楼盘资讯</a></li>
+                        <li><a href="<?php echo url('home/user/guan'); ?>">关于家园</a></li>
                     </ul>
                     <div class="login-box">
                         <div class="login-btn">
@@ -182,14 +183,14 @@
                         </div>
                         <p>购房热线  &nbsp;400-718-6686</p>
                     </div>
-                    <!-- {if $Think.session.user}
+                    <!-- <?php if(\think\Session::get('user')): ?>
                     <img class="jk" src="/static/home/imgs/icon-5.png" alt="">
-                    <span class="user">{$Think.session.user.p}</span>
+                    <span class="user"><?php echo \think\Session::get('user.p'); ?></span>
                     <span class="logout">退出</span>
-                    {else}
+                    <?php else: ?>
                     <img src="/static/home/imgs/icon-5.png" alt="">
                     <span class="register">注册/登录</span>
-                    {/if} -->
+                    <?php endif; ?> -->
                    
                 </div>
                 
@@ -202,14 +203,14 @@
                             <div class="logo"><img src="/static/home/imgs/logo.png"/></div>
                             <div class="sel">
                                 <select name="" id="">
-                                    {foreach $city as $v}
-                                    <option {if $Think.cookie.cityname==$v.area_name} selected {/if}>{$v.area_name}</option>
-                                    {/foreach}
+                                    <?php foreach($city as $v): ?>
+                                    <option <?php if(\think\Cookie::get('cityname')==$v['area_name']): ?> selected <?php endif; ?>><?php echo $v['area_name']; ?></option>
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
                                 
                             <div class="input-search">
-                                <form id="bname" action="{:url('home/search/index',['type'=>0])}" method="post">
+                                <form id="bname" action="<?php echo url('home/search/index',['type'=>0]); ?>" method="post">
                                 <input name="name" type="text" placeholder="请输入楼盘名称、地域">
                                 </form>        
                                 <a id="find" class="search-button" href="javascript:;">
@@ -226,7 +227,7 @@
  <div class="detail">
     <div class="detail-cen">
         <div class="pro-name">
-                <h1>{$data.building_name}<span>在售</span></h1>
+                <h1><?php echo $data['building_name']; ?><span>在售</span></h1>
                 <ul>
                     <li>精装</li>
                     <li>地铁沿线</li>
@@ -238,12 +239,12 @@
                 <div id="box">
                         <ul id="menu">
                             <li id="goback">楼盘主页</li>
-                            <li class="{if $type==1}active{/if}">主力户型</li>
-                            <li class="{if $type==2}active{/if}">楼盘详情</li>
-                            <li class="{if $type==3}active{/if}">楼盘动态</li>
-                            <li class="{if $type==4}active{/if}">楼盘相册</li>
-                            <li class="{if $type==5}active{/if}">楼盘问问</li>
-                            <li class="{if $type==6}active{/if}">楼盘点评</li>
+                            <li class="<?php if($type==1): ?>active<?php endif; ?>">主力户型</li>
+                            <li class="<?php if($type==2): ?>active<?php endif; ?>">楼盘详情</li>
+                            <li class="<?php if($type==3): ?>active<?php endif; ?>">楼盘动态</li>
+                            <li class="<?php if($type==4): ?>active<?php endif; ?>">楼盘相册</li>
+                            <li class="<?php if($type==5): ?>active<?php endif; ?>">楼盘问问</li>
+                            <li class="<?php if($type==6): ?>active<?php endif; ?>">楼盘点评</li>
                         </ul>
                         <div id="panel">
                             <div class="panel active">
@@ -257,36 +258,36 @@
                                 </ul>
                             </div>
                              <!--主力户型-->
-                            <div class="panel huxing-box {if $type==1} active {else} 123 {/if}">
+                            <div class="panel huxing-box <?php if($type==1): ?> active <?php else: ?> 123 <?php endif; ?>">
                                         <div class="house-min">
                                                 <h3>主力户型</h3>
-                                                <p class="select">全部 ({$hus})</p>
+                                                <p class="select">全部 (<?php echo $hus; ?>)</p>
                                                 <div class="h-box">
                                                     <ul class="huxing">
-                                                            {foreach $huimgs as $v}
+                                                            <?php foreach($huimgs as $v): ?>
                                                             <li>
                                                                 <div class="hu-pic">
-                                                                        <img src="{$v.h_big}"/>
+                                                                        <img src="<?php echo $v['h_big']; ?>"/>
                                                                 </div>
                                                                 <div class="hu-content">
                                                                     <div class="tit01">
-                                                                        <span class="mian">{$v.content}   &nbsp;建面：{$v.mian}m²</span>
+                                                                        <span class="mian"><?php echo $v['content']; ?>   &nbsp;建面：<?php echo $v['mian']; ?>m²</span>
                                                                         <a href="">在售</a>
-                                                                        <i>{$v.jia}<span>万起</span></i>
+                                                                        <i><?php echo $v['jia']; ?><span>万起</span></i>
                                                                     </div>
                                                                     <div class="tit02">
-                                                                            <span>特点：{$v.te}</span>
-                                                                            <i>类型：{$v.lei}</i>
+                                                                            <span>特点：<?php echo $v['te']; ?></span>
+                                                                            <i>类型：<?php echo $v['lei']; ?></i>
                                                                             <a class="p1" data-v="领取高清户型图" href="javascript:;" >了解户型详情</a>
                                                                     </div>
                                                                     <p>
-                                                                            户型分析：{$v.fen}。
+                                                                            户型分析：<?php echo $v['fen']; ?>。
                                                                     </p>
                                             
                                                                 </div>
                                             
                                                             </li>
-                                                            {/foreach}
+                                                            <?php endforeach; ?>
                                                             
                                                         </ul>
                                                 </div>
@@ -298,27 +299,27 @@
                                         <div class="hot-tui">
                                         <h3>推荐楼盘</h3>
                                         <ul>
-                                                {foreach $tdengs as $v}
+                                                <?php foreach($tdengs as $v): ?>
                                                 <li>
-                                                    <a href="{:url('home/content/content',['id'=>$v.id])}">
+                                                    <a href="<?php echo url('home/content/content',['id'=>$v['id']]); ?>">
                                                     <div class="hot-list">
                                                         <div class="hot-img">
                                                             <i></i>
                                                             <span>热门楼盘</span>
-                                                            <img src="{$v.building_img}" alt="">
+                                                            <img src="<?php echo $v['building_img']; ?>" alt="">
                                                         </div>
                             
                                                         <div class="hot-name">
-                                                            <h4>{$v.building_name}</h4>
-                                                            <h5>{$v.city}-{$v.qu}</h5>
-                                                            <h6>建面：{$v.humianji}/m²</h6>
-                                                            <span>{$v.danjia}元/m²起</span>
+                                                            <h4><?php echo $v['building_name']; ?></h4>
+                                                            <h5><?php echo $v['city']; ?>-<?php echo $v['qu']; ?></h5>
+                                                            <h6>建面：<?php echo $v['humianji']; ?>/m²</h6>
+                                                            <span><?php echo $v['danjia']; ?>元/m²起</span>
                                                         </div>
                                                     </div>
-                                                <p>推荐理由：{$v.dong}</p>
+                                                <p>推荐理由：<?php echo $v['dong']; ?></p>
                                             </a>
                                                 </li>
-                                                {/foreach}
+                                                <?php endforeach; ?>
                                             
                                         </ul>
                         
@@ -326,72 +327,72 @@
                                         </div>
                             </div>
                               <!--楼盘详情-->
-                            <div class="panel lou-detail {if $type==2} active {else} {/if}">
+                            <div class="panel lou-detail <?php if($type==2): ?> active <?php else: endif; ?>">
                                     <div class="left-detail">
                                         <h1>楼盘详情</h1>
                                         <div class="base-xin">
                                             <span class="tit">基本信息</span>
                                             <ul class="left-xin">
-                                                <li>楼盘名称 <span>{$data.building_name}</span></li>
-                                                <li>楼盘地址 <span>{$data.building_address}</span></li>
-                                                <li>建筑类型 <span>{$data.building_xingshi}</span></li>
-                                                <li>产权年限 <span>{$data.channian}年</span></li>
-                                                <li>开盘时间 <span>{$data.kaitime}</span></li>
+                                                <li>楼盘名称 <span><?php echo $data['building_name']; ?></span></li>
+                                                <li>楼盘地址 <span><?php echo $data['building_address']; ?></span></li>
+                                                <li>建筑类型 <span><?php echo $data['building_xingshi']; ?></span></li>
+                                                <li>产权年限 <span><?php echo $data['channian']; ?>年</span></li>
+                                                <li>开盘时间 <span><?php echo $data['kaitime']; ?></span></li>
                                             </ul>
                                             <ul class="right-xin left-xin">
-                                                <li>交房时间  <span>{$data.jiaotime}</span></li>
-                                                <li>占地面积 <span>{$data.humianji}/m²</span></li>
-                                                <li>楼盘户型 <span>{$data.building_huxing}</span></li>
-                                                <li>层 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高 <span>{$data.cenggao}</span></li>
-                                                <li>预售许可证<span> {$data.yushou}</span></li>
+                                                <li>交房时间  <span><?php echo $data['jiaotime']; ?></span></li>
+                                                <li>占地面积 <span><?php echo $data['humianji']; ?>/m²</span></li>
+                                                <li>楼盘户型 <span><?php echo $data['building_huxing']; ?></span></li>
+                                                <li>层 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高 <span><?php echo $data['cenggao']; ?></span></li>
+                                                <li>预售许可证<span> <?php echo $data['yushou']; ?></span></li>
                                             </ul>
                                         </div>
                                         <div class="other-xin">
                                                 <span class="tit">其它信息</span>
                                                 <ul class="left-xin">
-                                                    <li>物业公司  <span>{$data.wuye}  </span></li>
-                                                    <li>开&nbsp;&nbsp;发&nbsp;&nbsp;商<span>{$data.kaifa}</span></li>
-                                                    <li>物业费用<span> {$data.wufei}元/m².月</span></li>
-                                                    <li> 装修状况 <span>{$data.building_zhuangxiu}</span></li>
-                                                    <li>物业费用<span> {$data.wufei}元/m².月</span></li>
+                                                    <li>物业公司  <span><?php echo $data['wuye']; ?>  </span></li>
+                                                    <li>开&nbsp;&nbsp;发&nbsp;&nbsp;商<span><?php echo $data['kaifa']; ?></span></li>
+                                                    <li>物业费用<span> <?php echo $data['wufei']; ?>元/m².月</span></li>
+                                                    <li> 装修状况 <span><?php echo $data['building_zhuangxiu']; ?></span></li>
+                                                    <li>物业费用<span> <?php echo $data['wufei']; ?>元/m².月</span></li>
                                                 </ul>
                                                 <ul class="right-xin left-xin">
                                                     <li>公交路线<span>&nbsp; 1号线、4号线、6号线</span></li>
-                                                    <li>绿&nbsp;&nbsp;化&nbsp;&nbsp;率    <span> {$data.lvhua}%</span></li>
-                                                    <li>容&nbsp;&nbsp;积&nbsp;&nbsp;率    <span>{$data.rongji}</span></li>
-                                                    <li>车位情况<span> {$data.chewei}</span></li>
+                                                    <li>绿&nbsp;&nbsp;化&nbsp;&nbsp;率    <span> <?php echo $data['lvhua']; ?>%</span></li>
+                                                    <li>容&nbsp;&nbsp;积&nbsp;&nbsp;率    <span><?php echo $data['rongji']; ?></span></li>
+                                                    <li>车位情况<span> <?php echo $data['chewei']; ?></span></li>
                                                 </ul>
                                         </div>
                                         <div class="pro-intro">
                                                 <span>项目介绍 </span>
-                                            <p>{$data.introduce}</p>
+                                            <p><?php echo $data['introduce']; ?></p>
                                         </div>
  
                                     </div>
                                     <div class="hot-tui">
                                             <h3>推荐楼盘</h3>
                                             <ul>
-                                                    {foreach $tdengs as $v}
+                                                    <?php foreach($tdengs as $v): ?>
                                                     <li>
-                                                        <a href="{:url('home/content/content',['id'=>$v.id])}">
+                                                        <a href="<?php echo url('home/content/content',['id'=>$v['id']]); ?>">
                                                         <div class="hot-list">
                                                             <div class="hot-img">
                                                                 <i></i>
                                                                 <span>热门楼盘</span>
-                                                                <img src="{$v.building_img}" alt="">
+                                                                <img src="<?php echo $v['building_img']; ?>" alt="">
                                                             </div>
                                 
                                                             <div class="hot-name">
-                                                                <h4>{$v.building_name}</h4>
-                                                                <h5>{$v.city}-{$v.qu}</h5>
-                                                                <h6>建面：{$v.humianji}/m²</h6>
-                                                                <span>{$v.danjia}元/m²起</span>
+                                                                <h4><?php echo $v['building_name']; ?></h4>
+                                                                <h5><?php echo $v['city']; ?>-<?php echo $v['qu']; ?></h5>
+                                                                <h6>建面：<?php echo $v['humianji']; ?>/m²</h6>
+                                                                <span><?php echo $v['danjia']; ?>元/m²起</span>
                                                             </div>
                                                         </div>
-                                                    <p>推荐理由：{$v.dong}</p>
+                                                    <p>推荐理由：<?php echo $v['dong']; ?></p>
                                                     </li>
                                                 </a>
-                                                    {/foreach}
+                                                    <?php endforeach; ?>
                                                 
                                             </ul>
                             
@@ -401,31 +402,30 @@
                                 
                             </div>
                            <!--楼盘动态-->
-                            <div class="panel lou-dong-tai {if $type==3} active {else} {/if}">
+                            <div class="panel lou-dong-tai <?php if($type==3): ?> active <?php else: endif; ?>">
                                 <div class="lou-dong-box">
                                         <h1>楼盘动态</h1>
                                         <ul>
                                              <!--第一条-->
-                                             {foreach $dong as $v}
+                                             <?php foreach($dong as $v): ?>
                                                 <li>
                                                         <div class="title-box">
                                                              <span><strong class="iconfont iconhothuorererexiao"></strong>最热</span>
-                                                             <h2>{$data.building_name}最新房源动态</h2>
-                                                             <i>{$v.create_time}</i>
+                                                             <h2><?php echo $data['building_name']; ?>最新房源动态</h2>
+                                                             <i><?php echo $v['create_time']; ?></i>
                                                         </div>
-                                                        <p>{$v.introduce}</p>
+                                                        <p><?php echo $v['introduce']; ?></p>
                                                     </li>
-                                                {/foreach}
-                                                {foreach $dongs as $v}
+                                                <?php endforeach; foreach($dongs as $v): ?>
                                                 <li>
                                                     <div class="title-box">
                                                          <span>动态</span>
-                                                         <h2>{$data.building_name}商铺最新房源动态</h2>
-                                                         <i>{$v.create_time}</i>
+                                                         <h2><?php echo $data['building_name']; ?>商铺最新房源动态</h2>
+                                                         <i><?php echo $v['create_time']; ?></i>
                                                     </div>
-                                                    <p>{$v.introduce}</p>
+                                                    <p><?php echo $v['introduce']; ?></p>
                                                 </li>
-                                                {/foreach}
+                                                <?php endforeach; ?>
                                                 
                                         </ul> 
                                 </div>
@@ -433,29 +433,29 @@
                                    <div class="hot-tui">
                                         <h3>推荐楼盘</h3>
                                         <ul>
-                                            {foreach $tdengs as $v}
+                                            <?php foreach($tdengs as $v): ?>
                                            
                                             <li>
-                                                    <a href="{:url('home/content/content',['id'=>$v.id])}">
+                                                    <a href="<?php echo url('home/content/content',['id'=>$v['id']]); ?>">
                                                 <div class="hot-list">
                                                     <div class="hot-img">
                                                         <i></i>
                                                         <span>热门楼盘</span>
-                                                        <img src="{$v.building_img}" alt="">
+                                                        <img src="<?php echo $v['building_img']; ?>" alt="">
                                                     </div>
                         
                                                     <div class="hot-name">
-                                                        <h4>{$v.building_name}</h4>
-                                                        <h5>{$v.city}-{$v.qu}</h5>
-                                                        <h6>建面：{$v.humianji}/m²</h6>
-                                                        <span>{$v.danjia}元/m²起</span>
+                                                        <h4><?php echo $v['building_name']; ?></h4>
+                                                        <h5><?php echo $v['city']; ?>-<?php echo $v['qu']; ?></h5>
+                                                        <h6>建面：<?php echo $v['humianji']; ?>/m²</h6>
+                                                        <span><?php echo $v['danjia']; ?>元/m²起</span>
                                                     </div>
                                                 </div>
-                                            <p>推荐理由：{$v.dong}</p>
+                                            <p>推荐理由：<?php echo $v['dong']; ?></p>
                                         </a>
                                             </li>
                                         
-                                            {/foreach}
+                                            <?php endforeach; ?>
                                             
                                         </ul>
                         
@@ -463,15 +463,15 @@
                                    </div>
                             </div>
                            <!--楼盘相册-->
-                            <div class="panel photo {if $type==4} active {else} {/if}">
+                            <div class="panel photo <?php if($type==4): ?> active <?php else: endif; ?>">
                                 <div class="pictures">
                                  <!--效果图-->
                                     <div class="xg-box">
                                         <h1>效果图</h1>
                                         <ul class="">
-                                                {foreach $ximgs as $v}
-                                                    <li><img src="{$v.x_big}"  alt=""  class="img"/></li>
-                                                {/foreach}
+                                                <?php foreach($ximgs as $v): ?>
+                                                    <li><img src="<?php echo $v['x_big']; ?>"  alt=""  class="img"/></li>
+                                                <?php endforeach; ?>
                                                     
                                         </ul>
                                     </div>
@@ -479,9 +479,9 @@
                                     <div class=" xg-box">
                                             <h1>实景图</h1>
                                             <ul class="">
-                                                    {foreach $simgs as $v}
-                                                        <li><img src="{$v.s_big}"  alt=""  class="img"/></li>
-                                                    {/foreach}
+                                                    <?php foreach($simgs as $v): ?>
+                                                        <li><img src="<?php echo $v['s_big']; ?>"  alt=""  class="img"/></li>
+                                                    <?php endforeach; ?>
                                                        
                                                     
                                             </ul>
@@ -490,9 +490,9 @@
                                 <div class=" xg-box">
                                         <h1>样板房</h1>
                                         <ul class="">
-                                                {foreach $yimgs as $v}
-                                                    <li><img src="{$v.y_big}"  alt=""  class="img"/></li>
-                                                {/foreach}
+                                                <?php foreach($yimgs as $v): ?>
+                                                    <li><img src="<?php echo $v['y_big']; ?>"  alt=""  class="img"/></li>
+                                                <?php endforeach; ?>
                                                     
                                                 
                                         </ul>
@@ -501,9 +501,9 @@
                                 <div class="xg-box">
                                         <h1>配套图</h1>
                                         <ul class="">
-                                                {foreach $pimgs as $v}
-                                                    <li><img src="{$v.p_big}" alt=""  class="img"></li>
-                                                {/foreach}
+                                                <?php foreach($pimgs as $v): ?>
+                                                    <li><img src="<?php echo $v['p_big']; ?>" alt=""  class="img"></li>
+                                                <?php endforeach; ?>
                                                     
                                                 
                                         </ul>
@@ -512,9 +512,9 @@
                                 <div class="xg-box">
                                         <h1>交通图</h1>
                                         <ul class="">
-                                                {foreach $jimgs as $v}
-                                                    <li><img src="{$v.j_big}" alt=""  class="img"></li>
-                                                {/foreach}
+                                                <?php foreach($jimgs as $v): ?>
+                                                    <li><img src="<?php echo $v['j_big']; ?>" alt=""  class="img"></li>
+                                                <?php endforeach; ?>
                                                     
                                                 
                                         </ul>
@@ -523,9 +523,9 @@
                                  <div class="xg-box hu-img">
                                         <h1>户型图</h1>
                                         <ul class="">
-                                                {foreach $huimgs as $v}
-                                                    <li><img src="{$v.h_big}"  alt=""  class="img"/></li>
-                                                {/foreach}
+                                                <?php foreach($huimgs as $v): ?>
+                                                    <li><img src="<?php echo $v['h_big']; ?>"  alt=""  class="img"/></li>
+                                                <?php endforeach; ?>
                                                     
                                                 
                                         </ul>
@@ -535,27 +535,27 @@
                                 <div class="hot-tui">
                                         <h3>推荐楼盘</h3>
                                         <ul>
-                                                {foreach $tdengs as $v}
+                                                <?php foreach($tdengs as $v): ?>
                                                 <li>
-                                                    <a href="{:url('home/content/content',['id'=>$v.id])}">
+                                                    <a href="<?php echo url('home/content/content',['id'=>$v['id']]); ?>">
                                                     <div class="hot-list">
                                                         <div class="hot-img">
                                                             <i></i>
                                                             <span>热门楼盘</span>
-                                                            <img src="{$v.building_img}" alt="">
+                                                            <img src="<?php echo $v['building_img']; ?>" alt="">
                                                         </div>
                             
                                                         <div class="hot-name">
-                                                            <h4>{$v.building_name}</h4>
-                                                            <h5>{$v.city}-{$v.qu}</h5>
-                                                            <h6>建面：{$v.humianji}/m²</h6>
-                                                            <span>{$v.danjia}元/m²起</span>
+                                                            <h4><?php echo $v['building_name']; ?></h4>
+                                                            <h5><?php echo $v['city']; ?>-<?php echo $v['qu']; ?></h5>
+                                                            <h6>建面：<?php echo $v['humianji']; ?>/m²</h6>
+                                                            <span><?php echo $v['danjia']; ?>元/m²起</span>
                                                         </div>
                                                     </div>
-                                                <p>推荐理由：{$v.dong}</p>
+                                                <p>推荐理由：<?php echo $v['dong']; ?></p>
                                             </a>
                                                 </li>
-                                                {/foreach}
+                                                <?php endforeach; ?>
                                             
                                         </ul>
                         
@@ -564,7 +564,7 @@
                             
                             </div>
                             <!--楼盘问问-->
-                            <div class="panel wenwen {if $type==5} active {else} {/if}">
+                            <div class="panel wenwen <?php if($type==5): ?> active <?php else: endif; ?>">
                                 <div class="wenda-cen-min bg">
                                         <h1 class="title-1">楼盘问答 </h1>
                                         <div class="wenda-box">
@@ -666,27 +666,27 @@
                                 <div class="hot-tui">
                                         <h3>推荐楼盘</h3>
                                         <ul>
-                                                {foreach $tdengs as $v}
+                                                <?php foreach($tdengs as $v): ?>
                                                 <li>
-                                                    <a href="{:url('home/content/content',['id'=>$v.id])}">
+                                                    <a href="<?php echo url('home/content/content',['id'=>$v['id']]); ?>">
                                                     <div class="hot-list">
                                                         <div class="hot-img">
                                                             <i></i>
                                                             <span>热门楼盘</span>
-                                                            <img src="{$v.building_img}" alt="">
+                                                            <img src="<?php echo $v['building_img']; ?>" alt="">
                                                         </div>
                             
                                                         <div class="hot-name">
-                                                            <h4>{$v.building_name}</h4>
-                                                            <h5>{$v.city}-{$v.qu}</h5>
-                                                            <h6>建面：{$v.humianji}/m²</h6>
-                                                            <span>{$v.danjia}元/m²起</span>
+                                                            <h4><?php echo $v['building_name']; ?></h4>
+                                                            <h5><?php echo $v['city']; ?>-<?php echo $v['qu']; ?></h5>
+                                                            <h6>建面：<?php echo $v['humianji']; ?>/m²</h6>
+                                                            <span><?php echo $v['danjia']; ?>元/m²起</span>
                                                         </div>
                                                     </div>
-                                                <p>推荐理由：{$v.dong}</p>
+                                                <p>推荐理由：<?php echo $v['dong']; ?></p>
                                             </a>
                                                 </li>
-                                                {/foreach}
+                                                <?php endforeach; ?>
                                             
                                         </ul>
                         
@@ -696,7 +696,7 @@
                                 
                             </div>
                             <!--楼盘点评-->
-                            <div class="panel dianping {if $type==6} active {else} {/if}">
+                            <div class="panel dianping <?php if($type==6): ?> active <?php else: endif; ?>">
                                 <h1>楼盘点评</h1>
                                 
 
@@ -704,27 +704,27 @@
                                 <div class="hot-tui">
                                         <h3>推荐楼盘</h3>
                                         <ul>
-                                                {foreach $tdengs as $v}
+                                                <?php foreach($tdengs as $v): ?>
                                                 <li>
-                                                    <a href="{:url('home/content/content',['id'=>$v.id])}">
+                                                    <a href="<?php echo url('home/content/content',['id'=>$v['id']]); ?>">
                                                     <div class="hot-list">
                                                         <div class="hot-img">
                                                             <i></i>
                                                             <span>热门楼盘</span>
-                                                            <img src="{$v.building_img}" alt="">
+                                                            <img src="<?php echo $v['building_img']; ?>" alt="">
                                                         </div>
                             
                                                         <div class="hot-name">
-                                                            <h4>{$v.building_name}</h4>
-                                                            <h5>{$v.city}-{$v.qu}</h5>
-                                                            <h6>建面：{$v.humianji}/m²</h6>
-                                                            <span>{$v.danjia}元/m²起</span>
+                                                            <h4><?php echo $v['building_name']; ?></h4>
+                                                            <h5><?php echo $v['city']; ?>-<?php echo $v['qu']; ?></h5>
+                                                            <h6>建面：<?php echo $v['humianji']; ?>/m²</h6>
+                                                            <span><?php echo $v['danjia']; ?>元/m²起</span>
                                                         </div>
                                                     </div>
-                                                <p>推荐理由：{$v.dong}</p>
+                                                <p>推荐理由：<?php echo $v['dong']; ?></p>
                                             </a>
                                                 </li>
-                                                {/foreach}
+                                                <?php endforeach; ?>
                                             
                                         </ul>
                         
@@ -754,22 +754,22 @@
 
         <div class="tou">
             <ul class="footer-top">
-                <a href="{:url('home/user/lian')}">
+                <a href="<?php echo url('home/user/lian'); ?>">
                     <li>联系我们</li>
                 </a>
-                <a href="{:url('home/user/guan')}">
+                <a href="<?php echo url('home/user/guan'); ?>">
                     <li>关于家园</li>
                 </a>
-                <a href="{:url('home/news/index')}">
+                <a href="<?php echo url('home/news/index'); ?>">
                     <li>楼盘资讯</li>
                 </a>
-                <a href="{:url('home/search/index',['type'=>0])}">
+                <a href="<?php echo url('home/search/index',['type'=>0]); ?>">
                     <li>楼盘查询</li>
                 </a>
-                <a href="{:url('home/index/buy')}">
+                <a href="<?php echo url('home/index/buy'); ?>">
                     <li>买房指南</li>
                 </a>
-                <a href="{:url('home/search/tuan',['type'=>0])}">
+                <a href="<?php echo url('home/search/tuan',['type'=>0]); ?>">
                     <li>团购优惠</li>
                 </a>
             </ul>
@@ -780,9 +780,9 @@
             <div class="youqing-l">
                 <span>友情链接：</span>
                 <ul class="youqing">
-                    {foreach $yous as $v}
-                        <li><a target="_blank" href="{$v.src}">{$v.title}</a></li>
-                        {/foreach}
+                    <?php foreach($yous as $v): ?>
+                        <li><a target="_blank" href="<?php echo $v['src']; ?>"><?php echo $v['title']; ?></a></li>
+                        <?php endforeach; ?>
                         
                 </ul>
                 <p>Copyright © 2017 - 2022 杭州亚汉网络有限公司有限公司版权所有 浙ICP备18057005号</p>
@@ -815,7 +815,7 @@
                                 <p>验证码已发送到<span>187****4376</span>，请注意查看</p>
                                 <input type="text" placeholder="请输入验证码">
                                 <button class="port1">确定</button>
-                                <input type="hidden" value="{$data.building_name}">
+                                <input type="hidden" value="<?php echo $data['building_name']; ?>">
                                 <input type="hidden" value="">
                                 <button class="t-b-scode">获取验证码</button>
                             </div>
@@ -932,7 +932,7 @@
                 var tel=phone.substr(0,3)+'****'+phone.substr(7,11);
                 var that=$(this);
                 $.post(
-                    "{:url('home/user/login')}",
+                    "<?php echo url('home/user/login'); ?>",
                     data,
                     function(res){
                         if(res.code==100){
@@ -982,7 +982,7 @@
 				var interval = setInterval(fn, 1000);
                 var data={'phone':phone};
                 $.post(
-                    "{:url('home/user/login')}",
+                    "<?php echo url('home/user/login'); ?>",
                     data,
                     function(res){
                         if(res.code==100){
@@ -1025,7 +1025,7 @@
                 console.log(data);return
                 var that=$(this)
                 $.post(
-                    "{:url('home/content/port1')}",
+                    "<?php echo url('home/content/port1'); ?>",
                     data,
                     function(res){
                         if(res.code==100){
@@ -1053,7 +1053,7 @@
                 $('#bname').submit();
             })
             $('#map').on('click',function(){
-                window.location.href="{:url('home/index/pmap')}";
+                window.location.href="<?php echo url('home/index/pmap'); ?>";
             })
             $('#a-esc').on('click',function(){
                 $('.addre').hide();
@@ -1103,7 +1103,7 @@
 				var interval = setInterval(fn, 1000);
                 var data={'phone':phone};
                 $.post(
-                    "{:url('home/user/login')}",
+                    "<?php echo url('home/user/login'); ?>",
                     data,
                     function(res){
                         if(res.code==100){

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\index\lius.html";i:1573550314;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\index\lius.html";i:1573788814;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -232,9 +232,10 @@
     width:86.6%;
     height:44px;
     background:rgba(247,247,247,1);
-    border-radius:8px;  
+    border-radius:4px;  
     border:0;
     margin-left:6.6%;
+    text-indent:1em;
 }
 .m-zhe-box .m-qu,.m-zhe-box .m-que{
     width:40%;

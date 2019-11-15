@@ -855,7 +855,10 @@
        margin-right:3.2%!important;
        text-align:left!important;
     } 
-             
+
+    .swiper-container{
+        margin-left: -14px; 
+    }      
     
     .m-list:after{
          content:"";
@@ -915,6 +918,15 @@
                     border-radius:4px ;
               }
 
+
+              .m-xuan img{
+                width:24.8%;
+                height:34px;
+                position: fixed;
+                right:4%;
+                bottom:140px;
+                z-index: 10000;
+            }
     </style>
     <script>
         var _hmt = _hmt || [];
@@ -960,7 +972,7 @@
                     </ul>
             </div>
             <div class="nav-rig">
-                <div class="login-box"><span class="iconfont icon-wode2"></span>注册/登录</div>
+                <div class="login-box" {if $Think.session.user} {else}id="login-bbs"{/if}><span class="iconfont icon-wode2"></span>注册/登录</div>
                 <h4>购房热线:400-718-6686</h4>
             </div>
             
@@ -1803,7 +1815,7 @@
 
         <!-- 留言悬浮框 -->
         <div class="m-xuan visible-xs-block .visible-sm-block">
-            留言
+                <img src="/static/home/imgs/m-liu.png" alt="">
         </div>
     </div>
     <script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
@@ -1852,13 +1864,15 @@ var _hmt = _hmt || [];
 
 
         var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 3.6,
-            spaceBetween: 15,
-            centeredSlides: true,
-            pagination: {
-                clickable: true,
-            },
+             slidesPerView: 6.5,
+            spaceBetween: 10,
+             centeredSlides: true,
+            // pagination: {
+            //     clickable: true,
+            // },
         });
+
+        
         $(document).ready(function () {
             // 更多资讯
             $('#more_news').on('click',function(){
@@ -2212,7 +2226,7 @@ var _hmt = _hmt || [];
             $('.zhao').css('height', h);
 
             // 显示登陆框
-            $('.login-box').on('click',function(){
+            $('#login-bbs').on('click',function(){
                 $('.login').show(150);
             })
 

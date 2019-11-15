@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\search\search.html";i:1573546407;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\search\search.html";i:1573809298;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1018,18 +1018,17 @@
            line-height: 48px;
         }
         .hot-tui ul li{
-               height:134px;
-               width:312px;
+               height:284px;
+               width:200px;
         }
         .hot-tui ul li .hot-list{
-            width:312px;
-            height:90px;
+               height:284px;
+               width:200px;
         }
         .hot-tui ul li .hot-list .hot-img{
-            float:left;
             position: relative;
-            height:90px;
-            margin-right: 24px;
+            width:200px;
+            height:150px;
         }
         .hot-tui ul li .hot-list .hot-img span{
             width:72px;
@@ -1051,28 +1050,30 @@
             height:90px;
         }
         .hot-tui ul li .hot-list .hot-img img{
-            width:130px;
-            height:90px;
+            width:200px;
+            height:150px;
             border-radius:8px;
         }
         .hot-tui ul li .hot-list .hot-img i{
-            width:130px;
-            height:90px;
+            width:200px;
+            height:150px;
             background:rgba(0,0,0,1);
             opacity:0.4;
             border-radius:8px;
             position: absolute;
             top:0;
+            left:0;
         }
         .hot-tui ul li .hot-list:hover i {
             opacity:0;
         }
         .hot-tui ul li .hot-list .hot-name h4{
-            font-size:14px;
+            font-size:16px;
             font-family:'Microsoft YaHei';
             font-weight:bold;
             color:rgba(51,51,51,1);
             line-height:20px;
+            margin-top:12px;
         }
         .hot-tui ul li .hot-list .hot-name h5{
             font-size:14px;
@@ -1113,10 +1114,10 @@
         }
 
         /* 留言悬浮框 */
-        .m-xuan{
+        /* .m-xuan{
             width:50px;
             height:50px;
-            background-color: #19A8EB;
+            /* background-color: #19A8EB; 
             border-radius: 50%;
             position: fixed;
             right:6.667%;
@@ -1127,7 +1128,15 @@
             text-align: center;
             opacity:0.8;
             z-index:10;
-        }
+        } */
+     .m-xuan img{
+        width:24.8%;
+        height:34px;
+        position: fixed;
+        right:0;
+        bottom:140px;
+        z-index: 10000;
+      }
     </style>
 </head>
 <body>
@@ -1325,7 +1334,7 @@
                 <div class="pages">
                     <span id="back"><<</span>
                     <ul class="page">
-                        <?php $__FOR_START_2033206941__=0;$__FOR_END_2033206941__=$page;for($i=$__FOR_START_2033206941__;$i < $__FOR_END_2033206941__;$i+=1){ if($i<7): ?>
+                        <?php $__FOR_START_970309487__=0;$__FOR_END_970309487__=$page;for($i=$__FOR_START_970309487__;$i < $__FOR_END_970309487__;$i+=1){ if($i<7): ?>
                         <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                         <?php endif; } ?>
                     </ul>
@@ -1342,18 +1351,19 @@
                                 <div class="hot-list">
                                     <div class="hot-img">
                                         <i></i>
-                                        <span>热搜楼盘</span>
-                                        <img src="<?php echo $v['building_img']; ?>" alt="">
+                                        <span>热门楼盘</span>
+                                        <img src="<?php echo $v['building_img']; ?>" alt=""> 
+                                        <!-- <img src="http://api.jy1980.com/uploads/20190919/qmqmvmxp.jpeg" alt=""> -->
                                     </div>
         
                                     <div class="hot-name">
                                         <h4><?php echo $v['building_name']; ?></h4>
-                                        <h5><?php echo $v['city']; ?>-<?php echo $v['qu']; ?></h5>
+                                        <h5><?php echo $v['city']; ?> | <?php echo $v['qu']; ?></h5>
                                         <h6>建面：<?php echo $v['humianji']; ?>/m²</h6>
                                         <span><?php echo $v['danjia']; ?>元/m²起</span>
                                     </div>
                                 </div>
-                               <p>最新动态：<?php echo $v['dong']; ?></p>
+                               <!-- <p>最新动态：<?php echo $v['dong']; ?></p> -->
                             </li>
                         </a>
                             <?php endforeach; ?>
@@ -1430,7 +1440,7 @@
         </div>
          <!-- 留言悬浮框 -->
          <div class="m-xuan visible-xs-block .visible-sm-block">
-            留言
+                <img src="/static/home/imgs/m-liu.png" alt="">
         </div>
         <!-- 侧边悬浮栏 -->
         <div class="fixed-box  visible-md-block visible-lg-block">
@@ -1643,12 +1653,12 @@
             </div>
             <div class="m-box"></div>
         </div>
-        <div class="visible-xs-block .visible-sm--block m-list">
+        <div class="visible-xs-block .visible-sm--block m-list   pic-lazy">
                 <?php foreach($data as $v): ?>
             <div class="col-xs-12 m-row">
                 <a href="<?php echo url('home/content/index',['id'=>$v['id']]); ?>">
                 <div class="col-xs-4 m-img">
-                    <img src="<?php echo $v['building_img']; ?>" alt="">
+                    <img src="/static/home/imgs/no_pic.gif" alt="" data-src="<?php echo $v['building_img']; ?>">
                 </div>
                 <div class="col-xs-8 m-text">
                     <h4 class="m-tit"> 
@@ -1664,7 +1674,7 @@
                     <p class="m-icon">
                         <span class="m-p-2"><?php echo $v['building_xiaoshou']; ?></span>
                         <span class="m-p-3"><?php echo $v['building_xingshi']; ?></span>
-                        <span class="m-p-3">繁华地段</span>
+                        <!-- <span class="m-p-3">繁华地段</span> -->
                     </p>
                 </div>
                 </a>
@@ -2404,7 +2414,7 @@
                     <p class="m-icon">
                         <span class="m-p-2">${v.building_xiaoshou}</span>
                         <span class="m-p-3">${v.building_xingshi}</span>
-                        <span class="m-p-3">繁华地段</span>
+                      
                         
                     </p>
                 </div>
@@ -2583,14 +2593,14 @@
                     {suggest:str,type:ty},
                     function(data){
                         // console.log(data);
-                        var html=$('.m-list').html();
+                        var html=$('.pic-lazy').html();
                         if(data.length>1){
                             $.each(data,function(i,v){
                                 html+=`
                                 <div class="col-xs-12 m-row">
 <a href="https://www.jy1980.com/index/${v.id}">
                                 <div class="col-xs-4 m-img">
-                    <img src="${v.building_img}" alt="">
+                    <img src="/static/home/imgs/no_pic.gif" alt="" data-src="${v.building_img}">
                 </div>
                 <div class="col-xs-8 m-text">
                     <h4 class="m-tit">
@@ -2606,7 +2616,6 @@
                     <p class="m-icon">
                         <span class="m-p-2">${v.building_xiaoshou}</span>
                         <span class="m-p-3">${v.building_xingshi}</span>
-                        <span class="m-p-3">繁华地段</span>
                         
                     </p>
                 </div>
@@ -2635,7 +2644,52 @@
                         p=p+1;
                 }            
 	   });
+
+
+       //懒加载
+       
+        // 一开始没有滚动的时候，出现在视窗中的图片也会加载
+        start();
+
+        // 当页面开始滚动的时候，遍历图片，如果图片出现在视窗中，就加载图片
+        var clock; //函数节流
+        $(window).on('scroll',function(){
+            if(clock){
+                clearTimeout(clock);
+            }
+            clock = setTimeout(function(){
+                start()
+            },200)
         })
+        
+        function start(){
+             $('.pic-lazy img').not('[data-isLoading]').each(function () {
+                // //  console.log( $('.pic-lazy img').not('[data-isLoading]'));
+                // console.log(isShow($(this)));
+                 if (isShow($(this))) {
+                   
+                    loadImg($(this));
+                }
+            })
+        }
+
+
+        // 判断图片是否出现在视窗的函数
+        function isShow($node){
+            return $node.offset().top <= $(window).height()+$(window).scrollTop();
+        }
+
+        // 加载图片的函数，就是把自定义属性data-src 存储的真正的图片地址，赋值给src
+        function loadImg($img){
+                $img.attr('src', $img.attr('data-src'));
+
+                // 已经加载的图片，我给它设置一个属性，值为1，作为标识
+                // 弄这个的初衷是因为，每次滚动的时候，所有的图片都会遍历一遍，这样有点浪费，所以做个标识，滚动的时候只遍历哪些还没有加载的图片
+                $img.attr('data-isLoading',1);
+        }
+
+        })
+
     </script>
 </body>
 </html>

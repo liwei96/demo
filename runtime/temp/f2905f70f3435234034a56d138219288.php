@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\search\tuan.html";i:1573550314;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\search\tuan.html";i:1573809362;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1199,7 +1199,7 @@
         }
 
         /* 留言悬浮框 */
-        .m-xuan{
+        /* .m-xuan{
             width:50px;
             height:50px;
             background-color: #19A8EB;
@@ -1213,7 +1213,17 @@
             text-align: center;
             opacity:0.8;
             z-index:10;
-        }
+        } */
+
+        
+        .m-xuan img{
+        width:24.8%;
+        height:34px;
+        position: fixed;
+        right:0px;
+        bottom:140px;
+        z-index: 10000;
+    }
     </style>
 </head>
 
@@ -1418,7 +1428,7 @@
                 <div class="pages">
                     <span id="back"><<</span>
                     <ul class="page">
-                        <?php $__FOR_START_1739667791__=0;$__FOR_END_1739667791__=$page;for($i=$__FOR_START_1739667791__;$i < $__FOR_END_1739667791__;$i+=1){ if($i<7): ?>
+                        <?php $__FOR_START_1692292837__=0;$__FOR_END_1692292837__=$page;for($i=$__FOR_START_1692292837__;$i < $__FOR_END_1692292837__;$i+=1){ if($i<7): ?>
                         <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                         <?php endif; } ?>
                     </ul>
@@ -1758,8 +1768,8 @@
                 <a href="<?php echo url('home/content/index',['id'=>$v['id']]); ?>">
                     <div class="col-xs-4 m-img">
                             <span>团购优惠</span>
-                            <!-- <img src="<?php echo $v['building_img']; ?>" alt=""> -->
-                            <img src="https://www.jy1980.com/uploads/20190522/1749a3b2dac7a377ce0ced9917dc184e.jpg" alt="">
+                             <img src="<?php echo $v['building_img']; ?>" alt=""> 
+                            <!-- <img src="https://www.jy1980.com/uploads/20190522/1749a3b2dac7a377ce0ced9917dc184e.jpg" alt=""> -->
                     </div>
                 </a>
                 <div class="col-xs-8 m-text">
@@ -1776,7 +1786,7 @@
                     <p class="m-icon">
                         <span class="m-p-2"><?php echo $v['building_xingshi']; ?></span>
                         <span class="m-p-3"><?php echo $v['building_ditie']; ?></span>
-                        <span class="m-p-3">繁华地段</span>
+                        <!-- <span class="m-p-3">繁华地段</span> -->
                     </p>
                 </div>
                 <div class="col-xs-12 m-tu">
@@ -1805,7 +1815,7 @@
         </div>
          <!-- 留言悬浮框 -->
          <div class="m-xuan visible-xs-block .visible-sm-block">
-            留言
+                <img src="/static/home/imgs/m-liu.png" alt="">
         </div>
     </div>
 
@@ -2739,7 +2749,6 @@ $('#cy').on('click',function(){
                     <p class="m-icon">
                         <span class="m-p-2">${v.building_xiaoshou}</span>
                         <span class="m-p-3">${v.building_xingshi}</span>
-                        <span class="m-p-3">繁华地段</span>
                         
                     </p>
                 </div>

@@ -10,7 +10,7 @@
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
         integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
+        <link rel="stylesheet" href="//at.alicdn.com/t/font_1416845_l80icjbk93.css">
     <style>
         .m {
             padding: 0;
@@ -81,11 +81,12 @@
             width:92%;
             height:40px;
             border-radius: 3px;
-            color:#fff;
+            color:#2DC45A;
             text-align: center;
             line-height: 40px;
             border:0;
-            background-color: #2DC45A;
+            font-weight:bold;
+            background-color: #F2F2F2;
         }
 
         ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
@@ -179,6 +180,75 @@
     margin-left:0;
 }
 
+/*输入电话遮罩层*/
+.m-zhe-tel{
+      position: absolute;
+      width: 100%;;
+    height:1447px;
+    background:rgba(0,0,0,1);
+    opacity:0.4;
+    top:0;
+    left:0;
+    display:none;
+}
+ .m-zhe-box{
+    width:80%;
+    height:190px;
+    background:rgba(255,255,255,1);
+    border-radius:10px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    display:none;
+}
+.m-zhe-box   span{
+      position:absolute;
+      right:5%;;
+      top:5%;
+}
+.m-zhe-box  input{
+    position:absolute;
+      right:5%;;
+      top:45px;
+}
+.m-zhe-box  button{
+      position:absolute;
+      top:123px;
+}
+.m-zhe-box .m-qu{
+       left:6.8%;
+}
+.m-zhe-box .m-que{
+       left:53.5%;
+}
+.m-zhe-box input{
+    width:86.6%;
+    height:44px;
+    background:rgba(247,247,247,1);
+    border-radius:4px;  
+    border:0;
+    margin-left:6.6%;
+    text-indent:1em;
+}
+.m-zhe-box .m-qu,.m-zhe-box .m-que{
+    width:40%;
+    height:40px;
+    border-radius:20px;
+    background: #fff;
+}
+.m-zhe-box .m-qu{
+    border:1px solid rgba(230,230,230,1);
+    color:#999999;
+}
+.m-zhe-box .m-que{
+    border:1px solid rgba(45,210,100,1);
+    color:#2DD264;
+}
+
+
+
+
 
     </style>
 </head>
@@ -195,8 +265,8 @@
         </div>
         <div class="m-liu visible-xs-block .visible-sm-block">
             <img src="/static/home/imgs/lt.png" alt="">
-            <h5>电话</h5>
-           <input class="tel" type="text" placeholder="输入您的手机号码">
+            <!-- <h5>电话</h5>
+           <input class="tel" type="text" placeholder="输入您的手机号码"> -->
            <h5>留言</h5>
            <textarea name="" id="" cols="30" rows="10" placeholder="输入您的问题"></textarea>
            <button id="btn" data-v="{$id}">提交</button>
@@ -211,31 +281,67 @@
             </div>
         </div>
     </div>
+
+
+    <!-- 输入电话号弹框 -->
+
+<div class="m-zhe-tel">
+    </div>
+    <div class="m-zhe-box">
+            <span class="iconfont iconguanbi" id="close"></span>
+            <input type="text" placeholder="请输入手机号" id="tel">
+            
+            <button class="m-qu" >取消</button>
+            <button class="m-que">确定</button>
+     </div>
+
 </body>
 
 </html>
 <script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('#btn').on('click',function(){
-            var input=$('input').val();
-	    var name=$(this).attr('data-v');
+        $('#btn').on("click",function(){
             var text=$('textarea').val();
+            if(text!=""){
+                $('.m-zhe-tel').show();
+                $('.m-zhe-box').show();
+            }
+
+        })
+        $('.m-que').on('click',function(){
+           
+            var text=$('textarea').val();
+            var input=$('#tel').val();
+            
+            console.log(input,text);
             $.post(
                 "{:url('home/index/liuget')}",
-                {'tel':input,'content':text,'name':name},
+                {'tel':input,'content':text,},
                 function(res){
                     if(res.code==200){
+                        $('.m-zhe-tel').hide();
+                         $('.m-zhe-box').hide();
                         $('.m-chang').show();
                         $('.m-o-succ').show(300);
                     }else if(res.code==10001){
-                        $('input').val('');
-                        $('input').attr('placeholder',res.msg);
-                        $('.tel').val();
+                        $('#tel').val('');
+                        $('#tel').attr('placeholder',res.msg);
+                        $('#tel').val();
                     }
                 }
             )
         })
+        //留言
+  $('#close').click(function(){
+    $('.m-zhe-tel').hide();
+    $('.m-zhe-box').hide();
+  })
+  $('.m-qu').click(function(){
+    $('.m-zhe-tel').hide();
+    $('.m-zhe-box').hide();
+  })
+
         $('.m-chang').on('click',function(){
             $('.m-chang').hide();
             $('.m-o-succ').hide();

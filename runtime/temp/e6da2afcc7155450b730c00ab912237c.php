@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"G:\jiayuan\tp2\public/../application/home\view\content\lpic.html";i:1573711674;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"G:\jiayuan\tp2\public/../application/home\view\content\lpic.html";i:1573784585;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -418,7 +418,7 @@
 
   //热卖		
   var bannerSwiper = new Swiper('.banner', {
-  	loop: true,
+  	loop: false,
   	pagination: {
   		el: '.swiper-pagination',
   		type: 'fraction',

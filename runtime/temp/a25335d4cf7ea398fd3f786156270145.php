@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\news\index.html";i:1573703558;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\news\index.html";i:1573808735;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1006,7 +1006,7 @@
         }
 
         /* 留言悬浮框 */
-        .m-xuan{
+        /* .m-xuan{
             width:50px;
             height:50px;
             background-color: #19A8EB;
@@ -1020,7 +1020,15 @@
             text-align: center;
             opacity:0.8;
             z-index:10;
-        }
+        } */
+        .m-xuan img{
+        width:24.8%;
+        height:34px;
+        position: fixed;
+        right:0px;
+        bottom:140px;
+        z-index: 10000;
+    }
         .m-l  .col-xs-4{
                 padding:0 !important;
                 border-radius:4px ;
@@ -1095,7 +1103,7 @@
                  <div class="pages">
                         <span id="back"><<</span>
                         <ul class="page">
-                            <?php $__FOR_START_1057257080__=0;$__FOR_END_1057257080__=$page;for($i=$__FOR_START_1057257080__;$i < $__FOR_END_1057257080__;$i+=1){ if($i<7): ?>
+                            <?php $__FOR_START_1967054338__=0;$__FOR_END_1967054338__=$page;for($i=$__FOR_START_1967054338__;$i < $__FOR_END_1967054338__;$i+=1){ if($i<7): ?>
                             <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                             <?php endif; } ?>
                         </ul>
@@ -1304,7 +1312,7 @@
                                 <span><?php echo $v['create_time']; ?></span>
                             </div>
                         </div>
-                        <img class="col-xs-4" src="https://www.jy1980.com/uploads/20190701/caef32e756316509c8441bea53d384d0.jpg" alt="">
+                        <img class="col-xs-4" src="<?php echo $v['img']; ?>" alt="">
                     </div>
                     </a>
                     <?php endforeach; ?>
@@ -1322,7 +1330,7 @@
                                 <span><?php echo $v['create_time']; ?></span>
                             </div>
                         </div>
-                        <img class="col-xs-4" src="http://api.jy1980.com/uploads/20190831/thumb_800_whjcmv2b.jpeg" alt="">
+                        <img class="col-xs-4" src="<?php echo $v['img']; ?>" alt="">
                     </div>
                     </a>
                     <?php endforeach; ?>
@@ -1333,7 +1341,7 @@
         </div>
          <!-- 留言悬浮框 -->
          <div class="m-xuan visible-xs-block .visible-sm-block">
-            留言
+                <img src="/static/home/imgs/m-liu.png" alt="">
         </div>
     </div>
 

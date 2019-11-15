@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1573712730;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1573808236;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -856,7 +856,10 @@
        margin-right:3.2%!important;
        text-align:left!important;
     } 
-             
+
+    .swiper-container{
+        margin-left: -14px; 
+    }      
     
     .m-list:after{
          content:"";
@@ -916,6 +919,15 @@
                     border-radius:4px ;
               }
 
+
+              .m-xuan img{
+                width:24.8%;
+                height:34px;
+                position: fixed;
+                right:4%;
+                bottom:140px;
+                z-index: 10000;
+            }
     </style>
     <script>
         var _hmt = _hmt || [];
@@ -1804,7 +1816,7 @@
 
         <!-- 留言悬浮框 -->
         <div class="m-xuan visible-xs-block .visible-sm-block">
-            留言
+                <img src="/static/home/imgs/m-liu.png" alt="">
         </div>
     </div>
     <script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
@@ -1853,13 +1865,15 @@ var _hmt = _hmt || [];
 
 
         var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 3.6,
-            spaceBetween: 15,
-            centeredSlides: true,
-            pagination: {
-                clickable: true,
-            },
+             slidesPerView: 6.5,
+            spaceBetween: 10,
+             centeredSlides: true,
+            // pagination: {
+            //     clickable: true,
+            // },
         });
+
+        
         $(document).ready(function () {
             // 更多资讯
             $('#more_news').on('click',function(){
