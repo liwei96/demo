@@ -15,12 +15,13 @@
         integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/home/css/s-search.css">
     <link rel="stylesheet" href="/static/home/css/comm1.css">
-
+    <link rel="stylesheet" href="/static/home/css/com_xun.css">
     <script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
     </script>
     <script src="https://cdn.bootcss.com/prefixfree/1.0.7/prefixfree.min.js"></script>
+   
     <style>
 	
          /* 顶部导航 */
@@ -331,36 +332,7 @@
          }
 
           /* 留言悬浮框 */
-    .fixed-box{ 
-    width:56px;
-    height:180px;
-    background:rgba(255,255,255,1);
-    box-shadow:0px 0px 10px 0px rgba(4,0,0,0.04);
-    border-radius:4px;
-      position: fixed;
-      z-index:200;
-      bottom:300px;
-      right:20px;
-      padding-top:15px;
-      cursor:pointer;
-}
-.fixed-box dl{
-      height:60px;
-      width:56px;
-}
-.fixed-box dl dt img{
-    width:24px;
-    height:24px;
-    margin-left:15px;
-}
-.fixed-box dl dd{
-    font-size:12px;
-    font-family:'Microsoft YaHei';
-    font-weight:400;
-    color:rgba(51,51,51,1);
-    line-height:26px;
-    text-align:center;
-}
+ 
 
     /* 留言提问 */
     .show-liu{
@@ -1178,7 +1150,15 @@
                             </ul>
                        </div>
                     <form id="bname" style="display: initial" action="{:url('home/search/index',['type'=>0])}" method="post">
-                    <input type="text" name="name" placeholder="请输入楼盘名称、地域">
+                    <input type="text" name="name" placeholder="请输入楼盘名称、地域" list="sou_list">
+                    <datalist id="sou_list">
+                        <option value="中梁申花百悦公馆" />
+                        <option value="宋都·时间名座" />
+                        <option value="星耀中心" />
+                        <option value="世茂泰禾·中央广场" />
+                        <option value="山水时代" />
+                        <option value="星南站" />
+                    </datalist>  
                     <span id="find"><img src="/static/home/imgs/icon-8.png">我要找房</span>
                     </form>
                     <span id="map"><img src="/static/home/imgs/pcadd.png" alt="">地图找房</span>
@@ -1444,21 +1424,41 @@
                 <img src="/static/home/imgs/m-liu.png" alt="">
         </div>
         <!-- 侧边悬浮栏 -->
-        <div class="fixed-box  visible-md-block visible-lg-block">
-            <dl>
-                <dt><img src="/static/home/imgs/weixinmin.png" alt=""></dt>
-                <dd>小程序</dd>
-            </dl>
-            <dl class="get-liu">
-                <dt><img src="/static/home/imgs/liu.png" alt=""></dt>
-                <dd>留言</dd>
-            </dl>
-            <dl class="up-btn">
-                <dt><img src="/static/home/imgs/goup.png" alt=""></dt>
-                <dd>回顶部</dd>
-            </dl>
-
-        </div>
+        <div class="fixed-box">
+                <dl class="xiao">
+                    <dt><img src="/static/home/imgs/xiao_h.png" alt=""></dt>
+                    <dd>小程序</dd>
+                </dl>
+                <dl class="get-liu">
+                    <dt><img src="/static/home/imgs/liu_h.png" alt=""></dt>
+                    <dd>留言</dd>
+                </dl>
+                <dl class="sao_ma">
+                    <dt><img src="/static/home/imgs/sao_h.png" alt=""></dt>
+                    <dd>扫码拨号</dd>
+                </dl>
+                <dl class="zi_xun">
+                    <dt><img src="/static/home/imgs/ke_h.png" alt=""></dt>
+                    <dd>咨询</dd>
+                </dl>
+                <dl class="up-btn">
+                    <dt><img src="/static/home/imgs/back_h.png" alt=""></dt>
+                    <dd>回顶部</dd>
+                </dl>
+        
+        
+                <div class="saoma_box bohao">
+                    <img src="http://test.edefang.net/index/weichat/code" alt="">
+                    <span>微信扫码拨号</span>
+                </div>
+                <div class="saoma_box kaifa">
+                      <p>正在开发中...</p>
+                </div>
+                <div class="saoma_box kaifazi">
+                    <p>正在开发中...</p>
+                </div>
+            </div>
+        
         
 
         <footer class="container-fluid visible-md-block visible-lg-block">
@@ -1513,7 +1513,7 @@
 
         
     </div>    <!-- PC -->
-
+    <script src="/static/home/js/com_liu_you.js"></script>
 
     <!-- 移动 -->
     <div class="container-fluid m">
@@ -1685,7 +1685,7 @@
         
     </div>
 
-
+    
 
    <script>
         function la(str,ty){
@@ -2692,5 +2692,7 @@
         })
 
     </script>
+
+
 </body>
 </html>

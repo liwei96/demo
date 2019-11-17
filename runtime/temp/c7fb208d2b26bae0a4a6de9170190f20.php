@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:61:"G:\jiayuan\tp2\public/../application/home\view\index\buy.html";i:1573546168;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:61:"G:\jiayuan\tp2\public/../application/home\view\index\buy.html";i:1573972005;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -910,7 +910,81 @@ body {
 
                         </div>
                         <div class="t">
-                           222
+                            <!-- 前三条 -->
+                            <ul class="nev-san">
+                                <li>
+                                    <div class="title-box  teshu">
+                                        <!-- <span><strong class="iconfont iconShapecopy"></strong>精华</span> -->
+
+                                        <img src="/static/home/imgs/jing.png" alt="">
+                                        <h2>现在外地人在杭州买房需要什么条件?</h2>
+                                    </div>
+                                    <p class="pp">目前这边大多数的新房，在正式开盘前都有先登记的步骤，根据登记的人数来决定开盘是否要摇号。建议如果确实有买房的意愿，以下几个材料可以先提前准备</p>
+                                </li>
+                                <li>
+                                        <div class="title-box">
+                                            <!-- <span><strong class="iconfont iconShapecopy"></strong>精华</span> -->
+                                            <img src="/static/home/imgs/jing.png" alt="">
+                                            <h2>现在外地人在杭州买房需要什么条件?</h2>
+                                        </div>
+                                        <p  class="pp">目前这边大多数的新房，在正式开盘前都有先登记的步骤，根据登记的人数来决定开盘是否要摇号。建议如果确实有买房的意愿，以下几个材料可以先提前准备</p>
+                                </li>
+                                <li>
+                                        <div class="title-box">
+                                            <!-- <span><strong class="iconfont iconShapecopy"></strong>精华</span> -->
+                                            <img src="/static/home/imgs/jing.png" alt="">
+                                            <h2>现在外地人在杭州买房需要什么条件?</h2>
+                                        </div>
+                                        <p  class="pp">目前这边大多数的新房，在正式开盘前都有先登记的步骤，根据登记的人数来决定开盘是否要摇号。建议如果确实有买房的意愿，以下几个材料可以先提前准备</p>
+                                 </li>
+                            </ul>
+                            <!-- 帮我找房 -->
+                            <div class="help-house">
+                                <img src="/static/home/imgs/car.png" alt="">
+                                <div class="help">
+                                    <h3>如何找房</h3>
+                                    <p>专家来帮你如何选择适合自己的房子</p>
+                                </div>
+                                <button>帮我找房</button>
+                            </div>
+                            <!-- 后面几条 -->
+                            <ul class="nev-more">
+                                    <li>
+                                        <div class="title-box">
+                                            <span>问</span>
+                                            <h2>现在外地人在杭州买房需要什么条件?</h2>
+                                        </div>
+                                        <p class="pp">目前这边大多数的新房，在正式开盘前都有先登记的步骤，根据登记的人数来决定开盘是否要摇号。建议如果确实有买房的意愿，以下几个材料可以先提前准备</p>
+                                    </li>
+                                    <li>
+                                            <div class="title-box">
+                                                <span>问</span>
+                                                <h2>现在外地人在杭州买房需要什么条件?</h2>
+                                            </div>
+                                            <p  class="pp">目前这边大多数的新房，在正式开盘前都有先登记的步骤，根据登记的人数来决定开盘是否要摇号。建议如果确实有买房的意愿，以下几个材料可以先提前准备</p>
+                                    </li>
+                                    <li>
+                                            <div class="title-box">
+                                                <span>问</span>
+                                                <h2>现在外地人在杭州买房需要什么条件?</h2>
+                                            </div>
+                                            <p  class="pp">目前这边大多数的新房，在正式开盘前都有先登记的步骤，根据登记的人数来决定开盘是否要摇号。建议如果确实有买房的意愿，以下几个材料可以先提前准备</p>
+                                     </li>
+                            </ul>
+                            <!-- 页码 -->
+                            <ul class="yema">
+                                <li><span class="iconfont iconjiantou_zuo"></span></li>
+                                <li class="dian">1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li>
+                                <li>5</li>
+                                <li>6</li>
+                                <li>7</li>
+                                <li>8</li>
+                                <li>99</li>
+                                <li><span class="iconfont iconjiantou_you"></span></li>
+                            </ul>
                         </div>
 
                         <div class="d">
@@ -918,21 +992,24 @@ body {
                              <ul class="nev-san">
                                     <li>
                                         <div class="title-box  teshu">
-                                            <span><strong class="iconfont iconShapecopy"></strong>精华</span>
+                                            <!-- <span><strong class="iconfont iconShapecopy"></strong>精华</span> -->
+                                            <img src="/static/home/imgs/jing.png" alt="">
                                             <h2>现在外地人在杭州买房需要什么条件?</h2>
                                         </div>
                                         <p class="pp">目前这边大多数的新房，在正式开盘前都有先登记的步骤，根据登记的人数来决定开盘是否要摇号。建议如果确实有买房的意愿，以下几个材料可以先提前准备</p>
                                     </li>
                                     <li>
                                             <div class="title-box">
-                                                <span><strong class="iconfont iconShapecopy"></strong>精华</span>
+                                                <!-- <span><strong class="iconfont iconShapecopy"></strong>精华</span> -->
+                                                <img src="/static/home/imgs/jing.png" alt="">
                                                 <h2>现在外地人在杭州买房需要什么条件?</h2>
                                             </div>
                                             <p  class="pp">目前这边大多数的新房，在正式开盘前都有先登记的步骤，根据登记的人数来决定开盘是否要摇号。建议如果确实有买房的意愿，以下几个材料可以先提前准备</p>
                                     </li>
                                     <li>
                                             <div class="title-box">
-                                                <span><strong class="iconfont iconShapecopy"></strong>精华</span>
+                                                <!-- <span><strong class="iconfont iconShapecopy"></strong>精华</span> -->
+                                                <img src="/static/home/imgs/jing.png" alt="">
                                                 <h2>现在外地人在杭州买房需要什么条件?</h2>
                                             </div>
                                             <p  class="pp">目前这边大多数的新房，在正式开盘前都有先登记的步骤，根据登记的人数来决定开盘是否要摇号。建议如果确实有买房的意愿，以下几个材料可以先提前准备</p>
@@ -988,7 +1065,80 @@ body {
                             
                         </div>   
                         <div class="n">
-                          444444
+                           <!-- 前三条 -->
+                           <ul class="nev-san">
+                            <li>
+                                <div class="title-box  teshu">
+                                        <img src="/static/home/imgs/jing.png" alt="">
+                                    <!-- <span><strong class="iconfont iconShapecopy"></strong>精华</span> -->
+                                    <h2>现在外地人在杭州买房需要什么条件?</h2>
+                                </div>
+                                <p class="pp">目前这边大多数的新房，在正式开盘前都有先登记的步骤，根据登记的人数来决定开盘是否要摇号。建议如果确实有买房的意愿，以下几个材料可以先提前准备</p>
+                            </li>
+                            <li>
+                                    <div class="title-box">
+                                            <img src="/static/home/imgs/jing.png" alt="">
+                                        <!-- <span><strong class="iconfont iconShapecopy"></strong>精华</span> -->
+                                        <h2>现在外地人在杭州买房需要什么条件?</h2>
+                                    </div>
+                                    <p  class="pp">目前这边大多数的新房，在正式开盘前都有先登记的步骤，根据登记的人数来决定开盘是否要摇号。建议如果确实有买房的意愿，以下几个材料可以先提前准备</p>
+                            </li>
+                            <li>
+                                    <div class="title-box">
+                                            <img src="/static/home/imgs/jing.png" alt="">
+                                        <!-- <span><strong class="iconfont iconShapecopy"></strong>精华</span> -->
+                                        <h2>现在外地人在杭州买房需要什么条件?</h2>
+                                    </div>
+                                    <p  class="pp">目前这边大多数的新房，在正式开盘前都有先登记的步骤，根据登记的人数来决定开盘是否要摇号。建议如果确实有买房的意愿，以下几个材料可以先提前准备</p>
+                             </li>
+                        </ul>
+                        <!-- 帮我找房 -->
+                        <div class="help-house">
+                            <img src="/static/home/imgs/car.png" alt="">
+                            <div class="help">
+                                <h3>如何找房</h3>
+                                <p>专家来帮你如何选择适合自己的房子</p>
+                            </div>
+                            <button>帮我找房</button>
+                        </div>
+                        <!-- 后面几条 -->
+                        <ul class="nev-more">
+                                <li>
+                                    <div class="title-box">
+                                        <span>问</span>
+                                        <h2>现在外地人在杭州买房需要什么条件?</h2>
+                                    </div>
+                                    <p class="pp">目前这边大多数的新房，在正式开盘前都有先登记的步骤，根据登记的人数来决定开盘是否要摇号。建议如果确实有买房的意愿，以下几个材料可以先提前准备</p>
+                                </li>
+                                <li>
+                                        <div class="title-box">
+                                            <span>问</span>
+                                            <h2>现在外地人在杭州买房需要什么条件?</h2>
+                                        </div>
+                                        <p  class="pp">目前这边大多数的新房，在正式开盘前都有先登记的步骤，根据登记的人数来决定开盘是否要摇号。建议如果确实有买房的意愿，以下几个材料可以先提前准备</p>
+                                </li>
+                                <li>
+                                        <div class="title-box">
+                                            <span>问</span>
+                                            <h2>现在外地人在杭州买房需要什么条件?</h2>
+                                        </div>
+                                        <p  class="pp">目前这边大多数的新房，在正式开盘前都有先登记的步骤，根据登记的人数来决定开盘是否要摇号。建议如果确实有买房的意愿，以下几个材料可以先提前准备</p>
+                                 </li>
+                        </ul>
+                        <!-- 页码 -->
+                        <ul class="yema">
+                            <li><span class="iconfont iconjiantou_zuo"></span></li>
+                            <li class="dian">1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                            <li>6</li>
+                            <li>7</li>
+                            <li>8</li>
+                            <li>99</li>
+                            <li><span class="iconfont iconjiantou_you"></span></li>
+                        </ul>
                             
                         </div>  
                         <div class="l">
@@ -996,21 +1146,24 @@ body {
                           <ul class="nev-san">
                                 <li>
                                     <div class="title-box  teshu">
-                                        <span><strong class="iconfont iconShapecopy"></strong>精华</span>
+                                            <img src="/static/home/imgs/jing.png" alt="">
+                                        <!-- <span><strong class="iconfont iconShapecopy"></strong>精华</span> -->
                                         <h2>现在外地人在杭州买房需要什么条件?</h2>
                                     </div>
                                     <p class="pp">目前这边大多数的新房，在正式开盘前都有先登记的步骤，根据登记的人数来决定开盘是否要摇号。建议如果确实有买房的意愿，以下几个材料可以先提前准备</p>
                                 </li>
                                 <li>
                                         <div class="title-box">
-                                            <span><strong class="iconfont iconShapecopy"></strong>精华</span>
+                                            <!-- <span><strong class="iconfont iconShapecopy"></strong>精华</span> -->
+                                            <img src="/static/home/imgs/jing.png" alt="">
                                             <h2>现在外地人在杭州买房需要什么条件?</h2>
                                         </div>
                                         <p  class="pp">目前这边大多数的新房，在正式开盘前都有先登记的步骤，根据登记的人数来决定开盘是否要摇号。建议如果确实有买房的意愿，以下几个材料可以先提前准备</p>
                                 </li>
                                 <li>
                                         <div class="title-box">
-                                            <span><strong class="iconfont iconShapecopy"></strong>精华</span>
+                                            <!-- <span><strong class="iconfont iconShapecopy"></strong>精华</span> -->
+                                            <img src="/static/home/imgs/jing.png" alt="">
                                             <h2>现在外地人在杭州买房需要什么条件?</h2>
                                         </div>
                                         <p  class="pp">目前这边大多数的新房，在正式开盘前都有先登记的步骤，根据登记的人数来决定开盘是否要摇号。建议如果确实有买房的意愿，以下几个材料可以先提前准备</p>

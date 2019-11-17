@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\search\tuan.html";i:1573809362;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\search\tuan.html";i:1573982604;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +13,7 @@
         integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/home/css/s-tuan.css">
     <link rel="stylesheet" href="/static/home/css/comm1.css">
-
+    <link rel="stylesheet" href="/static/home/css/com_xun.css">
     <script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
@@ -397,36 +397,7 @@
         }
 
         /* 留言悬浮框 */
-    .fixed-box{ 
-    width:56px;
-    height:180px;
-    background:rgba(255,255,255,1);
-    box-shadow:0px 0px 10px 0px rgba(4,0,0,0.04);
-    border-radius:4px;
-      position: fixed;
-      z-index:200;
-      bottom:300px;
-      right:20px;
-      padding-top:15px;
-      cursor:pointer;
-}
-.fixed-box dl{
-      height:60px;
-      width:56px;
-}
-.fixed-box dl dt img{
-    width:24px;
-    height:24px;
-    margin-left:15px;
-}
-.fixed-box dl dd{
-    font-size:12px;
-    font-family:'Microsoft YaHei';
-    font-weight:400;
-    color:rgba(51,51,51,1);
-    line-height:26px;
-    text-align:center;
-}
+ 
 
     /* 留言提问 */
     .show-liu{
@@ -1326,10 +1297,7 @@
                             <?php endforeach; ?>
                         </ul>
                     </div>
-<<<<<<< HEAD
 
-=======
->>>>>>> 5d2e6a0b6f03b55d2fbd6762b8d37630a57141e1
                     <div class="col c5">
                         <span>特色</span>
                         <ul>
@@ -1428,7 +1396,7 @@
                 <div class="pages">
                     <span id="back"><<</span>
                     <ul class="page">
-                        <?php $__FOR_START_1692292837__=0;$__FOR_END_1692292837__=$page;for($i=$__FOR_START_1692292837__;$i < $__FOR_END_1692292837__;$i+=1){ if($i<7): ?>
+                        <?php $__FOR_START_1779382325__=0;$__FOR_END_1779382325__=$page;for($i=$__FOR_START_1779382325__;$i < $__FOR_END_1779382325__;$i+=1){ if($i<7): ?>
                         <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                         <?php endif; } ?>
                     </ul>
@@ -1532,21 +1500,40 @@
             </div>
             </div>
             <!-- 侧边悬浮栏 -->
-        <div class="fixed-box  visible-md-block visible-lg-block">
-            <dl>
-                <dt><img src="/static/home/imgs/weixinmin.png" alt=""></dt>
-                <dd>小程序</dd>
-            </dl>
-            <dl class="get-liu">
-                <dt><img src="/static/home/imgs/liu.png" alt=""></dt>
-                <dd>留言</dd>
-            </dl>
-            <dl class="up-btn">
-                <dt><img src="/static/home/imgs/goup.png" alt=""></dt>
-                <dd>回顶部</dd>
-            </dl>
-
-        </div>
+            <div class="fixed-box">
+                    <dl class="xiao">
+                        <dt><img src="/static/home/imgs/xiao_h.png" alt=""></dt>
+                        <dd>小程序</dd>
+                    </dl>
+                    <dl class="get-liu">
+                        <dt><img src="/static/home/imgs/liu_h.png" alt=""></dt>
+                        <dd>留言</dd>
+                    </dl>
+                    <dl class="sao_ma">
+                        <dt><img src="/static/home/imgs/sao_h.png" alt=""></dt>
+                        <dd>扫码拨号</dd>
+                    </dl>
+                    <dl class="zi_xun">
+                        <dt><img src="/static/home/imgs/ke_h.png" alt=""></dt>
+                        <dd>咨询</dd>
+                    </dl>
+                    <dl class="up-btn">
+                        <dt><img src="/static/home/imgs/back_h.png" alt=""></dt>
+                        <dd>回顶部</dd>
+                    </dl>
+            
+            
+                    <div class="saoma_box bohao">
+                        <img src="http://test.edefang.net/index/weichat/code" alt="">
+                        <span>微信扫码拨号</span>
+                    </div>
+                    <div class="saoma_box kaifa">
+                          <p>正在开发中...</p>
+                    </div>
+                    <div class="saoma_box kaifazi">
+                        <p>正在开发中...</p>
+                    </div>
+                </div>       
             <!-- <footer class="container-fluid visible-md-block visible-lg-block">
                 <ul class="footer-top">                                  
                     <a href="<?php echo url('home/user/lian'); ?>"><li>联系我们</li></a>
@@ -1820,7 +1807,7 @@
     </div>
 
 
-
+    <script src="/static/home/js/com_liu_you.js"></script>
 <script>
             function la(str,ty){
                     $.post(

@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
             integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
             <link rel="stylesheet" href="/static/home/css/comm1.css">
+            <link rel="stylesheet" href="/static/home/css/com_xun.css">
         <script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
@@ -533,36 +534,7 @@
             color:#2DD264;
         }
          /* 留言悬浮框 */
-    .fixed-box{ 
-    width:56px;
-    height:180px;
-    background:rgba(255,255,255,1);
-    box-shadow:0px 0px 10px 0px rgba(4,0,0,0.04);
-    border-radius:4px;
-      position: fixed;
-      z-index:200;
-      bottom:300px;
-      right:20px;
-      padding-top:15px;
-      cursor:pointer;
-}
-.fixed-box dl{
-      height:60px;
-      width:56px;
-}
-.fixed-box dl dt img{
-    width:24px;
-    height:24px;
-    margin-left:15px;
-}
-.fixed-box dl dd{
-    font-size:12px;
-    font-family:'Microsoft YaHei';
-    font-weight:400;
-    color:rgba(51,51,51,1);
-    line-height:26px;
-    text-align:center;
-}
+    
         /* 遮罩 */
         .zhao {
             display: none;
@@ -714,66 +686,6 @@
          .content .right ul li span.new{
              background-color: #1CB64F;
          }
-/* 
-         footer
-         footer{
-         width:100%;
-         height:260px;
-         background-color: #1B1B1B;
-         position: relative;
-         }
-         .footer-top{
-         position: absolute;
-         top:38px;
-         left:50%;
-         margin-left:-600px;
-         }
-         .footer-top li{
-         color:#FFFFFF;
-         float:left;
-         font-size: 14px;
-         margin-right:18px;
-         cursor: pointer;
-         }
-         .footer-line{
-         width:1200px;
-         height:1px;
-         background-color: #333333;
-         position: absolute;
-         top:100px;
-         left:50%;
-         margin-left:-600px;
-         }
-         footer p{
-         color:#FFFFFF;
-         font-size: 24px;
-         position: absolute;
-         top:29px;
-         left:50%;
-         margin-left:300px;
-         }
-         .footer-bottom{
-         position: absolute;
-         top:136px;
-         left:50%;
-         margin-left:-310px;
-         }
-         .footer-bottom li{
-         float: left;
-         margin-right: 25px;
-         color:#fff;
-         font-size: 14px;
-         cursor: pointer;
-         }
-         footer span{
-         display: block;
-         position: absolute;
-         color: #fff;
-         font-size: 14px;
-         top:180px;
-         left:50%;
-         margin-left:-300px;
-         } */
 
 
 
@@ -1210,21 +1122,42 @@
             <span>Copyright © 2017 - 2022 杭州亚汉网络有限公司有限公司版权所有 浙ICP备18057005号 </span>
     </footer> -->
 <!-- 侧边悬浮栏 -->
-<div class="fixed-box  visible-md-block visible-lg-block">
-    <dl>
-        <dt><img src="/static/home/imgs/weixinmin.png" alt=""></dt>
-        <dd>小程序</dd>
-    </dl>
-    <dl class="get-liu">
-        <dt><img src="/static/home/imgs/liu.png" alt=""></dt>
-        <dd>留言</dd>
-    </dl>
-    <dl class="up-btn">
-        <dt><img src="/static/home/imgs/goup.png" alt=""></dt>
-        <dd>回顶部</dd>
-    </dl>
+<div class="fixed-box">
+        <dl class="xiao">
+            <dt><img src="/static/home/imgs/xiao_h.png" alt=""></dt>
+            <dd>小程序</dd>
+        </dl>
+        <dl class="get-liu">
+            <dt><img src="/static/home/imgs/liu_h.png" alt=""></dt>
+            <dd>留言</dd>
+        </dl>
+        <dl class="sao_ma">
+            <dt><img src="/static/home/imgs/sao_h.png" alt=""></dt>
+            <dd>扫码拨号</dd>
+        </dl>
+        <dl class="zi_xun">
+            <dt><img src="/static/home/imgs/ke_h.png" alt=""></dt>
+            <dd>咨询</dd>
+        </dl>
+        <dl class="up-btn">
+            <dt><img src="/static/home/imgs/back_h.png" alt=""></dt>
+            <dd>回顶部</dd>
+        </dl>
 
+
+        <div class="saoma_box bohao">
+            <img src="http://test.edefang.net/index/weichat/code" alt="">
+            <span>微信扫码拨号</span>
+        </div>
+        <div class="saoma_box kaifa">
+              <p>正在开发中...</p>
+        </div>
+        <div class="saoma_box kaifazi">
+            <p>正在开发中...</p>
+        </div>
 </div>
+
+
     <footer class="container-fluid visible-md-block visible-lg-block">
             <div class="footer-cen">
     
@@ -1346,8 +1279,9 @@
         </div>
     </div>
 
-
+<script src="/static/home/js/com_liu_you.js"></script>
     <script>
+    
 	$(document).ready(function(){
 	$('.user').on('click',function(){
                     window.location.href="{:url('home/user/zu')}";

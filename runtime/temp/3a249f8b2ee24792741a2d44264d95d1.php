@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\jiayuan\tp2\public/../application/home\view\content\content.html";i:1573550314;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\jiayuan\tp2\public/../application/home\view\content\content.html";i:1573970106;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -492,7 +492,7 @@
     /* 留言悬浮框 */
     .fixed-box{ 
     width:56px;
-    height:180px;
+    height:300px;
     background:rgba(255,255,255,1);
     box-shadow:0px 0px 10px 0px rgba(4,0,0,0.04);
     border-radius:4px;
@@ -500,13 +500,19 @@
       z-index:200;
       bottom:300px;
       right:20px;
-      padding-top:15px;
       cursor:pointer;
 }
 .fixed-box dl{
       height:60px;
       width:56px;
+      padding-top:10px;
 }
+.fixed-box dl:hover{
+   background:#3AC869;     
+}
+.fixed-box dl:hover dd{
+   color:#fff;     
+ }
 .fixed-box dl dt img{
     width:24px;
     height:24px;
@@ -519,6 +525,45 @@
     color:rgba(51,51,51,1);
     line-height:26px;
     text-align:center;
+}
+.fixed-box .saoma_box{
+    width:148px;
+    height:120px;
+    background:rgba(255,255,255,1);
+    box-shadow:0px 0px 14px 0px rgba(6,0,1,0.08);
+    position: absolute;
+    right:56px;
+    bottom:67px;
+    display:none;
+}
+.fixed-box .saoma_box img{
+    width:100px;
+    height:100px;
+    display:block;
+    margin-left:10px;
+    margin-top:10px;
+    float:left;
+}
+.fixed-box .saoma_box span{
+    -webkit-writing-mode:vertical-rl;
+    writing-mode:tb-rl;
+    writing-mode:vertical-rl;
+    text-align: justify; 
+    float:left; 
+    font-size:14px;
+    font-family:"Microsoft YaHei";
+    font-weight:400;
+    color:rgba(51,51,51,1);
+    line-height:29px;
+    margin-top:19px;
+}
+.fixed-box  .kaifa{
+     position: absolute;
+     bottom:210px;
+}
+.fixed-box  .kaifazi{
+    position: absolute;
+    bottom:0px;
 }
 
     /* 留言提问 */
@@ -1211,19 +1256,38 @@ var _hmt = _hmt || [];
 <!--楼盘点评-->
 <!-- 侧边悬浮栏 -->
 <div class="fixed-box">
-    <dl>
-        <dt><img src="/static/home/imgs/weixinmin.png" alt=""></dt>
+    <dl class="xiao">
+        <dt><img src="/static/home/imgs/xiao_h.png" alt=""></dt>
         <dd>小程序</dd>
     </dl>
     <dl class="get-liu">
-        <dt><img src="/static/home/imgs/liu.png" alt=""></dt>
+        <dt><img src="/static/home/imgs/liu_h.png" alt=""></dt>
         <dd>留言</dd>
     </dl>
+    <dl class="sao_ma">
+        <dt><img src="/static/home/imgs/sao_h.png" alt=""></dt>
+        <dd>扫码拨号</dd>
+    </dl>
+    <dl class="zi_xun">
+        <dt><img src="/static/home/imgs/ke_h.png" alt=""></dt>
+        <dd>咨询</dd>
+    </dl>
     <dl class="up-btn">
-        <dt><img src="/static/home/imgs/goup.png" alt=""></dt>
+        <dt><img src="/static/home/imgs/back_h.png" alt=""></dt>
         <dd>回顶部</dd>
     </dl>
 
+
+    <div class="saoma_box bohao">
+        <img src="http://test.edefang.net/index/weichat/code" alt="">
+        <span>微信扫码拨号</span>
+    </div>
+    <div class="saoma_box kaifa">
+          <p>正在开发中...</p>
+    </div>
+    <div class="saoma_box kaifazi">
+        <p>正在开发中...</p>
+    </div>
 </div>
 <!-- 留言悬浮框 -->
 <div class="show-liu">
@@ -2921,6 +2985,46 @@ var _hmt = _hmt || [];
             // var sctop8=top8-180
             $('.lp-quest').click(function(){$('html,body').animate({scrollTop:sctop8}, 800);});
             
+
+
+            //右侧悬浮按钮
+  $('.xiao').hover(function(){
+         $('.xiao dt img').attr('src','/static/home/imgs/xiao_b.png');
+         $('.kaifa').show()
+  },function(){
+         $('.xiao dt img').attr('src','/static/home/imgs/xiao_h.png');
+         $('.kaifa').hide()
+  })
+
+
+  $('.get-liu').hover(function(){
+         $('.get-liu dt img').attr('src','/static/home/imgs/liu_b.png');
+  },function(){
+         $('.get-liu dt img').attr('src','/static/home/imgs/liu_h.png');
+  })
+
+  $('.sao_ma').hover(function(){
+         $('.sao_ma dt img').attr('src','/static/home/imgs/sao_b.png');
+         $('.bohao').show();
+  },function(){
+        $('.sao_ma dt img').attr('src','/static/home/imgs/sao_h.png');
+        $('.bohao').hide();
+  })
+
+  $('.zi_xun').hover(function(){
+         $('.zi_xun dt img').attr('src','/static/home/imgs/ke_b.png');
+         $('.kaifazi').show();
+  },function(){
+         $('.zi_xun dt img').attr('src','/static/home/imgs/ke_h.png');
+         $('.kaifazi').hide();
+  })
+
+  $('.up-btn').hover(function(){
+         $('.up-btn dt img').attr('src','/static/home/imgs/back_b.png');
+  },function(){
+         $('.up-btn dt img').attr('src','/static/home/imgs/back_h.png');
+  })
+
 
     </script>
 </html>

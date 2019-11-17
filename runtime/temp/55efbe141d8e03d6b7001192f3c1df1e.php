@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1573808236;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1573973660;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -601,6 +601,7 @@
             color: #333333;
             margin-right: 85px;
         }
+     
 
 
         /* 移动端 */
@@ -973,7 +974,7 @@
                     </ul>
             </div>
             <div class="nav-rig">
-                <div class="login-box"><span class="iconfont icon-wode2"></span>注册/登录</div>
+                <div class="login-box" <?php if(\think\Session::get('user')): else: ?>id="login-bbs"<?php endif; ?>><span class="iconfont icon-wode2"></span>注册/登录</div>
                 <h4>购房热线:400-718-6686</h4>
             </div>
             
@@ -998,7 +999,15 @@
                 </script>
                 <form id="bname" style="display: initial" action="<?php echo url('home/search/index',['type'=>0]); ?>"
                     method="post">
-                    <input type="text" name="name" class="img-text" placeholder="请输入楼盘名称、地域">
+                    <input type="text" name="name" class="img-text" placeholder="请输入楼盘名称、地域" list="sou_list">
+                    <datalist id="sou_list">
+                        <option value="中梁申花百悦公馆" />
+                        <option value="宋都·时间名座" />
+                        <option value="星耀中心" />
+                        <option value="世茂泰禾·中央广场" />
+                        <option value="山水时代" />
+                        <option value="星南站" />
+                    </datalist>  
                 </form>
                 <div id="find" class="img-btn"><img src="/static/home/imgs/icon-8.png">我要找房</div>
                 <div id="map" class="img-btn2"><a href="<?php echo url('home/index/pmap'); ?>"><img
@@ -1340,22 +1349,43 @@
 
     </div>
 
-
+<!-- 右侧悬浮按钮 -->
     <div class="fixed-box">
-        <dl>
-            <dt><img src="/static/home/imgs/weixinmin.png" alt=""></dt>
+        <dl class="xiao">
+            <dt><img src="/static/home/imgs/xiao_h.png" alt=""></dt>
             <dd>小程序</dd>
         </dl>
         <dl class="get-liu">
-            <dt><img src="/static/home/imgs/liu.png" alt=""></dt>
+            <dt><img src="/static/home/imgs/liu_h.png" alt=""></dt>
             <dd>留言</dd>
         </dl>
+        <dl class="sao_ma">
+            <dt><img src="/static/home/imgs/sao_h.png" alt=""></dt>
+            <dd>扫码拨号</dd>
+        </dl>
+        <dl class="zi_xun">
+            <dt><img src="/static/home/imgs/ke_h.png" alt=""></dt>
+            <dd>咨询</dd>
+        </dl>
         <dl class="up-btn">
-            <dt><img src="/static/home/imgs/goup.png" alt=""></dt>
+            <dt><img src="/static/home/imgs/back_h.png" alt=""></dt>
             <dd>回顶部</dd>
         </dl>
 
+
+        <div class="saoma_box bohao">
+            <img src="http://test.edefang.net/index/weichat/code" alt="">
+            <span>微信扫码拨号</span>
+        </div>
+        <div class="saoma_box kaifa">
+              <p>正在开发中...</p>
+        </div>
+        <div class="saoma_box kaifazi">
+            <p>正在开发中...</p>
+        </div>
     </div>
+
+
     <div class="show-liu">
         <div class="l-top">
             <h4>留言提问</h4>
@@ -1777,7 +1807,7 @@
             </div>
             <div class="m-chang"></div> 
         </div>
-  <!-- 项目资讯 -->
+         <!-- 项目资讯 -->
         <div class="visible-xs-block .visible-sm--block m-jian"></div> 
         <div class="zixun-list">
             <div class="title">
@@ -2227,7 +2257,7 @@ var _hmt = _hmt || [];
             $('.zhao').css('height', h);
 
             // 显示登陆框
-            $('.login-box').on('click',function(){
+            $('#login-bbs').on('click',function(){
                 $('.login').show(150);
             })
 
@@ -2366,6 +2396,57 @@ var _hmt = _hmt || [];
             $(this).addClass('active');
             $(this).siblings().removeClass('active');
   })
+
+
+
+
+
+//右侧悬浮按钮
+  $('.xiao').hover(function(){
+         $('.xiao dt img').attr('src','/static/home/imgs/xiao_b.png');
+         $('.kaifa').show()
+  },function(){
+         $('.xiao dt img').attr('src','/static/home/imgs/xiao_h.png');
+         $('.kaifa').hide()
+  })
+
+
+  $('.get-liu').hover(function(){
+         $('.get-liu dt img').attr('src','/static/home/imgs/liu_b.png');
+  },function(){
+         $('.get-liu dt img').attr('src','/static/home/imgs/liu_h.png');
+  })
+
+  $('.sao_ma').hover(function(){
+         $('.sao_ma dt img').attr('src','/static/home/imgs/sao_b.png');
+         $('.bohao').show();
+  },function(){
+        $('.sao_ma dt img').attr('src','/static/home/imgs/sao_h.png');
+        $('.bohao').hide();
+  })
+
+  $('.zi_xun').hover(function(){
+         $('.zi_xun dt img').attr('src','/static/home/imgs/ke_b.png');
+         $('.kaifazi').show();
+  },function(){
+         $('.zi_xun dt img').attr('src','/static/home/imgs/ke_h.png');
+         $('.kaifazi').hide();
+  })
+
+  $('.up-btn').hover(function(){
+         $('.up-btn dt img').attr('src','/static/home/imgs/back_b.png');
+  },function(){
+         $('.up-btn dt img').attr('src','/static/home/imgs/back_h.png');
+  })
+    //回到顶部
+    $('.up-btn').click(function(){
+        $('html , body').animate({scrollTop: 0},'slow');  
+    })
+
+
+
+
+
 
       
     </script>

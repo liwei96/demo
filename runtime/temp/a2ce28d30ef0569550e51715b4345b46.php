@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\index.html";i:1573810395;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\index.html";i:1573975768;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -573,7 +573,7 @@ var _hmt = _hmt || [];
                 <div class="m-w-content">
                     <h4><span>问</span>现在外地人在杭州买房需要什么条件?</h4>
                     <p>
-                        <span>答</span><i>纳税或社保连年，需要连续足额缴存24个月，需要连续足额缴存24个月，纳税或社保连...</i>
+                        <span>答</span><i>纳税或社保连年，需要连续足额缴存24个月，需要连续足额缴存24个月，纳税或社保连需要连续足额缴存24个月，纳税或社保连...纳税或社保连需要连续足额缴存24个月，纳税或社保连...</i>
                     </p>
                     <span class="m-w-all">查看全文</span>
                 </div>
@@ -2156,6 +2156,28 @@ var _hmt = _hmt || [];
                 $(this).parent().hide();
                 $('.m-chang').hide();
             })
+
+//楼盘问答---查看全文
+     var  flag=true;
+      $('.m-w-all').click(function(){
+          if(flag==true){
+            $(this).prev().children("i").css({
+              "-webkit-line-clamp":"inherit"
+            }) 
+            $(this).html("点击收起")
+            flag=false;
+          }else{
+            $(this).prev().children("i").css({
+              "-webkit-line-clamp":"3"
+            }) 
+            $(this).html("查看全文")
+            flag=true; 
+          }
+      })
+
+
+
+
 
         })
 

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\jiayuan\tp2\public/../application/home\view\content\daimore.html";i:1573783447;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\jiayuan\tp2\public/../application/home\view\content\daimore.html";i:1573977000;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -371,6 +371,15 @@
         bottom:140px;
     }
      /* 问答样式 */
+     .wen-list{
+        padding-bottom:50px;
+      }
+     .wen-list:after{
+             
+             content:""; 
+             display: block; 
+             clear:both; 
+     }
     .wen-list .m-d-content {
     /* padding: 0 4%; */
     margin-bottom: 20px;
@@ -473,11 +482,17 @@
     margin-bottom: 10px;
 }
 .wen-list .m-d-content .m-w-content p i{
-    display: inline-block;
+    /* display: inline-block; */
     font-style: normal;
     float: left;
     width: 91%;
     margin-bottom: 10px;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:3;
+    overflow:hidden;
+
+
 }
 .wen-list .m-d-content .m-w-content .m-w-all{
     color:#4F84FE;
@@ -632,7 +647,7 @@
                         <div class="m-w-content">
                             <h4><span>问</span>现在外地人在杭州买房需要什么条件?</h4>
                             <p>
-                                <span>答</span><i>纳税或社保连年，需要连续足额缴存24个月，需要连续足额缴存24个月，纳税或社保连...</i>
+                                <span>答</span><i>纳税或社保连年，需要连续足额缴存24个月，需要连续足额缴存24个月，需要连续足额缴存24个月，需要连续足额缴存24个月，需要连续足额缴存24个月，需要连续足额缴存24个月，纳税或社保连...</i>
                             </p>
                             <span class="m-w-all">查看全文</span>
                         </div>
@@ -649,7 +664,7 @@
                         <div class="m-w-content">
                             <h4><span>问</span>现在外地人在杭州买房需要什么条件?</h4>
                             <p>
-                                <span>答</span><i>纳税或社保连年，需要连续足额缴存24个月，需要连续足额缴存24个月，纳税或社保连...</i>
+                                <span>答</span><i>纳税或社保连年，需要连续足额缴存24个月，需要连续足额缴存24个月，，需要连续足额缴存24个月，需要连续足额缴存24个月，纳税或社保连...</i>
                             </p>
                             <span class="m-w-all">查看全文</span>
                         </div>
@@ -666,7 +681,24 @@
                         <div class="m-w-content">
                             <h4><span>问</span>现在外地人在杭州买房需要什么条件?</h4>
                             <p>
-                                <span>答</span><i>纳税或社保连年，需要连续足额缴存24个月，需要连续足额缴存24个月，纳税或社保连...</i>
+                                <span>答</span><i>纳税或社保连年，需要连续足额缴存24个月，需要连续足额缴存24个月，，需要连续足额缴存24个月，需要连续足额缴存24个月，纳税或社保连...</i>
+                            </p>
+                            <span class="m-w-all">查看全文</span>
+                        </div>
+                </div>
+                <div class="m-d-content">
+                        <img src="/static/home/imgs/people.png" alt="<?php echo \think\Session::get('user.fork'); ?>">
+                        <div>
+                            <p class="m-d-name">倪丽丽<span>金牌置业顾问</span></p>
+                            <p class="m-d-fen">评分5.0分</p>
+                            <p class="m-d-ping">最了解该楼盘，熟悉本房周边信息</p>
+                            
+                        </div>
+                        <button data-agl-cvt="5" class="p1" data-v="咨询服务">我要咨询</button>
+                        <div class="m-w-content">
+                            <h4><span>问</span>现在外地人在杭州买房需要什么条件?</h4>
+                            <p>
+                                <span>答</span><i>纳税或社保连年，需要连续足额缴存24个月，需要连续足额缴存24个月，需要连续足额缴存24个月，纳税或社保连...</i>
                             </p>
                             <span class="m-w-all">查看全文</span>
                         </div>
@@ -955,6 +987,27 @@
                     'json'
                 ) 
             })
+
+//楼盘问答---查看全文
+var  flag=true;
+      $('.m-w-all').click(function(){
+          if(flag==true){
+            $(this).prev().children("i").css({
+              "-webkit-line-clamp":"inherit"
+            }) 
+            $(this).html("点击收起")
+            flag=false;
+          }else{
+            $(this).prev().children("i").css({
+              "-webkit-line-clamp":"3"
+            }) 
+            $(this).html("查看全文")
+            flag=true; 
+          }
+      })
+
+
+
 
         })
 
