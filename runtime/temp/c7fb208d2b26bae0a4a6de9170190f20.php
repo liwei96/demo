@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:61:"G:\jiayuan\tp2\public/../application/home\view\index\buy.html";i:1573972005;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:61:"G:\jiayuan\tp2\public/../application/home\view\index\buy.html";i:1574066650;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +15,8 @@
         <link rel="stylesheet" href="/static/home/css/i-buy.css">
         <link rel="stylesheet" href="/static/home/css/comm.css">
         <link rel="stylesheet" href="/static/home/css/buy.css">
+        <link rel="stylesheet" href="/static/home/css/liu_xuan_box.css">
+        <link rel="stylesheet" href="/static/home/css/com_xun.css">
         <link rel="stylesheet" href="//at.alicdn.com/t/font_1416845_pj9yhloc7em.css">
         <link rel="stylesheet" href="//at.alicdn.com/t/font_1329849_7za7eo8yzvj.css">
     <style>
@@ -1288,6 +1290,67 @@ body {
             </div>
         </div>
 
+<!-- 侧边悬浮栏 -->
+ <div class="fixed-box visible-lg-block ">
+        <dl class="xiao">
+            <dt><img src="/static/home/imgs/xiao_h.png" alt=""></dt>
+            <dd>小程序</dd>
+        </dl>
+        <dl class="get-liu">
+            <dt><img src="/static/home/imgs/liu_h.png" alt=""></dt>
+            <dd>留言</dd>
+        </dl>
+        <dl class="sao_ma">
+            <dt><img src="/static/home/imgs/sao_h.png" alt=""></dt>
+            <dd>扫码拨号</dd>
+        </dl>
+        <dl class="zi_xun">
+            <dt><img src="/static/home/imgs/ke_h.png" alt=""></dt>
+            <dd>咨询</dd>
+        </dl>
+        <dl class="up-btn">
+            <dt><img src="/static/home/imgs/back_h.png" alt=""></dt>
+            <dd>回顶部</dd>
+        </dl>
+
+
+        <div class="saoma_box bohao">
+            <img src="http://test.edefang.net/index/weichat/code" alt="">
+            <span>微信扫码拨号</span>
+        </div>
+        <div class="saoma_box kaifa">
+              <p>正在开发中...</p>
+        </div>
+        <div class="saoma_box kaifazi">
+            <p>正在开发中...</p>
+        </div>
+</div> 
+  <!-- 留言悬浮框 -->
+  <div class="zhao"></div>
+   <div class="show-liu">
+        <div class="l-top">
+            <h4>留言提问</h4>
+            <p>20分内回应一对一专业服务，了解更多有关房源信息</p>
+            <img id="l-xx" src="/static/home/imgs/xx.png" alt="">
+        </div>
+        <div class="t-bottom">
+            <textarea name="" id="" cols="30" rows="10" placeholder="在这里输入您的留言"></textarea>
+            <input type="text" placeholder="输入您手机号码">
+            <button id="l_btn">提交</button>
+        </div>
+        <div class="l-bottom">
+            <p>验证码已发送到<span>187****4376</span>，请注意查看</p>
+            <button class="l-getcode">获取验证码</button>
+            <input type="text" placeholder="输入验证码">
+            <span class="l-ti">57秒后重发</span>
+            <input type="hidden" class="l-tel">
+            <input type="hidden" class="l-con">
+            <button class="l-post">立即提交</button>
+        </div>
+    </div> 
+
+
+
 
 
 
@@ -1351,7 +1414,7 @@ body {
     <!-- yidong -->
         <div>
 
-                <div id="boxXuan">
+                <div id="boxXuan" class="visible-xs-block">
                     <div class="boxlist">
                         <img  class="back" src="/static/home/imgs/return.png" alt="" onClick="javascript:history.go(-1)">
                         <ul id="menu">
@@ -1552,8 +1615,9 @@ body {
             </div>
         </div>
     </div> -->
-
+   
     <script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="/static/home/js/com_liu_you.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
     </script>
@@ -1810,6 +1874,70 @@ $('#find').on('click',function(){
              $('.panel').eq($(this).index()).addClass('active');
             
       })
+
+
+
+        // 留言框显示
+        $('.get-liu').on('click',function(){
+                $('.show-liu').show();
+                $('.zhao').show();
+            })
+            // 留言框隐藏
+            $('#l-xx').on('click',function(){
+                $('.show-liu').hide();
+                $('.zhao').hide();
+            })
+
+
+                     // 留言提交
+                     $('#l_btn').on('click',function(){
+                var tel=$(this).prev().val();
+                var pattern_phone = /^1[3-9][0-9]{9}$/;
+                if (tel == '') {
+                    $(this).prev().attr('placeholder', '手机号不能为空');
+                    return;
+                } else if (!pattern_phone.test(tel)) {
+                    $(this).prev().val('');
+                    $(this).prev().attr('placeholder', '手机号码不合法');
+                    return;
+                }
+                var con=$(this).prev().prev().val();
+                $.post(
+                    "<?php echo url('home/user/login'); ?>",
+                    {'phone':tel},
+                    function(res){
+                        if(res.code==100){
+                            $('.t-bottom').hide();
+                            $('.l-bottom').show();
+                            $('.l-tel').val(tel);
+                            $('.l-con').val(con);
+                            var time = 60;
+                            var fn = function () {
+                                time--;
+                                if (time > 0) {
+                                    $('.l-ti').html('重新发送' + time + 's');
+                                    $('.l-ti').attr('disabled', true);
+                                } else {
+                                    clearInterval(interval);
+                                    $('.l-ti').html('获取验证码');
+                                    $('.l-ti').attr('disabled', false);
+                                }
+                            };
+                            fn();
+                            var interval = setInterval(fn, 1000);
+                            var te=tel.substr(0,3)+'****'+tel.substr(7);
+                            $('.l-bottom').find('p').find('span').html(te);
+                            $('.l-getcode').attr('data-v',tel);
+
+                        }
+                    }
+                )
+            })
+
+
+
+
+
     </script>
 </body>
 </html>

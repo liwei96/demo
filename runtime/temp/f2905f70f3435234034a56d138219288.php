@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\search\tuan.html";i:1573982604;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\search\tuan.html";i:1574066536;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1396,7 +1396,7 @@
                 <div class="pages">
                     <span id="back"><<</span>
                     <ul class="page">
-                        <?php $__FOR_START_1779382325__=0;$__FOR_END_1779382325__=$page;for($i=$__FOR_START_1779382325__;$i < $__FOR_END_1779382325__;$i+=1){ if($i<7): ?>
+                        <?php $__FOR_START_1082783541__=0;$__FOR_END_1082783541__=$page;for($i=$__FOR_START_1082783541__;$i < $__FOR_END_1082783541__;$i+=1){ if($i<7): ?>
                         <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                         <?php endif; } ?>
                     </ul>
@@ -1500,7 +1500,7 @@
             </div>
             </div>
             <!-- 侧边悬浮栏 -->
-            <div class="fixed-box">
+            <div class="fixed-box visible-lg-block ">
                     <dl class="xiao">
                         <dt><img src="/static/home/imgs/xiao_h.png" alt=""></dt>
                         <dd>小程序</dd>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\search\search.html";i:1573983044;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\search\search.html";i:1574069191;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1109,6 +1109,23 @@
         bottom:140px;
         z-index: 10000;
       }
+
+
+      /*搜索列表*/
+      .sou_res{
+             width:622px;
+             height:auto;
+             background:#fff;
+             border:1px solid #D9D9D9;
+             position:relative;
+             left:221px;
+             cursor:pointer;
+             z-index: 30000;
+             display: none;
+      }
+
+
+
     </style>
 </head>
 <body>
@@ -1151,15 +1168,17 @@
                             </ul>
                        </div>
                     <form id="bname" style="display: initial" action="<?php echo url('home/search/index',['type'=>0]); ?>" method="post">
-                    <input type="text" name="name" placeholder="请输入楼盘名称、地域" list="sou_list">
-                    <datalist id="sou_list">
+                    <input type="text" name="name" autocomplete="off" placeholder="请输入楼盘名称、地域" list="sou_list" class="home_search">
+                    <ul class="sou_res">
+                    </ul>
+                    <!-- <datalist id="sou_list">
                         <option value="中梁申花百悦公馆" />
                         <option value="宋都·时间名座" />
                         <option value="星耀中心" />
                         <option value="世茂泰禾·中央广场" />
                         <option value="山水时代" />
                         <option value="星南站" />
-                    </datalist>  
+                    </datalist>   -->
                     <span id="find"><img src="/static/home/imgs/icon-8.png">我要找房</span>
                     </form>
                     <span id="map"><img src="/static/home/imgs/pcadd.png" alt="">地图找房</span>
@@ -1314,7 +1333,7 @@
                 <div class="pages">
                     <span id="back"><<</span>
                     <ul class="page">
-                        <?php $__FOR_START_1907792764__=0;$__FOR_END_1907792764__=$page;for($i=$__FOR_START_1907792764__;$i < $__FOR_END_1907792764__;$i+=1){ if($i<7): ?>
+                        <?php $__FOR_START_1001612298__=0;$__FOR_END_1001612298__=$page;for($i=$__FOR_START_1001612298__;$i < $__FOR_END_1001612298__;$i+=1){ if($i<7): ?>
                         <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                         <?php endif; } ?>
                     </ul>
@@ -1423,7 +1442,7 @@
                 <img src="/static/home/imgs/m-liu.png" alt="">
         </div>
         <!-- 侧边悬浮栏 -->
-        <div class="fixed-box">
+        <div class="fixed-box visible-lg-block ">
                 <dl class="xiao">
                     <dt><img src="/static/home/imgs/xiao_h.png" alt=""></dt>
                     <dd>小程序</dd>
@@ -2692,6 +2711,57 @@
 
     </script>
 
+
+<script>
+       var m_dom="";
+    $('.home_search').on('input', function(){
+        $(".sou_res").show();
+        var   name=$(this).val();
+        if(name!==""){
+           
+        $.ajax({
+                url: "<?php echo url('home/search/time'); ?>",
+                type: 'post',
+                data: {  
+                     'name':name
+                 },
+                dataType: 'json',
+                success: function (res) {
+                    if(res.code==200){
+                        var arr=res.data;
+                      $.each(arr,function(m,n){
+                              m_dom+=`<li id="${m}">${n.building_name}</li> `
+                           $(".sou_res").html(m_dom);
+                      })
+                          
+                    }else{
+                    }
+             },
+            error: function (xhr) {
+            console.log('error', xhr)
+          },
+            })
+
+        }
+      
+
+
+    })
+
+            $(".sou_res").click(function(e){
+                    // console.log(e.target.innerHTML);
+                    var value=e.target.innerHTML;
+                    $(".home_search").val(value);
+            })
+
+
+
+
+
+        $("#home_search").val();
+        // console.log( $("#home_search").val());
+
+</script>
 
 </body>
 </html>

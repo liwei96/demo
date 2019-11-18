@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1573973660;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1574068889;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1482,7 +1482,7 @@
 <!-- 手机端 -->
 
 
-    <div class="container-fluid" style="padding:0;margin: 0">
+    <div class="container-fluid visible-xs-block" style="padding:0;margin: 0">
         <header class="m-nav visible-xs-block .visible-sm--block">
             <div class="m-address"><?php if(\think\Cookie::get('cityname')): ?> <?php echo \think\Cookie::get('cityname'); else: ?>杭州<?php endif; ?>  <span class="iconfont iconchangyongtubiao-xianxingdaochu-zhuanqu-"></span></div>
 
@@ -2259,6 +2259,7 @@ var _hmt = _hmt || [];
             // 显示登陆框
             $('#login-bbs').on('click',function(){
                 $('.login').show(150);
+                $('.zhao').show(150)
             })
 
 

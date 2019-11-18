@@ -1481,7 +1481,7 @@
 <!-- 手机端 -->
 
 
-    <div class="container-fluid" style="padding:0;margin: 0">
+    <div class="container-fluid visible-xs-block" style="padding:0;margin: 0">
         <header class="m-nav visible-xs-block .visible-sm--block">
             <div class="m-address">{if $Think.cookie.cityname} {$Think.cookie.cityname} {else}杭州{/if}  <span class="iconfont iconchangyongtubiao-xianxingdaochu-zhuanqu-"></span></div>
 
@@ -2258,6 +2258,7 @@ var _hmt = _hmt || [];
             // 显示登陆框
             $('#login-bbs').on('click',function(){
                 $('.login').show(150);
+                $('.zhao').show(150)
             })
 
 

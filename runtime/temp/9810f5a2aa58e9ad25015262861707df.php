@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\user\login.html";i:1571905070;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\user\login.html";i:1574065670;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,55 +67,96 @@
 
                 /* m-post */
                 .m-post{
-                    width:100%;
+                    width:89.3%;
+                    height:335px;
                     position: relative;
-                    padding:0 10%;
-                    margin-top:-20%;
+                    background:#fff;
+                    box-shadow:0px 5px 20px 0px rgba(223,223,223,0.91);
+                    border-radius:15px;
+                    margin-left:5.3%;
+                    top:-100px;
+                    padding-top:45px;
                 }
-                .m-post input{
-                    width:100%;
-                    border:1px solid #fff;
-                    border-bottom: 1px solid #F2F2F2;
-                    margin-bottom: 30px;
-                    padding-bottom:10px;
-                    background:rbga(255,255,255,0.01);
+                .m-post .user,   .m-post .mima{
+                       width:85%;
+                       height:44px;
+                       background:#F5F5F5;
+                       display:flex;
+                       margin-left:7.4%;
+                        border-radius:5px;
+                      
                 }
+                .m-post .user input, .m-post .mima input{
+                      width:100%;
+                      height:44px;
+                      background:#F5F5F5;
+                      border:0;
+                      font-size:15px;
+                        font-weight:500;
+                        color:rgba(179,179,179,1);
+                        line-height:44px;
+                        border-radius:5px;
+                }
+                .m-post .user img,.m-post .mima img{
+                         height:20px;
+                         width:7%;
+                         margin-top:13px;
+                         margin-left:12px;
+                         margin-right:12px;
+                }
+                .m-post .user{
+                      margin-bottom:20px;
+                      position:relative;
+                }
+                .m-post .user .m-get{
+                      position:absolute;
+                      right:0;
+                    font-size:15px;
+                    font-weight:500;
+                    color:rgba(58,200,105,1);
+                    line-height: 44px;
+                    margin-right:3.6%;
+                }
+
+
+             
                 .m-post .m-phone{
-                    color:#4D4D4D;
-                    font-size: 18px;                    
+                    /* color:#4D4D4D;
+                    font-size: 18px;                     */
                 }
-                .m-post .m-get{
-                    display: block;
-                    position: absolute;
-                    border:1px solid #3AC869;
-                    background-color: #fff;
-                    width:21.333333%;
-                    height:26px;
-                    border-radius: 4px;
-                    right:10%;
-                    top:1%;
-                    font-size: 12px;
-                    color:#3AC869;
-                    line-height: 26px;
-                    text-align: center;
-                }
+               
                 .m-post .m-yan::-webkit-input-placeholder {
                     color: #999999;
                     font-size: 15px;
                 }
-                .m-btn{
-                    width:80%;
-                    height:45px;
-                    margin-left:10%;
+                .m-post  .m-btn{
+                    width:85%;
+                    margin-left:7.4%;
+                    height:44px;
                     background-color: #3AC869;
-                    border-radius: 4px;
+                    border-radius: 22px;
                     font-size: 16px;
                     text-align: center;
                     line-height: 45px;
                     color:#fff;
                     border:0px;
-                    margin-top:66px;
+                    margin-top:63px;
                 }
+                .bg_img_box {
+                       width:100%;
+                       height:auto;
+                       position:relative;
+                }
+                .login_logo{
+                    position: absolute;
+                    top:50%;
+                    left:50%;
+                    width:37.67%;
+                    height:74px;
+                    transform: translate(-50%,-98%);
+                }
+
+
                
         </style>
 </head>
@@ -130,14 +171,25 @@
             <img src="/static/home/imgs/return.png" alt="" onClick="javascript:history.go(-1)">
             <h3>手机快捷登录</h3>
         </div>
-        <img class="m-bgc visible-xs-block .visible-sm-block" src="/static/home/imgs/bgc.png" alt="">
-        <div class="m-post visible-xs-block .visible-sm-block">
-            <input type="text" class="m-phone" value="" placeholder="请输入手机号"><p></p>
-            <button class="m-get">获取验证码</button>
-            <input type="text" class="m-yan" placeholder="请输入验证码">
+        <div class="bg_img_box">
+                <img class="m-bgc visible-xs-block .visible-sm-block" src="/static/home/imgs/login_bg.png" alt="">
+                <img src="/static/home/imgs/login_logo.png" alt="" class="login_logo">
         </div>
-        <button class="m-btn visible-xs-block .visible-sm-block" data-v="<?php echo $type; ?>">确认登录</button>
+        
+
+
+        
+        <div class="m-post visible-xs-block .visible-sm-block">
+             <div class="user" > <img src="/static/home/imgs/login_user.png" alt=""><input type="text" class="m-phone" value="" placeholder="请输入手机号"> <span class="m-get">获取验证码</span></div>
+           
+            <div class="mima" > <img src="/static/home/imgs/login_mi.png" alt=""><input type="text" class="m-yan" placeholder="请输入验证码"></div>
+            <button class="m-btn visible-xs-block .visible-sm-block" data-v="<?php echo $type; ?>">登录</button>
+        </div>
+
+       
     </div>
+
+
     <script>
         $(document).ready(function(){
             $('.m-get').on('click',function(){

@@ -258,7 +258,19 @@ class User extends Controller
 
     }
 
-
+// 邮件
+function emails($sk){
+    $url = 'http://api.jy1980.com/index.php/distribute/send';
+    $ch = curl_init();//初始化curl
+    curl_setopt($ch, CURLOPT_URL,$url);//抓取指定网页
+    curl_setopt($ch, CURLOPT_HEADER, 0);//设置header
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);//要求结果为字符串且输出到屏幕上
+    curl_setopt($ch, CURLOPT_POST, 1);//post提交方式
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $sk);
+    $data = curl_exec($ch);//运行curl
+    curl_close($ch);
+    return $data;
+}
 
     public function login(){ 
         if(request()->isGet()){
@@ -267,10 +279,7 @@ class User extends Controller
         }else if(request()->isPost()){
             $data=request()->param();
             $phone=$data['phone'];
-            $building_name=$data['building_name'];
-            $type=$data['type'];
-            // $building_name=$data['building_name'];
-            // $type=$data['type'];
+            
             $ma=mt_rand(1000,9999);
             if (!preg_match('/^1[3-9]\d{9}$/', $phone)) {
                 $res = [
@@ -300,8 +309,37 @@ class User extends Controller
                 ];
                 return json($res);
             }
-             sc_send('未输入验证码的客户','客户想要获取' . $building_name . '的' . $type.';号码是'.$phone.';推广一');
-            //  sc_send('未输入验证码的客户','客户想要获取' . $building_name . '的' . $type.';号码是'.$phone.';推广一');
+            if(array_key_exists('building_name',$data) && array_key_exists('type',$data)){
+                $type=$data['type'];
+                $building_name=$data['building_name'];
+                sc_send('未输入验证码的客户','客户想要获取' . $building_name . '的' . $type.';号码是'.$phone.';推广一');
+            }else{
+                $list=[];
+                $list['phone']=$phone;
+                $list['sign']=time();
+                $list['username']='未知';
+                $list['source']='家园会员';
+                $list['remark']='不是留言';
+                if(Cookie::has('from')){
+                    $key=Cookie::get('from')['key'];
+                    $name=From::where('kid','eq',$key)->column('key');
+                    if($name){
+                        $name=$name[0];
+                        $list['project']=Db::connect('mysql://erp:ZkMFXYZ2H7MBtW4i@39.98.227.114:3306/erp#utf8')->table('erp_building')->where('building_name','eq',$name)->column('id');
+                        $list['project']=$list['project']?$list['project'][0]:'';
+                    }else{
+                        $list['project']='';
+                    }
+                }else{
+                    $list['project']='';
+                }
+                
+                $list['cate_id']=cookie('city');
+                $out=$this->emails($list);
+            }
+            
+            
+            
             if(Cookie::has('from')){
                 $data['key']=Cookie::get('from')['key'];
                 $data['other']=Cookie::get('from')['other'];
@@ -323,6 +361,7 @@ class User extends Controller
                 ];
                 return json($res);
             }
+
         }
     }
 

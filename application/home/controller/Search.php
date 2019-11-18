@@ -781,6 +781,11 @@ class Search extends Controller
         return view('sou',['end'=>$end,'data'=>$data]);
     }
 
-    
+    public function time(){
+        $key=request()->param('name');
+        $ids=Category::where('pid','eq',cookie('city'))->column('id');
+        $data=Goods::where('building_name','like','%'.$key.'%')->where('cate_id','in',$ids)->field('id,building_name')->select();
+        return json(['code'=>200,'data'=>$data]);
+    }
     
 }

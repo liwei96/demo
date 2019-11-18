@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\news\index.html";i:1573982567;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\news\index.html";i:1574066685;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1015,7 +1015,7 @@
                  <div class="pages">
                         <span id="back"><<</span>
                         <ul class="page">
-                            <?php $__FOR_START_1004389388__=0;$__FOR_END_1004389388__=$page;for($i=$__FOR_START_1004389388__;$i < $__FOR_END_1004389388__;$i+=1){ if($i<7): ?>
+                            <?php $__FOR_START_583510628__=0;$__FOR_END_583510628__=$page;for($i=$__FOR_START_583510628__;$i < $__FOR_END_583510628__;$i+=1){ if($i<7): ?>
                             <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                             <?php endif; } ?>
                         </ul>
@@ -1121,7 +1121,7 @@
             <span>Copyright © 2017 - 2022 杭州亚汉网络有限公司有限公司版权所有 浙ICP备18057005号 </span>
     </footer> -->
 <!-- 侧边悬浮栏 -->
-<div class="fixed-box">
+<div class="fixed-box visible-lg-block ">
         <dl class="xiao">
             <dt><img src="/static/home/imgs/xiao_h.png" alt=""></dt>
             <dd>小程序</dd>
