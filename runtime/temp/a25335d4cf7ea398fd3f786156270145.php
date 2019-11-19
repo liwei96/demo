@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\news\index.html";i:1574066685;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\news\index.html";i:1574151122;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -366,7 +366,8 @@
              width:622px;
              height:60px;
              border:1px solid #2FBF4A;
-             padding-left: 44px;
+             padding-left: 20px;
+            font-size:16px;
          }
          .search .top input::-webkit-input-placeholder {
             color: #989898;
@@ -934,7 +935,7 @@
             z-index:10;
         } */
         .m-xuan img{
-        width:24.8%;
+        /* width:24.8%; */
         height:34px;
         position: fixed;
         right:0px;
@@ -945,6 +946,30 @@
                 padding:0 !important;
                 border-radius:4px ;
         }
+        /*搜索列表*/
+.sou_res{
+             width:622px;
+             height:400px;
+             overflow-y:auto;
+             background:#fff;
+             border:1px solid #D9D9D9;
+             position:relative;
+             left:222px;
+             cursor:pointer;
+             z-index: 30000;
+             display: none;
+             border-radius: 0 0 8px 8px;
+      }
+      .sou_res  li{
+            line-height:36px;
+            font-size:16px;
+            padding-left:20px;  
+
+      }
+      .sou_res  li:hover{
+            background:rgba(139, 138, 138, 0.1) ;
+            color:#52CC7A;
+      }
 
         </style>
 </head>
@@ -979,7 +1004,10 @@
                     <img src="/static/home/imgs/logo2.png" alt="">
                     <p><i><?php if(\think\Cookie::get('cityname')): ?> <?php echo \think\Cookie::get('cityname'); else: ?>杭州<?php endif; ?></i><img src="/static/home/imgs/triangle.png" alt=""></p>
                     <form id="bname" style="display: initial" action="<?php echo url('home/search/index',['type'=>0]); ?>" method="post">
-                    <input type="text" name="name" placeholder="请输入楼盘名称、地域">
+                    <input type="text" name="name" placeholder="请输入楼盘名称、地域" autocomplete="off" class="home_search">
+                    <ul class="sou_res">
+                          
+                    </ul>
                     <span id="find"><img src="/static/home/imgs/icon-8.png">我要找房</span>
                     </form>
                     <span id="map"><img src="/static/home/imgs/pcadd.png" alt="">地图找房</span>
@@ -1015,7 +1043,7 @@
                  <div class="pages">
                         <span id="back"><<</span>
                         <ul class="page">
-                            <?php $__FOR_START_583510628__=0;$__FOR_END_583510628__=$page;for($i=$__FOR_START_583510628__;$i < $__FOR_END_583510628__;$i+=1){ if($i<7): ?>
+                            <?php $__FOR_START_1507436778__=0;$__FOR_END_1507436778__=$page;for($i=$__FOR_START_1507436778__;$i < $__FOR_END_1507436778__;$i+=1){ if($i<7): ?>
                             <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                             <?php endif; } ?>
                         </ul>
@@ -1102,24 +1130,7 @@
             </div>
         </div>
     </div>
-    <!-- <footer class="container-fluid visible-md-block visible-lg-block">
-            <ul class="footer-top">                                  
-                <a href="<?php echo url('home/user/lian'); ?>"><li>联系我们</li></a>
-                <a href="<?php echo url('home/user/guan'); ?>"><li>关于家园</li></a>
-                <a href="<?php echo url('home/news/index'); ?>"><li>楼盘资讯</li></a>
-                <a href="<?php echo url('home/search/index',['type'=>0]); ?>"><li>楼盘查询</li></a>
-                <a href="<?php echo url('home/index/buy'); ?>"><li>买房指南</li></a>
-                <a href="<?php echo url('home/search/tuan',['type'=>0]); ?>"><li>团购优惠</li></a>
-            </ul>
-            <div class="footer-line"></div>
-            <p>购房热线   400-718-6686</p>
-	   	<ul class="youqing">
-                        <li>友情链接：</li>
-                        <li><a target="_blank" href="http://www.fangshijie.cn/xq4152/">大江之星</a></li>
-                    </ul>
-            
-            <span>Copyright © 2017 - 2022 杭州亚汉网络有限公司有限公司版权所有 浙ICP备18057005号 </span>
-    </footer> -->
+    
 <!-- 侧边悬浮栏 -->
 <div class="fixed-box visible-lg-block ">
         <dl class="xiao">
@@ -1253,13 +1264,13 @@
                       
             </div>
             <div id="m-n">
-                    <?php foreach($ps as $v): ?>
+                    <?php foreach($ns as $v): ?>
                     <a href="<?php echo url('home/news/pro',['id'=>$v['id']]); ?>">
                     <div class="row m-l">
                         <div class="col-xs-8 m-title">
                             <h5><?php echo $v['title']; ?></h5>
                             <div>
-                                <span>项目资讯</span>
+                                <span>新闻资讯</span>
                                 <span><?php echo $v['create_time']; ?></span>
                             </div>
                         </div>
@@ -1274,7 +1285,7 @@
         </div>
          <!-- 留言悬浮框 -->
          <div class="m-xuan visible-xs-block .visible-sm-block">
-                <img src="/static/home/imgs/m-liu.png" alt="">
+                <img src="/static/home/imgs/new_liu.png" alt="">
         </div>
     </div>
 
@@ -1723,6 +1734,60 @@
                     }
                     
                 }            });
+
+
+
+ //搜索列表
+ var m_dom="";
+    $('.home_search').on('input', function(){
+        $(".sou_res").show();
+        var   name=$(this).val();
+        if(name!==""){
+           
+        $.ajax({
+                url: "<?php echo url('home/search/time'); ?>",
+                type: 'post',
+                data: {  
+                     'name':name
+                 },
+                dataType: 'json',
+                success: function (res) {
+                    if(res.code==200){
+                        var arr=res.data;
+                        console.log(arr);
+                        if(arr.length>0){
+                            m_dom=""
+                        $.each(arr,function(m,n){
+                                m_dom+=`<li id="${m}">${n.building_name}</li> `
+                            $(".sou_res").html(m_dom);
+                        })
+                        }else{
+                            $(".sou_res").html("暂无数据...");  
+                        }
+                          
+                    }else{
+                    }
+             },
+            error: function (xhr) {
+            console.log('error', xhr)
+          },
+            })
+
+        }else{
+            $(".sou_res").hide(); 
+
+        }
+      
+
+
+    })
+
+            $(".sou_res").click(function(e){
+                    var value=e.target.innerHTML;
+                    $(".home_search").val(value);
+            })
+
+
         })
     </script>
 </body>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\index\lius.html";i:1573788814;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\index\lius.html";i:1574129645;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -268,7 +268,7 @@
             <h3>留言提问</h3>
         </div>
         <div class="m-liu visible-xs-block .visible-sm-block">
-            <img src="/static/home/imgs/lt.png" alt="">
+            <img src="/static/home/imgs/liu_pic.png" alt="">
            <h5>留言</h5>
            <textarea name="" id="" cols="30" rows="10" placeholder="输入您的问题"></textarea>
            <button id="btn">提交</button>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\index\jiao.html";i:1573709035;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\index\jiao.html";i:1574132014;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,6 +42,9 @@
                 padding-left: 4%;
                 padding-right: 4%;
                 margin-top: 4%;
+        }
+        .m-jiao:last-child{
+             margin-bottom:30px; 
         }
         .m-jiao h5{
             font-size: 16px;

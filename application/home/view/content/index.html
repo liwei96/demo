@@ -114,7 +114,6 @@
         /* 改版1.2css */
         /* 留言 */
     .m-xuan img{
-        width:24.8%;
         height:34px;
         position: fixed;
         right:0;
@@ -285,6 +284,9 @@
     z-index:200;
 }
 
+.swiper-top .swiper-slide img{
+      height:210px!important;
+}
 
     </style>
 <script>
@@ -464,7 +466,7 @@ var _hmt = _hmt || [];
         </div>
          <!-- 留言 -->
         <div class="m-xuan visible-xs-block .visible-sm-block" data-v="{$data.building_name}">
-            <img src="/static/home/imgs/m-liu.png" alt="">
+            <img src="/static/home/imgs/new_liu.png" alt="">
         </div>
         
         <div class="m-line visible-xs-block .visible-sm-block"></div>
@@ -1797,7 +1799,7 @@ var _hmt = _hmt || [];
                             var project={$data.id};
                             $.post(
                                 "{:url('home/user/email')}",
-                                {'sign':sign,'username':'没有','project':project,'source':'家园'+type,'remark':'不是留言','cate_id':0,'phone':phone},
+                                {'sign':sign,'username':'未知','project':project,'source':'线上推广1','remark':'不是留言','cate_id':0,'phone':phone},
                                 function(res){
                                     if(res.code){
                                         // alert(res.message)

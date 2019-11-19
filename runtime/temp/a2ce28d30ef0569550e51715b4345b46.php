@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\index.html";i:1573975768;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\index.html";i:1574136006;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -115,7 +115,6 @@
         /* 改版1.2css */
         /* 留言 */
     .m-xuan img{
-        width:24.8%;
         height:34px;
         position: fixed;
         right:0;
@@ -286,6 +285,9 @@
     z-index:200;
 }
 
+.swiper-top .swiper-slide img{
+      height:210px!important;
+}
 
     </style>
 <script>
@@ -465,7 +467,7 @@ var _hmt = _hmt || [];
         </div>
          <!-- 留言 -->
         <div class="m-xuan visible-xs-block .visible-sm-block" data-v="<?php echo $data['building_name']; ?>">
-            <img src="/static/home/imgs/m-liu.png" alt="">
+            <img src="/static/home/imgs/new_liu.png" alt="">
         </div>
         
         <div class="m-line visible-xs-block .visible-sm-block"></div>
@@ -1798,7 +1800,7 @@ var _hmt = _hmt || [];
                             var project=<?php echo $data['id']; ?>;
                             $.post(
                                 "<?php echo url('home/user/email'); ?>",
-                                {'sign':sign,'username':'没有','project':project,'source':'家园'+type,'remark':'不是留言','cate_id':0,'phone':phone},
+                                {'sign':sign,'username':'未知','project':project,'source':'线上推广1','remark':'不是留言','cate_id':0,'phone':phone},
                                 function(res){
                                     if(res.code){
                                         // alert(res.message)

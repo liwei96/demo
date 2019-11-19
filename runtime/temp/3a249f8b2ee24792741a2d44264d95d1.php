@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\jiayuan\tp2\public/../application/home\view\content\content.html";i:1574068855;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\jiayuan\tp2\public/../application/home\view\content\content.html";i:1574151923;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -823,6 +823,31 @@
             border-radius: 6px;
             margin-top: 0;
         }
+ /*搜索列表*/
+ .sou_res{
+             width:598px;
+             height:400px;
+             overflow-y:auto;
+             background:#fff;
+             border:1px solid #D9D9D9;
+             position:relative;
+             left:0px;
+             cursor:pointer;
+             z-index: 30000;
+             display: none;
+             border-radius: 0 0 8px 8px;
+      }
+      .sou_res  li{
+            line-height:36px;
+            font-size:16px;
+            padding-left:20px;  
+
+      }
+      .sou_res  li:hover{
+            background:rgba(139, 138, 138, 0.1) ;
+            color:#52CC7A;
+      }
+
     </style>
 
 	<script>
@@ -885,7 +910,10 @@ var _hmt = _hmt || [];
                                 
                             <div class="input-search">
                                 <form id="bname" action="<?php echo url('home/search/index',['type'=>0]); ?>" method="post">
-                                <input name="name" type="text" placeholder="请输入楼盘名称、地域">
+                                <input name="name" type="text" placeholder="请输入楼盘名称、地域" class="home_search" autocomplete="off">
+                                <ul class="sou_res">
+                          
+                                </ul>
                                 </form>        
                                 <a id="find" class="search-button" href="javascript:;">
                                     <span class="iconfont icon-xiazai17"></span>
@@ -1762,7 +1790,7 @@ var _hmt = _hmt || [];
                    </div>
            </div>   
    </div>   
-   <div class="zhao"></div>
+   <!-- <div class="zhao"></div>
    <div class="login ts">
        <div class="t-top">
            <h6>登录/注册</h6>
@@ -1775,7 +1803,7 @@ var _hmt = _hmt || [];
            <span class="m-get">获取验证码</span>
            <button class="m-btn">确定</button>
        </div>
-   </div>
+   </div> -->
 
 
 
@@ -2584,7 +2612,7 @@ var _hmt = _hmt || [];
                             var project=<?php echo $data['id']; ?>;
                             $.post(
                                 "<?php echo url('home/user/email'); ?>",
-                                {'sign':sign,'username':'没有','project':project,'source':'家园'+type,'remark':'不是留言','cate_id':0,'phone':tel},
+                                {'sign':sign,'username':'未知','project':project,'source':'线上推广1','remark':'不是留言','cate_id':0,'phone':tel},
                                 function(res){
                                     if(res.code){
                                         // alert(res.message)
@@ -2623,10 +2651,7 @@ var _hmt = _hmt || [];
                 $('.addre').hide();
                 $('.zhao').hide();
             })
-            $('#l-esc').on('click',function(){
-                $('.login').hide();
-                $('.zhao').hide();
-                })
+           
             $('.zhao').on('click',function(){
                 $(this).hide();
                 $('.login').hide();
@@ -3170,6 +3195,7 @@ var _hmt = _hmt || [];
             })
     // 登陆框消失
             $('#l-esc').on('click', function () {
+                console.log(1);
                 $('.login').hide();
                 $('.zhao').hide();
             })
@@ -3242,6 +3268,58 @@ var _hmt = _hmt || [];
                     'json'
                 )
             })
+
+            //搜索列表
+       var m_dom="";
+    $('.home_search').on('input', function(){
+        $(".sou_res").show();
+        var   name=$(this).val();
+        if(name!==""){
+           
+        $.ajax({
+                url: "<?php echo url('home/search/time'); ?>",
+                type: 'post',
+                data: {  
+                     'name':name
+                 },
+                dataType: 'json',
+                success: function (res) {
+                    if(res.code==200){
+                        var arr=res.data;
+                        console.log(arr);
+                        if(arr.length>0){
+                            m_dom=""
+                        $.each(arr,function(m,n){
+                                m_dom+=`<li id="${m}">${n.building_name}</li> `
+                            $(".sou_res").html(m_dom);
+                        })
+                        }else{
+                            $(".sou_res").html("暂无数据...");  
+                        }
+                          
+                    }else{
+                    }
+             },
+            error: function (xhr) {
+            console.log('error', xhr)
+          },
+            })
+
+        }else{
+            $(".sou_res").hide(); 
+
+        }
+      
+
+
+    })
+
+            $(".sou_res").click(function(e){
+                    var value=e.target.innerHTML;
+                    $(".home_search").val(value);
+            })
+
+
 
 
     </script>

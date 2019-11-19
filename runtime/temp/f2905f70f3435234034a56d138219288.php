@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\search\tuan.html";i:1574066536;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\search\tuan.html";i:1574156135;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -188,7 +188,8 @@
              width:622px;
              height:60px;
              border:1px solid #2FBF4A;
-             padding-left: 44px;
+             padding-left: 20px;
+             font-size:16px;
          }
          .search .top input::-webkit-input-placeholder {
             color: #989898;
@@ -1188,13 +1189,40 @@
 
         
         .m-xuan img{
-        width:24.8%;
+        /* width:24.8%; */
         height:34px;
         position: fixed;
         right:0px;
         bottom:140px;
         z-index: 10000;
-    }
+        }
+
+ /*搜索列表*/
+ .sou_res{
+             width:622px;
+             height:400px;
+             overflow-y:auto;
+             background:#fff;
+             border:1px solid #D9D9D9;
+             position:relative;
+             left:222px;
+             cursor:pointer;
+             z-index: 30000;
+             display: none;
+             border-radius: 0 0 8px 8px;
+      }
+      .sou_res  li{
+            line-height:36px;
+            font-size:16px;
+            padding-left:20px;  
+
+      }
+      .sou_res  li:hover{
+            background:rgba(139, 138, 138, 0.1) ;
+            color:#52CC7A;
+      }
+
+
     </style>
 </head>
 
@@ -1237,7 +1265,10 @@
                                 </ul>
                            </div>
                         <form id="bname" style="display: initial" action="<?php echo url('home/search/index',['type'=>0]); ?>" method="post">
-                        <input type="text" name="name" placeholder="请输入楼盘名称、地域">
+                        <input type="text" name="name" placeholder="请输入楼盘名称、地域" class="home_search" autocomplete="off">
+                        <ul class="sou_res">
+                          
+                        </ul>
                         <span id="find"><img src="/static/home/imgs/icon-8.png">我要找房</span>
                         </form>
                         <span id="map"><img src="/static/home/imgs/pcadd.png" alt="">地图找房</span>
@@ -1396,7 +1427,7 @@
                 <div class="pages">
                     <span id="back"><<</span>
                     <ul class="page">
-                        <?php $__FOR_START_1082783541__=0;$__FOR_END_1082783541__=$page;for($i=$__FOR_START_1082783541__;$i < $__FOR_END_1082783541__;$i+=1){ if($i<7): ?>
+                        <?php $__FOR_START_547917355__=0;$__FOR_END_547917355__=$page;for($i=$__FOR_START_547917355__;$i < $__FOR_END_547917355__;$i+=1){ if($i<7): ?>
                         <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                         <?php endif; } ?>
                     </ul>
@@ -1613,7 +1644,7 @@
     <div class="container-fluid m">
         <!-- <img class="m-banner visible-xs-block .visible-sm--block" src="/static/home/imgs/banner2.png.png" alt=""> -->
         <div class="m-search visible-xs-block .visible-sm--block">
-            <img src="/static/home/imgs/return.png" alt="" onClick="javascript:history.go(-1)">
+            <img src="/static/home/imgs/return.png" alt="" onclick="javascript:history.go(-1)">
             <img src="/static/home/imgs/search.png" alt="" class="m-se">
             <input type="text" class="m-int" placeholder="请输入楼盘名称、地域">
             <div class="zhao-ditu">
@@ -1776,14 +1807,14 @@
                         <!-- <span class="m-p-3">繁华地段</span> -->
                     </p>
                 </div>
-                <div class="col-xs-12 m-tu">
+                <!-- <div class="col-xs-12 m-tu">
                     <p class="m-t-left">
                         <?php echo $v['title']; ?>
                     </p>
                     <p class="m-t-right">
                         活动时间：<?php echo $v['start']; ?>—<?php echo $v['end']; ?>
                     </p>
-                </div>
+                </div> -->
 
             </div>
             <?php endforeach; ?>
@@ -1802,7 +1833,7 @@
         </div>
          <!-- 留言悬浮框 -->
          <div class="m-xuan visible-xs-block .visible-sm-block">
-                <img src="/static/home/imgs/m-liu.png" alt="">
+                <img src="/static/home/imgs/new_liu.png" alt="">
         </div>
     </div>
 
@@ -2535,14 +2566,7 @@ $('#cy').on('click',function(){
                         
                     </p>
                 </div>
-                <div class="col-xs-12 m-tu">
-                    <p class="m-t-left">
-                            ${v.title}
-                    </p>
-                    <p class="m-t-right">
-                            活动时间：${v.start}—${v.end}
-                    </p>
-                </div>
+             
                 </div>
                                 `;
                                 $('.m-tuan').html(html);
@@ -2739,14 +2763,7 @@ $('#cy').on('click',function(){
                         
                     </p>
                 </div>
-                <div class="col-xs-12 m-tu">
-                    <p class="m-t-left">
-                            ${v.title}
-                    </p>
-                    <p class="m-t-right">
-                            活动时间：${v.start}—${v.end}
-                    </p>
-                </div>
+             
                 </div>
                                 `;
                                 $('.m-tuan').html(html);
@@ -2779,6 +2796,74 @@ $('#cy').on('click',function(){
                 $('.m-chang').hide()
             })
         })
+
+ //搜索列表
+        var m_dom="";
+    $('.home_search').on('input', function(){
+        $(".sou_res").show();
+        var   name=$(this).val();
+        if(name!==""){
+           
+        $.ajax({
+                url: "<?php echo url('home/search/time'); ?>",
+                type: 'post',
+                data: {  
+                     'name':name
+                 },
+                dataType: 'json',
+                success: function (res) {
+                    if(res.code==200){
+                        var arr=res.data;
+                        console.log(arr);
+                        if(arr.length>0){
+                            m_dom=""
+                        $.each(arr,function(m,n){
+                                m_dom+=`<li id="${m}">${n.building_name}</li> `
+                            $(".sou_res").html(m_dom);
+                        })
+                        }else{
+                            $(".sou_res").html("暂无数据...");  
+                        }
+                          
+                    }else{
+                    }
+             },
+            error: function (xhr) {
+            console.log('error', xhr)
+          },
+            })
+
+        }else{
+            $(".sou_res").hide(); 
+
+        }
+      
+
+
+    })
+
+            $(".sou_res").click(function(e){
+                    var value=e.target.innerHTML;
+                    $(".home_search").val(value);
+            })
+
+
+//顶部悬浮
+window.onscroll=function(){
+        var top=document.documentElement.scrollTop||document.body.scrollTop;
+            if(top>=48){
+                // console.log(1);
+               $('.m-menu').css({
+                   'position':'fixed',
+                   "top":"0px"
+               })
+            }else {
+                $('.m-menu').css({
+                   'position':'relative',
+               })
+            }
+}
+
     </script>
 </body>
 

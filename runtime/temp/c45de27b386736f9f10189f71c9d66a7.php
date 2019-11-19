@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\tupai.html";i:1573715759;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\tupai.html";i:1574131605;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -164,7 +164,7 @@
                 }
 
                 .m-xuan img{
-        width:24.8%;
+        /* width:24.8%; */
         height:34px;
         position: fixed;
         right:0;
@@ -305,7 +305,7 @@
                 </div>
                  <!-- 留言悬浮框 -->
                  <div class="m-xuan visible-xs-block .visible-sm-block">
-                        <img src="/static/home/imgs/m-liu.png" alt="">
+                        <img src="/static/home/imgs/new_liu.png" alt="">
                 </div>
             </div>
      

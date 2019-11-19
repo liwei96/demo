@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1574068889;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1574149499;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -655,7 +655,7 @@
             font-size: 12px;
             margin-top: 0;
             color: #323232;
-            margin-bottom: 6px;
+            /* margin-bottom: 6px; */
             line-height: 17px;
         }
 
@@ -922,13 +922,39 @@
 
 
               .m-xuan img{
-                width:24.8%;
                 height:34px;
                 position: fixed;
                 right:4%;
                 bottom:140px;
                 z-index: 10000;
             }
+
+   /*搜索列表*/
+   .sou_res{
+             width:622px;
+             height:400px;
+             overflow-y:auto;
+             background:#fff;
+             border:1px solid #D9D9D9;
+             position:relative;
+             left:140px;
+             top:413px;
+             cursor:pointer;
+             z-index: 30000;
+             display: none;
+             border-radius: 0 0 8px 8px;
+      }
+      .sou_res  li{
+            line-height:36px;
+            font-size:16px;
+            padding-left:20px;  
+
+      }
+      .sou_res  li:hover{
+            background:rgba(139, 138, 138, 0.1) ;
+            color:#52CC7A;
+      }
+
     </style>
     <script>
         var _hmt = _hmt || [];
@@ -999,15 +1025,10 @@
                 </script>
                 <form id="bname" style="display: initial" action="<?php echo url('home/search/index',['type'=>0]); ?>"
                     method="post">
-                    <input type="text" name="name" class="img-text" placeholder="请输入楼盘名称、地域" list="sou_list">
-                    <datalist id="sou_list">
-                        <option value="中梁申花百悦公馆" />
-                        <option value="宋都·时间名座" />
-                        <option value="星耀中心" />
-                        <option value="世茂泰禾·中央广场" />
-                        <option value="山水时代" />
-                        <option value="星南站" />
-                    </datalist>  
+                    <input type="text" name="name" class="img-text" placeholder="请输入楼盘名称、地域" list="sou_list" autocomplete="off">
+                    <ul class="sou_res">
+                          
+                    </ul>
                 </form>
                 <div id="find" class="img-btn"><img src="/static/home/imgs/icon-8.png">我要找房</div>
                 <div id="map" class="img-btn2"><a href="<?php echo url('home/index/pmap'); ?>"><img
@@ -1736,7 +1757,6 @@
                             <p class="m-icon">
                                 <span class="m-p-2"><?php echo $v['building_zhuangxiu']; ?></span>
                                 <span class="m-p-3"><?php echo $v['building_ditie']; ?></span>
-                                <span class="m-p-3"></span>
                                
                             </p>
                         </div>
@@ -1779,14 +1799,14 @@
                             <!-- <span class="m-p-3"><?php echo $v['xiaoshou']; ?></span> -->
                         </p>
                     </div>
-                    <div class="col-xs-12 m-tu">
+                    <!-- <div class="col-xs-12 m-tu">
                         <p class="m-t-left">
                             <?php echo $v['title']; ?>
                         </p>
                         <p class="m-t-right">
                             活动时间：<?php echo $v['start_m']; ?>.<?php echo $v['start_d']; ?>—<?php echo $v['end_m']; ?>.<?php echo $v['end_d']; ?>
                         </p>
-                    </div>
+                    </div> -->
                 </div>
                 <?php endforeach; ?>
                 <div class="col-xs-12 m-btn">
@@ -1846,7 +1866,7 @@
 
         <!-- 留言悬浮框 -->
         <div class="m-xuan visible-xs-block .visible-sm-block">
-                <img src="/static/home/imgs/m-liu.png" alt="">
+                <img src="/static/home/imgs/new_liu.png" alt="">
         </div>
     </div>
     <script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
@@ -2443,6 +2463,58 @@ var _hmt = _hmt || [];
     $('.up-btn').click(function(){
         $('html , body').animate({scrollTop: 0},'slow');  
     })
+
+
+//搜索列表
+var m_dom="";
+    $('.img-text').on('input', function(){
+        $(".sou_res").show();
+        var   name=$(this).val();
+        if(name!==""){
+           
+        $.ajax({
+                url: "<?php echo url('home/search/time'); ?>",
+                type: 'post',
+                data: {  
+                     'name':name
+                 },
+                dataType: 'json',
+                success: function (res) {
+                    if(res.code==200){
+                        var arr=res.data;
+                        console.log(arr);
+                        if(arr.length>0){
+                            m_dom=""
+                            $.each(arr,function(m,n){
+                                    m_dom+=`<li id="${m}">${n.building_name}</li> `
+                                $(".sou_res").html(m_dom);
+                            })
+                        }else{
+                            $(".sou_res").html("暂无数据...");
+                        }  
+                    }else{
+                    }
+             },
+            error: function (xhr) {
+            console.log('error', xhr)
+          },
+            })
+
+        }else{
+            $(".sou_res").hide(); 
+
+        }
+      
+
+
+    })
+
+            $(".sou_res").click(function(e){
+                    var value=e.target.innerHTML;
+                    $(".img-text").val(value);
+            })
+
+
 
 
 

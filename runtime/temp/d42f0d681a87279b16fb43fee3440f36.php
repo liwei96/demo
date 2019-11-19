@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:61:"G:\jiayuan\tp2\public/../application/home\view\user\guan.html";i:1570772881;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:61:"G:\jiayuan\tp2\public/../application/home\view\user\guan.html";i:1574151451;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -246,7 +246,9 @@
              width:622px;
              height:60px;
              border:1px solid #2FBF4A;
-             padding-left: 44px;
+             padding-left: 20px;
+             font-size:16px;
+             color:#999;
          }
          .search .top input::-webkit-input-placeholder {
             color: #989898;
@@ -536,6 +538,32 @@ footer span{
             opacity:0.8;
             z-index:10;
         }
+
+
+         /*搜索列表*/
+      .sou_res{
+             width:622px;
+             height:400px;
+             overflow-y:auto;
+             background:#fff;
+             border:1px solid #D9D9D9;
+             position:relative;
+             left:222px;
+             cursor:pointer;
+             z-index: 30000;
+             display: none;
+             border-radius: 0 0 8px 8px;
+      }
+      .sou_res  li{
+            line-height:36px;
+            font-size:16px;
+            padding-left:20px;  
+            color:#999;
+      }
+      .sou_res  li:hover{
+            background:rgba(139, 138, 138, 0.1) ;
+            color:#52CC7A;
+      }
     </style>
 </head>
 <body>
@@ -568,7 +596,11 @@ footer span{
                     <img src="/static/home/imgs/logo2.png" alt="">
                     <p><i><?php if(\think\Cookie::get('cityname')): ?> <?php echo \think\Cookie::get('cityname'); else: ?>杭州<?php endif; ?></i><img src="/static/home/imgs/triangle.png" alt=""></p>
                     <form id="bname" style="display: initial" action="<?php echo url('home/search/index',['type'=>0]); ?>" method="post">
-                    <input type="text" name="name" placeholder="请输入楼盘名称、地域">
+                    <input type="text" name="name" placeholder="请输入楼盘名称、地域"  autocomplete="off" class="home_search">
+                    <ul class="sou_res">
+                          
+                    </ul>
+
                     <span id="find"><img src="/static/home/imgs/icon-8.png">我要找房</span>
                     </form>
                     <span id="map"><img src="/static/home/imgs/pcadd.png" alt="">地图找房</span>
@@ -758,6 +790,58 @@ footer span{
             $('.m-xuan').on('click', function () {
                 window.location.href = "<?php echo url('home/index/lius'); ?>";
             })
+
+
+ //搜索列表
+ var m_dom="";
+    $('.home_search').on('input', function(){
+        $(".sou_res").show();
+        var   name=$(this).val();
+        if(name!==""){
+           
+        $.ajax({
+                url: "<?php echo url('home/search/time'); ?>",
+                type: 'post',
+                data: {  
+                     'name':name
+                 },
+                dataType: 'json',
+                success: function (res) {
+                    if(res.code==200){
+                        var arr=res.data;
+                        console.log(arr);
+                        if(arr.length>0){
+                            m_dom=""
+                        $.each(arr,function(m,n){
+                                m_dom+=`<li id="${m}">${n.building_name}</li> `
+                            $(".sou_res").html(m_dom);
+                        })
+                        }else{
+                            $(".sou_res").html("暂无数据...");  
+                        }
+                          
+                    }else{
+                    }
+             },
+            error: function (xhr) {
+            console.log('error', xhr)
+          },
+            })
+
+        }else{
+            $(".sou_res").hide(); 
+
+        }
+    })
+
+            $(".sou_res").click(function(e){
+                    var value=e.target.innerHTML;
+                    $(".home_search").val(value);
+            })
+
+
+
+
         })
     </script>
 </body>
