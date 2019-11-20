@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\index.html";i:1574136006;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\index.html";i:1574216697;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -264,9 +264,9 @@
         }
 
         .swiper-box   .swiper-slide{
-        width:53.3%!important;
+        width:54.3%!important;
         height:210px!important;
-        margin-right:3.2%!important;
+        margin-right:3.7%!important;
        } 
 
        .m-lun .m-luns #lnum{
@@ -405,7 +405,7 @@ var _hmt = _hmt || [];
             </div>
             <?php endforeach; ?>
             
-            <div class="m-d-jiao m-d">
+            <div class="m-d-jiao m-d m-jiaofang">
                 <h4><img src="/static/home/imgs/jf.png" alt="">预计交房时间：<?php echo $data['jiaotime']; ?></h4>
             </div>
 	    <?php foreach($jia as $v): ?>
@@ -415,13 +415,13 @@ var _hmt = _hmt || [];
                 <span>最近更新时间：<?php echo $v['create_time']; ?></span>
             </div>
             <?php endforeach; ?>
-            <div class="m-d-jiao m-d">
+            <div class="m-d-jiao m-d m-shoukai">
                 <h4><img src="/static/home/imgs/sk.png" alt="">首开时间：<?php echo $data['kaitime']; ?></h4>
             </div>
-            <div class="m-d-jiao m-d">
+            <div class="m-d-jiao m-d m-nadi">
                 <h4><img src="/static/home/imgs/nd.png" alt="">拿地时间：<?php echo $data['n_time']; ?></h4>
             </div>
-            <div class="t-o o1"></div>
+            <!-- <div class="t-o o1"></div>
             <div class="t-o o2"></div>
             <div class="t-o o3"></div>
             <div class="t-o o4"></div>
@@ -429,7 +429,7 @@ var _hmt = _hmt || [];
             <div class="t-l l1"></div>
             <div class="t-l l2"></div>
             <div class="t-l l3"></div>
-            <div class="t-l l4"></div>
+            <div class="t-l l4"></div> -->
 
             <button data-agl-cvt="5" <?php if(\think\Session::get('user')): ?>class="q-bian" data-v="最新动态"<?php else: ?>class="p1" data-v="最新动态"<?php endif; ?> >获取最新动态</button>
             

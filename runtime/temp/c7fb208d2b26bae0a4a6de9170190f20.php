@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:61:"G:\jiayuan\tp2\public/../application/home\view\index\buy.html";i:1574150824;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:61:"G:\jiayuan\tp2\public/../application/home\view\index\buy.html";i:1574230752;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1345,14 +1345,14 @@ body {
 
 
         <div class="saoma_box bohao">
-            <img src="http://test.edefang.net/index/weichat/code" alt="">
+            <img src="http://test.edefang.net/index/weichat/code" alt="" class="erma">
             <span>微信扫码拨号</span>
         </div>
-        <div class="saoma_box kaifa">
-              <p>正在开发中...</p>
+        <div class=" kaifa">
+            <img src="/static/home/imgs/waiting_lv.png" alt="">
         </div>
-        <div class="saoma_box kaifazi">
-            <p>正在开发中...</p>
+        <div class="kaifazi">
+            <img src="/static/home/imgs/waiting_lv.png" alt="">
         </div>
 </div> 
   <!-- 留言悬浮框 -->

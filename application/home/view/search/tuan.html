@@ -1556,14 +1556,14 @@
             
             
                     <div class="saoma_box bohao">
-                        <img src="http://test.edefang.net/index/weichat/code" alt="">
+                        <img src="http://test.edefang.net/index/weichat/code" alt="" class="erma">
                         <span>微信扫码拨号</span>
                     </div>
-                    <div class="saoma_box kaifa">
-                          <p>正在开发中...</p>
+                    <div class=" kaifa">
+                        <img src="/static/home/imgs/waiting_lv.png" alt="">
                     </div>
-                    <div class="saoma_box kaifazi">
-                        <p>正在开发中...</p>
+                    <div class=" kaifazi">
+                        <img src="/static/home/imgs/waiting_lv.png" alt="">
                     </div>
                 </div>       
             <!-- <footer class="container-fluid visible-md-block visible-lg-block">
@@ -2858,13 +2858,27 @@ window.onscroll=function(){
                    'position':'fixed',
                    "top":"0px"
                })
+               $('.m-me').css({
+                   "top":"44px"
+               })
             }else {
                 $('.m-menu').css({
                    'position':'relative',
                })
+               $('.m-me').css({
+                   'top':'92px',
+               })
             }
 }
 
+$('.m-box').click(function(){
+                  $('.m-qu').hide();
+                  $('.m-jia').hide();
+                  $('.m-hu').hide();
+                  $('.m-shan').hide();
+                   $('.m-pai').hide();
+                   $(this).hide();
+        })
     </script>
 </body>
 

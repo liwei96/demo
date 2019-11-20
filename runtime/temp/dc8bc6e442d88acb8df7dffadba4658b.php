@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\search\search.html";i:1574155880;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\search\search.html";i:1574241032;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1338,7 +1338,7 @@
                 <div class="pages">
                     <span id="back"><<</span>
                     <ul class="page">
-                        <?php $__FOR_START_1032165805__=0;$__FOR_END_1032165805__=$page;for($i=$__FOR_START_1032165805__;$i < $__FOR_END_1032165805__;$i+=1){ if($i<7): ?>
+                        <?php $__FOR_START_1726623973__=0;$__FOR_END_1726623973__=$page;for($i=$__FOR_START_1726623973__;$i < $__FOR_END_1726623973__;$i+=1){ if($i<7): ?>
                         <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                         <?php endif; } ?>
                     </ul>
@@ -1471,14 +1471,14 @@
         
         
                 <div class="saoma_box bohao">
-                    <img src="http://test.edefang.net/index/weichat/code" alt="">
+                    <img src="http://test.edefang.net/index/weichat/code" alt="" class="erma">
                     <span>微信扫码拨号</span>
                 </div>
-                <div class="saoma_box kaifa">
-                      <p>正在开发中...</p>
+                <div class="kaifa">
+                    <img src="/static/home/imgs/waiting_lv.png" alt="">
                 </div>
-                <div class="saoma_box kaifazi">
-                    <p>正在开发中...</p>
+                <div class="kaifazi">
+                    <img src="/static/home/imgs/waiting_lv.png" alt="">
                 </div>
             </div>
         
@@ -2770,7 +2770,7 @@
 
 
 
-//顶部悬浮
+//选项顶部悬浮
 window.onscroll=function(){
         var top=document.documentElement.scrollTop||document.body.scrollTop;
             if(top>=48){
@@ -2779,14 +2779,38 @@ window.onscroll=function(){
                    'position':'fixed',
                    "top":"0px"
                })
+               $('.m-me').css({
+                   "top":"44px"
+               })
             }else {
                 $('.m-menu').css({
                    'position':'relative',
                })
+               $('.m-me').css({
+                   'top':'92px',
+               })
             }
 }
+        $('.m-box').click(function(){
+                  $('.m-qu').hide();
+                  $('.m-jia').hide();
+                  $('.m-hu').hide();
+                  $('.m-shan').hide();
+                   $('.m-pai').hide();
+                   $(this).hide();
+        })
 
-
+// //定义阻止事件传递
+// function eventStop (event){  
+// 　　event.preventDefault();  
+// }
+ 
+ 
+// //隐藏弹层，设置页面可滑动
+// $("body").css("overflow", "auto");
+// document.body.removeEventListener('touchmove',eventStop,false);  
+ 
+// //显示弹层，设置页面不可滑动
 
 </script>
 

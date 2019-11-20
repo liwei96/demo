@@ -1472,14 +1472,14 @@
         
         
                 <div class="saoma_box bohao">
-                    <img src="http://test.edefang.net/index/weichat/code" alt="">
+                    <img src="http://test.edefang.net/index/weichat/code" alt="" class="erma">
                     <span>微信扫码拨号</span>
                 </div>
-                <div class="saoma_box kaifa">
-                      <p>正在开发中...</p>
+                <div class="kaifa">
+                    <img src="/static/home/imgs/waiting_lv.png" alt="">
                 </div>
-                <div class="saoma_box kaifazi">
-                    <p>正在开发中...</p>
+                <div class="kaifazi">
+                    <img src="/static/home/imgs/waiting_lv.png" alt="">
                 </div>
             </div>
         
@@ -2771,7 +2771,7 @@
 
 
 
-//顶部悬浮
+//选项顶部悬浮
 window.onscroll=function(){
         var top=document.documentElement.scrollTop||document.body.scrollTop;
             if(top>=48){
@@ -2780,14 +2780,38 @@ window.onscroll=function(){
                    'position':'fixed',
                    "top":"0px"
                })
+               $('.m-me').css({
+                   "top":"44px"
+               })
             }else {
                 $('.m-menu').css({
                    'position':'relative',
                })
+               $('.m-me').css({
+                   'top':'92px',
+               })
             }
 }
+        $('.m-box').click(function(){
+                  $('.m-qu').hide();
+                  $('.m-jia').hide();
+                  $('.m-hu').hide();
+                  $('.m-shan').hide();
+                   $('.m-pai').hide();
+                   $(this).hide();
+        })
 
-
+// //定义阻止事件传递
+// function eventStop (event){  
+// 　　event.preventDefault();  
+// }
+ 
+ 
+// //隐藏弹层，设置页面可滑动
+// $("body").css("overflow", "auto");
+// document.body.removeEventListener('touchmove',eventStop,false);  
+ 
+// //显示弹层，设置页面不可滑动
 
 </script>
 

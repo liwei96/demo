@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1574149499;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1574241978;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -629,7 +629,7 @@
         }
 
         .m-jiao .m-j-con {
-            padding: 4%;
+            padding: 3%;
             height: 100px;
             border:1px solid rgba(230,230,230,1);
             /* box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.04); */
@@ -644,6 +644,7 @@
         .m-jiao .m-j-con .j-c-left img {
             border-radius: 2px;
             width: 82%;
+            height:75px;
         }
 
         .m-jiao .m-j-con .j-c-right {
@@ -829,7 +830,7 @@
             font-size: 14px;
             color:#2DD264;
         }
-        .swiper-box ,.swiper-box1,.swiper-box2,.swiper-box3 {
+        .swiper-box ,.swiper-box-tui,.swiper-box2,.swiper-box3 {
              height:160px;
         }
     .swiper-box   .swiper-slide{
@@ -839,7 +840,7 @@
        text-align:left!important;
     } 
 
-    .swiper-box1   .swiper-slide{
+    .swiper-box-tui   .swiper-slide{
         width:38.3%!important;
         height:140px!important;
        margin-right:3.2%!important;
@@ -924,7 +925,7 @@
               .m-xuan img{
                 height:34px;
                 position: fixed;
-                right:4%;
+                right:0;
                 bottom:140px;
                 z-index: 10000;
             }
@@ -953,6 +954,9 @@
       .sou_res  li:hover{
             background:rgba(139, 138, 138, 0.1) ;
             color:#52CC7A;
+      }
+      html,body{
+            overflow-x:hidden!important;
       }
 
     </style>
@@ -1104,9 +1108,13 @@
                         
                         <li>
                                 <a href="<?php echo url('home/content/content',['id'=>$v['bid']]); ?>">
-                                    <i></i>
-                                    <span class="biao">团购优惠</span>
-                                    <img src="<?php echo $v['src']; ?>" alt="">
+                                    <div class="tuan_shang_box">
+                                        <i></i>
+                                        <span class="biao">团购优惠</span>
+                                        <img src="<?php echo $v['src']; ?>" alt=""> 
+                                        <!-- <img src="https://www.jy1980.com/uploads/20190510/thumb_800_0d3df05ddc8e13520cb76ce6df597f4f.jpg" alt=""> -->
+                                   </div>
+
                                     <div class="tuan-bottom">
                                         <h3><?php echo $v['name']; ?></h3>
                                         <h4><?php echo $v['city']; ?></h4>
@@ -1231,7 +1239,8 @@
                             <a href="<?php echo url('home/content/content',['id'=>$v['id']]); ?>">
                                 <i></i>
                                 <span class="biao">楼盘推荐</span>
-                                <img src="<?php echo $v['building_img']; ?>" alt="">
+                                <!-- <img src="<?php echo $v['building_img']; ?>" alt=""> -->
+                                <img src="http://api.jy1980.com/uploads/20190621/d4574d4d9e6f77fd6b663b2bbc231164.jpg" alt="">
                                 <div class="tuan-bottom">
                                     <h3><?php echo $v['building_name']; ?></h3>
                                     <h4><?php echo \think\Cookie::get('cityname'); ?></h4>
@@ -1256,8 +1265,7 @@
                             <li>
                                 <a href="<?php echo url('home/index/chengjiaodetail'); ?>">
                                 <div class="house-pic"> </div>
-                                    <img src="<?php echo $v['img']; ?>"/>
-                               
+                                   <img src="<?php echo $v['img']; ?>"/> 
                                 <div class="name">
                                      <h3><?php echo $v['title']; ?></h3>
                                      <p><?php echo $v['content']; ?> </p>
@@ -1357,19 +1365,7 @@
         </div>
     </div>
    
-    <div class="gui container-fluid visible-md-block visible-lg-block">
-        <img class="gui-tou" src="/static/home/imgs/gui-tou.png" alt="">
-        <div class="gui-con">
-                <img class="gui-line" src="/static/home/imgs/gou-con.png" alt="">
-                <input class="gui-input" type="text" placeholder="电话">
-                <button class="gui-btn">确定</button>
-                <img class="xx" src="/static/home/imgs/xx.png" alt="">
-                <textarea class="gui-text" name="" id="" cols="30" rows="10" placeholder="在此处留言"></textarea>
-        </div>
-        
-
-    </div>
-
+   
 <!-- 右侧悬浮按钮 -->
     <div class="fixed-box">
         <dl class="xiao">
@@ -1395,14 +1391,14 @@
 
 
         <div class="saoma_box bohao">
-            <img src="http://test.edefang.net/index/weichat/code" alt="">
+            <img src="http://test.edefang.net/index/weichat/code" alt="" class="erma">
             <span>微信扫码拨号</span>
         </div>
-        <div class="saoma_box kaifa">
-              <p>正在开发中...</p>
+        <div class="kaifa">
+             <img src="/static/home/imgs/waiting_lv.png" alt="">
         </div>
-        <div class="saoma_box kaifazi">
-            <p>正在开发中...</p>
+        <div class="kaifazi">
+            <img src="/static/home/imgs/waiting_lv.png" alt="">
         </div>
     </div>
 
@@ -1595,10 +1591,10 @@
                                         <?php endforeach; ?>
                                         
                                     </div>
-                            </div>
+                            </div> 
                     </div>
                     <div class="panel">
-                            <div class="swiper-box1">
+                            <div class="swiper-box-tui">
                                     <div class="swiper-wrapper hot-fang">
                                         <?php foreach($jians as $v): ?>
                                         <div class="swiper-slide"> 
@@ -1615,11 +1611,11 @@
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
-                            </div>
+                            </div> 
                     
                    </div>
                     <div class="panel">
-                            <div class="swiper-box2">
+                             <div class="swiper-box2">
                                     <div class="swiper-wrapper hot-fang">
                                         <?php foreach($news as $v): ?>
                                         <div class="swiper-slide"> 
@@ -1636,10 +1632,10 @@
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
-                            </div>
+                            </div> 
                   </div> 
                     <div class="panel">
-                            <div class="swiper-box3">
+                             <div class="swiper-box3">
                                     <div class="swiper-wrapper hot-fang">
                                         <?php foreach($tuan as $v): ?>
                                         <div class="swiper-slide"> 
@@ -1656,7 +1652,7 @@
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
-                            </div>
+                            </div> 
                     </div>
               </div>
             
@@ -1688,7 +1684,8 @@
             <div class="m-j-con">
                 <a href="<?php echo url('home/index/read',['id'=>$jiao['id']]); ?>">
                     <div class="j-c-left">
-                        <img src="<?php echo $jiao['img']; ?>" alt="">
+                        <img src="http://api.jy1980.com/uploads/20191030/thumb_800_bc6kinvg.jpeg" alt="">
+                        <!-- <img src="<?php echo $jiao['img']; ?>" alt=""> -->
                     </div>
                     <div class="j-c-right">
                         <h6><?php echo $jiao['title']; ?></h6>
@@ -1896,27 +1893,27 @@ var _hmt = _hmt || [];
 </script>
     <script>
              var swiper = new Swiper('.swiper-box', {
-                slidesPerView: 2.6,
+                slidesPerView: 2.4,
                 spaceBetween: 12,
              });
-                var swiper = new Swiper('.swiper-box1', {
+                var swiper = new Swiper('.swiper-box-tui', {
                 slidesPerView: 2.6,
-                spaceBetween: 30,
+                spaceBetween: 12,
                 });
                 
                 var swiper = new Swiper('.swiper-box2', {
                 slidesPerView: 2.6,
-                spaceBetween: 30,
+                spaceBetween: 12,
                 });
                 var swiper = new Swiper('.swiper-box3', {
                 slidesPerView: 2.6,
-                spaceBetween: 30,
+                spaceBetween: 12,
                 });
 
 
         var swiper = new Swiper('.swiper-container', {
              slidesPerView: 6.5,
-            spaceBetween: 10,
+            spaceBetween: 14,
              centeredSlides: true,
             // pagination: {
             //     clickable: true,
@@ -2517,6 +2514,17 @@ var m_dom="";
 
 
 
+// //定义阻止事件传递
+// function eventStop (event){  
+// 　　event.preventDefault();  
+// }
+ 
+ 
+// //隐藏弹层，设置页面可滑动
+// $("body").css("overflow", "auto");
+// document.body.removeEventListener('touchmove',eventStop,false);  
+ 
+// //显示弹层，设置页面不可滑动	
 
 
 

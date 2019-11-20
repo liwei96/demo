@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\jiayuan\tp2\public/../application/home\view\content\content.html";i:1574151923;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\jiayuan\tp2\public/../application/home\view\content\content.html";i:1574232745;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -536,7 +536,7 @@
     bottom:67px;
     display:none;
 }
-.fixed-box .saoma_box img{
+.fixed-box .saoma_box .erma{
     width:100px;
     height:100px;
     display:block;
@@ -560,10 +560,20 @@
 .fixed-box  .kaifa{
      position: absolute;
      bottom:210px;
+     display:none;
+     right:56px;
+     bottom:206px;
+}
+.fixed-box  .kaifa img,.fixed-box  .kaifazi{
+      width:220px;
+      height:140px;
 }
 .fixed-box  .kaifazi{
     position: absolute;
-    bottom:0px;
+    bottom:32px;
+    right:56px;
+    bottom:12px;
+    display:none;
 }
 
     /* 留言提问 */
@@ -1427,14 +1437,14 @@ var _hmt = _hmt || [];
 
 
     <div class="saoma_box bohao">
-        <img src="http://test.edefang.net/index/weichat/code" alt="">
+        <img src="http://test.edefang.net/index/weichat/code" alt="" class="erma">
         <span>微信扫码拨号</span>
     </div>
-    <div class="saoma_box kaifa">
-          <p>正在开发中...</p>
+    <div class="kaifa">
+        <img src="/static/home/imgs/waiting_lv.png" alt="">
     </div>
-    <div class="saoma_box kaifazi">
-        <p>正在开发中...</p>
+    <div class="kaifazi">
+        <img src="/static/home/imgs/waiting_lv.png" alt="">
     </div>
 </div>
 <!-- 留言悬浮框 -->
@@ -1759,7 +1769,7 @@ var _hmt = _hmt || [];
                                    <li>
                                        <a href="<?php echo url('home/content/content',['id'=>$v['id']]); ?>">
                                        <div class="house-pic">
-                                           <img src="<?php echo $v['building_img']; ?>"/>
+                                           <img src="<?php echo $v['building_img']; ?>"/> 
                                            <span>相似楼盘</span>
                                            <i class="bb"></i>
                                        </div>
@@ -2506,7 +2516,7 @@ var _hmt = _hmt || [];
                             var project=<?php echo $data['id']; ?>;
                             $.post(
                                 "<?php echo url('home/user/email'); ?>",
-                                {'sign':sign,'username':'没有','project':project,'source':'家园'+type,'remark':'不是留言','cate_id':0,'phone':phone},
+                                {'sign':sign,'username':'没有','project':project,'source':'线上推广1','remark':'不是留言','cate_id':0,'phone':phone},
                                 function(res){
                                     if(res.code){
                                         // alert(res.message)

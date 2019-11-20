@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"G:\jiayuan\tp2\public/../application/home\view\content\lpic.html";i:1573784585;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"G:\jiayuan\tp2\public/../application/home\view\content\lpic.html";i:1574218158;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -222,7 +222,7 @@
   </div>
 <!-- 底部悬浮按钮 -->
 <div class="m-botnav visible-xs-block .visible-sm-block">
-    <p data-agl-cvt="5" id="m_shou" data_v="<?php echo $data['id']; ?>"><?php if(in_array($data['id'],\think\Session::get('fork'))): ?><img style="margin-left:17%" src="/static/home/imgs/yi_shou.png" alt="">已收藏<?php else: ?><img src="/static/home/imgs/wei_shou.png" alt="">收藏<?php endif; ?></p>
+    <p data-agl-cvt="5" id="m_shou" data_v="<?php echo $data['id']; ?>"><?php if(in_array($data['id'],\think\Session::get('fork'))): ?><img style="margin-left:17%" src="/static/home/imgs/fork2.png" alt="">已收藏<?php else: ?><img src="/static/home/imgs/forked.png" alt="">收藏<?php endif; ?></p>
     <a data-agl-cvt="5" href="tel:400-718-6686"><button class="m-pho">电话咨询
         <h6>保护您的号码安全</h6>
     </button></a>

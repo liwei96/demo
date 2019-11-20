@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\search\tuan.html";i:1574156135;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\search\tuan.html";i:1574241317;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1427,7 +1427,7 @@
                 <div class="pages">
                     <span id="back"><<</span>
                     <ul class="page">
-                        <?php $__FOR_START_547917355__=0;$__FOR_END_547917355__=$page;for($i=$__FOR_START_547917355__;$i < $__FOR_END_547917355__;$i+=1){ if($i<7): ?>
+                        <?php $__FOR_START_439408790__=0;$__FOR_END_439408790__=$page;for($i=$__FOR_START_439408790__;$i < $__FOR_END_439408790__;$i+=1){ if($i<7): ?>
                         <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                         <?php endif; } ?>
                     </ul>
@@ -1555,14 +1555,14 @@
             
             
                     <div class="saoma_box bohao">
-                        <img src="http://test.edefang.net/index/weichat/code" alt="">
+                        <img src="http://test.edefang.net/index/weichat/code" alt="" class="erma">
                         <span>微信扫码拨号</span>
                     </div>
-                    <div class="saoma_box kaifa">
-                          <p>正在开发中...</p>
+                    <div class=" kaifa">
+                        <img src="/static/home/imgs/waiting_lv.png" alt="">
                     </div>
-                    <div class="saoma_box kaifazi">
-                        <p>正在开发中...</p>
+                    <div class=" kaifazi">
+                        <img src="/static/home/imgs/waiting_lv.png" alt="">
                     </div>
                 </div>       
             <!-- <footer class="container-fluid visible-md-block visible-lg-block">
@@ -2857,13 +2857,27 @@ window.onscroll=function(){
                    'position':'fixed',
                    "top":"0px"
                })
+               $('.m-me').css({
+                   "top":"44px"
+               })
             }else {
                 $('.m-menu').css({
                    'position':'relative',
                })
+               $('.m-me').css({
+                   'top':'92px',
+               })
             }
 }
 
+$('.m-box').click(function(){
+                  $('.m-qu').hide();
+                  $('.m-jia').hide();
+                  $('.m-hu').hide();
+                  $('.m-shan').hide();
+                   $('.m-pai').hide();
+                   $(this).hide();
+        })
     </script>
 </body>
 

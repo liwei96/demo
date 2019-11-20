@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\news\index.html";i:1574151122;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\news\index.html";i:1574230944;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1043,7 +1043,7 @@
                  <div class="pages">
                         <span id="back"><<</span>
                         <ul class="page">
-                            <?php $__FOR_START_1507436778__=0;$__FOR_END_1507436778__=$page;for($i=$__FOR_START_1507436778__;$i < $__FOR_END_1507436778__;$i+=1){ if($i<7): ?>
+                            <?php $__FOR_START_1602406520__=0;$__FOR_END_1602406520__=$page;for($i=$__FOR_START_1602406520__;$i < $__FOR_END_1602406520__;$i+=1){ if($i<7): ?>
                             <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                             <?php endif; } ?>
                         </ul>
@@ -1156,14 +1156,14 @@
 
 
         <div class="saoma_box bohao">
-            <img src="http://test.edefang.net/index/weichat/code" alt="">
+            <img src="http://test.edefang.net/index/weichat/code" alt="" class="erma">
             <span>微信扫码拨号</span>
         </div>
-        <div class="saoma_box kaifa">
-              <p>正在开发中...</p>
+        <div class="kaifa">
+            <img src="/static/home/imgs/waiting_lv.png" alt="">
         </div>
-        <div class="saoma_box kaifazi">
-            <p>正在开发中...</p>
+        <div class="kaifazi">
+            <img src="/static/home/imgs/waiting_lv.png" alt="">
         </div>
 </div>
 
