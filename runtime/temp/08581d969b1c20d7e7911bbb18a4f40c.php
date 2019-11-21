@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\index\jiao.html";i:1574132014;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\index\jiao.html";i:1574313931;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,6 +98,13 @@
             line-height: 18px;
             text-indent: 14%;
         }
+        .m-xuan img{
+                height:34px;
+                position: fixed;
+                right:0;
+                bottom:140px;
+                z-index: 10000;
+            }
         </style>
 </head>
 <body>
@@ -125,6 +132,10 @@
             </a>
             </div>
             <?php endforeach; ?>
+             <!-- 留言悬浮框 -->
+        <div class="m-xuan visible-xs-block .visible-sm-block">
+                <img src="/static/home/imgs/new_liu.png" alt="">
+           </div>
     </div>
     <script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
@@ -132,7 +143,9 @@
         </script>
     <script>
         $(document).ready(function(){
-            
+            $('.m-xuan').on('click', function () {
+                window.location.href = "<?php echo url('home/index/lius'); ?>";
+            })
         })
     </script>
 </body>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\search\tuan.html";i:1574241317;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\search\tuan.html";i:1574301962;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1427,7 +1427,7 @@
                 <div class="pages">
                     <span id="back"><<</span>
                     <ul class="page">
-                        <?php $__FOR_START_439408790__=0;$__FOR_END_439408790__=$page;for($i=$__FOR_START_439408790__;$i < $__FOR_END_439408790__;$i+=1){ if($i<7): ?>
+                        <?php $__FOR_START_2086520717__=0;$__FOR_END_2086520717__=$page;for($i=$__FOR_START_2086520717__;$i < $__FOR_END_2086520717__;$i+=1){ if($i<7): ?>
                         <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                         <?php endif; } ?>
                     </ul>
@@ -2785,7 +2785,7 @@ $('#cy').on('click',function(){
                     p = p + 1;
                 }             });
             $('.m-map').on('click', function () {
-                window.location.href = "<?php echo url('/home/index/map'); ?>"
+                window.location.href = "<?php echo url('home/index/map'); ?>"
             })
             $('.m-shuoming').on('click', function () {
                 $('.m-introduce').show(300);

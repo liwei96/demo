@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\depth.html";i:1571801109;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\depth.html";i:1574131493;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -325,7 +325,6 @@
 
         /* 留言 */
     .m-xuan img{
-        width:24.8%;
         height:34px;
         position: fixed;
         right:0; 
@@ -353,7 +352,7 @@
         </div>
         <!-- 留言 -->
         <div class="m-xuan visible-xs-block .visible-sm-block" data-v="<?php echo $data['building_name']; ?>">
-            <img src="/static/home/imgs/m-liu.png" alt="">
+            <img src="/static/home/imgs/new_liu.png" alt="">
         </div>
         <div class="m-botnav visible-xs-block .visible-sm-block">
             <p data-agl-cvt="5" id="m_shou" data_v="<?php echo $data['id']; ?>"><?php if(in_array($data['id'],\think\Session::get('fork'))): ?><img

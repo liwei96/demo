@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:61:"G:\jiayuan\tp2\public/../application/home\view\index\liu.html";i:1573790296;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:61:"G:\jiayuan\tp2\public/../application/home\view\index\liu.html";i:1574298994;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -265,7 +265,7 @@
             <h3>留言提问</h3>
         </div>
         <div class="m-liu visible-xs-block .visible-sm-block">
-            <img src="/static/home/imgs/lt.png" alt="">
+            <img src="/static/home/imgs/yue.jpg" alt="">
             <!-- <h5>电话</h5>
            <input class="tel" type="text" placeholder="输入您的手机号码"> -->
            <h5>留言</h5>

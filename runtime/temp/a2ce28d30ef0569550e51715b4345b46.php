@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\index.html";i:1574216697;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\index.html";i:1574323238;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -372,7 +372,7 @@ var _hmt = _hmt || [];
                 <ul>
                     <li>单价&nbsp;:&nbsp;&nbsp;&nbsp;<span class="m-pric"><span><?php echo $data['danjia']; ?></span>元/m²起</span></li>
                     <li>装修&nbsp;:&nbsp;&nbsp;&nbsp;<span><?php echo $data['building_zhuangxiu']; ?></span></li>
-                    <li>层高&nbsp;:&nbsp;&nbsp;&nbsp;<span><?php echo $data['cenggao']; ?></span></li>
+                    <li>层高&nbsp;:&nbsp;&nbsp;&nbsp;<span><?php echo $data['cenggao']; ?>米</span></li>
                 </ul>
                 <ul>
                     <li>类型&nbsp;:&nbsp;&nbsp;&nbsp;<span class="m-pric"><span><?php echo $data['building_xingshi']; ?></span></span></li>
@@ -389,7 +389,7 @@ var _hmt = _hmt || [];
         <div class="m-image visible-xs-block .visible-sm-block">
 	
 		     <a data-agl-cvt="2" href="tel:400-718-6686">
-               <img src="/static/home/imgs/phone.png" alt="">
+               <img src="/static/home/imgs/phone22.png" alt="">
             </a>
 	    
 	
@@ -401,18 +401,18 @@ var _hmt = _hmt || [];
             <div class="m-tai m-d">
                 <h4><img src="/static/home/imgs/dt.png" alt=""><?php echo $data['building_name']; ?>最新房源动态</h4>
                 <p><?php echo $v['introduce']; ?></p>
-                <span>最近更新时间：<?php echo $v['create_time']; ?></span>
+                <span>更新：<?php echo $v['create_time']; ?></span>
             </div>
             <?php endforeach; ?>
             
             <div class="m-d-jiao m-d m-jiaofang">
-                <h4><img src="/static/home/imgs/jf.png" alt="">预计交房时间：<?php echo $data['jiaotime']; ?></h4>
+                <h4><img src="/static/home/imgs/jf.png" alt="">交房时间：<?php echo $data['jiaotime']; ?></h4>
             </div>
 	    <?php foreach($jia as $v): ?>
             <div class="m-d-jia m-d">
-                <h4><img src="/static/home/imgs/jt.png" alt="">最新加推时间：<?php echo $v['create_time']; ?></h4>
+                <h4><img src="/static/home/imgs/jt.png" alt="">加推时间：<?php echo $v['create_time']; ?></h4>
                 <p><?php echo $v['introduce']; ?></p>
-                <span>最近更新时间：<?php echo $v['create_time']; ?></span>
+                <span>更新：<?php echo $v['create_time']; ?></span>
             </div>
             <?php endforeach; ?>
             <div class="m-d-jiao m-d m-shoukai">
@@ -488,10 +488,8 @@ var _hmt = _hmt || [];
                       <div class="swiper-slide dui-box">
                           <div class="tou-con">
                                 <h4>投资分析</h4>
-                                <p>
-                                        1.“周边小区价格都在5万之上”
-                                        2.“正对面西溪蝶园的租金在4500之上”
-                                 </p>
+                                <p> 1.&nbsp;<?php echo $tou['cone']; ?></p>
+                                <p> 2.&nbsp;<?php echo $tou['ctwo']; ?> </p>
                           </div>
                           <div class="tou-img">
                               <img src="/static/home/imgs/pc-db.png" alt="">
@@ -501,13 +499,11 @@ var _hmt = _hmt || [];
                       <div class="swiper-slide dui-box">
                             <div class="tou-con">
                                     <h4>宜居分析</h4>
-                                    <p>
-                                            1.“地铁5号线上盖，5号线被誉为换乘之王，贯穿整个杭城，”
-                                            2.“周边集结各大商业中合体 西溪龙湖天街 城西银泰 泰禾医疗”
-                                     </p>
+                                    <p>1.&nbsp;<?php echo $yi['cone']; ?></p>
+                                    <p> 2.&nbsp;<?php echo $yi['ctwo']; ?></p>
                               </div>
                               <div class="tou-img">
-                                  <img src="/static/home/imgs/pc-db.png" alt="">
+                                  <img src="/static/home/imgs/yiju.png" alt="">
                               </div> 
                       </div>
                     
@@ -1495,9 +1491,7 @@ var _hmt = _hmt || [];
                             that.html(html)
                             
                         }else{
-                            $('.m-chang').show();
-                            $('#m_ti').html(res.msg);
-                            $('#m_ti').show();
+                            window.location.href="<?php echo url('home/user/login'); ?>";
                         }
                     },
                     'json'

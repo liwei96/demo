@@ -167,9 +167,12 @@
                 console.log($(this).text())
                 var s=$(this).text();
                 if('{$end}'=='index' || '{$end}'=='search'){
-                    window.location.href="/home/search/index/type/"+s;
+                    // window.location.href="/home/search/index/type/"+0;
+                    window.location.href="{:url('home/search/index',['type'=>0])}";
+
                 }else if('{$end}'=='tuan'){
-                    window.location.href="/home/search/tuan/type/"+s;
+                    // window.location.href="/index.php/tuan/"+s;
+                    window.location.href="{:url('home/search/tuan',['type'=>0])}";
                 }
             })
         })

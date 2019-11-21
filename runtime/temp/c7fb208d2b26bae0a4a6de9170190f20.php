@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:61:"G:\jiayuan\tp2\public/../application/home\view\index\buy.html";i:1574230752;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:61:"G:\jiayuan\tp2\public/../application/home\view\index\buy.html";i:1574308048;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -806,6 +806,13 @@ body {
             color:#52CC7A;
       }
 
+      .m-xuan img{
+                height:34px;
+                position: fixed;
+                right:0;
+                bottom:140px;
+                z-index: 10000;
+            }
 
     </style>
 </head>
@@ -1540,8 +1547,12 @@ body {
                                 5
                             
                             </div>
+                            
                       </div>
-                    
+                       <!-- 留言悬浮框 -->
+                    <div class="m-xuan visible-xs-block .visible-sm-block">
+                        <img src="/static/home/imgs/new_liu.png" alt="">
+                   </div>
                     </div>     
 
 
@@ -2015,6 +2026,9 @@ $('#find').on('click',function(){
                     $(".home_search").val(value);
             })
 
+            $('.m-xuan').on('click', function () {
+                window.location.href = "<?php echo url('home/index/lius'); ?>";
+            })
 
 
     </script>

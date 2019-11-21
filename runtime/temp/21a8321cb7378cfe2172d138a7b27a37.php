@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"G:\jiayuan\tp2\public/../application/home\view\content\dong.html";i:1568269595;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"G:\jiayuan\tp2\public/../application/home\view\content\dong.html";i:1574308553;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -368,6 +368,14 @@
             line-height:24px;
             margin:0;
         }
+
+        .m-xuan img{
+                height:34px;
+                position: fixed;
+                right:0;
+                bottom:140px;
+                z-index: 10000;
+            }
         
     </style>
 </head>
@@ -467,6 +475,16 @@
             <?php endforeach; ?>
         </div>
     </div>
+      <!-- 留言悬浮框 -->
+      <div class="m-xuan visible-xs-block .visible-sm-block">
+            <img src="/static/home/imgs/new_liu.png" alt="">
+    </div>
 </body>
+<script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+      $('.m-xuan').on('click', function () {
+                window.location.href = "<?php echo url('home/index/lius'); ?>";
+      })
 
+</script>
 </html>

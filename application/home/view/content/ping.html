@@ -153,6 +153,14 @@
       
 
 
+.m-xuan img{
+                height:34px;
+                position: fixed;
+                right:0;
+                bottom:140px;
+                z-index: 10000;
+            }
+
 
    
 
@@ -186,7 +194,13 @@
                 </div>
                 {/foreach}
             </div>
+            
         </div>
+
+          <!-- 留言悬浮框 -->
+          <div class="m-xuan visible-xs-block .visible-sm-block">
+                <img src="/static/home/imgs/new_liu.png" alt="">
+           </div>
     </div>
 
 
@@ -228,6 +242,10 @@
                     )
                 }
                 
+            })
+
+            $('.m-xuan').on('click', function () {
+                window.location.href = "{:url('home/index/lius')}";
             })
 	   
         })

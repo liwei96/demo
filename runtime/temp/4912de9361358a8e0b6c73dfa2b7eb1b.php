@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\dongs.html";i:1573809612;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\dongs.html";i:1574308623;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -481,6 +481,14 @@ border-radius:3px;
     outline: none;
     border:none;
 }
+
+ .m-xuan img{
+                height:34px;
+                position: fixed;
+                right:0;
+                bottom:140px;
+                z-index: 10000;
+            }
     </style>
 </head>
 
@@ -597,7 +605,10 @@ border-radius:3px;
             <?php endforeach; ?>
         </div>
 
-      
+        <!-- 留言悬浮框 -->
+        <div class="m-xuan visible-xs-block .visible-sm-block">
+            <img src="/static/home/imgs/new_liu.png" alt="">
+       </div>
 
     </div>
 </body>
@@ -606,6 +617,9 @@ border-radius:3px;
     // 帮我找房
     $('#help').on('click',function(){
                 window.location.href="<?php echo url('home/user/yue'); ?>"
+            })
+              $('.m-xuan').on('click', function () {
+                window.location.href = "<?php echo url('home/index/lius'); ?>";
             })
 </script>
 </html>

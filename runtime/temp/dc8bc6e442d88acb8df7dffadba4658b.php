@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\search\search.html";i:1574241032;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\search\search.html";i:1574328634;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -174,10 +174,13 @@
          .tiao{
              width:100%;
              padding-top:30px;
-             height:460px;
+             height:410px;
              z-index: 20000;
              position: relative;
          }
+         /* .tiao:after{
+            content: "."; display: block; height: 0; clear: both; visibility: hidden;
+         } */
          .tiao .col span{
              display: inline-block;
              color:#333333;
@@ -188,10 +191,11 @@
          }
         .tiao .c3{
             margin-top: 8px;
-                margin-bottom: 8px;
+                margin-bottom: 0px;
         }
         .tiao .c5{
-            margin-bottom:8px;
+            /* margin-bottom:8px; */
+            margin-top:4px;
         }
         .tiao .c4{
             margin-bottom:8px;
@@ -220,7 +224,7 @@
             font-weight: bold;
         }
          .tiao .c2 span{
-             top:-96px;
+             top:-63px;
          }
          .tiao .c5 span{
              top:-40px;
@@ -239,7 +243,7 @@
              float: left;
              color:#666666;
              font-size: 14px;
-             margin-right:36px;
+             margin-right:24px;
              cursor: pointer;
          }
          .tiao .col .ars ul li:hover{
@@ -266,9 +270,15 @@
          .tiao #address1{
              display: none;
          }
+         .tiao .tese ul li {
+            line-height: 26px!important;
+         }
+         .tiao .resou ul li {
+            margin-right: 43px!important;  
+         }
          .tiao .col ul li{
              float:left;
-             margin-right: 36px;
+             margin-right: 23px;
              font-size: 14px;
              color:#666666;
              cursor: pointer;
@@ -291,7 +301,8 @@
              display: inline-block;
          }
          .c1{
-             height:68px;
+             height:63px;
+             margin-top:7px;
          }
          .c1 span{
              top:-15px;
@@ -314,20 +325,85 @@
              font-style: normal;
          }
 
-         .tiao .c4 ul li{
+         .tiao .c4 #s_list li{
              margin-right: 77px;
          }
+         .tiao .c4 .dan ol{
+               position:absolute;
+               width:115px;
+               height:auto;
+               background:#fff;
+               text-align:center;
+            z-index:200; 
+            top:36px;
+            left:45px;
+            border-radius: 4px;
+            box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.12);
+            cursor:pointer;
+            line-height: 32px;
+         }
+         .tiao .dan ol li:hover{
+	      background-color:#E6FFEB;
+	      color:#2FBF4A;
+        }
+        .tiao .lei ol li:hover{
+	      background-color:#E6FFEB;
+	      color:#2FBF4A;
+        }
+        .tiao .kai ol li:hover{
+	      background-color:#E6FFEB;
+	      color:#2FBF4A;
+	    }
+         .tiao .c4 .lei ol{
+               position:absolute;
+               width:115px;
+               height:auto;
+               background:#fff;
+               text-align:center;
+               z-index:200;
+               top:36px;
+               left:167px;
+               border-radius: 4px;
+            box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.12);
+            cursor:pointer;
+            line-height: 32px;
+         }
+         .tiao .c4 .kai ol{
+               position:absolute;
+               width:115px;
+               height:auto;
+               background:#fff;
+               text-align:center;
+            z-index:200;
+            top:36px;
+            left:295px;
+            border-radius: 4px;
+           box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.12);
+           cursor:pointer;
+           line-height: 32px;
+         }
+         /* .tiao .c4 .dan ul{
+               display:block!important;
+         } */
          .c4 ul li img{
              width:14px;
              margin-left:4px;
+         }
+         .c4 {
+               position:relative;
          }
          .c4 .s{
              background-color: #fff;
              padding-left:7%;
              display: none;
+             /* position: absolute; */
+             width:40px;
+             height:auto;
+
          }
+         
          .tiao .box .c4 .s ul{
-             width:100%;
+             /* width:100%; */
          }
          .tiao .box .col .now{
              color:#2FBF4A;
@@ -1200,13 +1276,13 @@
                             <li class="now" data-v="q">区域<img src="/static/home/imgs/up.png" alt=""></li>
                             <li data-v="t">地铁<img src="/static/home/imgs/down1.png" alt=""></li>
                         </ul>
-                        <ul id="address" style="height:71px;">
+                        <ul id="address" style="height:38px;">
                             <li data-v="0" class="active">不限</li>
                             <?php foreach($cates as $v): ?>
                             <li data-v="<?php echo $v['id']; ?>"><?php echo $v['area_name']; ?></li>
                             <?php endforeach; ?>
                         </ul>
-                        <ul id="address1" style="height:71px;">
+                        <ul id="address1" style="height:38px;">
                             <li data-v="0" class="active">不限</li>
                             <?php foreach($ties as $v): ?>
                             <li data-v="<?php echo $v; ?>"><?php echo $v; ?></li>
@@ -1243,7 +1319,7 @@
                         <?php endforeach; ?>
                     </ul>
                 </div>
-                <div class="col c5">
+                <div class="col c5 tese">
                     <span>特色</span>
                     <ul>
                         <li data-v="0">不限</li>
@@ -1260,31 +1336,31 @@
                         <li>开发商<img src="/static/home/imgs/down1.png" alt=""></li>
                     </ul>
                     <div class="s dan">
-                        <ul>
+                        <ol>
                             <li data-v="0" class="active">不限</li>
                             <?php foreach($dans as $v): ?>
                             <li data-v="<?php echo $v; ?>"><?php echo $v; ?></li>
                             <?php endforeach; ?>
-                        </ul>
+                        </ol>
                     </div>
                     <div class="s lei">
-                        <ul>
+                        <ol>
                             <li data-v="0" class="active">不限</li>
                             <?php foreach($xings as $v): ?>
                             <li data-v="<?php echo $v; ?>"><?php echo $v; ?></li>
                             <?php endforeach; ?>
-                        </ul>
+                        </ol>
                     </div>
                     <div class="s kai">
-                        <ul>
+                        <ol>
                             <li data-v="0" class="active">不限</li>
                             <?php foreach($kais as $v): ?>
                             <li data-v="<?php echo $v; ?>"><?php echo $v; ?></li>
                             <?php endforeach; ?>
-                        </ul>
+                        </ol>
                     </div>
                 </div>
-                <div class="col c6">
+                <div class="col c6   resou">
                     <img src="/static/home/imgs/fire.png" alt="">
                     <ul>
                         <li class="first">热搜楼盘</li>
@@ -1338,7 +1414,7 @@
                 <div class="pages">
                     <span id="back"><<</span>
                     <ul class="page">
-                        <?php $__FOR_START_1726623973__=0;$__FOR_END_1726623973__=$page;for($i=$__FOR_START_1726623973__;$i < $__FOR_END_1726623973__;$i+=1){ if($i<7): ?>
+                        <?php $__FOR_START_337294347__=0;$__FOR_END_337294347__=$page;for($i=$__FOR_START_337294347__;$i < $__FOR_END_337294347__;$i+=1){ if($i<7): ?>
                         <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                         <?php endif; } ?>
                     </ul>
@@ -1624,7 +1700,7 @@
                     <ul>
                         <form id="hu" class=" col-xs-12 col-sm-12" onsubmit="return false" action="##" method="POST">
                                 <li class=" col-xs-12 col-sm-12">
-                                        <span>无限</span>
+                                        <span>不限</span>
                                         <input type="checkbox" name="wuxian" value="<?php echo $v; ?>" id="">
                                </li>
                         <?php foreach($hus as $v): ?>
@@ -2325,11 +2401,11 @@
                 if(type=='q'){
                     $('#address').show();
                     $('#address1').hide();
-                    $('.no').css('top','-96px');
+                    $('.no').css('top','-63px');
                 }else{
                     $('#address').hide();
                     $('#address1').css('display','inline-block');
-                    $('.no').css('top','-96px');
+                    $('.no').css('top','-63px');
                 }
             })
             $('#find').on('click',function(){
@@ -2347,7 +2423,7 @@
     <script>
         $(document).ready(function(){
                      $('.m-map').on('click',function(){
-                window.location.href="<?php echo url('/home/index/map'); ?>"
+                window.location.href="<?php echo url('home/index/map'); ?>"
             })
             var s=$('.m-list').html();
             if(s.length==25){
@@ -2416,7 +2492,7 @@
                     function(data){
                         // console.log(data);
                         var html="";
-                        if(data.length>0){
+                        if(data.length>1){
                             $.each(data,function(i,v){
                                 html+=`
                                 <div class="col-xs-12 m-row">
@@ -2580,7 +2656,7 @@
                         $('.m-box').show();
                     }
                     $(this).siblings('li').removeClass('m-as');
-                    
+                    $(this).parent('ul').next().removeClass('m-as');
             })
             $('.m-sort').on('click',function(){
                     $('.m-pai').slideToggle('fast');
@@ -2596,7 +2672,7 @@
                         $(this).addClass('m-as');
                         $('.m-box').show();
                     }
-
+                    $(this).prev().children('li').removeClass('m-as');
                     
             })
             // 留言页跳转
@@ -2660,14 +2736,14 @@
   	   
             $(document).scroll(function(){
                 var scrollTop = $(this).scrollTop();               
-                var scrollHeight = $(document).height();                   
+                var scrollHeight = $(window).height();                   
                 var windowHeight = $(this).height(); 
 	                         
-                if(scrollTop + windowHeight >= scrollHeight){       
+                if(scrollTop + scrollHeight >= windowHeight){       
                         pull(p,0);
                         p=p+1;
                 }            
-	   });
+	        });
 
 
        //懒加载

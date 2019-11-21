@@ -98,16 +98,16 @@ class User extends Controller
     }
 
     public function find(){
-        if(Session::has('user')){
+        // if(Session::has('user')){
             $hus=Attribute::where('id',7)->column('attr_values')[0];
             $hus=explode(',',$hus);
             $tes=Attribute::where('id',9)->column('attr_values')[0];
             $tes=explode(',',$tes);
             $areas=Category::where('pid',1)->select();
             return view('find',['hus'=>$hus,'tes'=>$tes,'areas'=>$areas]);
-        }else{
-            $this->redirect('home/user/login',['type'=>'帮我找房']);
-        }
+        // }else{
+        //     $this->redirect('home/user/login',['type'=>'帮我找房']);
+        // }
     }
 
 

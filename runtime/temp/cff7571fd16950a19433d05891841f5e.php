@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\content\hus.html";i:1571798359;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\content\hus.html";i:1574308659;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -413,7 +413,13 @@
             top: 0;
             display: none;
         }
-
+        .m-xuan img{
+                height:34px;
+                position: fixed;
+                right:0;
+                bottom:140px;
+                z-index: 10000;
+            }
     </style>
 </head>
 <body>
@@ -495,6 +501,10 @@
                 <button id="o_btn">确定</button>
             </div>
             <div id="m_ti"></div>
+             <!-- 留言悬浮框 -->
+          <div class="m-xuan visible-xs-block .visible-sm-block">
+                <img src="/static/home/imgs/new_liu.png" alt="">
+           </div>
         </div>
         
     </div>
@@ -735,6 +745,11 @@
             }
             
         })
+
+
+        $('.m-xuan').on('click', function () {
+                window.location.href = "<?php echo url('home/index/lius'); ?>";
+            })
     })
     </script>
 </body>

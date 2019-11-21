@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\jiayuan\tp2\public/../application/home\view\content\daimore.html";i:1573977000;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\jiayuan\tp2\public/../application/home\view\content\daimore.html";i:1574131475;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -364,7 +364,6 @@
 
     /* 留言 */
     .m-xuan img{
-        width:24.8%;
         height:34px;
         position: fixed;
         right:0;
@@ -745,7 +744,7 @@
         </div>
         <!-- 留言 -->
         <div class="m-xuan visible-xs-block .visible-sm-block" data-v="<?php echo $data['building_name']; ?>">
-            <img src="/static/home/imgs/m-liu.png" alt="">
+            <img src="/static/home/imgs/new_liu.png" alt="">
         </div>
     </div>
       <!-- 咨询弹框 -->

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1574241978;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1574318717;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1239,8 +1239,7 @@
                             <a href="<?php echo url('home/content/content',['id'=>$v['id']]); ?>">
                                 <i></i>
                                 <span class="biao">楼盘推荐</span>
-                                <!-- <img src="<?php echo $v['building_img']; ?>" alt=""> -->
-                                <img src="http://api.jy1980.com/uploads/20190621/d4574d4d9e6f77fd6b663b2bbc231164.jpg" alt="">
+                                <img src="<?php echo $v['building_img']; ?>" alt=""> 
                                 <div class="tuan-bottom">
                                     <h3><?php echo $v['building_name']; ?></h3>
                                     <h4><?php echo \think\Cookie::get('cityname'); ?></h4>
@@ -1749,7 +1748,7 @@
                             <p class="m-xiang">
                                 <span><?php echo $v['city']; ?>-<?php echo $v['qu']; ?></span>
                                 <span>建面</span>
-                                <span><?php echo $v['jianji']; ?>m²</span>
+                                <span><?php echo $v['humianji']; ?>m²</span>
                             </p>
                             <p class="m-icon">
                                 <span class="m-p-2"><?php echo $v['building_zhuangxiu']; ?></span>
@@ -1788,7 +1787,7 @@
                         <p class="m-xiang">
                             <span><?php echo $v['city']; ?>-<?php echo $v['qu']; ?></span>
                             <span>建面</span>
-                            <span><?php echo $v['jianmian']; ?>m²</span>
+                            <span><?php echo $v['humianji']; ?>m²</span>
                         </p>
                         <p class="m-icon">
                             <span class="m-p-2"><?php echo $v['zhuangxiu']; ?></span>
@@ -1846,8 +1845,7 @@
                                     <span><?php echo $v['create_time']; ?></span>
                                 </div>
                             </div>
-                            <img class="col-xs-4" src="https://www.jy1980.com/uploads/20190514/thumb_800_3e5372713c707cce5d50862a9f230ff2.jpg" alt="">
-                            <!-- <img class="col-xs-4" src="<?php echo $v['img']; ?>" alt=""> -->
+                            <img class="col-xs-4" src="<?php echo $v['img']; ?>" alt=""> 
                         </div>
                         </a>
                   </div>
@@ -1892,26 +1890,34 @@ var _hmt = _hmt || [];
 })();
 </script>
     <script>
-             var swiper = new Swiper('.swiper-box', {
+             var swiper01 = new Swiper('.swiper-box', {
                 slidesPerView: 2.4,
                 spaceBetween: 12,
+                observer:true,
+                observeParents:true,
              });
-                var swiper = new Swiper('.swiper-box-tui', {
-                slidesPerView: 2.6,
+                var swiper02 = new Swiper('.swiper-box-tui', {
+                slidesPerView: 2.4,
                 spaceBetween: 12,
+                observer:true,
+                observeParents:true,
                 });
                 
-                var swiper = new Swiper('.swiper-box2', {
-                slidesPerView: 2.6,
+                var swiper03 = new Swiper('.swiper-box2', {
+                slidesPerView: 2.4,
                 spaceBetween: 12,
+                observer:true,
+                observeParents:true,
                 });
-                var swiper = new Swiper('.swiper-box3', {
-                slidesPerView: 2.6,
+                var swiper04 = new Swiper('.swiper-box3', {
+                slidesPerView: 2.4,
                 spaceBetween: 12,
+                observer:true,
+                observeParents:true,
                 });
 
 
-        var swiper = new Swiper('.swiper-container', {
+        var swiper05 = new Swiper('.swiper-container', {
              slidesPerView: 6.5,
             spaceBetween: 14,
              centeredSlides: true,
@@ -1940,7 +1946,7 @@ var _hmt = _hmt || [];
             })
             // 帮我找房
             $('#help').on('click',function(){
-                window.location.href="<?php echo url('home/user/yue'); ?>"
+                window.location.href="<?php echo url('home/user/find'); ?>"
             })
             // 留言提交
             $('#l_btn').on('click',function(){

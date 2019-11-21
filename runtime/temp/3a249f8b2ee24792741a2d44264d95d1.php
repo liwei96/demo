@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\jiayuan\tp2\public/../application/home\view\content\content.html";i:1574232745;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\jiayuan\tp2\public/../application/home\view\content\content.html";i:1574308350;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -182,6 +182,7 @@
              position: absolute;
              top:28px;
              right:32px;
+             cursor: pointer;
          }
          .tan .ts .t-bottom{
              height:150px;
@@ -273,6 +274,7 @@
             text-align: center;
             line-height: 44px;
             margin-top:16px;
+            cursor: pointer;
         }
         .tan .ts .t-bottom .t-b-first{
             display: block;
@@ -724,7 +726,7 @@
             z-index: 20000;
         }
 
-        .tan .ts {
+        .tan .login {
             display: none;
             width: 500px;
             height: 380px;
@@ -736,7 +738,7 @@
             z-index: 20001;
         }
 
-        .tan .ts .t-top {
+        .tan .login .t-top {
             height: 140px;
             background-color: #2DD264;
             text-align: center;
@@ -744,7 +746,7 @@
             border-radius: 20px 20px 0px 0px;
         }
 
-        .tan .ts .t-top h6 {
+        .tan .login .t-top h6 {
             color: #FFFFFF;
             font-size: 20px;
             font-weight: bold;
@@ -752,14 +754,14 @@
             top: 28px;
         }
 
-        .tan .ts .t-top p {
+        .tan .login .t-top p {
             color: #FFFFFF;
             font-size: 18px;
             position: relative;
             top: 58px;
         }
 
-        .tan .ts .t-top img {
+        .tan .login .t-top img {
             width: 16px;
             height: 16px;
             position: absolute;
@@ -767,7 +769,7 @@
             right: 32px;
         }
 
-        .tan .ts .t-bottom {
+        .tan .login .t-bottom {
             height: 240px;
             background-color: #fff;
             padding-top: 30px;
@@ -775,7 +777,7 @@
             border-radius: 0px 0px 20px 20px;
         }
 
-        .tan .ts .t-bottom input {
+        .tan .login .t-bottom input {
             width: 350px;
             border: 0px;
             border-bottom: 1px solid #F2F2F2;
@@ -787,25 +789,25 @@
             font-size: 24px;
         }
 
-        .tan .ts .t-bottom input::-webkit-input-placeholder {
+        .tan .login .t-bottom input::-webkit-input-placeholder {
             /* WebKit browsers */
             color: #999;
             font-size: 18px;
         }
 
-        .tan .ts .t-bottom input::-moz-placeholder {
+        .tan .login .t-bottom input::-moz-placeholder {
             /* Mozilla Firefox 19+ */
             color: #999;
             font-size: 18px;
         }
 
-        .tan .ts .t-bottom input:-ms-input-placeholder {
+        .tan .login .t-bottom input:-ms-input-placeholder {
             /* Internet Explorer 10+ */
             color: #999;
             font-size: 18px;
         }
 
-        .tan .ts .t-bottom span {
+        .tan .login .t-bottom span {
             border: 1px solid #2DD264;
             color: #2DD264;
             font-size: 16px;
@@ -820,7 +822,7 @@
             cursor: pointer;
         }
 
-        .tan .ts .t-bottom button {
+        .tan .login .t-bottom button {
             width: 300px;
             height: 44px;
             margin-left: 100px;
