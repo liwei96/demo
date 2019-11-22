@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\search\search.html";i:1574328634;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\search\search.html";i:1574413732;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -174,7 +174,7 @@
          .tiao{
              width:100%;
              padding-top:30px;
-             height:410px;
+             height:340px;
              z-index: 20000;
              position: relative;
          }
@@ -226,9 +226,7 @@
          .tiao .c2 span{
              top:-63px;
          }
-         .tiao .c5 span{
-             top:-40px;
-         }
+         
          .tiao .col .ars{
              display: inline-block;
              width:90%;
@@ -299,17 +297,24 @@
          }
          .tiao .col p{
              display: inline-block;
+             margin-left: -55px;
          }
          .c1{
-             height:63px;
+             height:28px;
              margin-top:7px;
+         }
+         .zongjia{
+              position:relative;
+         }
+         .zongjia ul{
+               width:auto!important;
          }
          .c1 span{
              top:-15px;
          }
          .c1 p{
             position: relative;
-            top: 0;
+            top: -11px;
             left: 80px;
          }
          .c1 button{
@@ -318,8 +323,8 @@
              height:22px;
              background-color: #1CB64F;
              color:#fff;
-             font-size: 16px;
-	    border-radius:2px;
+             font-size: 14px;
+	         border-radius:2px;
          }
          .c1 p i{
              font-style: normal;
@@ -634,6 +639,7 @@
              font-size: 14px;
              margin-left:18px;
              border-radius: 3px;
+             cursor: default;
          }
          .buildings .row .right p{
              color: #808080;
@@ -713,10 +719,15 @@
             font-size: 16px;
             margin-right:10px;
             cursor: pointer;
+            border-radius:4px;
          }
          .buildings .page li.active{
-             color:#3AC869;
-             border:1px solid #3AC869;
+             color:#fff;
+             background:#3AC869;
+         }
+         .buildings .page li:hover{
+             color:#fff;
+             background:#3AC869;
          }
          .buildings .pages span{
             font-size: 16px;
@@ -730,6 +741,7 @@
             text-align: center;
             line-height: 36px;
             margin-top: 38px;
+            border-radius:4px;
          }
          .buildings #back{
              margin-right: 11px;
@@ -1290,20 +1302,16 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col c1">
+                <div class="col c1 zongjia">
                     <span>总价</span>
                     <ul>
                         <li data-v="0">不限</li>
                         <li data-v="0-100">100万以下</li>
                         <li data-v="100-150">100-150万</li>
                         <li data-v="150-200">150-200万</li>
-                        <li data-v="200-250">200-250万</li>
-                        <li data-v="250-300">250-300万</li>
-                        <li data-v="300-350">300-350万</li>
-                        <li data-v="350-400">350-400万</li>
-                        <li data-v="400-450">400-450万</li>
-                        <li data-v="450-500">450-500万</li>
-                        <li data-v="500-">500万以上</li>
+                        <li data-v="200-300">200-300万</li>
+                        <li data-v="300-500">300-500万</li>
+                        <li data-v="500-5000000">500万以上</li>
                     </ul>
                     <p>
                             <input type="text"> — <input type="text">&nbsp;&nbsp;<i>万 </i> &nbsp;&nbsp;&nbsp;<button id="btn">确定</button>
@@ -1338,9 +1346,13 @@
                     <div class="s dan">
                         <ol>
                             <li data-v="0" class="active">不限</li>
-                            <?php foreach($dans as $v): ?>
-                            <li data-v="<?php echo $v; ?>"><?php echo $v; ?></li>
-                            <?php endforeach; ?>
+                            <li data-v="1-10000">一万以下</li>
+                            <li data-v="10000-14999">1万-1.5万</li>
+                            <li data-v="15000-19999">1.5万-2万</li>
+                            <li data-v="20000-29999">2万-3万</li>
+                            <li data-v="30000-39999">3万-4万</li>
+                            <li data-v="40000-60000">4万-6万</li>
+                            <li data-v="60000-50000000000">6万以上</li>
                         </ol>
                     </div>
                     <div class="s lei">
@@ -1379,7 +1391,7 @@
                     <span id="mo" class="active">默认排序<i></i></span>
                     <span id="danj">单价排序<i></i></span>
                     <span id="kai">开盘时间<i></i></span>
-                    <p>为您找到<span><?php echo $num; ?></span>套楼盘</p>
+                    <p>为您找到<span id="allnum"><?php echo $num; ?></span>套楼盘</p>
                 </div>
                 <div id="cont">
                         <?php foreach($data as $v): ?>
@@ -1414,7 +1426,7 @@
                 <div class="pages">
                     <span id="back"><<</span>
                     <ul class="page">
-                        <?php $__FOR_START_337294347__=0;$__FOR_END_337294347__=$page;for($i=$__FOR_START_337294347__;$i < $__FOR_END_337294347__;$i+=1){ if($i<7): ?>
+                        <?php $__FOR_START_1750801704__=0;$__FOR_END_1750801704__=$page;for($i=$__FOR_START_1750801704__;$i < $__FOR_END_1750801704__;$i+=1){ if($i<7): ?>
                         <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                         <?php endif; } ?>
                     </ul>
@@ -1681,16 +1693,23 @@
                 <div class="m-two col-xs-8 col-sm-8">
                     <ul id="zong">
                         <li class="m-l-active" data-v="0">不限</li>
-                        <?php foreach($zongs as $v): ?>
-                        <li data-v="<?php echo $v; ?>"><?php echo $v; ?>万</li>
-                        <?php endforeach; ?>
-                        
+                            
+                            <li data-v="0-100">100万以下</li>
+                            <li data-v="100-150">100-150万</li>
+                            <li data-v="150-200">150-200万</li>
+                            <li data-v="200-300">200-300万</li>
+                            <li data-v="300-500">300-500万</li>
+                            <li data-v="500-5000000">500万以上</li>
                     </ul>
                     <ul id="dan">
-                        <li class="m-l-active" data_v="0">不限</li>
-                        <?php foreach($dans as $v): ?>
-                        <li data_v="<?php echo $v; ?>"><?php echo $v; ?></li>
-                        <?php endforeach; ?>
+                        <li class="m-l-active" data-v="0">不限</li>
+                        <li data-v="1-10000">一万以下</li>
+                            <li data-v="10000-14999">1万-1.5万</li>
+                            <li data-v="15000-19999">1.5万-2万</li>
+                            <li data-v="20000-29999">2万-3万</li>
+                            <li data-v="30000-39999">3万-4万</li>
+                            <li data-v="40000-60000">4万-6万</li>
+                            <li data-v="60000-50000000000">6万以上</li>
                     </ul>
                 </div>
                 
@@ -1837,6 +1856,7 @@
                                 )
                             })
                             var ps=data[0].page;
+                            $('#allnum').html(ps);
                             ps=Math.ceil(ps/15);
                             console.log(ps);
                             var h='';
@@ -1851,6 +1871,7 @@
                             $('.page').html(h);
 			    window.page=ps;
                         }else{
+                            $('#allnum').html(0);
                             html=`
                             <div class="visible-xs-block .visible-sm--block m-kong">
                                 <img src="/static/home/imgs/m-search1.png" alt="">
@@ -2548,7 +2569,7 @@
                 send(str,2);
             })
             $('#dan li').on('click',function(){
-                var str=$(this).attr('data_v');
+                var str=$(this).attr('data-v');
                 send(str,3);
             })
             $('#zong li').on('click',function(){

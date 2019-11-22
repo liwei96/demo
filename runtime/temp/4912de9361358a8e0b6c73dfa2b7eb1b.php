@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\dongs.html";i:1574308623;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\dongs.html";i:1574314027;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -618,8 +618,8 @@ border-radius:3px;
     $('#help').on('click',function(){
                 window.location.href="<?php echo url('home/user/yue'); ?>"
             })
-              $('.m-xuan').on('click', function () {
+        $('.m-xuan').on('click', function () {
                 window.location.href = "<?php echo url('home/index/lius'); ?>";
-            })
+        })
 </script>
 </html>

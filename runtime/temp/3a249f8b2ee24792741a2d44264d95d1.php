@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\jiayuan\tp2\public/../application/home\view\content\content.html";i:1574308350;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\jiayuan\tp2\public/../application/home\view\content\content.html";i:1574414215;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -913,11 +913,12 @@ var _hmt = _hmt || [];
                 <div  class="top-search-left">
                             <div class="logo"><img src="/static/home/imgs/logo.png"/></div>
                             <div class="sel">
-                                <select name="" id="">
+                                <?php echo $data['city']; ?>
+                                <!-- <select name="" id="">
                                     <?php foreach($city as $v): ?>
                                     <option <?php if(\think\Cookie::get('cityname')==$v['area_name']): ?> selected <?php endif; ?>><?php echo $v['area_name']; ?></option>
                                     <?php endforeach; ?>
-                                </select>
+                                </select> -->
                             </div>
                                 
                             <div class="input-search">
@@ -965,8 +966,9 @@ var _hmt = _hmt || [];
                                             <!-- 左侧轮播-->
                                         <div class="all">
                                             <div class="top-img">
+                                                    <button class="photo">楼盘相册</button>
                                                 <div class="activeimg">
-                                                   <button class="photo">楼盘相册</button>
+                                                  
                                                     <?php foreach($xiaoimgs as $v): ?>
                                                     <img src="<?php echo $v['x_big']; ?>">
                                                     <?php endforeach; foreach($shiimgs as $v): ?>
@@ -1110,7 +1112,8 @@ var _hmt = _hmt || [];
                             <div class="hot-img">
                                 <i></i>
                                 <span>热门楼盘</span>
-                                <img src="http://api.jy1980.com/uploads/20190919/thumb_800_5k1lqm77.jpeg" alt="">
+                                <img src="<?php echo $v['building_img']; ?>" alt="">
+                                <!-- <img src="http://api.jy1980.com/uploads/20190919/thumb_800_5k1lqm77.jpeg" alt=""> -->
                             </div>
 
                             <div class="hot-name">
@@ -1778,8 +1781,8 @@ var _hmt = _hmt || [];
                                        <div class="name">
                                            <div class="name-big">
                                               <span class="bi"><?php echo $v['building_name']; ?></span><br/>
-                                              <i>杭州-江干区</i>
-                                              <p>建面：90-180/m²<span><?php echo $v['danjia']; ?>元/m²起</span></p>
+                                              <i><?php echo $v['city']; ?>-<?php echo $v['qu']; ?></i>
+                                              <p>建面：<?php echo $v['humianji']; ?>/m²<span><?php echo $v['danjia']; ?>元/m²起</span></p>
                                            </div>  
                                            <!-- <div class="name-price">
                                              <p><span class="iconfont icon-biaodiandidian "></span><?php echo $v['building_address']; ?></p>

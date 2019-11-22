@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\search\sou.html";i:1574130987;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\search\sou.html";i:1574303369;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -168,9 +168,12 @@
                 console.log($(this).text())
                 var s=$(this).text();
                 if('<?php echo $end; ?>'=='index' || '<?php echo $end; ?>'=='search'){
-                    window.location.href="/home/search/index/type/"+s;
+                    // window.location.href="/home/search/index/type/"+0;
+                    window.location.href="<?php echo url('home/search/index',['type'=>0]); ?>";
+
                 }else if('<?php echo $end; ?>'=='tuan'){
-                    window.location.href="/home/search/tuan/type/"+s;
+                    // window.location.href="/index.php/tuan/"+s;
+                    window.location.href="<?php echo url('home/search/tuan',['type'=>0]); ?>";
                 }
             })
         })

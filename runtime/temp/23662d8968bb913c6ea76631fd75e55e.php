@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:61:"G:\jiayuan\tp2\public/../application/home\view\user\find.html";i:1574405667;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -272,20 +273,20 @@
                 </div>
                 <h4>选择户型</h4>
                 <div class="m-one m-huxing">
-                   {foreach $hus as $v}
-                   <span class=" col-xs-3 col-sm-3">{$v}</span>
-                   {/foreach}
+                   <?php foreach($hus as $v): ?>
+                   <span class=" col-xs-3 col-sm-3"><?php echo $v; ?></span>
+                   <?php endforeach; ?>
                 </div>
                 <h4>楼盘特色  </h4>
                 <div class="m-one m-thr">
                    <span class=" col-xs-3 col-sm-3">不限</span>
-                   {foreach $tes as $v}
-                   <span class=" col-xs-3 col-sm-3">{$v}</span>
-                   {/foreach}
+                   <?php foreach($tes as $v): ?>
+                   <span class=" col-xs-3 col-sm-3"><?php echo $v; ?></span>
+                   <?php endforeach; ?>
                 </div>
                 <h4 class="">联系方式</h4>
                 <div class="m-one m-lian">
-                   <input type="text" value="{$Think.session.user.phone}" class="m-in" placeholder="请输入您的手机号">
+                   <input type="text" value="<?php echo \think\Session::get('user.phone'); ?>" class="m-in" placeholder="请输入您的手机号">
                 </div>
                <div class="m-s-btn">
                     确定
@@ -300,9 +301,9 @@
                 </div>
                 <div class="m-b-bottom row">
                     <span class=" col-xs-3 col-sm-3 m-active">钱塘新区</span>
-                    {foreach $areas as $v}
-                    <span class=" col-xs-3 col-sm-3">{$v.area_name}</span>
-                    {/foreach}
+                    <?php foreach($areas as $v): ?>
+                    <span class=" col-xs-3 col-sm-3"><?php echo $v['area_name']; ?></span>
+                    <?php endforeach; ?>
                     
                 </div>
             </div>
@@ -359,11 +360,11 @@
                     'phone':$('.m-in').val(),
                 }
                 $.post( 
-                    "{:url('home/user/test')}",
+                    "<?php echo url('home/user/test'); ?>",
                     data,
                     function(res){
                         if(res.code==100){
-                            window.location.href="{:url('home/user/index')}";
+                            window.location.href="<?php echo url('home/user/index'); ?>";
                         }else{
                             console.log(res.msg);
                         }

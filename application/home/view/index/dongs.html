@@ -579,7 +579,7 @@ border-radius:3px;
         <div class="m-dong visible-xs-block .visible-sm-block">
                {foreach $tops as $v}
                 <div class="m-tai">
-                    <h4><a href="">{$v.name}</a>最新房源动态</h4>
+                    <h4><a href="{:url('home/content/index',['id'=>$v.bid])}">{$v.name}</a>最新房源动态</h4>
                     <p>{$v.introduce}</p>
                     <h6>{$v.create_time}</h6>
                 </div>

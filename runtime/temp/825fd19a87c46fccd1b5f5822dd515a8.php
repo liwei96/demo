@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\xiang.html";i:1574308260;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\xiang.html";i:1574405507;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,7 +84,7 @@
             <div class="t-bottom">
                 <div class="t-b-first">
                     <input class="l-p" type="text" placeholder="请输入手机号">
-                    <button class="t-b-btn t-b-btn2">立即订阅</button>
+                    <button class="t-b-btn t-b-btn2 bg_01" id="dingxue">立即订阅</button>
                     <p>
                         家园新房一对一专业服务，家园承诺保护您的隐私安全
                     </p>
@@ -358,6 +358,20 @@
                 window.location.href = "<?php echo url('home/index/lius'); ?>";
             })
 
+
+
+        //点击按钮出现hover
+        $(function () {
+        function changeColor(id,class1,class2) {
+            $("#"+id).on("touchstart",function () {
+                $(this).attr("class",class1)
+            })
+            $("#"+id).on("touchend",function () {
+                $(this).attr("class",class2)
+            })
+        }
+        changeColor("dingxue","bg_02","bg_01")
+    });
 
 
         })

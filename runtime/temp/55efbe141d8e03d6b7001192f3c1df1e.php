@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1574318717;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1574392997;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -835,26 +835,26 @@
         }
     .swiper-box   .swiper-slide{
         width:38.3%!important;
-        height:140px!important;
+        height:142px!important;
        margin-right:3.2%!important;
        text-align:left!important;
     } 
 
     .swiper-box-tui   .swiper-slide{
         width:38.3%!important;
-        height:140px!important;
+        height:142px!important;
        margin-right:3.2%!important;
        text-align:left!important;
     } 
     .swiper-box2   .swiper-slide{
         width:38.3%!important;
-        height:140px!important;
+        height:142px!important;
        margin-right:3.2%!important;
        text-align:left!important;
     } 
     .swiper-box3   .swiper-slide{
         width:38.3%!important;
-        height:140px!important;
+        height:142px!important;
        margin-right:3.2%!important;
        text-align:left!important;
     } 

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\index\lius.html";i:1574129645;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\index\lius.html";i:1574403785;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -90,9 +90,17 @@
             text-align: center;
             line-height: 40px;
             border:0;
-            background-color:#F2F2F2;
+            outline: none;
             font-weight:bold;
         }
+        .m-liu   .bg_01{
+            background-color:#F2F2F2;
+        } 
+        .m-liu   .bg_02{
+            background-color:  #e3e3e3;
+        }
+
+
 
         ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
             color:    #999999;
@@ -250,7 +258,10 @@
 .m-zhe-box .m-que{
     border:1px solid rgba(45,210,100,1);
     color:#2DD264;
+    outline: none;
+    background:#fff;
 }
+
 
 
 
@@ -271,7 +282,7 @@
             <img src="/static/home/imgs/liu_pic.png" alt="">
            <h5>留言</h5>
            <textarea name="" id="" cols="30" rows="10" placeholder="输入您的问题"></textarea>
-           <button id="btn">提交</button>
+           <button id="btn" class="bg_01"  >提交</button>
         </div>
         <div class="m-liu visible-xs-block .visible-sm-block">
             <div class="m-chang"></div>
@@ -295,7 +306,7 @@
         <input type="text" placeholder="请输入手机号" id="tel">
         
         <button class="m-qu" >取消</button>
-        <button class="m-que">确定</button>
+        <button class="m-que " id="queren02">确定</button>
  </div>
 
 
@@ -356,6 +367,21 @@
     $('.m-zhe-tel').hide();
     $('.m-zhe-box').hide();
   })
+
+
+
+  $(function () {
+        function changeColor(id,class1,class2) {
+            $("#"+id).on("touchstart",function () {
+                $(this).attr("class",class1)
+            })
+            $("#"+id).on("touchend",function () {
+                $(this).attr("class",class2)
+            })
+        }
+        changeColor("btn","bg_02","bg_01")
+    });
+
 
     })
 </script>

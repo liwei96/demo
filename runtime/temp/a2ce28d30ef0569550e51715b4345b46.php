@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\index.html";i:1574323238;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\index.html";i:1574405228;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="/static/home/css/c-index.css">
     <!-- 1.2 -->
     <link rel="stylesheet" href="/static/home/css/c-index1.2.css">
+    <link rel="stylesheet" type="text/css" href="http://dn.yunzhenshi.com/css/reset-min.css">
     <style>
 	*{
 	      font-family:"Microsoft YaHei";
@@ -178,12 +179,18 @@
         width:85%;
         height:40px;
         border:0;
-        background-color: #F0F5F2;
+       
         color:#3AC869;
         font-size: 16px;
         text-align: center;
         line-height: 40px;
         margin-left:7.5%;
+    }
+    .weiter .t-bottom .t-b-first .bg_01{
+        background-color: #F0F5F2;
+    }
+    .weiter .t-bottom .t-b-first .bg_02{
+        background-color:  #e3e3e3;
     }
     .weiter .t-bottom .t-b-first p{
         color:#999999;
@@ -486,6 +493,7 @@ var _hmt = _hmt || [];
             <div class="dui-zi">
                     <div class="swiper-wrapper">
                       <div class="swiper-slide dui-box">
+                          <a href="<?php echo url('home/content/depth',['id'=>$data['id']]); ?>">
                           <div class="tou-con">
                                 <h4>投资分析</h4>
                                 <p> 1.&nbsp;<?php echo $tou['cone']; ?></p>
@@ -494,9 +502,10 @@ var _hmt = _hmt || [];
                           <div class="tou-img">
                               <img src="/static/home/imgs/pc-db.png" alt="">
                           </div>
-
+                        </a>
                       </div>
                       <div class="swiper-slide dui-box">
+                          <a href="<?php echo url('home/content/depth',['id'=>$data['id']]); ?>">
                             <div class="tou-con">
                                     <h4>宜居分析</h4>
                                     <p>1.&nbsp;<?php echo $yi['cone']; ?></p>
@@ -505,6 +514,7 @@ var _hmt = _hmt || [];
                               <div class="tou-img">
                                   <img src="/static/home/imgs/yiju.png" alt="">
                               </div> 
+                            </a>
                       </div>
                     
                     </div>
@@ -750,7 +760,7 @@ var _hmt = _hmt || [];
                 <div class="t-bottom">
                     <div class="t-b-first">
                         <input class="l-p" type="text" placeholder="请输入手机号">
-                        <button class="t-b-btn t-b-btn2">立即订阅</button>
+                        <button class="t-b-btn t-b-btn2    bg_01"  id="dingxue">立即订阅</button>
                         <p>
                             家园新房一对一专业服务，家园承诺保护您的隐私安全
                         </p>
@@ -1747,6 +1757,8 @@ var _hmt = _hmt || [];
            
             // 接口验证码
             $('.t-b-btn2').on('click',function(){
+
+
                 var phone=$(this).prev().val();
 		        var type=$(this).parent().parent().prev().find('h6').html();
                 var building_name=$(this).parent().next().find('#building_name').val();
@@ -2170,8 +2182,18 @@ var _hmt = _hmt || [];
             flag=true; 
           }
       })
-
-
+//点击按钮出现hover
+      $(function () {
+        function changeColor(id,class1,class2) {
+            $("#"+id).on("touchstart",function () {
+                $(this).attr("class",class1)
+            })
+            $("#"+id).on("touchend",function () {
+                $(this).attr("class",class2)
+            })
+        }
+        changeColor("dingxue","bg_02","bg_01")
+    });
 
 
 
