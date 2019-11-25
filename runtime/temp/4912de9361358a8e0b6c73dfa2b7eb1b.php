@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\dongs.html";i:1574314027;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\dongs.html";i:1574391548;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -580,7 +580,7 @@ border-radius:3px;
         <div class="m-dong visible-xs-block .visible-sm-block">
                <?php foreach($tops as $v): ?>
                 <div class="m-tai">
-                    <h4><a href=""><?php echo $v['name']; ?></a>最新房源动态</h4>
+                    <h4><a href="<?php echo url('home/content/index',['id'=>$v['bid']]); ?>"><?php echo $v['name']; ?></a>最新房源动态</h4>
                     <p><?php echo $v['introduce']; ?></p>
                     <h6><?php echo $v['create_time']; ?></h6>
                 </div>

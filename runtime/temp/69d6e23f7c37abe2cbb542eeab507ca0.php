@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\content\hu.html";i:1571799456;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\content\hu.html";i:1574668795;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,6 +47,8 @@
                     text-align: center;
                     line-height: 44px;
                     border-bottom: 1px solid #F2F2F2;
+                    position:fixed;
+                    background:#fff;
                 }
                 .m-title img{
                     position: absolute;
@@ -92,6 +94,7 @@
             width:100%;
             height:10px;
             background-color: #F7F7F7;
+            margin-top:44px;
         }
         .m-c-top{
             width:100%;
@@ -116,9 +119,10 @@
         }
         .m-c-cont .ll{
             padding:0;
+            margin-top:8px;
         }
         .m-c-cont p{
-            margin-bottom: 14px;
+            /* margin-bottom: 14px; */
         }
         .m-c-cont p .c-title{
             color:#808080;
@@ -182,11 +186,11 @@
 
 .m-dai .m-d-content button {
     display: inline-block;
-    width: 23%;
-    height: 28px;
+    width: 20%;
+    height: 26px;
     background:linear-gradient(-90deg,rgba(40,194,91,1),rgba(94,215,85,1));
     color: #fff;
-    font-size: 12px;
+    font-size: 14px;
     border-radius: 4px;
     border: 0px;
     text-align: center;
@@ -364,7 +368,6 @@
 
     /* 留言 */
     .m-xuan img{
-        width:24.8%;
         height:34px;
         position: fixed;
         right:0;
@@ -386,7 +389,7 @@
             <img src="/static/home/imgs/return.png" alt="" onClick="javascript:history.go(-1)">
             <h3>户型分析</h3>
         </div>
-        <div class="m-line visible-xs-block .visible-sm-block"></div>
+        <!-- <div class="m-line visible-xs-block .visible-sm-block"></div> -->
         <div class="m-content visible-xs-block .visible-sm-block">
             <img class="m-c-top" src="<?php echo $hu['h_big']; ?>" alt="">
             <div class="m-c-cont">
@@ -482,7 +485,7 @@
         </div>
         <!-- 留言 -->
         <div class="m-xuan visible-xs-block .visible-sm-block" data-v="<?php echo $data['building_name']; ?>">
-            <img src="/static/home/imgs/m-liu.png" alt="">
+            <img src="/static/home/imgs/new_liu.png" alt="">
         </div>
     </div>
 

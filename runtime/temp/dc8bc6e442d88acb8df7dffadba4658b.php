@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\search\search.html";i:1574413732;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\search\search.html";i:1574674352;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +46,7 @@
              margin-right:40px;
          }
          .top-nav ul li a{
-             color:#999999;
+             color:rgba(102,102,102,1);
              font-size: 16px;
              line-height: 80px;
          }
@@ -1426,7 +1426,7 @@
                 <div class="pages">
                     <span id="back"><<</span>
                     <ul class="page">
-                        <?php $__FOR_START_1750801704__=0;$__FOR_END_1750801704__=$page;for($i=$__FOR_START_1750801704__;$i < $__FOR_END_1750801704__;$i+=1){ if($i<7): ?>
+                        <?php $__FOR_START_1860085878__=0;$__FOR_END_1860085878__=$page;for($i=$__FOR_START_1860085878__;$i < $__FOR_END_1860085878__;$i+=1){ if($i<7): ?>
                         <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                         <?php endif; } ?>
                     </ul>
@@ -1787,7 +1787,7 @@
                     <p class="m-price"><span><?php echo $v['danjia']; ?></span>元/m²</p>
                     <p class="m-xiang">
                         <span><?php echo $v['city']; ?>-<?php echo $v['qu']; ?></span>
-                        <span>建面</span>
+                        <span class="jianmian">建面</span>
                         <span><?php echo $v['humianji']; ?>m²</span>
                     </p>
                     <p class="m-icon">

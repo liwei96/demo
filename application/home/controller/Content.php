@@ -26,6 +26,7 @@ use think\Cookie;
 use think\Request;
 use think\Session;
 use think\Cache;
+use think\Db;
 use function Qiniu\json_decode;
 use function GuzzleHttp\json_encode;
 use function GuzzleHttp\json_decode as GuzzleHttpJson_decode;
@@ -69,6 +70,9 @@ class Content extends Controller
         $pics=$pics+Peiimgs::where('bid',$id)->count('*');
         $pics=$pics+Shiimgs::where('bid',$id)->count('*');
         $data['city'] = Category::where('id', $n)->column('area_name')[0];
+        
+        $data['building_tese']=explode(',',$data['building_tese']);
+        // dump($te);die();
         $dongs = Text::where('bid', $id)->order('id', 'desc')->paginate(1);
         //$xs = $data['xiangsi'];
         //$xs = explode(',', $xs);
@@ -160,14 +164,7 @@ class Content extends Controller
             $v['tel']=substr($v['tel'],0,3).'****'.substr($v['tel'],7);
         }
         $jia=Text::where('bid', $id)->where('type','eq','是')->limit(0,1)->select();
-        if($jia){
-            $jia=$jia[0];
-        }else{
-            $jia=[];
-            $ja['introduce']='';
-            $ja['create_time']='暂无';
-            $jia[]=$ja;
-        }
+        
         $tou=Fen::where('bid','eq',$id)->where('type','eq',1)->find();
         $yi=Fen::where('bid','eq',$id)->where('type','eq',2)->find();
         $yous=You::select();
@@ -256,7 +253,7 @@ class Content extends Controller
         $yangimgs=Yangimgs::where('bid', $id)->select();
 	    $jiaoimgs=Jiaoimgs::where('bid',$id)->select();
         $dongs = Text::where('bid', $id)->order('id', 'desc')->paginate(1);
-	    $data['building_tese']=explode(',',$data['building_tese']);
+        $data['building_tese']=explode(',',$data['building_tese']);
         $xs = $data['xiangsi'];
         $recording=Recording::where('bid',$id)->find();
         //$xs = explode(',', $xs);
@@ -488,7 +485,10 @@ class Content extends Controller
         $data = Goods::where('id', $id)->find();
         $data['building_ditie'] = explode(',', $data['building_ditie']);
         $data['building_xingshi'] = explode(',', $data['building_xingshi']);
-        $data['building_tese'] = explode(',', $data['building_tese']);
+        $te=Db::connect('mysql://erp:ZkMFXYZ2H7MBtW4i@39.98.227.114:3306/erp#utf8')->table('erp_building')->where('building_name','eq',$data['building_name'])->column('id')[0];
+        $te=Db::connect('mysql://erp:ZkMFXYZ2H7MBtW4i@39.98.227.114:3306/erp#utf8')->table('erp_building_detail_mapping')->where('bid','eq',$te)->column('opid');
+        $data['building_tese']=Db::connect('mysql://erp:ZkMFXYZ2H7MBtW4i@39.98.227.114:3306/erp#utf8')->table('erp_options')->where('key','in',$te)->column('value');
+        // $data['building_tese'] = explode(',', $data['building_tese']);
         return view('xiang', ['data' => $data]);
     }
     public function fork()

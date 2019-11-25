@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\jiayuan\tp2\public/../application/home\view\content\content.html";i:1574414215;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\jiayuan\tp2\public/../application/home\view\content\content.html";i:1574669369;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -995,7 +995,7 @@ var _hmt = _hmt || [];
                                         <!--右侧价格-->
                                         <div class="detail-prise">
                                             <ul>
-                                                <li><span>参考单价：</span><i><?php echo $data['danjia']; ?>元/m²起</i><a class="p1 bg1" data-v="最新变价通知" href="javascript:;">最新变价通知</a></li>
+                                                <li><span>参考单价：</span><i class="jiage_num"><?php echo $data['danjia']; ?>元/m²起</i><a class="p1 bg1" data-v="最新变价通知" href="javascript:;">最新变价通知</a></li>
                                                 <li><span>建筑面积：</span><i><?php echo $data['humianji']; ?>m²</i></li>
                                                 </li><span>楼盘户型：</span><i><?php echo $data['building_huxing']; ?> 、<?php echo $data['building_xingshi']; ?></i><a class="p1   lian" href="javascript:;" data-v="详细楼盘户型">了解详细楼盘户型</a></li>
                                                 <li><span>开盘时间：</span><i><?php echo $data['kaitime']; ?></i><a class="p1 lian" href="#" data-v="最新开盘通知">了解最新开盘通知</a></li>

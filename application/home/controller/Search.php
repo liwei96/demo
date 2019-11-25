@@ -47,7 +47,7 @@ class Search extends Controller
                 $where['building_tese']=['like',$type];
                 $data=Goods::order('id','desc')->where($where)->paginate(15);
             }
-	        $num=Goods::count('id');
+	        $num=Goods::where($where)->count('id');
 	        $page=Goods::where($where)->count('id');
             $page=ceil($page/15);
         }else{
@@ -77,10 +77,7 @@ class Search extends Controller
         
         $ties=Attribute::where('id',6)->column('attr_values')[0];
         $ties=explode(',',$ties);
-        $dans=Attribute::where('id',3)->column('attr_values')[0];
-        $dans=explode(',',$dans);
-        $zongs=Attribute::where('id',12)->column('attr_values')[0];
-        $zongs=explode(',',$zongs);
+       
         $hus=Attribute::where('id',7)->column('attr_values')[0];
         $hus=explode(',',$hus);
         $xings=Attribute::where('id',8)->column('attr_values')[0];
@@ -118,8 +115,8 @@ class Search extends Controller
             $v['dong']=Text::order('id','desc')->where('bid','eq',$v['id'])->limit(0,1)->column('introduce')[0];
         }
         $yous=You::select();
-        return view('search',['data'=>$data,'cates'=>$cates,'ties'=>$ties,'dans'=>$dans,'hus'=>$hus,'city'=>$city,'tdengs'=>$tdengs,
-                                'xings'=>$xings,'tes'=>$tes,'zongs'=>$zongs,'kais'=>$kais,'num'=>$num,'page'=>$page,'yous'=>$yous]);
+        return view('search',['data'=>$data,'cates'=>$cates,'ties'=>$ties,'hus'=>$hus,'city'=>$city,'tdengs'=>$tdengs,
+                                'xings'=>$xings,'tes'=>$tes,'kais'=>$kais,'num'=>$num,'page'=>$page,'yous'=>$yous]);
     }
 
     // 贵阳
@@ -432,10 +429,11 @@ class Search extends Controller
         $data=$request->param();
         $qus=Goods::order('id','desc');
         if(!Cookie::has('where')){
-            Cookie::set('where',[]);
+            $where=[];
+            $where['cate_id']=['in',$s];
         }
         $where=Cookie::get('where');
-        $where['cate_id']=['in',$s];
+        
         if($data['type']==1){
             $qu=$data['suggest'];
             if($qu=="0"){
@@ -453,16 +451,20 @@ class Search extends Controller
         }else if($data['type']==3){
             $qu=$data['suggest'];
             if($qu==0){
-                unset($where['building_jiage']);
+                unset($where['danjia']);
             }else{
-                $where['building_jiage']=['eq',$qu];
+                $start=explode('-',$qu)[0];
+                $end=explode('-',$qu)[1];
+                $where['danjia']=['between',[$start,$end]];
             }
         }else if($data['type']==4){
             $qu=$data['suggest'];
             if($qu=="0"){
-                unset($where['zongjia']);
+                unset($where['total_price_max|total_price_min']);
             }else{
-                $where['zongjia']=['eq',$qu];
+                $s=explode('-',$qu)[0];
+                $b=explode('-',$qu)[1];
+                $where['total_price_max|total_price_min']=['between',"$s,$b"];
             }
         }else if($data['type']==5){
             if(array_key_exists('suggest',$data)){
@@ -535,7 +537,7 @@ class Search extends Controller
             $qu=$data['suggest'];
             $s=explode('-',$qu)[0];
             $b=explode('-',$qu)[1];
-            $where['zong']=['between',"$s,$b"];
+            $where['total_price_max|total_price_min']=['between',"$s,$b"];
         }
         
         Cookie::set('where',$where,3600);
@@ -690,17 +692,21 @@ class Search extends Controller
             }
         }else if($data['type']==3){
             $qu=$data['suggest'];
-            if($qu=="0"){
-                unset($where['building_jiage']);
+            if($qu==0){
+                unset($where['danjia']);
             }else{
-                $where['building_jiage']=['eq',$qu];
+                $start=explode('-',$qu)[0];
+                $end=explode('-',$qu)[1];
+                $where['danjia']=['between',[$start,$end]];
             }
         }else if($data['type']==4){
             $qu=$data['suggest'];
             if($qu=="0"){
-                unset($where['zongjia']);
+                unset($where['total_price_max|total_price_min']);
             }else{
-                $where['zongjia']=['eq',$qu];
+                $s=explode('-',$qu)[0];
+                $b=explode('-',$qu)[1];
+                $where['total_price_max|total_price_min']=['between',"$s,$b"];
             }
         }else if($data['type']==5){
             if(array_key_exists('suggest',$data)){

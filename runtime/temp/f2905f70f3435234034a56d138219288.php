@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\search\tuan.html";i:1574413724;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\search\tuan.html";i:1574674595;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1499,10 +1499,10 @@
                                     <p><?php echo $v['building_huxing']; ?>&nbsp;&nbsp; |  &nbsp;面积：<?php echo $v['humianji']; ?>m²</p>
                                     <p>金牌置业顾问&nbsp;&nbsp;&nbsp;<button class="zixun" data-v="<?php echo $v['building_name']; ?>"><img src="/static/home/imgs/pc-tel.png">咨询</button></p>
                                     <p><span class="xiu"><?php echo $v['building_zhuangxiu']; ?></span><span><?php echo $v['building_ditie']; ?></span><span><?php echo $v['building_xingshi']; ?></span></p>
-                                    <p class="tuan">
+                                    <!-- <p class="tuan">
                                         <span><?php echo $v['title']; ?></span>
                                         <span class="t-right">活动时间：<?php echo $v['start']; ?>—<?php echo $v['end']; ?></span>
-                                    </p>
+                                    </p> -->
                                 </div>
                                 <?php if(in_array($v['id'],\think\Session::get('fork'))): ?>
                             <img class="fork" src="/static/home/imgs/fork2.png" alt="">
@@ -1519,7 +1519,7 @@
                 <div class="pages">
                     <span id="back"><<</span>
                     <ul class="page">
-                        <?php $__FOR_START_1840483317__=0;$__FOR_END_1840483317__=$page;for($i=$__FOR_START_1840483317__;$i < $__FOR_END_1840483317__;$i+=1){ if($i<7): ?>
+                        <?php $__FOR_START_769243524__=0;$__FOR_END_769243524__=$page;for($i=$__FOR_START_769243524__;$i < $__FOR_END_769243524__;$i+=1){ if($i<7): ?>
                         <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                         <?php endif; } ?>
                     </ul>
@@ -1896,7 +1896,7 @@
                     <p class="m-price"><span><?php echo $v['danjia']; ?></span>元/m²</p>
                     <p class="m-xiang">
                         <span><?php echo $v['city']; ?>-<?php echo $v['qu']; ?></span>
-                        <span>建面</span>
+                        <span class="jianmian">建面</span>
                         <span><?php echo $v['humianji']; ?>m²</span>
                     </p>
                     <p class="m-icon">
@@ -1962,10 +1962,7 @@
                                     <p>${v.building_huxing}&nbsp;&nbsp; |  &nbsp;面积：${v.humianji}m²</p>
                                     <p>金牌置业顾问&nbsp;&nbsp;&nbsp;<button><img src="/static/home/imgs/phone1.png">咨询</button></p>
                                     <p><span class="xiu">${v.building_zhuangxiu}</span><span>${v.building_ditie}</span><span>${v.building_xingshi}</span></p>
-                                    <p class="tuan">
-                                        <span>${v.title}</span>
-                                        <span class="t-right">活动时间：${v.start}—${v.end}</span>
-                                    </p>
+                                   
                                 </div>
                                 <img class="fork" src="/static/home/imgs/forked.png" alt="">
                                 <p id="price"><span>${v.danjia}</span>元/m²起</p>
@@ -2045,10 +2042,7 @@
                                     <p>${v.building_huxing}&nbsp;&nbsp; |  &nbsp;面积：${v.humianji}m²</p>
                                     <p>金牌置业顾问&nbsp;&nbsp;&nbsp;<button><img src="/static/home/imgs/phone1.png">咨询</button></p>
                                     <p><span class="xiu">${v.building_zhuangxiu}</span><span>${v.building_ditie}</span><span>${v.building_xingshi}</span></p>
-                                    <p class="tuan">
-                                        <span>${v.title}</span>
-                                        <span class="t-right">活动时间：${v.start}—${v.end}</span>
-                                    </p>
+                                  
                                 </div>
                                 <img class="fork" src="/static/home/imgs/forked.png" alt="">
                                 <p id="price"><span>${v.danjia}</span>元/m²起</p>

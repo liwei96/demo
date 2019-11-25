@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\index.html";i:1574405228;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\index.html";i:1574648986;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -261,8 +261,8 @@
         }
 
         .swiper-pagination2 .swiper-pagination-bullet{
-                width:19px;
-                height:6px;
+                width:12px;
+                height:3px;
                 border-radius: 0;
         }
 
@@ -533,7 +533,7 @@ var _hmt = _hmt || [];
         <div class="m-line visible-xs-block .visible-sm-block"></div>
         <div class="m-ling visible-xs-block .visible-sm-block">
             <h3>楼盘资料免费领<span>已有<i>860</i>人领取</span></h3>
-            <img src="/static/home/imgs/zi2.png" alt="">
+            <img src="/static/home/imgs/new_map.png" alt="">
             <div class="m-iright">
                 <h4>为什么大家在准备买房的时候领 一份资料？</h4>
                 <p>1.没领地图，许多人后悔买错了房子</p>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1574392997;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1574673539;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -631,9 +631,10 @@
         .m-jiao .m-j-con {
             padding: 3%;
             height: 100px;
-            border:1px solid rgba(230,230,230,1);
+           
             /* box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.04); */
             border-radius: 6px;
+            box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.03)
         }
 
         .m-jiao .m-j-con .j-c-left {
@@ -670,6 +671,7 @@
             overflow: hidden;
             line-height: 20px;
             text-indent: 14%;
+            margin-top:6px;
         }
 
         .n-1 .news-left li i {
@@ -836,26 +838,26 @@
     .swiper-box   .swiper-slide{
         width:38.3%!important;
         height:142px!important;
-       margin-right:3.2%!important;
+       margin-right:3%!important;
        text-align:left!important;
     } 
 
     .swiper-box-tui   .swiper-slide{
         width:38.3%!important;
         height:142px!important;
-       margin-right:3.2%!important;
+       margin-right:3%!important;
        text-align:left!important;
     } 
     .swiper-box2   .swiper-slide{
         width:38.3%!important;
         height:142px!important;
-       margin-right:3.2%!important;
+       margin-right:3%!important;
        text-align:left!important;
     } 
     .swiper-box3   .swiper-slide{
         width:38.3%!important;
         height:142px!important;
-       margin-right:3.2%!important;
+       margin-right:3%!important;
        text-align:left!important;
     } 
 
@@ -882,16 +884,17 @@
                 .m-listt .row{
                     height:105px;
                     border-bottom:0.5px solid #EBEBEB;
+                    margin-right:-5px;
                 }
                 .m-listt .row .m-titlee{
-                    padding-top: 2%;
+                    padding-top: 3%;
                     padding-left: 8%;
                     float:left;
                 }
                 .m-listt .row h5{
                     color: #404040;
                     font-size: 15px;
-                    width: 90%;
+                    width: 97%;
                     line-height: 20px;
                     margin-bottom: 6%;
                     height: 40px;
@@ -1581,7 +1584,7 @@
                                                 <div class="hf-pic"><img src="<?php echo $v['building_img']; ?>" alt=""><span>在售</span></div>
                                                 <div class="hf-con">
                                                     <h1><?php echo $v['building_name']; ?></h1>
-                                                    <p><?php echo $v['qu']; ?>建面<?php echo $v['humianji']; ?>/m²</p>
+                                                    <p><?php echo $v['qu']; ?>&nbsp;建面：<?php echo $v['humianji']; ?>/m²</p>
                                                     <h6><?php echo $v['danjia']; ?>元/m²起</h6>
                                                 </div>
                                             </div>
@@ -1602,7 +1605,7 @@
                                                     <div class="hf-pic"><img src="<?php echo $v['building_img']; ?>" alt=""><span>在售</span></div>
                                                     <div class="hf-con">
                                                         <h1><?php echo $v['building_name']; ?></h1>
-                                                        <p><?php echo $v['qu']; ?>建面<?php echo $v['humianji']; ?>/m²</p>
+                                                        <p><?php echo $v['qu']; ?>&nbsp;建面：<?php echo $v['humianji']; ?>/m²</p>
                                                         <h6><?php echo $v['danjia']; ?>元/m²起</h6>
                                                     </div>
                                                 </div>
@@ -1623,7 +1626,7 @@
                                                     <div class="hf-pic"><img src="<?php echo $v['building_img']; ?>" alt=""><span>在售</span></div>
                                                     <div class="hf-con">
                                                         <h1><?php echo $v['building_name']; ?></h1>
-                                                        <p><?php echo $v['qu']; ?>建面<?php echo $v['humianji']; ?>/m²</p>
+                                                        <p><?php echo $v['qu']; ?>&nbsp;建面：<?php echo $v['humianji']; ?>/m²</p>
                                                         <h6><?php echo $v['danjia']; ?>元/m²起</h6>
                                                     </div>
                                                 </div>
@@ -1643,7 +1646,7 @@
                                                     <div class="hf-pic"><img src="<?php echo $v['src']; ?>" alt=""><span>在售</span></div>
                                                     <div class="hf-con">
                                                         <h1><?php echo $v['name']; ?></h1>
-                                                        <p><?php echo $v['qu']; ?>建面<?php echo $v['humianji']; ?>/m²</p>
+                                                        <p><?php echo $v['qu']; ?>&nbsp;建面:<?php echo $v['humianji']; ?>/m²</p>
                                                         <h6><?php echo $v['price']; ?>元/m²起</h6>
                                                     </div>
                                                 </div>
@@ -1679,7 +1682,7 @@
 
        
         <div class="m-jiao visible-xs-block .visible-sm--block">
-            <h5>成交案例<span>更多成交案例 <img src="/static/home/imgs/m-go.png" alt=""></span></h5>
+            <h5>成交案例<span>更多案例 <img src="/static/home/imgs/m-go.png" alt=""></span></h5>
             <div class="m-j-con">
                 <a href="<?php echo url('home/index/read',['id'=>$jiao['id']]); ?>">
                     <div class="j-c-left">
@@ -1747,7 +1750,7 @@
                             <p class="m-price"><span><?php echo $v['danjia']; ?></span>元/m²</p>
                             <p class="m-xiang">
                                 <span><?php echo $v['city']; ?>-<?php echo $v['qu']; ?></span>
-                                <span>建面</span>
+                                <span class="jianmian">建面</span>
                                 <span><?php echo $v['humianji']; ?>m²</span>
                             </p>
                             <p class="m-icon">
@@ -1786,7 +1789,7 @@
                         <p class="m-price"><span><?php echo $v['price']; ?></span>元/m²</p>
                         <p class="m-xiang">
                             <span><?php echo $v['city']; ?>-<?php echo $v['qu']; ?></span>
-                            <span>建面</span>
+                            <span class="jianmian">建面</span>
                             <span><?php echo $v['humianji']; ?>m²</span>
                         </p>
                         <p class="m-icon">
@@ -1845,7 +1848,8 @@
                                     <span><?php echo $v['create_time']; ?></span>
                                 </div>
                             </div>
-                            <img class="col-xs-4" src="<?php echo $v['img']; ?>" alt=""> 
+                            <!-- <img class="col-xs-4" src="<?php echo $v['img']; ?>" alt="">  -->
+                            <img class="col-xs-4" src="http://localhost:8080/img/three.e5c4764d.png" alt=""> 
                         </div>
                         </a>
                   </div>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\news\index.html";i:1574230944;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\news\index.html";i:1574672739;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,6 +107,7 @@
                 .m-list .row{
                     height:105px;
                     border-bottom:0.5px solid #EBEBEB;
+                    margin-right:-5px;
                 }
                 .m-list .row .m-title{
                     padding-top: 2%;
@@ -1043,7 +1044,7 @@
                  <div class="pages">
                         <span id="back"><<</span>
                         <ul class="page">
-                            <?php $__FOR_START_1602406520__=0;$__FOR_END_1602406520__=$page;for($i=$__FOR_START_1602406520__;$i < $__FOR_END_1602406520__;$i+=1){ if($i<7): ?>
+                            <?php $__FOR_START_886277569__=0;$__FOR_END_886277569__=$page;for($i=$__FOR_START_886277569__;$i < $__FOR_END_886277569__;$i+=1){ if($i<7): ?>
                             <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                             <?php endif; } ?>
                         </ul>
@@ -1256,7 +1257,8 @@
                                 <span><?php echo $v['create_time']; ?></span>
                             </div>
                         </div>
-                        <img class="col-xs-4" src="<?php echo $v['img']; ?>" alt="">
+                        <!-- <img class="col-xs-4" src="<?php echo $v['img']; ?>" alt=""> -->
+                        <img class="col-xs-4" src="http://localhost:8080/img/three.e5c4764d.png" alt="">
                     </div>
                     </a>
                     <?php endforeach; ?>
@@ -1274,7 +1276,8 @@
                                 <span><?php echo $v['create_time']; ?></span>
                             </div>
                         </div>
-                        <img class="col-xs-4" src="<?php echo $v['img']; ?>" alt="">
+                        <!-- <img class="col-xs-4" src="<?php echo $v['img']; ?>" alt=""> -->
+                        <img class="col-xs-4" src="http://localhost:8080/img/three.e5c4764d.png" alt="">
                     </div>
                     </a>
                     <?php endforeach; ?>
