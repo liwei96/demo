@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1574673539;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\index\index.html";i:1574733126;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1848,8 +1848,7 @@
                                     <span><?php echo $v['create_time']; ?></span>
                                 </div>
                             </div>
-                            <!-- <img class="col-xs-4" src="<?php echo $v['img']; ?>" alt="">  -->
-                            <img class="col-xs-4" src="http://localhost:8080/img/three.e5c4764d.png" alt=""> 
+                            <img class="col-xs-4" src="<?php echo $v['img']; ?>" alt=""> 
                         </div>
                         </a>
                   </div>

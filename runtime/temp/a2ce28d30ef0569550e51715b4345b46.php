@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\index.html";i:1574648986;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\index.html";i:1574737931;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,6 +107,7 @@
     margin-bottom: 0px;
     position:inherit;
     margin-top:20px;
+    font-weight:bold;
 }
 	#m_sc_box{
 	    display:none;
@@ -174,6 +175,7 @@
         margin-bottom:25px;
         margin-left:7.52%;
         padding-left:5%;
+        font-size: 14px;
     }
     .weiter .t-bottom .t-b-first button{
         width:85%;
@@ -258,6 +260,7 @@
         .swiper-pagination2{
                height:20px;
                text-align:center; 
+               margin-top:5px;
         }
 
         .swiper-pagination2 .swiper-pagination-bullet{
@@ -595,7 +598,7 @@ var _hmt = _hmt || [];
             <div class="m-continer" id="m-container">
 
             </div>
-            <div class="m-z-icons">
+            <div class="m-z-icons" >
                 <ul>
                     <li>
                         <img src="/static/home/imgs/icon_01.png" alt="">
@@ -1638,6 +1641,9 @@ var _hmt = _hmt || [];
         })
         // 周边规划跳转
         $('.m-zhou h3 span').on('click',function(){
+            window.location.href="<?php echo url('home/content/zg',['id'=>$data['id']]); ?>";
+        })
+        $('.m-z-icons').on('click',function(){
             window.location.href="<?php echo url('home/content/zg',['id'=>$data['id']]); ?>";
         })
 

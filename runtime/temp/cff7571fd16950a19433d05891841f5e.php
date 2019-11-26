@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\content\hus.html";i:1574408252;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\content\hus.html";i:1574736610;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -120,7 +120,8 @@
     padding-left:0;
 }
 .m-hu .h-c .h-c-i img{
-    width:100%;
+    width: 84.3%;
+    height: 105px!important;
 }
 .m-hu .h-c .h-c-c{
     padding-left:0;
@@ -128,8 +129,8 @@
     padding-right:0;
 }
 .m-hu .h-c .h-c-c .h-t{
-    margin-bottom: 20px;
-    margin-top:8px;
+    margin-bottom: 16px;
+    margin-top:2px;
 }
 .m-hu .h-c .h-c-c .h-t h4{
     font-size: 15px;
@@ -145,13 +146,16 @@
 }
 .m-hu .h-c .h-c-c .h-t .h-t-m{
     font-size: 12px;
-    color:#FF7F7F;
+    color:#FE582F;
     float: right;
     margin-right:4%;
 }
 .m-hu .h-c .h-c-c .h-t .h-t-m i{
     font-size: 18px;
     font-style:normal;
+    overflow: hidden;
+    line-height: 19px;
+    font-weight: bold;
 }
 .m-hu .h-c .h-c-c .sp{
     font-size: 12px;
@@ -272,6 +276,7 @@
             margin-bottom: 25px;
             margin-left: 7.52%;
             padding-left: 5%;
+            font-size:14px;
         }
 
         .weiter .t-bottom .t-b-first button {

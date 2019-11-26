@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"G:\jiayuan\tp2\public/../application/home\view\content\dong.html";i:1574308553;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"G:\jiayuan\tp2\public/../application/home\view\content\dong.html";i:1574758991;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,29 +72,59 @@
         }
 
         .m-dong .m-tai {
-            padding: 0 4%;
-            margin-bottom: 36px;
+            width:90.5%;
+            margin-left:5.6%;
+            border-left: 1px solid #B4F5C9;
+            padding-left: 4.1%;
         }
-
+        .m-dong .m-tai .quanwen {
+            text-align:right;
+            font-size:15px;
+            color:#5AC2FF;
+        }
+        .m-dong .m-tai-big .shijian span{
+            width:3.2%;
+            height:12px;
+            border:2px solid rgba(82,204,122,1);
+            border-radius:50%;
+            float:left;
+            margin-left:4%;
+            margin-right:2.6%;
+        }
         .m-dong .m-tai h4 {
             color: #404040;
             font-size: 16px;
-            margin-bottom: 17.5px;
+            margin-bottom: 13.5px;
+            font-family: "Microsoft YaHei";
+            margin-top:11px;
+            font-weight:bold;
         }
-
+        .m-dong .m-tai h4 a{
+            color: #404040;
+        }
+        .m-dong .m-tai h6{
+             text-align:right;
+            font-size:12px;
+            font-family:"Microsoft YaHei";
+            font-weight:500;
+            color:rgba(51,51,51,1);
+        }
         .m-dong .m-tai p {
             color: #989898;
             font-size: 15px;
-            text-indent: 8%;
+            /* text-indent: 8%; */
             letter-spacing: 2px;
             line-height: 24px;
             margin: 0;
         }
 
         .m-dong .m-tai span {
-            color: #676767;
+            color: #333333;
             font-size: 14px;
             float: right;
+            font-family: "Microsoft YaHei";
+            margin-right:4%;
+            margin-top:5px;
         }
 
         .m-dong button {
@@ -110,7 +140,32 @@
             border: 0px;
             margin-bottom: 20px;
         }
-
+        .m-dong .m-tai  .m-tai-con{
+            width:100%;
+            height:auto;
+            display:flex;
+        }
+        .m-dong .m-tai  .m-tai-con img{
+               float:left;
+               width:25.545%;
+                height:60px;
+                border-radius:4px;
+                margin-right:4.2%;
+        }
+        .m-dong .m-tai  .m-tai-con p{
+            margin: 0;
+            font-family: "Microsoft YaHei";
+            /* margin-bottom:10px; */
+            color: #666666;
+            font-size: 15px;
+            line-height: 24px;
+             float:left;
+             display:-webkit-box;
+             -webkit-box-orient:vertical;
+             -webkit-line-clamp: 3;
+             overflow: hidden;
+             margin-top:-5px;
+        }
 
 
         /* PC */
@@ -467,11 +522,18 @@
         </div>
         <div class="m-dong visible-xs-block .visible-sm-block">
             <?php foreach($dongs as $v): ?>
-            <div class="m-tai">
-                <h4><?php echo $name; ?>最新房源动态</h4>
-                <p><?php echo $v['introduce']; ?></p>
-                <span><?php echo $v['create_time']; ?></span>
-            </div>
+            <div class="m-tai-big">
+                    <div class="shijian"><span></span>    <h6><?php echo $v['create_time']; ?></h6></div>
+                    <div class="m-tai">
+                        <h4><a href="<?php echo url('home/content/index',['id'=>$v['bid']]); ?>"><?php echo $name; ?></a>最新房源动态</h4>
+                        <div class="m-tai-con">
+                                 <!-- <img src="http://api.jy1980.com/uploads/20191030/thumb_800_c17j9ahp.jpeg" alt=""> -->
+                                 <p ><?php echo $v['introduce']; ?></p>
+                                 
+                        </div>
+                        <p class="quanwen">查看全文</p>
+                    </div>
+               </div>
             <?php endforeach; ?>
         </div>
     </div>
@@ -485,6 +547,24 @@
       $('.m-xuan').on('click', function () {
                 window.location.href = "<?php echo url('home/index/lius'); ?>";
       })
-
+      var  tag=false;
+        $('.quanwen').click(function(){
+          
+            if(tag==false){
+                $(this).siblings().children('p').css({
+                "-webkit-line-clamp":"inherit"
+               });
+               $(this).html('收起')
+               tag=true;
+            }else if(tag==true){
+                $(this).siblings().children('p').css({
+                "-webkit-line-clamp":"3"
+               });
+               $(this).html('查看全文')  
+               tag=false;
+            }
+           
+             
+        })
 </script>
 </html>
