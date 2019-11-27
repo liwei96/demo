@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\news\index.html";i:1574732969;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\news\index.html";i:1574838904;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -288,7 +288,7 @@
              margin-right:40px;
          }
          .top-nav ul li a{
-             color:#999999;
+             color:#666;
              font-size: 16px;
              line-height: 80px;
          }
@@ -1044,7 +1044,7 @@
                  <div class="pages">
                         <span id="back"><<</span>
                         <ul class="page">
-                            <?php $__FOR_START_80444837__=0;$__FOR_END_80444837__=$page;for($i=$__FOR_START_80444837__;$i < $__FOR_END_80444837__;$i+=1){ if($i<7): ?>
+                            <?php $__FOR_START_540291717__=0;$__FOR_END_540291717__=$page;for($i=$__FOR_START_540291717__;$i < $__FOR_END_540291717__;$i+=1){ if($i<7): ?>
                             <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                             <?php endif; } ?>
                         </ul>

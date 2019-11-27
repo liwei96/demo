@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"G:\jiayuan\tp2\public/../application/home\view\content\detail.html";i:1573803725;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:66:"G:\jiayuan\tp2\public/../application/home\view\content\detail.html";i:1574837881;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -160,6 +160,12 @@
         }
         .tan .ts .t-bottom .t-b-second{
             display: none;
+        }
+        .top-search-center .top-search-left .sel select{
+              margin-top:0!important;
+        }
+        .top-search-center .top-search-left .sel{
+               border-left:none!important;
         }
     </style>
 

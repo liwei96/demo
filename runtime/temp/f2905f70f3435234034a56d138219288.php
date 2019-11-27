@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\search\tuan.html";i:1574674595;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:63:"G:\jiayuan\tp2\public/../application/home\view\search\tuan.html";i:1574825654;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1519,7 +1519,7 @@
                 <div class="pages">
                     <span id="back"><<</span>
                     <ul class="page">
-                        <?php $__FOR_START_769243524__=0;$__FOR_END_769243524__=$page;for($i=$__FOR_START_769243524__;$i < $__FOR_END_769243524__;$i+=1){ if($i<7): ?>
+                        <?php $__FOR_START_1660324526__=0;$__FOR_END_1660324526__=$page;for($i=$__FOR_START_1660324526__;$i < $__FOR_END_1660324526__;$i+=1){ if($i<7): ?>
                         <li <?php if($i==0): ?> class="active" <?php endif; ?> data-v="<?php echo $i; ?>"><?php echo $i+1; ?></li>
                         <?php endif; } ?>
                     </ul>
@@ -1938,6 +1938,31 @@
 
     <script src="/static/home/js/com_liu_you.js"></script>
 <script>
+         /***禁止滑动***/
+         function stop(){
+                document.body.style.overflow='hidden';
+                document.addEventListener("touchmove",mo,false);//禁止页面滑动
+            }
+
+            /***取消滑动限制***/
+            function move(){
+                document.body.style.overflow='';//出现滚动条
+                document.removeEventListener("touchmove",mo,false);
+            }
+           $('.container-fluid').click(function(){
+            var   isshow_box=$('.m-box').css("display");
+            if(isshow_box=="none" ){
+                    move();
+                    // console.log( 1)
+            }else if(isshow_box=="block"){
+                  stop();
+                //   console.log( 2)
+            }
+           })
+
+
+
+
             function la(str,ty){
                     $.post(
                         "<?php echo url('home/search/tu'); ?>",

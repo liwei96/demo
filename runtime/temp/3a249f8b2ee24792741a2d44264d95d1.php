@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\jiayuan\tp2\public/../application/home\view\content\content.html";i:1574669369;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:67:"G:\jiayuan\tp2\public/../application/home\view\content\content.html";i:1574847050;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1007,7 +1007,7 @@ var _hmt = _hmt || [];
                                                         <h1>400-718-6686</h1>
                                                         <span>致电售楼处了解更多信息</span>
                                                     </div>
-                                                    <div class="img" id="wechat"><img src="/static/home/imgs/saoyi.png">扫码拨号</div>
+                                                    <div class="img" id="wechat"><img src="/static/home/imgs/sao_dong.gif">扫码拨号</div>
                                                     <div class="saoma">
                                                         <h5>微信扫码拨号</h5>
                                                         <img src="http://test.edefang.net/index/weichat/code" alt="">
@@ -1412,7 +1412,7 @@ var _hmt = _hmt || [];
                     </div>
 
                 </div>
-                <a href="javascript:;" class="lou-ti">楼盘提问</a>
+                <span  class="lou-ti" >楼盘提问</span>
         </div>
     </div>
 </div>
@@ -1463,6 +1463,29 @@ var _hmt = _hmt || [];
         <textarea name="" id="" cols="30" rows="10" placeholder="在这里输入您的留言"></textarea>
         <input type="text" placeholder="输入您手机号码">
         <button id="l_btn">提交</button>
+    </div>
+    <div class="l-bottom">
+        <p>验证码已发送到<span>187****4376</span>，请注意查看</p>
+        <button class="l-getcode">获取验证码</button>
+        <input type="text" placeholder="输入验证码">
+        <span class="l-ti">57秒后重发</span>
+        <input type="hidden" class="l-tel">
+        <input type="hidden" class="l-con">
+        <button class="l-post" data-v="<?php echo $data['building_name']; ?>">立即提交</button>
+    </div>
+</div>
+
+<!-- 楼盘提问悬浮框 -->
+<div class="show-liu lou_ti_box">
+    <div class="l-top">
+        <h4>楼盘提问</h4>
+        <p>20分内回应一对一专业服务，了解更多有关房源信息</p>
+        <img id="l-xxx" src="/static/home/imgs/xx.png" alt="">
+    </div>
+    <div class="t-bottom">
+        <textarea name="" id="" cols="30" rows="10" placeholder="在这里输入您的留言"></textarea>
+        <input type="text" placeholder="输入您手机号码">
+        <button id="l_btnn">提交</button>
     </div>
     <div class="l-bottom">
         <p>验证码已发送到<span>187****4376</span>，请注意查看</p>
@@ -1964,7 +1987,7 @@ var _hmt = _hmt || [];
 })();
 </script>
 <script type="text/javascript" >  
-
+    
 
 
 
@@ -2034,6 +2057,11 @@ var _hmt = _hmt || [];
 
 
         $(document).ready(function(){
+            $('.lou-ti').click(function(){
+                console.log(2)
+                    $('.lou_ti_box').show();
+                    $('.zhao').show();
+            })
 	    $('.hu-pic img').on('click',function(){
                 var src=$(this).attr('src');
                 $('.bigimg img').attr('src',src);
@@ -2068,6 +2096,10 @@ var _hmt = _hmt || [];
             })
             // 留言框隐藏
             $('#l-xx').on('click',function(){
+                $('.show-liu').hide();
+                $('.zhao').hide();
+            })
+            $('#l-xxx').on('click',function(){
                 $('.show-liu').hide();
                 $('.zhao').hide();
             })
@@ -2115,6 +2147,51 @@ var _hmt = _hmt || [];
                     }
                 )
             })
+                // 楼盘提问提交
+            $('#l_btnn').on('click',function(){
+                var tel=$(this).prev().val();
+                var pattern_phone = /^1[3-9][0-9]{9}$/;
+                if (tel == '') {
+                    $(this).prev().attr('placeholder', '手机号不能为空');
+                    return;
+                } else if (!pattern_phone.test(tel)) {
+                    $(this).prev().val('');
+                    $(this).prev().attr('placeholder', '手机号码不合法');
+                    return;
+                }
+                var con=$(this).prev().prev().val();
+                $.post(
+                    "<?php echo url('home/user/login'); ?>",
+                    {'phone':tel},
+                    function(res){
+                        if(res.code==100){
+                            $('.t-bottom').hide();
+                            $('.l-bottom').show();
+                            $('.l-tel').val(tel);
+                            $('.l-con').val(con);
+                            var time = 60;
+                            var fn = function () {
+                                time--;
+                                if (time > 0) {
+                                    $('.l-ti').html('重新发送' + time + 's');
+                                    $('.l-ti').attr('disabled', true);
+                                } else {
+                                    clearInterval(interval);
+                                    $('.l-ti').html('获取验证码');
+                                    $('.l-ti').attr('disabled', false);
+                                }
+                            };
+                            fn();
+                            var interval = setInterval(fn, 1000);
+                            var te=tel.substr(0,3)+'****'+tel.substr(7);
+                            $('.l-bottom').find('p').find('span').html(te);
+                            $('.l-getcode').attr('data-v',tel);
+
+                        }
+                    }
+                )
+            })
+
 
             $('.l-post').on('click',function(){
                 var con=$(this).prev().val();
@@ -2431,8 +2508,8 @@ var _hmt = _hmt || [];
                     $('.weiter .t-top h6').html(type);
                     $('.weiter .t-top p').html('一键预约看房免费小车上门接送，可带家人一起参观多个热门楼盘 ');
                 }else if(type=="我要优惠"){
-                    $('.weiter .t-top h6').html(type);
-                    $('.weiter .t-top p').html('一键领取，享受超额优惠!');
+                    $('.weiter .t-top h6').html('报名获取考察旅游名额');
+                    $('.weiter .t-top p').html('一键获取亚热带三天两夜游的名额！');
                 }else if(type=="咨询服务"){
                     $('.weiter .t-top h6').html(type);
                     $('.weiter .t-top p').html('立即报名，专业人员为你解惑!');

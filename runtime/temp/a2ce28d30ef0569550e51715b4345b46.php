@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\index.html";i:1574737931;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:65:"G:\jiayuan\tp2\public/../application/home\view\content\index.html";i:1574832695;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -447,7 +447,7 @@ var _hmt = _hmt || [];
         <div class="m-line visible-xs-block .visible-sm-block"></div>
         <div class="m-you visible-xs-block .visible-sm-block">
             <h3>购房领优惠</h3>
-            <img class="m-y-g p1" data-agl-cvt="5" <?php if(\think\Session::get('user')): ?>class="q-bian" data-v="我要优惠"<?php else: ?> data-v="我要优惠"<?php endif; ?> src="/static/home/imgs/yh.gif" alt="">
+            <img class="m-y-g p1" data-agl-cvt="5" <?php if(\think\Session::get('user')): ?>class="q-bian" data-v="我要优惠"<?php else: ?> data-v="我要优惠"<?php endif; ?> src="/static/home/imgs/yrdly.jpg" alt="">
         </div>
         <div class="m-line visible-xs-block .visible-sm-block"></div>
         
@@ -1719,8 +1719,8 @@ var _hmt = _hmt || [];
                     $('.weiter .t-top h6').html(type);
                     $('.weiter .t-top p').html('一键预约看房免费小车上门接送，可带家人一起参观多个热门楼盘 ');
                 }else if(type=="我要优惠"){
-                    $('.weiter .t-top h6').html(type);
-                    $('.weiter .t-top p').html('一键领取，享受超额优惠!');
+                    $('.weiter .t-top h6').html('报名获取考察旅游名额');
+                    $('.weiter .t-top p').html('一键获取亚热带三天两夜游的名额！');
                 }else if(type=="咨询服务"){
                     $('.weiter .t-top h6').html(type);
                     $('.weiter .t-top p').html('立即报名，专业人员为你解惑!');

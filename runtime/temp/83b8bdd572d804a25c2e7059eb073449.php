@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\content\zg.html";i:1574131538;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:62:"G:\jiayuan\tp2\public/../application/home\view\content\zg.html";i:1574833831;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -508,7 +508,7 @@
             var p2=[120.144496,30.318836];
             var s=AMap.GeometryUtil.distance(cpoint, p2);
             placeSearch.searchNearBy('公交', cpoint, 2000, function(status, result) {
-                console.log(result);
+                // console.log(result);
             });
             $(document).ready(function(){
                 // 生活的周边查询
@@ -516,6 +516,7 @@
                 placeSearch.searchNearBy('购物', cpoint, 2000, function(status, result) {
                 var ht='<p class="m-type">购物</p>';
                 // console.log(ht)
+                // console.log(result);
                 $.each(result.poiList.pois,function(i,e){
                     // console.log(e);
                     var p2=[e.location.lng,e.location.lat];
@@ -581,7 +582,7 @@
                         var p2=[e.location.lng,e.location.lat];
                         var s=AMap.GeometryUtil.distance(cpoint, p2)/1000;
                         s=s.toFixed(1);
-                        console.log(e);
+                        // console.log(e);
                         ht+=`
                         <div class="m-te">
                             <h5 class="m-name">${e.name}</h5>
@@ -591,7 +592,7 @@
                         `;
                     })
                     html+=ht;
-                    console.log(html)
+                    // console.log(html)
                     $('.m-l-content').html(html);
                 });
                 placeSearch.searchNearBy('公交', cpoint, 2000, function(status, result) {

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"G:\jiayuan\tp2\public/../application/home\view\content\dong.html";i:1574758991;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"G:\jiayuan\tp2\public/../application/home\view\content\dong.html";i:1574759665;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -554,7 +554,7 @@
                 $(this).siblings().children('p').css({
                 "-webkit-line-clamp":"inherit"
                });
-               $(this).html('收起')
+               $(this).html('点击收起')
                tag=true;
             }else if(tag==true){
                 $(this).siblings().children('p').css({

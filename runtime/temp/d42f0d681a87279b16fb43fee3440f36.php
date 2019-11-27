@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:61:"G:\jiayuan\tp2\public/../application/home\view\user\guan.html";i:1574151451;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:61:"G:\jiayuan\tp2\public/../application/home\view\user\guan.html";i:1574838956;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -167,7 +167,7 @@
              margin-right:40px;
          }
          .top-nav ul li a{
-             color:#999999;
+             color:#666;
              font-size: 16px;
              line-height: 80px;
          }
